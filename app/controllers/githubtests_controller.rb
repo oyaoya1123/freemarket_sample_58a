@@ -6,4 +6,7 @@ class GithubtestsController < ApplicationController
   def mypage
   end
 
+  def logout
+  end
+
 end
