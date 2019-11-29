@@ -8,3 +8,154 @@
   = render "aside"
 %footer
   = render "footer"
+
+  <main class=" l-container clearfix">
+    <div class="l-content">
+    
+  <section class="l-chapter-container mypage-identification">
+    <h2 class="l-chapter-head">本人情報の登録</h2>
+
+    
+    <form action="https://www.mercari.com/jp/mypage/identification/save/" method="POST" class="l-single-inner" novalidate>
+
+      <div>
+        
+        <p>お客さまの本人情報をご登録ください。<br>登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。</p>
+        <p class="text-right">
+          <a href="/jp/help_center/article/495/" target="_blank">本人確認書類のアップロードについて<i class="icon-arrow-right"></i></a>
+        </p>
+      </div>
+
+            <div class="form-group">
+        <label>お名前</label>
+                  <p>石川 裕也</p>
+              </div>
+
+            <div class="form-group">
+        <label>お名前カナ</label>
+                  <p>イシカワ ユウヤ</p>
+              </div>
+
+      <div class="form-group">
+        <label for="birthday">生年月日</label>
+                  <p>1991/02/05</p>
+                        </div>
+
+            <div class="form-group">
+        <label for="zip_code">郵便番号</label>
+        <span class="form-arbitrary">任意</span>
+        <input
+          type="text"
+          value="6310843"
+          name="zip_code"
+          placeholder="例）1234567"
+          class="input-default">
+              </div>
+
+            <div class="form-group">
+        <label for="prefecture">都道府県</label>
+        <span class="form-arbitrary">任意</span>
+        <div class="select-wrap">
+          <i class="icon-arrow-bottom"></i>
+          <select
+            name="prefecture"
+            class="select-default">
+                          <option >--</option>
+                          <option >北海道</option>
+                          <option >青森県</option>
+                          <option >岩手県</option>
+                          <option >宮城県</option>
+                          <option >秋田県</option>
+                          <option >山形県</option>
+                          <option >福島県</option>
+                          <option >東京都</option>
+                          <option >神奈川県</option>
+                          <option >埼玉県</option>
+                          <option >千葉県</option>
+                          <option >茨城県</option>
+                          <option >栃木県</option>
+                          <option >群馬県</option>
+                          <option >山梨県</option>
+                          <option >新潟県</option>
+                          <option >長野県</option>
+                          <option >富山県</option>
+                          <option >石川県</option>
+                          <option >福井県</option>
+                          <option >愛知県</option>
+                          <option >岐阜県</option>
+                          <option >静岡県</option>
+                          <option >三重県</option>
+                          <option >大阪府</option>
+                          <option >兵庫県</option>
+                          <option >京都府</option>
+                          <option >滋賀県</option>
+                          <option  selected>奈良県</option>
+                          <option >和歌山県</option>
+                          <option >鳥取県</option>
+                          <option >島根県</option>
+                          <option >岡山県</option>
+                          <option >広島県</option>
+                          <option >山口県</option>
+                          <option >徳島県</option>
+                          <option >香川県</option>
+                          <option >愛媛県</option>
+                          <option >高知県</option>
+                          <option >福岡県</option>
+                          <option >佐賀県</option>
+                          <option >長崎県</option>
+                          <option >熊本県</option>
+                          <option >大分県</option>
+                          <option >宮崎県</option>
+                          <option >鹿児島県</option>
+                          <option >沖縄県</option>
+                      </select>
+        </div>
+              </div>
+
+            <div class="form-group">
+        <label for="city">市区町村</label>
+        <span class="form-arbitrary">任意</span>
+        <input
+          type="text"
+          value="奈良市疋田長２丁目"
+          name="city"
+          placeholder="例) 横浜市緑区"
+          class="input-default">
+              </div>
+
+            <div class="form-group">
+        <label for="address1_label">番地</label>
+        <span class="form-arbitrary">任意</span>
+        <input
+          type="text"
+          value="5-2-1"
+          name="address1"
+          placeholder="例) 青山1−1−1"
+          class="input-default">
+              </div>
+
+            <div class="form-group">
+        <label for="address2_label">建物名</label>
+        <span class="form-arbitrary">任意</span>
+        <input
+          type="text"
+          value=""
+          name="address2"
+          placeholder="例) 柳ビル103"
+          class="input-default">
+              </div>
+
+      <button type="submit" class="btn-default btn-red">登録する</button>
+
+      <div class="form-group text-right">
+        <p>
+          <a href="/jp/help_center/article/423/" target="_blank">本人情報の登録について<i class="icon-arrow-right"></i></a>
+        </p>
+      </div>
+
+      <input type="hidden" name="__csrf_value" value="e70d23b7c774f0854dc10215de3f4ef4cf4399f87bf4c084ac7ebf9b118547bc1ea15bbbcedbb50865b1a8e737271c6f60e270aa02a8c997784d04a7f3d90ac31">
+
+    </form>
+  </section>
+
+  </div>
