@@ -1,11 +1,22 @@
 %header
   = render "top_header"
 .wraper
-  %p
-    = icon('far', 'bell')
-    ログアウト
+.l-content
+  .l-content__form
+    %form{:action => "https://"}
+      .l-content__logout
+        %button.btn-default.btn-red{:type => "submit"} ログアウト
+
+-# .l-content
+-#   .l-content__form
+-#     .l-content__logout
+-#       %button{:class => ".btn-default.btn-red", :type => "submit"} ログアウト
 %aside.side
   = render "user_aside"
+// 出品ボタン作成後削除
+%a.footer-sell-btn{:href => "https://www.mercari.com/jp/sell/"}
+  %div 出品
+  %i.icon-camera
 %footer
   = render "top_footer"
   
