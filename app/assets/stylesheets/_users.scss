@@ -3,11 +3,9 @@ html {
   background: rgb(245, 245, 245);
 }
 
-main {
-  display: block;
-}
 
 .l-container {
+  display: block;
   margin: 40px auto 0;
   width: 1020px;
   padding: 0 0 40px;
@@ -18,9 +16,9 @@ main {
   float: right;
 }
 
-section {
-  display: block;
-}
+// section {
+//   display: block;
+// }
 
 .l-chapter-container {
   background: #fff;
@@ -34,21 +32,21 @@ section {
   text-align: center;
 }
 
-form {
-  display: block;
-  margin-top: 0em;
-}
+// form {
+//   display: block;
+//   margin-top: 0em;
+// }
 
-input {
-  border: 0;
-  outline: 0;
-  font-family: inherit;
-  -webkit-appearance: none;
-}
+// input {
+//   border: 0;
+//   outline: 0;
+//   font-family: inherit;
+//   -webkit-appearance: none;
+// }
 
 .setting-profile-icon{
   padding: 72px 16px 24px;
-  background: url(/jp/assets/img/mypage/user-bg.jpg?19795168);
+  background: url(free.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -96,26 +94,23 @@ figure {
   min-height: 216px;
 }
 
-textarea {
-  border-radius: 0;
-  border: 0;
-  outline: 0;
-  -webkit-appearance: none;
-}
+// textarea {
+//   border-radius: 0;
+//   border: 0;
+//   outline: 0;
+//   -webkit-appearance: none;
+// }
 
-input {
-  border: 0;
-  outline: 0;
-  font-family: inherit;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
+// input {
+//   border: 0;
+//   outline: 0;
+//   font-family: inherit;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+// }
 
 .btn-red {
-  margin: 16px 0 0;
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
+  
 }
 
 .btn-default {
@@ -128,4 +123,8 @@ input {
   transition: all ease-out .3s;
   cursor: pointer;
   text-align: center;
+  margin: 16px 0 0;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
 }
