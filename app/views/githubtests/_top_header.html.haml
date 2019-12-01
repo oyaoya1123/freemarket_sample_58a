@@ -1,1 +1,82 @@
-%p ヘッダー
+.top-header
+  .top-header__upper_box
+    %ul.top-header__upper_box__content
+      %li.logo
+        = link_to "githubtests" do
+          = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg", size: "134x36", alt: "メルカリ"
+          //= image_tag "c002336e75bc3967b90648e1f4580156-283x300.png", size: "36x36", alt: "メルカリ"
+      %li.search
+        = form_with url: githubtests_path, class: "search-box" do |f|
+          = f.text_field :name, placeholder: '何かお探しですか？', class: "search-box__text"
+          = button_tag type: 'submit', class: "search-box__btn" do
+            = icon('fas', 'search')
+  .top-header__bottom_box
+    %ul.gnav-left
+      %li
+        = link_to githubtests_path do
+          = icon 'fas', 'list', class: "icon"
+          カテゴリから探す
+        %ul.child
+          %li.child-content
+            = link_to "レディース", githubtests_path
+            %ul.grandchild
+              %li.grandchild-content
+                = link_to "トップス", githubtests_path
+                %ul.greatgrandchild
+                  %li.greatgrandchild-content
+                    = link_to "Tシャツ", githubtests_path
+                  %li.greatgrandchild-content
+                    = link_to "シャツ", githubtests_path
+                  %li.greatgrandchild-content
+                    = link_to "ポロシャツ", githubtests_path
+              %li.grandchild-content
+                = link_to "ジャケット/アウター", githubtests_path
+              %li.grandchild-content
+                = link_to "パンツ", githubtests_path
+          %li.child-content
+            = link_to "メンズ", githubtests_path
+            %ul.grandchild
+              %li.grandchild-content
+                = link_to "トップス", githubtests_path
+              %li.grandchild-content
+                = link_to "ジャケット/アウター", githubtests_path
+          %li.child-content
+            = link_to "ベビー・キッズ", githubtests_path
+            %ul.grandchild
+              %li.grandchild-content
+                = link_to "ベビー服（女の子用）", githubtests_path
+              %li.grandchild-content
+                = link_to "ベビー服（男の子用）", githubtests_path
+                %ul.greatgrandchild
+                  %li.greatgrandchild-content
+                    = link_to "トップス", githubtests_path
+                  %li.greatgrandchild-content
+                    = link_to "アウター", githubtests_path
+                  %li.greatgrandchild-content
+                    = link_to "パンツ", githubtests_path
+      %li
+        = link_to githubtests_path do
+          = icon 'fas', 'tags', class: "icon"
+          ブランドから探す
+        %ul.child
+          %li.child-content
+            = link_to "シャネル", githubtests_path
+            = link_to "ナイキ", githubtests_path
+            = link_to "ルイビトン", githubtests_path
+    %ul.gnav-right
+      %li
+        = link_to githubtests_path do
+          = icon('far', 'heart')
+          いいね！一覧
+      %li
+        = link_to githubtests_path do
+          = icon('far', 'bell')
+          お知らせ
+      %li
+        = link_to githubtests_path do
+          = icon('fas', 'check')
+          やることリスト
+      %li
+        = link_to githubtests_path do
+          = icon('far', 'smile')
+          マイページ

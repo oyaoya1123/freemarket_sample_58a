@@ -1,0 +1,241 @@
+.top-header {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;
+  &__upper_box {
+    margin: 0 auto;
+    &__content {  
+      display: flex;
+      justify-content: flex-start;
+      margin: 0 auto;
+      width: 100%;
+      padding: 8px 40px 0 40px;
+      .logo {
+        margin-right: 40px;
+        height: 40px;
+        line-height: 40px;
+        img {
+          vertical-align: middle;
+        }
+      }
+      .search {
+        height: 40px;
+        line-height: 40px;
+        width: 100%;
+        .search-box {
+          width: 100%;
+          position: relative;
+          &__text {
+            padding: 0;
+            position: relative;
+            width: 100%;
+            height: 40px;
+            padding-left: 10px;
+            padding-right: 40px;
+            border: 1px solid rgb(204,204,204);
+            border-radius: 4px;
+            background-color: rgb(245,245,245);
+          }
+          &__btn {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            padding: 0;
+            border-radius: 4px;
+            background-color: transparent;
+            font-size: 100%;
+          }
+        }
+      }
+    }
+  }
+  .top-header__bottom_box {
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 8px;
+    padding: 0px 40px 0 40px;
+    display: flex;
+    justify-content: space-between;
+    .gnav-left {
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+      height: 36px;
+      margin: 0 auto;
+      width: 100%;
+      font-size: 14px;
+      li {
+        font-weight: bold;
+        width: 160px;
+        a {
+          color: black;
+          display: block;
+          height: 44px;
+          line-height: 44px;
+          text-align: left;
+          text-decoration: none;
+          width: 100%;
+        }
+        a {
+          &:hover {
+            color: blue;
+          }
+        }
+        .icon {
+          color: red;
+        }
+
+        &:hover {
+          .child {
+            background-color: white;
+            box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;
+            .child-content {
+              font-weight: normal;
+              display: block;
+            }
+          }
+        }
+
+        ul.child {
+          position: absolute;
+          top: 44px;
+          width: 224px;
+          li {
+            a {
+              padding: 0 16px;
+            }
+          }
+          li.child-content {
+            width: 224px;
+
+            display: none;
+
+            &:hover {
+              .grandchild {
+                background-color: white;
+                box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;
+                .grandchild-content {
+                  font-weight: normal;
+                  display: block;
+                }
+              }
+            }
+            a {
+              &:hover {
+                background-color: red;
+                color: white;
+              }
+            }
+
+            ul.grandchild {
+              position: absolute;
+              top: 0;
+              left: 224px;
+              height: 616px;
+              li {
+                a {
+                  height: 30px;
+                  line-height: 30px;
+                }
+              }
+              li.grandchild-content {
+                width: 224px;
+                display: none;
+
+                &:hover {
+                  .greatgrandchild {
+                    background-color: white;
+                    box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;
+                    .greatgrandchild-content {
+                      font-weight: normal;
+                      display: block;
+                    }
+                  }
+                }
+                a {
+                  &:hover {
+                    background-color: #f3f3f3;
+                    color: black;
+                  }
+                }
+
+                ul.greatgrandchild {
+                  position: absolute;
+                  top: 0;
+                  left: 224px;
+                  height: 616px;
+
+                  li.greatgrandchild-content {
+                    width: 300px;
+
+                    display: none;
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .gnav-right {
+      display: flex;
+      //justify-content: center;
+      justify-content: flex-end;
+      height: 2rem;
+      margin: 0 auto;
+      width: 100%;
+      font-size: 0.8rem;
+      > li {
+      /*親階層のみ幅を25%にする*/
+      //width: 25%;
+      //display: inline-block;
+      //text-align: left;
+      //width: 160px;
+      padding: 0 14px;
+      }
+      /*全てのリスト・リンク共通*/
+      li {
+        list-style: none;
+        //position: relative;
+      }
+      li a {
+        //background: #001b34;
+        background-color: white;
+        //border-right: 1px solid #eee;
+        //color: #fff;
+        color: black;
+        display: block;
+        height: 2rem;
+        line-height: 2rem;
+        text-align: right;
+        text-decoration: none;
+        width: 100%;
+      }
+      /*子階層以降共通*/
+      li li {
+        height: 0;
+        overflow: hidden;
+        //transition: .5s;
+      }
+      li li a {
+        //border-top: 1px solid #eee;
+        padding: 0 16px;
+      }
+      li li a:hover {
+        background-color: red;
+        color: white;
+      }
+      li:hover > ul > li {
+        height: 2rem;
+        overflow: visible;
+      }
+    }
+  }
+}
