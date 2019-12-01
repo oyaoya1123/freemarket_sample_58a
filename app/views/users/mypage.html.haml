@@ -1,10 +1,11 @@
-%header
-  = render "products/header"
-.wraper
-  %p
-    = icon('far', 'bell')
-    マイページ
-%aside
-  = render "user_aside"
-%footer
-  = render "products/footer"
+.single-container
+  %header
+    = render "products/header"
+  .wraper
+    %p
+      = icon('far', 'bell')
+      マイページ
+  %aside
+    = render "user_aside"
+  %footer
+    = render "products/footer"
