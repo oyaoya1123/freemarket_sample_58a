@@ -1,0 +1,130 @@
+.testinline {
+  display: inline-block;
+  .testul {
+    .testli {
+      a {
+        color: red;
+        opacity: 0.7;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+    }
+  }
+}
+
+.top-footer {
+  background-color: rgb(34,34,34);
+  color: white;
+  padding: 0 20px 30px 20px;
+  h2 {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .top-footer-box {
+    margin: 0 auto;
+    width: 1020px;
+    &__upper_box {
+      font-size: 12px;
+      a {
+        color: white;
+        opacity: 0.7;
+        text-decoration: none;
+      }
+      a:hover {
+        color: white;
+        opacity: 1.0;
+        //text-decoration: underline;
+      }
+      .first-box {
+        margin-top: 18px;
+        padding-right: 40px;
+        display: inline-block;
+        vertical-align: top;
+        width: 208px;
+        &__content {
+          margin-top: 16px;
+        }
+        .icon {
+          display: inline-block;
+          font-size: 30px;
+          opacity: 1.0;
+          margin-top: 30px;
+          margin-right: 20px;
+          a {
+            color: white;
+            opacity: 1.0;
+          }
+        }
+      }
+      .second-box {
+        margin-top: 18px;
+        padding-right: 40px;
+        display: inline-block;
+        vertical-align: top;
+        width: 231px;
+        &__content {
+          margin-top: 16px;
+        }
+      }
+      .third-box {
+        margin-top: 18px;
+        padding-right: 40px;
+        display: inline-block;
+        vertical-align: top;
+        &__right {
+          display: inline-block;
+          vertical-align: top;
+          width: 199px;
+          &__content {
+            margin-top: 16px;
+          }
+        }
+        &__left {
+          display: inline-block;
+          vertical-align: top;
+          padding-right: 10px;
+          width: 199px;
+          &__content {
+            margin-top: 16px;
+          }
+        }
+      }
+      .fourth-box {
+        margin-top: 18px;
+        display: inline-block;
+        vertical-align: top;
+        width: 112px;
+        &__content {
+          margin-top: 16px;
+        }
+      }
+    }
+    &__bottom_box {
+      margin: 30px 0px 20px 0;
+      .logo {
+        display: inline-block;
+        width: 124px;
+        a {
+          color: white;
+          opacity: 1.0;
+          outline: none;
+        }
+        &:hover {
+          opacity: 0.7;
+          cursor: pointer;
+        }
+      }
+      .copyright {
+        display: inline-block;
+        //width: calc(100vw - 300px);
+        width: 75%;
+        text-align: center;
+        color: white;
+        font-size: 12px;
+      }
+    }
+  }
+}
