@@ -64,6 +64,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :product
+- belongs_to :produt_status
 
 ## users_purchasesテーブル
 |Column|Type|Options|
@@ -86,7 +87,6 @@ Things you may want to cover:
 ### Association
 - has_many :users_exhibits
 - has_many :users_purchases
-- belongs_to :produt_status
 
 
 ## productsテーブル
