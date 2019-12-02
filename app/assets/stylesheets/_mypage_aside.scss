@@ -1,3 +1,70 @@
-.side {
-  color: red;
+.l-side {
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  
 }
+.mypage-side-list-item.active {
+  background: #eee;
+  font-weight: 600;
+}
+.mypage-side-list-item {
+  position: relative;
+  display: block;
+  min-height: 48px;
+  padding: 16px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+}
+.mypage-side-list li {
+  border-top: 1px solid #eee;
+}
+.mypage-side-list li a:hover{
+  background: #C0C0C0;
+  color: #333;
+  &__btn--icon{
+    color: #333;
+  }
+}
+
+.mypage-side-head {
+  margin: 40px 0 0;
+  font-size: 16px;
+}
+
+.contents__btn--icon{
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: #ccc;
+  transform: translate(0, -50%);
+  transition: all ease-out .2s;
+  &__active{
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    color: #ccc;
+    transform: translate(0, -50%);
+    transition: all ease-out .2s;
+    color: #333;
+  }
+}
+.contents__btn--icon a:hover{
+  color: #333;
+}
+
+// .contents {
+//   height: calc(100vh - 90px - 20px);
+//   width:900px;
+//   margin: 0 auto;
+//   background-color: #fffacd;
+//   &__message{
+//     padding: 40px;
+//     color:#ffa500;
+//     font-size:30px;
+//     text-align: center;
+//   }
+// 
