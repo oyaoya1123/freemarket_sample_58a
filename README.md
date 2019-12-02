@@ -28,11 +28,6 @@ Things you may want to cover:
 |------|----|-------|
 |last_name|string|null: false|
 |first_name|string|null: false|
-
-
-
-
-
 |phone_number|integer||
 |profile_name|string|null: false|
 |profile_text|text|null: false|
@@ -196,6 +191,7 @@ Things you may want to cover:
 - has_many :products
 - has_many :brands_catergorys
 - has_many :brands, through: :brands_catergorys
+- has_ancestry
 
 
 ## brandsテーブル ブランド
