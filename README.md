@@ -32,7 +32,7 @@ Things you may want to cover:
 |address_Prefectures|string|null: false|
 |address_city|string|null: false|
 |address_house_number|string|null: false|
-|address_building name|string||
+|address_building_name|string||
 |phone_number|integer||
 |profile_name|string|null: false|
 |profile_text|text|null: false|
@@ -59,7 +59,7 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |product_id|integer|null: false, foreign_key: true|
-|status_id|integer|null: false, foreign_key: true|
+|produt_status_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -70,14 +70,15 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |product_id|integer|null: false, foreign_key: true|
-|status_id|integer|null: false, foreign_key: true|
+|produt_status_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 - belongs_to :product
+- belongs_to :produt_status
 
 
-## statusesテーブル
+## produt_statusesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -85,13 +86,14 @@ Things you may want to cover:
 ### Association
 - has_many :users_exhibits
 - has_many :users_purchases
+- belongs_to :produt_status
 
 
 ## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|product|string|null: false|
+|name|string|null: false|
 |product_image|string|null: false|
 |product_image2|string|
 |product_image3|string|
@@ -125,6 +127,7 @@ Things you may want to cover:
 - belongs_to :shipping_charge
 - belongs_to :shipping_origin
 - belongs_to :shipping_day
+- belongs_to : brand
 
 
 ## catergorysテーブル
@@ -188,7 +191,7 @@ Things you may want to cover:
 - has_many :products
 
 
-## shipping_daysテーブル 発送元の地域
+## shipping_daysテーブル 発送までの日数
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
@@ -197,7 +200,7 @@ Things you may want to cover:
 - has_many :products
 
 
-## brandsテーブル 発送元の地域
+## brandsテーブル ブランド
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
