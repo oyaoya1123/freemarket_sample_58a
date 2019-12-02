@@ -28,11 +28,11 @@ Things you may want to cover:
 |------|----|-------|
 |last_name|string|null: false|
 |first_name|string|null: false|
-|postal_code|integer|null: false|
-|address_Prefectures|string|null: false|
-|address_city|string|null: false|
-|address_house_number|string|null: false|
-|address_building_name|string||
+
+
+
+
+
 |phone_number|integer||
 |profile_name|string|null: false|
 |profile_text|text|null: false|
@@ -51,6 +51,25 @@ Things you may want to cover:
 - has_many :users_purchases
 - has_many :products, through: :users_exhibits
 - has_many :products, through: :users_purchases
+- has_one :address
+
+
+
+
+## Addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|integer|null: false|
+|address_Prefectures|string|null: false|
+|address_city|string|null: false|
+|address_house_number|string|null: false|
+|address_building_name|string|
+|user_id|integer|null: false, foreign_key: true|
+
+
+### Association
+- belongs_to :user
+
 
 
 
@@ -94,16 +113,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|product_image|string|null: false|
-|product_image2|string|
-|product_image3|string|
-|product_image4|string|
-|product_image5|string|
-|product_image6|string|
-|product_image7|string|
-|product_image8|string|
-|product_image9|string|
-|product_image10|string|
 |description|string|null: false|
 |price|integer|null: false|
 |category_id|integer|null: false, foreign_key: true|
@@ -118,11 +127,10 @@ Things you may want to cover:
 ### Association
 - has_many :users_exhibits
 - has_many :users_purchases
+- has_many :product_images
 - has_many :users, through: :users_exhibits
 - has_many :users, through: :users_purchases
 - belongs_to :catergory
-- belongs_to :subcatergory
-- belongs_to :subsubcatergory
 - belongs_to :product_condition
 - belongs_to :shipping_charge
 - belongs_to :shipping_origin
@@ -130,38 +138,17 @@ Things you may want to cover:
 - belongs_to : brand
 
 
-## catergorysテーブル
+## product_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, unique: true|
+|image_url|string|null: false|
+|product_id|integer|null: false, foreign_key: true|
+
 
 ### Association
-- has_many :products
-- has_many :subcatergorys
-
-## subcatergorysテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, unique: true|
-|catergory_id|ineteder|null: false, forrign_key: true|
-
-### Association
-- has_many :products
-- has_many :subsubcatergorys
-- belongs_to :catergory
+- belongs_to :product
 
 
-## subsubcatergorysテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, unique: true|
-|subcatergory_id|ineteder|null: false, forrign_key: true|
-
-### Association
-- has_many :products
-- belongs_to :subcatergory
-- has_many :brands_subsubcatergorys
-- has_many :brands, through: :brands_subsubcatergorys
 
 
 ## product_conditionsテーブル 商品の状態
@@ -200,6 +187,17 @@ Things you may want to cover:
 - has_many :products
 
 
+## catergorysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+
+### Association
+- has_many :products
+- has_many :brands_catergorys
+- has_many :brands, through: :brands_catergorys
+
+
 ## brandsテーブル ブランド
 |Column|Type|Options|
 |------|----|-------|
@@ -207,17 +205,17 @@ Things you may want to cover:
 
 ### Association
 - has_many :products
-- has_many :brands_subsubcatergorys
-- has_many :subsubcatergorys, through: :brands_subsubcatergorys
+- has_many :brands_catergorys
+- has_many :catergorys, through: :brands_catergorys
 
 
-## brands_subsubcatergorysテーブル 
+## brands_catergorysテーブル 
 |Column|Type|Options|
 |------|----|-------|
 |brand_id|integer|null: false, unique: true|
-|subsubcatergory_id|integer|null: false, unique: true|
+|catergory_id|integer|null: false, unique: true|
 
 ### Association
 - belongs_to :brand
-- belongs_to :subsubcatergory
+- belongs_to :catergory
 
