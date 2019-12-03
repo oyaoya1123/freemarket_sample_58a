@@ -31,7 +31,6 @@ Things you may want to cover:
 |phone_number|string|
 |profile_name|string|null: false|
 |profile_text|text|null: false|
-|card_number|integer|null: false|
 |expiration_date_month|integer|null: false|
 |expiration_date_days|integer|null: false|
 |security_code|integer|null: false|
@@ -42,11 +41,22 @@ Things you may want to cover:
 |birthday|date|null: false|
 
 ### Association
-- has_many :users_exhibits
-- has_many :users_purchases
-- has_many :products, through: :users_exhibits
-- has_many :products, through: :users_purchases
-- has_one :address
+- has_many :users_exhibits, dependent: :destroy
+- has_many :users_purchases, dependent: :destroy
+- has_many :products, through: :users_exhibits, dependent: :destroy
+- has_many :products, through: :users_purchases, dependent: :destroy
+- has_one :address, dependent: :destroy
+- has_one :cards, dependent: :destroy
+
+
+## Cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|card_number|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
 
 
 
@@ -120,9 +130,9 @@ Things you may want to cover:
 |brand_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :users_exhibits
-- has_many :users_purchases
-- has_many :product_images
+- has_many :users_exhibits, dependent: :destroy
+- has_many :users_purchases, dependent: :destroy
+- has_many :product_images, dependent: :destroy
 - has_many :users, through: :users_exhibits
 - has_many :users, through: :users_purchases
 - belongs_to :catergory
