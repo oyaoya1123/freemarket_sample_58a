@@ -1,16 +1,26 @@
-.testinline {
-  display: inline-block;
-  .testul {
-    .testli {
-      a {
-        color: red;
-        opacity: 0.7;
-        text-decoration: none;
+.testauto {
+  width: 640px;
+  margin: 0 auto;
+  .testinline {
+    display: inline-block;
+    a {
+      color: red;
+      opacity: 0.7;
+      text-decoration: none;
+    }
+    a:hover {
+      color: red;
+      opacity: 1.0;
+      text-decoration: underline;
+    }
+    .testul {
+      margin-top: 18px;
+      padding-right: 40px;
+      vertical-align: top;
+      width:200px;
+      .testli {
+        margin-top: 16px;
       }
-      a:hover {
-        text-decoration: underline;
-      }
-
     }
   }
 }
