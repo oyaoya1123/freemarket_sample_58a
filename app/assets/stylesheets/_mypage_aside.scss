@@ -18,15 +18,18 @@
   font-size: 14px;
   color: #333;
   text-decoration: none;
+  li {
+    border-top: 1px solid #eee;
+    transition:1s all;
+  }
 }
-.mypage-side-list li {
-  border-top: 1px solid #eee;
-}
-.mypage-side-list li a:hover{
-  background: #C0C0C0;
+.mypage-side-list li a:hover {
+  background: #faf9f9;
   color: #333;
-  &__btn--icon{
+  .contents__btn--icon {
     color: #333;
+    transform: translate(50%, -50%);
+    transition: all ease-out .2s;
   }
 }
 
@@ -36,35 +39,18 @@
 }
 
 .contents__btn--icon{
+  font-size: 2em;
   position: absolute;
   top: 50%;
   right: 16px;
   color: #ccc;
   transform: translate(0, -50%);
-  transition: all ease-out .2s;
   &__active{
+    font-size: 2em;
     position: absolute;
     top: 50%;
     right: 16px;
-    color: #ccc;
     transform: translate(0, -50%);
-    transition: all ease-out .2s;
     color: #333;
   }
 }
-.contents__btn--icon a:hover{
-  color: #333;
-}
-
-// .contents {
-//   height: calc(100vh - 90px - 20px);
-//   width:900px;
-//   margin: 0 auto;
-//   background-color: #fffacd;
-//   &__message{
-//     padding: 40px;
-//     color:#ffa500;
-//     font-size:30px;
-//     text-align: center;
-//   }
-// 
