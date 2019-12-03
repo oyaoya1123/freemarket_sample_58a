@@ -28,7 +28,7 @@ Things you may want to cover:
 |------|----|-------|
 |last_name|string|null: false|
 |first_name|string|null: false|
-|phone_number|integer||
+|phone_number|string|
 |profile_name|string|null: false|
 |profile_text|text|null: false|
 |card_number|integer|null: false|
@@ -54,11 +54,11 @@ Things you may want to cover:
 ## Addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|integer|null: false|
-|address_Prefectures|string|null: false|
-|address_city|string|null: false|
-|address_house_number|string|null: false|
-|address_building_name|string|
+|postal_code|string|null: false|
+|prefectures|string|null: false|
+|city|string|null: false|
+|house_number|string|null: false|
+|building_name|string|
 |user_id|integer|null: false, foreign_key: true|
 
 
