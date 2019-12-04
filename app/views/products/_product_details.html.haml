@@ -1,0 +1,46 @@
+.wraper
+  .item-box-container
+    %h1 商品名
+    .item-box-container__content.clerafix
+      .item-box-container__content__photo
+        写真
+      %table.item-box-container__content__detail-table
+        %tbody
+          %tr
+            %th 出品者
+            %td コンテンツ
+          %tr
+            %th カテゴリ
+            %td コンテンツ
+          %tr
+            %th ブランド
+            %td コンテンツ
+          %tr
+            %th 商品のサイズ
+            %td コンテンツ
+          %tr
+            %th 商品の状態
+            %td コンテンツ
+          %tr
+            %th 配送料の負担
+            %td コンテンツ
+          %tr
+            %th 配送の方法
+            %td コンテンツ
+          %tr
+            %th 配送元地域
+            %td コンテンツ
+          %tr
+            %th 配送日の目安
+            %td コンテンツ
+    .item-box-container__price-box
+      1500円
+    = link_to "購入画面に進む", products_itemshow_path, class: "item-box-container__buy-btn"
+    %p メッセージ
+    .item-box-container__description
+    .item-box-container__buttons
+  .item-detail-message 出品物へのコメント 
+  .item-link 前のページ　次のメージ
+  .item-social-media-box SNSへのリンク
+  .item-in-user-profile ユーザのその他の出品物
+  .bread-crumbs パンくずリスト
