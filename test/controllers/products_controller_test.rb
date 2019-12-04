@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GithubtestsControllerTest < ActionDispatch::IntegrationTest
+class ProductsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
