@@ -4,7 +4,6 @@
       %li.logo
         = link_to products_index_path do
           = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg", size: "134x36", alt: "メルカリ"
-          //= image_tag "c002336e75bc3967b90648e1f4580156-283x300.png", size: "36x36", alt: "メルカリ"
       %li.search
         = form_with url: products_index_path, class: "search-box" do |f|
           = f.text_field :name, placeholder: '何かお探しですか？', class: "search-box__text"

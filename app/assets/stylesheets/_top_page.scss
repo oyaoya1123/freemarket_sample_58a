@@ -66,7 +66,7 @@
       display: flex;
       justify-content: flex-start;
       position: relative;
-      height: 36px;
+      height: 44px;
       margin: 0 auto;
       width: 100%;
       font-size: 14px;
@@ -77,7 +77,7 @@
           color: black;
           display: block;
           height: 44px;
-          line-height: 44px;
+          line-height: 36px;
           text-align: left;
           text-decoration: none;
           width: 100%;
@@ -186,55 +186,22 @@
     }
     .gnav-right {
       display: flex;
-      //justify-content: center;
       justify-content: flex-end;
       height: 2rem;
       margin: 0 auto;
       width: 100%;
       font-size: 0.8rem;
-      > li {
-      /*親階層のみ幅を25%にする*/
-      //width: 25%;
-      //display: inline-block;
-      //text-align: left;
-      //width: 160px;
-      padding: 0 14px;
-      }
-      /*全てのリスト・リンク共通*/
       li {
         list-style: none;
-        //position: relative;
+        padding: 0 14px;
       }
       li a {
-        //background: #001b34;
         background-color: white;
-        //border-right: 1px solid #eee;
-        //color: #fff;
         color: black;
         display: block;
         height: 2rem;
         line-height: 2rem;
-        text-align: right;
         text-decoration: none;
-        width: 100%;
-      }
-      /*子階層以降共通*/
-      li li {
-        height: 0;
-        overflow: hidden;
-        //transition: .5s;
-      }
-      li li a {
-        //border-top: 1px solid #eee;
-        padding: 0 16px;
-      }
-      li li a:hover {
-        background-color: red;
-        color: white;
-      }
-      li:hover > ul > li {
-        height: 2rem;
-        overflow: visible;
       }
     }
   }
