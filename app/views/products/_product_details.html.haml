@@ -34,7 +34,12 @@
             %th 配送日の目安
             %td コンテンツ
     .item-box-container__price-box
-      1500円
+      %span.item-box-container__price-box__item-price
+        ¥1,500
+      %span.item-box-container__price-box__item-tax
+        (税込)
+      %span.item-box-container__price-box__shipping-fee
+        送料込み
     = link_to "購入画面に進む", products_itemshow_path, class: "item-box-container__buy-btn"
     %p メッセージ
     .item-box-container__description

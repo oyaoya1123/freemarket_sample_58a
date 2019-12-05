@@ -31,8 +31,8 @@ header {
       &__photo{
         float: left;
         width: 300px;
-        height: 375px;
-        background-color: burlywood;
+        height: 420px;
+        background: #fafafa;
       }
       &__detail-table {
         float: right;
@@ -62,20 +62,34 @@ header {
           background: #fff;
         }
       }
-      &__price-box {
-        &__item-price {
-
-        }
-        &__item-tax {
-
-        }
-        &__shipping-fee {
-
-        }
+    }
+    &__price-box {
+      margin: 24px 0 0;
+      text-align: center;
+      &__item-price {
+        font-size: 40px;
+        margin-right: 16px;
+        font-weight: bold;
+      }
+      &__item-tax {
+        font-size: 10px;
+      }
+      &__shipping-fee {
+        font-size: 16px;
       }
     }
     &__buy-btn {
       display: block;
+      width: 620px;
+      height: 60px;
+      font-size: 24px;
+      line-height: 60px;
+      margin-top: 16px;
+      background: #ea352d;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
     }
   }
 }
