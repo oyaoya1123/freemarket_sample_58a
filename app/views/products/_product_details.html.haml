@@ -41,9 +41,27 @@
       %span.item-box-container__price-box__shipping-fee
         送料込み
     = link_to "購入画面に進む", products_itemshow_path, class: "item-box-container__buy-btn"
-    %p メッセージ
     .item-box-container__description
-    .item-box-container__buttons
+      %p.item-box-container__description__inner
+        イタリア製
+        高いよ
+        いいものだよ<br>
+
+        改行もできる<br>
+
+        OK
+    .item-box-container__buttons.clearfix
+      .item-box-container__buttons__left
+        %ul
+          %li
+            = link_to products_itemshow_path do
+              = icon('far', 'heart')
+              いいね！
+          %li
+            = link_to products_itemshow_path do
+              = icon('far', 'heart')
+              いいね！
+      .item-box-container__buttons__right
   .item-detail-message 出品物へのコメント 
   .item-link 前のページ　次のメージ
   .item-social-media-box SNSへのリンク
