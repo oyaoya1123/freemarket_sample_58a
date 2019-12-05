@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   def mypage
   end
 
+  def my_confirmation
+  end
+
   # ユーザプロフィール編集
   def profile
   end

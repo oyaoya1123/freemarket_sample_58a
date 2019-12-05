@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'users/logout' => 'users#logout'
   get 'users/mypage' => 'users#mypage'
+  get 'users/my_confirmation' => 'users#my_confirmation'
   get 'users/profile' => 'users#profile'
   get 'users/identification' => 'users#identification'
   get 'users/card' => 'users#card'
