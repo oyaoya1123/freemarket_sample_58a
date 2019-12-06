@@ -53,15 +53,18 @@
     .item-box-container__buttons.clearfix
       .item-box-container__buttons__left
         %ul
-          %li
+          %li.item-btn
             = link_to products_itemshow_path do
               = icon('far', 'heart')
-              いいね！
-          %li
+              %span いいね！
+          %li.item-btn
             = link_to products_itemshow_path do
               = icon('far', 'heart')
-              いいね！
+              %span 不適切な商品の報告
       .item-box-container__buttons__right
+        = link_to products_itemshow_path do
+          = icon('far', 'flag')
+          %span あんしん・あんぜんへの取り組み
   .item-detail-message 出品物へのコメント 
   .item-link 前のページ　次のメージ
   .item-social-media-box SNSへのリンク
