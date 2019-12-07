@@ -2,13 +2,13 @@
   .l-container__content
     %section.l-container__content__chapter
       %h2.l-container__content__chapter__head プロフィール
-      %form.l-container__content__chapter__form{:action => "https://www.mercari.com/jp/mypage/profile/", :method => "POST"}
-        %input{:name => "__csrf_value", :type => "hidden", :value => "e70d23b7c774f0854dc10215de3f4ef4cf4399f87bf4c084ac7ebf9b118547bc1ea15bbbcedbb50865b1a8e737271c6f60e270aa02a8c997784d04a7f3d90ac31"}/
+      %form.l-container__content__chapter__form{action: "/", method: "POST"}
+        %input{name: "__csrf_value", type: "hidden", value: ""}/
         .l-container__content__chapter__form__setting-profile-icon
-          %figure{:class => "“l-container__content__chapter__form__setting-profile-icon__icon”"}
-            %img.aligncenter{:height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
-          %input.l-container__content__chapter__form__setting-profile-icon__input-default{:name => "nickname", :placeholder => "例)AYA☆セール中", :type => "text", :value => ""}/
+          %figure{class: "“l-container__content__chapter__form__setting-profile-icon__icon”"}
+            %img.aligncenter{height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
+          %input.l-container__content__chapter__form__setting-profile-icon__input-default{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: ""}/
         .l-container__content__chapter__form__setting-profile-content
-          %textarea.l-container__content__chapter__form__setting-profile-content__textarea-default{:name => "introduction", :placeholder => "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-          %input{:name => "after_save_callback", :type => "hidden", :value => "https://www.mercari.com/jp/mypage/profile/"}/
-          %button.l-container__content__chapter__form__setting-profile-content__btn-default{:type => "submit"} 変更する
+          %textarea.l-container__content__chapter__form__setting-profile-content__textarea-default{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+          %input{name: "after_save_callback", :type => "hidden", value: "/"}/
+          %button.l-container__content__chapter__form__setting-profile-content__btn-default{type: "submit"} 変更する
