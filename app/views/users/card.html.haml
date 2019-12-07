@@ -1,12 +1,12 @@
-.wraper
+%body
 %header
-  = render "products/header"
-
+  = render "products/top_header"
+.wraper
 %main.l-main.box
   .l-content
     %section.l-content-box
       %h2.l-content-head 支払い方法
-      .l-single-inner
+      .l-single-top
         %section
           .l-single-content
             %h3.l-content-sub-head クレジットカード一覧
@@ -17,11 +17,11 @@
               = icon('fas', 'credit-card', class: "btn--icon")
               クレジットカードを追加する
         .settings-not-regist
-          %a{:href => "/jp/help_center/category/6/", :target => "_blank"}
+          %a{:href => "", :target => "_blank"}
             %span 支払い方法について
-            %i.icon-arrow-right
+            = icon('fas', 'angle-right', class: "icon--right")
 
   %aside
     = render "user_aside"
 %footer
-  = render "products/footer"
+  = render "products/top_footer"
