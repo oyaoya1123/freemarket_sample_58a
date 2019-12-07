@@ -229,6 +229,12 @@ i{
   margin: 8px 0 0;
 }
 
+textarea {
+  border-radius: 0;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
 .textarea-default {
   display: block;
   width: 100%;
@@ -239,15 +245,16 @@ i{
   background: #fff;
   font-size: 16px;
   line-height: 1.5;
+  color: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
 }
 
-textarea {
-  border-radius: 0;
-  border: 0;
-  outline: 0;
-  -webkit-appearance: none;
-  resize: vertical;
+::-webkit-input-placeholder {
+  color:    #999;
 }
+
 
 .sell-content {
   padding: 40px;
