@@ -2,6 +2,7 @@
 
 .buy-main
   .buy-main__content
+
     .buy-main__content__text
       購入内容の確認
     
@@ -9,12 +10,15 @@
       .buy-main__content__detailbox__inner
         .buy-main__content__detailbox__inner__item
           .item-image
-          画像
+          = image_tag "Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg"
+          
           .item-detail
+            %p.item-detail__text
+              小松菜奈着 laula ドロップ フレア スカート
             %span.price
-            111円
+              111円
             %span.fee
-            送料込み
+              送料込み
 
     .buy-main__content__detailbox
       .buy-main__content__detailbox__inner
@@ -41,8 +45,8 @@
               %div.clearfix
                 %h3.left
                 支払い方法
-                = link_to products_buy_path, class: "right"
-                変更する
+                = link_to "/", class: "right" do
+                  変更する
               %div.userinfo__inner__text
               クレジットカード
               %br
@@ -80,9 +84,9 @@
             %p.apptext
             アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
             %logos
-            = link_to products_buy_path, class: "logos__apple" do
+            = link_to "/", class: "logos__apple" do
               = image_tag "Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg"
-            = link_to products_buy_path, class: "logos__google" do
+            = link_to "/", class: "logos__google" do
               = image_tag "google-play-badge.png"
 
 
