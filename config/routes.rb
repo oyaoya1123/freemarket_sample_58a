@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'githubtests/mypage' => 'githubtests#mypage'
   get 'users/edit' => 'users#edit'
   get 'users/identification' => 'users#identification'
-  get '/products/index'  => 'products#index'
+  get 'products/index'  => 'products#index'
+  get 'products/buy'  => 'products#buy'
 
 end
