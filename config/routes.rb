@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get 'users/identification' => 'users#identification'
   get 'products/index'  => 'products#index'
   get 'products/buy'  => 'products#buy'
-
+  get 'users/logout' => 'users#logout'
 end
