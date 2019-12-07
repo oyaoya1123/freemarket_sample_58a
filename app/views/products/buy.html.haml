@@ -1,5 +1,92 @@
 %p ヘッダー
 
-.single-main
-  
+.buy-main
+  .buy-main__content
+    .buy-main__content__text
+      購入内容の確認
+    
+    .buy-main__content__detailbox
+      .buy-main__content__detailbox__inner
+        .buy-main__content__detailbox__inner__item
+          .item-image
+          画像
+          .item-detail
+            %span.price
+            111円
+            %span.fee
+            送料込み
+
+    .buy-main__content__detailbox
+      .buy-main__content__detailbox__inner
+        .buy-form
+        = form_with model: @users_purchases, local: true do |f|
+          %ul.price
+            %li.price__box
+              %div.price__box__text
+              支払い金額
+              %div.price__box__number
+                %span.price__box__number__value
+                3400円
+
+          %ul.point
+            %li.point__box
+              %div.point__box__checkbox
+              //= f.collection_check_boxes 
+              = check_box_tag :check1
+              = label_tag :check1, "ポイントを使用（所持ポイント:P0）"
+              //もう一つ下にチェック入れる記述いるかも
+
+          %section.userinfo
+            %div.userinfo__inner
+              %div.clearfix
+                %h3.left
+                支払い方法
+                = link_to products_buy_path, class: "right"
+                変更する
+              %div.userinfo__inner__text
+              クレジットカード
+              %br
+              **********8990
+              %br
+              有効期限01/33
+              %br
+                -# = fa_icon "cc-visa"
+                %i.fa.fab.fa-cc-visa
+
+          %section.userinfo
+            %div.userinfo__inner
+              %div.clearfix
+                %h3.left
+                配送先
+                = link_to products_buy_path, class: "right"
+                変更する
+              %div.userinfo__inner__text
+              〒001-0001
+              %br
+              北海道 札幌市 北区 北 1-1-1 ●●マンション111
+              %br
+              山田 花子
+              %br
+
+          -# input type hiddenのデータ
+
+          %section.userinfoerror
+            %p.errortext
+              この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+            = f.submit class: "buy-btn"
+
+            -# アプリで購入が入る
+
+            %p.apptext
+            アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+            %logos
+            = link_to products_buy_path, class: "logos__apple" do
+              = image_tag "Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg"
+            = link_to products_buy_path, class: "logos__google" do
+              = image_tag "google-play-badge.png"
+
+
+
+
+
 %p フッター
