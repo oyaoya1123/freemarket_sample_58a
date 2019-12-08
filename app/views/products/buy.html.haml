@@ -15,30 +15,29 @@
           .item-detail
             %p.item-detail__text
               小松菜奈着 laula ドロップ フレア スカート
-            %span.price
+            %span.itemprice
               111円
             %span.fee
               送料込み
 
     .buy-main__content__detailbox
       .buy-main__content__detailbox__inner
-        .buy-form
-        = form_with model: @users_purchases, local: true do |f|
+        -# .buy-form
+        = form_with model: @users_purchases, class: "buy-form", local: true do |f|
           %ul.price
             %li.price__box
               %div.price__box__text
-              支払い金額
+                支払い金額
               %div.price__box__number
                 %span.price__box__number__value
-                3400円
+                  3400円
 
           %ul.point
             %li.point__box
               %div.point__box__checkbox
-              //= f.collection_check_boxes 
-              = check_box_tag :check1
-              = label_tag :check1, "ポイントを使用（所持ポイント:P0）"
-              //もう一つ下にチェック入れる記述いるかも
+                = check_box_tag :check1
+                = label_tag :check1, "ポイントを使用（所持ポイント:P0）"
+                //もう一つ下にチェック入れる記述いるかも
 
           %section.userinfo
             %div.userinfo__inner
@@ -62,8 +61,8 @@
               %div.clearfix
                 %h3.left
                 配送先
-                = link_to products_buy_path, class: "right"
-                変更する
+                = link_to "/", class: "right" do
+                  変更する
               %div.userinfo__inner__text
               〒001-0001
               %br

@@ -28,11 +28,13 @@ body {
       
     }
     &__detailbox{
+      padding: 32px 16px;
       border-top: 1px solid #f5f5f5;
       &__inner{
         max-width:343px;
         margin:0 auto;
         text-align:center;
+        // border-top: 1px solid #f5f5f5;
         &__item{
           display:flex;
           text-align:center;
@@ -59,7 +61,7 @@ body {
               line-height:1.5;
               text-align:left;
             }
-            .price{
+            .itemprice{
               font-weight:600;
             }
             .fee{
@@ -68,6 +70,112 @@ body {
               text-align:left;
             }
           }
+        }
+
+        .buy-form{
+          display:block;
+          text-align:center;
+          // border-bottom: 1px solid #f5f5f5;
+
+          .price{
+            margin-block-start:1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+
+            &__box{
+              font-size:30px;
+              font-weight:600;
+              border-collapse: collapse;
+              width: 100%;
+              display: table-row;
+              &__text{
+                display: table-cell;
+                text-align: left;
+                font-weight: 600;
+                font: 66.66667% sans-serif
+              }
+              &__number{
+                font: 66.66667% sans-serif;
+                text-align: right;
+                display: table-cell;
+              }
+            }
+          }
+
+          .point{
+            padding: 0;
+            color: #888;
+            margin: 24px 0 32px;
+            display: block;
+            &__box{
+              padding: 0;
+              &__checkbox{
+
+              }
+            }
+            
+          }
+
+          .userinfo{
+            margin: 0;
+            padding: 32px 0;
+            transition: all ease-out .3s;
+            text-align: left;
+            border-top: 1px solid #f5f5f5;
+            display: block;
+            font: 66.66667% sans-serif;
+            &__inner{
+              max-width: 343px;
+              margin: 0 auto;
+              padding: 0;
+              .clearfix{
+                font: 66.66667% sans-serif;
+                display: block;
+                clear: both;
+                .left{
+                  font-size: 14px;
+                  float: left;
+                }
+                .right{
+                  display: block;
+                  text-align: right;
+                  float: right;
+                  color: #0099e8;
+                  text-decoration: none;
+                  touch-action: manipulation;
+                }
+              }
+            }
+            &__text{
+              display: block;
+              text-align: left;
+              margin: 8px 0 0;
+              font-size: 14px;
+              i{//適用されない
+                vertical-align: middle;
+              }
+            }
+          }
+
+          .userinfoerror{
+            padding: 24px 0 0;
+            text-align: left;
+            border-top: 1px solid #f5f5f5;
+            font: 66.66667% sans-serif;
+            font-size: 14px;
+            .errortext{
+              text-align: left;
+              padding-bottom: 24px;
+              line-height: 1.5; 
+            }
+          }
+        
+
         }
 
       }
