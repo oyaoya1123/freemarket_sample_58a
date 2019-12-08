@@ -1,0 +1,55 @@
+.l-main.box {
+  margin: 40px auto 0;
+  width: 1020px;
+  display: block;
+}
+.l-content {
+  width: 700px;
+  float: right;
+  &__form {
+    margin: 0;
+    background-color:  #fff;
+  }
+    &__logout {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+}
+.btn-default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  outline:0;
+  margin: 0;
+}
+.btn-red {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+}
+form {
+  padding: 64px;
+  display: block;
+  border-style: solid;
+  border-width: 0;
+}
+
+// 出品ボタン作成後削除
+.footer-sell-btn {
+  bottom: 32px;
+  right: 32px;
+  width: 160px;
+  height: 160px;
+  font-size: 22px;
+  position: fixed;
+  z-index: 1000;
+  border-radius: 50%;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+  margin: 32px 0 0;
+  float: left;
+}
