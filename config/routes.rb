@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get 'products/index'  => 'products#index'
   get 'products/buy'  => 'products#buy'
   get 'users/logout' => 'users#logout'
+  get 'products/itemshow'  => 'products#itemshow'
+  
 end
