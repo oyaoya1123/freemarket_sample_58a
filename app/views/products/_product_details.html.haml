@@ -59,14 +59,193 @@
               %span いいね！
           %li.item-btn
             = link_to products_itemshow_path do
-              = icon('far', 'heart')
+              = icon('far', 'flag')
               %span 不適切な商品の報告
       .item-box-container__buttons__right
         = link_to products_itemshow_path do
-          = icon('far', 'flag')
+          = icon('fas', 'lock')
           %span あんしん・あんぜんへの取り組み
-  .item-detail-message 出品物へのコメント 
-  .item-link 前のページ　次のメージ
-  .item-social-media-box SNSへのリンク
-  .item-in-user-profile ユーザのその他の出品物
-  .bread-crumbs パンくずリスト
+  .item-detail-message
+    .item-detail-message__content
+      = form_with url: products_itemshow_path, class: "comment-box" do |f|
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.text_area :comment, class: "comment-box__text", size: "30x4"
+        = button_tag type: 'submit', class: "comment-box__btn" do
+          コメントする
+  .item-link
+    %ul.item-link__content
+      %li.item-link__content__prev
+        = link_to products_itemshow_path do
+          = icon('fas', 'angle-left')
+          前の出品
+      %li.item-link__content__next
+        = link_to products_itemshow_path do
+          次の出品
+          = icon('fas', 'angle-right')
+  .item-social-media
+    %ul.item-social-media__box
+      %li.item-social-media__box__content
+        .item-social-media__box__content__face-book
+          = link_to products_itemshow_path do
+            = icon 'fab', 'facebook-square', class: "icon"
+      %li.item-social-media__box__content
+        .item-social-media__box__content__twitter
+          = link_to products_itemshow_path do
+            = icon 'fab', 'twitter', class: "icon"
+      %li.item-social-media__box__content
+        .item-social-media__box__content__pinterest
+          = link_to products_itemshow_path do
+            = icon 'fab', 'pinterest', class: "icon"
+  .item-in-user-profile
+    .item-in-user-profile__container
+      %h2
+        = link_to "出品者のその他の出品", products_itemshow_path
+      .item-in-user-profile__container__content.clerafix
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
+    .item-in-user-profile__container
+      %h2
+        = link_to "カテゴリ名　その他の出品", products_itemshow_path
+      .item-in-user-profile__container__content.clerafix
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
+        .item-in-user-profile__container__content__box
+          = link_to products_itemshow_path do
+            .item-in-user-profile__container__content__box__photo
+              写真
+            .item-in-user-profile__container__content__box__body
+              %h3 商品名商品名商品名商品名商品名商品名
+              .item-box-num
+                .item-box-num__price
+                  ¥2,500
+                .item-box-num__icon
+                  = icon('far', 'heart')
+                  %span 3
