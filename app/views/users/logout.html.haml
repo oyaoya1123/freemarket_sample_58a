@@ -6,15 +6,11 @@
   %main.l-main.box
     .l-content
       .l-content__form
-        %form{:action => "https://"}
+        %form{action: "https://"}
           .l-content__logout
-            %button.btn-default.btn-red{:type => "submit"} ログアウト
+            %button.btn-default.btn-red{type: "submit"} ログアウト
     %aside.side
       = render "user_aside"
-  %a.footer-sell-btn{:href => ""}
-    %div 出品
-    %div ボタン
-    %div 仮置き  
   %footer
     = render "products/top_footer"
     
