@@ -1,0 +1,46 @@
+p {
+  font-size: 30px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: #000;
+  background: rgb(245, 245, 245);
+}
+
+
+
+.single-container{
+
+  header{
+        display: block;
+        height: 128px;
+        text-align: center;
+
+
+               h1{
+               display: inline-block;
+                margin: 40px 0 0;
+
+                    a{
+                     display: inline-block;
+                    width: 185px;
+                     height: 49px;
+                      line-height: 49px;
+                      margin: 0 8px 0 0;
+                     color: #0099e8;
+                     text-decoration: none;
+
+                     img{
+                          width: 185px;
+                          height: 49px;
+                          vertical-align: middle;
+
+                           }
+                        }
+                      }
+                   }
+                }
