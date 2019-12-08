@@ -37,20 +37,3 @@
   border-style: solid;
   border-width: 0;
 }
-
-// 出品ボタン作成後削除
-.footer-sell-btn {
-  bottom: 32px;
-  right: 32px;
-  width: 160px;
-  height: 160px;
-  font-size: 22px;
-  position: fixed;
-  z-index: 1000;
-  border-radius: 50%;
-  background: #ea352d;
-  color: #fff;
-  text-align: center;
-  margin: 32px 0 0;
-  float: left;
-}
