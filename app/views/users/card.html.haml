@@ -5,15 +5,15 @@
 %main.l-main.box
   .l-content
     %section.l-content-box
-      %h2.l-content-head 支払い方法
-      .l-single-top
+      %h2.l-content__head 支払い方法
+      .l-content__top
         %section
           .l-single-content
             %h3.l-content-sub-head クレジットカード一覧
           %ul.settings-payment-list
         %section.settings-add-card
           .l-single-content
-            %a.btn-default.btn-red.submit_button{href: ""}
+            = link_to  "/" ,class: "btn-default btn-red submit_button" do
               = icon('fas', 'credit-card', class: "btn--icon")
               クレジットカードを追加する
         .settings-not-regist
@@ -22,6 +22,6 @@
             = icon('fas', 'angle-right', class: "icon--right")
 
   %aside
-    = render "user_aside"
+    = render "aside"
 %footer
   = render "products/top_footer"
