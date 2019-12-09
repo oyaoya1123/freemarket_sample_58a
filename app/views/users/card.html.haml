@@ -13,11 +13,11 @@
           %ul.settings-payment-list
         %section.settings-add-card
           .l-single-content
-            %a.btn-default.btn-red.submit_button{:href => ""}
+            %a.btn-default.btn-red.submit_button{href: ""}
               = icon('fas', 'credit-card', class: "btn--icon")
               クレジットカードを追加する
         .settings-not-regist
-          %a{:href => "", :target => "_blank"}
+          = link_to {href: "", target: "_blank"}
             %span 支払い方法について
             = icon('fas', 'angle-right', class: "icon--right")
 
