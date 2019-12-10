@@ -1,0 +1,31 @@
+%section
+  .sr-container
+    %h2.sr-container__header 会員情報入力
+    = form_with url: users_signupregistration_path, class: "sr-container__registration-form" do |f|
+      .sr-container__registration-form__container
+        .sr-container__registration-form__container__content
+          = f.label "ニックネーム"
+          %span.require 必須
+          = f.text_field :nickname, placeholder: '例）メルカリ太郎', class: "default-text"
+        .sr-container__registration-form__container__content
+          = f.label "メールアドレス"
+          %span.require 必須
+          = f.text_field :email, placeholder: 'PC・携帯どちらでも可', class: "default-text"
+        .sr-container__registration-form__container__content
+          = f.label "パスワード"
+          %span.require 必須
+          = f.text_field :password, placeholder: '7文字以上の半角英数字', class: "default-text"
+        .sr-container__registration-form__container__content
+          = f.label "お名前(全角)"
+          %span.require 必須
+          %br
+          = f.text_field :family_name_kanji, placeholder: '例）山田', class: "default-text__half__left"
+          = f.text_field :first_name_kanji, placeholder: '例）彩', class: "default-text__half__right"
+        .sr-container__registration-form__container__content
+          = f.label "お名前カナ(全角)"
+          %span.require 必須
+          %br
+          = f.text_field :family_name_kana, placeholder: '例）山田', class: "default-text__half__left"
+          = f.text_field :first_name_kana, placeholder: '例）彩', class: "default-text__half__right"
+        .sr-container__registration-form__container__content
+          = button_tag "次へ進む", type: 'submit', class: "btn"
