@@ -9,20 +9,19 @@
     .buy-main__content__detailbox
       .buy-main__content__detailbox__inner
         .buy-main__content__detailbox__inner__item
-          .item-image
-          = image_tag "Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg"
+          = image_tag "hito2.jpg", class:"item-image"
           
           .item-detail
             %p.item-detail__text
               小松菜奈着 laula ドロップ フレア スカート
-            %span.itemprice
-              111円
-            %span.fee
-              送料込み
+            %p.itemprice
+              %span
+                111円
+              %span.fee
+                （税込）送料込み
 
     .buy-main__content__detailbox
       .buy-main__content__detailbox__inner
-        -# .buy-form
         = form_with model: @users_purchases, class: "buy-form", local: true do |f|
           %ul.price
             %li.price__box
@@ -30,39 +29,36 @@
                 支払い金額
               %div.price__box__number
                 %span.price__box__number__value
-                  3400円
-
+                  ￥3400
+          
           %ul.point
             %li.point__box
               %div.point__box__checkbox
-                = check_box_tag :check1
-                = label_tag :check1, "ポイントを使用（所持ポイント:P0）"
-                //もう一つ下にチェック入れる記述いるかも
+                %input.d-checkbox{type:"checkbox"}
+                %i#checkbox-id.icon-check
+                %label{ for: 'checkbox-id', class: "f-label"}ポイントを使用（所持ポイント:P0)
 
           %section.userinfo
             %div.userinfo__inner
-              %div.clearfix
-                %h3.left
-                支払い方法
+              %div.title
+                %span.left 支払い方法
                 = link_to "/", class: "right" do
-                  変更する
-              %div.userinfo__inner__text
+                  %span 変更する
+              %p.userinfo__inner__text
               クレジットカード
               %br
               **********8990
               %br
               有効期限01/33
               %br
-                -# = fa_icon "cc-visa"
-                %i.fa.fab.fa-cc-visa
+                = icon('fab', 'cc-visa fa-3x')
 
           %section.userinfo
             %div.userinfo__inner
-              %div.clearfix
-                %h3.left
-                配送先
+              %div.title
+                %span.left 配送先
                 = link_to "/", class: "right" do
-                  変更する
+                  %span 変更する
               %div.userinfo__inner__text
               〒001-0001
               %br
@@ -71,25 +67,9 @@
               山田 花子
               %br
 
-          -# input type hiddenのデータ
+          %section.buyuserinfo
 
-          %section.userinfoerror
-            %p.errortext
-              この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-            = f.submit class: "buy-btn"
-
-            -# アプリで購入が入る
-
-            %p.apptext
-            アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
-            %logos
-            = link_to "/", class: "logos__apple" do
-              = image_tag "Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg"
-            = link_to "/", class: "logos__google" do
-              = image_tag "google-play-badge.png"
-
-
-
-
+            = button_tag type: 'submit', class: "buy-btn" do
+              購入する
 
 %p フッター
