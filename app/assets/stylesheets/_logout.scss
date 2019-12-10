@@ -1,0 +1,39 @@
+.l-main.box {
+  margin: 40px auto 0;
+  width: 1020px;
+  height: 1347px;
+  display: block;
+}
+.l-content {
+  width: 700px;
+  float: right;
+  &__form {
+    margin: 0;
+    background-color:  #fff;
+  }
+    &__logout {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+}
+.btn-default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  outline:0;
+  margin: 0;
+}
+.btn-red {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+}
+.content-input {
+  padding: 64px;
+  display: block;
+  border-style: solid;
+  border-width: 0;
+}
