@@ -1,87 +1,80 @@
-%p ヘッダー
-
-.buy-main
-  .buy-main__content
-
-    .buy-main__content__text
-      購入内容の確認
-    
-    .buy-main__content__detailbox
-      .buy-main__content__detailbox__inner
-        .buy-main__content__detailbox__inner__item
-          = image_tag "hito2.jpg", class:"item-image"
-          
-          .item-detail
-            %p.item-detail__text
-              小松菜奈着 laula ドロップ フレア スカート
-            %p.itemprice
-              %span
-                111円
-              %span.fee
-                （税込）送料込み
-
-    .buy-main__content__detailbox
-      .buy-main__content__detailbox__inner
-        = form_with model: @users_purchases, class: "buy-form", local: true do |f|
-          %ul.price
-            %li.price__box
-              %div.price__box__text
-                支払い金額
-              %div.price__box__number
-                %span.price__box__number__value
-                  ￥3400
-          
-          %ul.point
-            %li.point__box
-              %div.point__box__checkbox
-                %input.d-checkbox{type:"checkbox"}
-                %i#checkbox-id.icon-check
-                %label{ for: 'checkbox-id', class: "f-label"}ポイントを使用（所持ポイント:P0)
-
-          %section.userinfo
-            %div.userinfo__inner
-              %div.title
-                %span.left 支払い方法
-                = link_to "/", class: "right" do
-                  %span 変更する
-              %p.userinfo__inner__text
-              クレジットカード
-              %br
-              **********8990
-              %br
-              有効期限01/33
-              %br
-                = icon('fab', 'cc-visa fa-3x')
-
-          %section.userinfo
-            %div.userinfo__inner
-              %div.title
-                %span.left 配送先
-                = link_to "/", class: "right" do
-                  %span 変更する
-              %div.userinfo__inner__text
-              〒001-0001
-              %br
-              北海道 札幌市 北区 北 1-1-1 ●●マンション111
-              %br
-              山田 花子
-              %br
-
-          %section.buyuserinfo
-
-            = button_tag type: 'submit', class: "buy-btn" do
-              購入する
-
-%p フッター
-
 .single-container
   %header 
     = render "products/header"
-  .wraper
-    %p
-      = icon('far', 'bell')
-      マイページ
+
+
+  .buy-main
+    .buy-main__content
+
+      .buy-main__content__text
+        購入内容の確認
       
-  
-  %footer
-    = render "products/footer"
+      .buy-main__content__detailbox
+        .buy-main__content__detailbox__inner
+          .buy-main__content__detailbox__inner__item
+            = image_tag "hito2.jpg", class:"item-image"
+            
+            .item-detail
+              %p.item-detail__text
+                小松菜奈着 laula ドロップ フレア スカート
+              %p.itemprice
+                %span
+                  111円
+                %span.fee
+                  （税込）送料込み
+
+      .buy-main__content__detailbox
+        .buy-main__content__detailbox__inner
+          = form_with model: @users_purchases, class: "buy-form", local: true do |f|
+            %ul.price
+              %li.price__box
+                %div.price__box__text
+                  支払い金額
+                %div.price__box__number
+                  %span.price__box__number__value
+                    ￥3400
+            
+            %ul.point
+              %li.point__box
+                %div.point__box__checkbox
+                  %input.d-checkbox{type:"checkbox"}
+                  %i#checkbox-id.icon-check
+                  %label{ for: 'checkbox-id', class: "f-label"}ポイントを使用（所持ポイント:P0)
+
+            %section.userinfo
+              %div.userinfo__inner
+                %div.title
+                  %span.left 支払い方法
+                  = link_to "/", class: "right" do
+                    %span 変更する
+                %p.userinfo__inner__text
+                クレジットカード
+                %br
+                **********8990
+                %br
+                有効期限01/33
+                %br
+                  = icon('fab', 'cc-visa fa-3x')
+
+            %section.userinfo
+              %div.userinfo__inner
+                %div.title
+                  %span.left 配送先
+                  = link_to "/", class: "right" do
+                    %span 変更する
+                %div.userinfo__inner__text
+                〒001-0001
+                %br
+                北海道 札幌市 北区 北 1-1-1 ●●マンション111
+                %br
+                山田 花子
+                %br
+
+            %section.buyuserinfo
+
+              = button_tag type: 'submit', class: "buy-btn" do
+                購入する
+      
+      .single-container  
+        %footer
+          = render "products/footer"
