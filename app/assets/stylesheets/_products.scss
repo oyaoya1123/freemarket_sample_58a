@@ -30,12 +30,11 @@ body {
 
 .l-single-container {
   background: #fff;
-}
-
-.l-single-container {
   width: 700px;
   margin: 0 auto;
+  display: block;
 }
+
 
 .l-single-head {
   padding: 32px 16px;
@@ -45,16 +44,12 @@ body {
   text-align: center;
 }
 
-section {
-  display: block;
-}
 
-form {
-  display: block;
-}
+
 
 .sell-form {
   border-top: 1px solid #eee;
+  display: block;
 }
 
 .sell-upload-box {
@@ -64,9 +59,6 @@ form {
 
 .sell-upload-head {
   font-size: 16px;
-}
-
-h3 {
   display: block;
   margin-block-start: 1em;
   margin-block-end: 1em;
@@ -74,6 +66,8 @@ h3 {
   margin-inline-end: 0px;
   font-weight: bold;
 }
+
+
 
 .form-require {
   background: #ea352d;
@@ -88,6 +82,7 @@ h3 {
 .sell-upload-head+p {
   margin: 8px 0 0;
   line-height: 1.5;
+  font-size:14px;
 }
 
 .sell-dropbox-container {
@@ -103,6 +98,8 @@ h3 {
 .sell-upload-items {
   float: left;
   display: block;
+  width: 100%;
+  margin-left: 0;
 }
 
 .sell-upload-items ul {
@@ -110,10 +107,7 @@ h3 {
   width: 100%;
 }
 
-.have-item-0 {
-  width: 100%;
-  margin-left: 0;
-}
+
 
 .sell-upload-drop-box {
   float: right;
@@ -130,6 +124,8 @@ h3 {
   text-align: center;
   transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
   cursor: pointer;
+  width: 100%;
+  margin-left: 0;
 }
 
 input {
@@ -141,9 +137,9 @@ input {
 
 .sell-upload-drop-box pre {
   position: absolute;
-  top: 58%;
+  top: 52%;
   left: 0px;
-  right: 92px;
+  right: 56px;
   text-align: center;
   font-size: 14px;
   line-height: 1.5;
@@ -151,30 +147,20 @@ input {
   pointer-events: none;
   white-space: pre-wrap;
   word-wrap: break-word;
-}
-
-.visible-pc {
   display: block;
-}
-
-pre {
   overflow: auto;
 }
 
-.icon-camera {
-  display: none;
-}
+
 
 .icon-camera {
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   font-size: 14px;
-}
-
-i{
   font-family: 'icon-font';
   speak: none;
   font-style: normal;
@@ -185,12 +171,13 @@ i{
   -webkit-font-smoothing: antialiased;
 }
 
+
 .sell-content {
   padding: 40px;
   border-top: 1px solid #eee;
 }
 
-.form-group:first-child {
+.form-group1 {
   margin: 0;
 }
 
@@ -229,11 +216,7 @@ i{
   margin: 8px 0 0;
 }
 
-textarea {
-  border-radius: 0;
-  outline: 0;
-  -webkit-appearance: none;
-}
+
 
 .textarea-default {
   display: block;
@@ -265,7 +248,7 @@ textarea {
   float: left;
   color: #888;
   font-size: 14px;
-  margin-top:0px;
+  margin-top:20px;
 }
 
 
@@ -276,17 +259,14 @@ textarea {
   margin: 0;
 }
 
-.sell-form-box {
-    float: right;
-    width: 400px;
-    margin: 0;
-}
 
 .select-wrap {
   margin: 8px 0 0;
   position: relative;
   background: #fff;
 }
+
+
 
 .icon-arrow-bottom {
   position: absolute;
@@ -299,9 +279,7 @@ textarea {
 
 
 
-.form-group select {
-  width: 100%;
-}
+
 
 .select-default {
   position: relative;
@@ -314,6 +292,7 @@ textarea {
   font-size: 16px;
   line-height: 1.5;
   cursor: pointer;
+  width: 100%;
 }
 
 
@@ -337,11 +316,7 @@ a {
 
 
 
-.form-group .select-wrap {
-  margin: 8px 0 0;
-  position: relative;
-  background: #fff;
-}
+
 
 
 
@@ -361,11 +336,10 @@ label {
 .sell-price .form-group .l-right {
   width: 50%;
   float: right;
-}
-
-.sell-price-input {
   text-align: right;
 }
+
+
 
 .sell-price-input>div {
   display: inline-block;
@@ -429,21 +403,29 @@ label {
   line-height: 1.5;
   margin-top:0px;
   margin-bottom:0px;
-}
-
-p {
   display: block;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+  font-size:14px;
 }
 
-.sell-btn-box .btn-red {
+
+
+.btn-red {
   margin: 40px 0 0;
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  
 }
 
 .btn-default {
@@ -456,7 +438,7 @@ p {
   text-align: center;
 }
 
-.sell-btn-box .btn-gray {
+ .btn-gray{
   width: 45%;
   margin: 24px auto 0;
   background: #aaa;
@@ -464,168 +446,19 @@ p {
   color: #fff;
 }
 
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2999;
-  background: rgba(0,0,0,0.64);
-  -webkit-transition: all ease-out .3s;
-  transition: all ease-out .3s;
-  opacity: 0;
-}
-// h2 {
-//   line-height: 1.4;
-//   font-weight: bold;
-//   display: block;
-//   margin-block-start: 0.83em;
-//   margin-inline-start: 0px;
-//   margin-inline-end: 0px;
-// }
-
-.sell-form {
-  border-top: 1px solid #f5f5f5;
-  margin-bottom:100px;
-}
-
-.sell-form p {
-  margin-top: 8px;
-  line-height: 1.5;
-}
-
-p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-size:14px;
-}
-
-form {
-  display: block;
-}
-
-div {
-  display: block;
-}
-
-.form-group {
-  margin: 40px 0 0;
-}
 
 
 
 
-.form-arbitrary {
-    background: #ccc;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;
-}
-
-.select-default {
-  width: 100%;
-  position: relative;
-  z-index: 2;
-  height: 48px;
-  padding: 0 16px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  cursor: pointer;
-}
-
-select {
-  outline: 0;
-  -webkit-appearance: none;
-  -webkit-writing-mode: horizontal-tb !important;
-  text-rendering: auto;
-  color: black;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: start;
-  -webkit-appearance: menulist;
-  box-sizing: border-box;
-  align-items: center;
-  white-space: pre;
-  -webkit-rtl-ordering: logical;
-  background-color: rgb(248, 248, 248);
-  cursor: default;
-  margin: 0em;
-  font: 400 11px system-ui;
-}
-
-option {
-  font-weight: normal;
-  display: block;
-  white-space: pre;
-  min-height: 1.2em;
-  padding: 0px 2px 1px;
-}
-
-.input-default {
-  width: 100%;
-  margin: 8px 0 0;
-}
-
-
-button {
-  outline: 0;
-  -webkit-appearance: button;
-  overflow: visible;
-  -webkit-writing-mode: horizontal-tb;
-  text-rendering: auto;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  align-items: flex-start;
-  font: 400 11px system-ui;
-}
 
 
 
-.input-default {
-  width: 100%;
-  margin: 8px 0 0;
-  height: 48px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  line-height: 1.5;
-  font-size: 16px;
-}
 
-input {
-  -webkit-writing-mode: horizontal-tb !important;
-  text-rendering: auto;
-  color: initial;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  text-align: start;
-  -webkit-rtl-ordering: logical;
-  font: 400 11px system-ui;
-  cursor: default;
-  outline: 0;
-  font-family: inherit;
-}
+
+
+
+
+
+
 
 
