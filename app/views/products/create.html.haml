@@ -74,7 +74,8 @@
                     %option{value: "6"} 全体的に状態が悪い
           .sell-content.clearfix
             %h3.sell-sub-head 配送について
-            %a.form-question{:href => "/", :target => "_blank"} ?
+            = link_to "/", class: "form-question" do
+              ?
             .sell-form-box
               .form-group
                 %label
@@ -155,7 +156,8 @@
                     %option{value:  "3"} 4~7日で発送
           .sell-content.clearfix
             %h3.sell-sub-head 販売価格(300〜9,999,999)
-            %a.form-question{href: "/", target: "_blank"} ?
+            = link_to "/", class: "form-question" do
+              ?
             .sell-form-box
               %ul.sell-price
                 %li.form-group
