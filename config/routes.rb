@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'users/profile' => 'users#profile'
   get 'users/identification' => 'users#identification'
   get 'users/card' => 'users#card'
-  get 'users/card/create' => 'users#card/create'
+  get 'users/card_create' => 'users#card_create'
   get 'products/index' => 'products#index'
   get 'products/itemshow' => 'products#itemshow' #仮
   get 'products/create' => 'products#create'
