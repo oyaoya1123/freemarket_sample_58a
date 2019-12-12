@@ -1,0 +1,185 @@
+.signup-header {
+  height: 128px;
+  width: 768px;
+  text-align: center;
+  margin: 0 auto;
+  h1 {
+    margin: 40px 0 0;
+    display: inline-block;
+  }
+  &__progress-bar {
+    display: inline-block;
+    vertical-align: top;
+    padding: 40px 0 0 44px;
+    border: 0;
+    ul {
+      font-size: 0;
+      li {
+        font-size: 12px;
+        margin: 0 40px 0 0;
+        min-width: 60px;
+        display: inline-block;
+        color: #888;
+        position: relative;
+        z-index: 1;
+        &:last-of-type {
+          margin: 0;
+        }
+        .progress-status {
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          background: #ccc;
+          border-radius: 50%;
+          &:before {
+            right: 50%;
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+          }
+          &:after {
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+          }
+        }
+        .progress-status-start {
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          background: #ccc;
+          border-radius: 50%;
+          &:after {
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+          }
+        }
+        .progress-status-end {
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          background: #ccc;
+          border-radius: 50%;
+          &:before {
+            right: 50%;
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+          }
+        }
+      }
+      li.active {
+        color: red;
+        font-weight: 600;
+        .progress-status {
+          background: #ea352d;
+          &:before {
+            background: #ea352d;
+          }
+        }
+        .progress-status-end {
+          background: #ea352d;
+          &:before {
+            background: #ea352d;
+          }
+        }
+      }
+      li.through {
+        font-size: 12px;
+        margin: 0 40px 0 0;
+        min-width: 60px;
+        display: inline-block;
+        color: #888;
+        position: relative;
+        z-index: 1;
+        &:last-of-type {
+          margin: 0;
+        }
+        .progress-status {
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          background: #ea352d;
+          border-radius: 50%;
+          &:before {
+            right: 50%;
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #ea352d;
+          }
+          &:after {
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #ea352d;
+          }
+        }
+        .progress-status-start {
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          background: #ea352d;
+          border-radius: 50%;
+          &:after {
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #ea352d;
+          }
+        }
+        .progress-status-end {
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          background: #ea352d;
+          border-radius: 50%;
+          &:before {
+            right: 50%;
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #ea352d;
+          }
+        }
+      }
+    }
+  }
+}
