@@ -1,4 +1,3 @@
-%body
 .single-container
   %header 
     = render "products/header"
@@ -11,7 +10,6 @@
         %div.registration
           %div.registration__content
             = link_to "/" , class:"btn-mail" do 
-              -# メールアドレスで登録
               = icon('far', 'envelope fa-2x',class: "mail")
               メールアドレスで登録
             %button#facebook-login.btn-facebook
