@@ -1,0 +1,27 @@
+%body
+%header
+  = render "products/top_header"
+.wraper
+%main.l-main_box
+  .l-content
+    %section.l-content-box
+      %h2.l-content__head 支払い方法
+      .l-content__top
+        %section
+          .l-single-content
+            %h3.l-content-sub-head クレジットカード一覧
+          %ul.settings-payment-list
+        %section.settings-add-card
+          .l-single-content
+            = link_to  "/" ,class: "btn-default btn-red submit_button" do
+              = icon('fas', 'credit-card', class: "btn--icon")
+              クレジットカードを追加する
+        .settings-not-regist
+          = link_to  "/" do
+            %span 支払い方法について
+            = icon('fas', 'angle-right', class: "icon--right")
+
+  %aside
+    = render "_aside"
+%footer
+  = render "products/top_footer"
