@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   def new_create
   end
 
+  def login
+  end
  
 
 end

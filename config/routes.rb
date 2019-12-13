@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   get 'products/itemshow'  => 'products#itemshow'
 
   get 'users/new_create'  => 'users#new_create'
-  
+  get 'users/login'  => 'users#login'
 end
