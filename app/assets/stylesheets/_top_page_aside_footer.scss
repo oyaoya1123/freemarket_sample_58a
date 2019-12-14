@@ -1,0 +1,83 @@
+
+.app-banner{
+  display: block;
+  background: image-url("YAT923_1.jpg");
+  background-position: center;
+  background-size: cover;
+  &__footer{
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+    &__inner{
+      left: 0;
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translate(0, -50%);
+      h2{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 24px;
+        line-height: 1.4;
+      }
+      p{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 35px;
+        margin: 10px 0 0;
+        display: block;
+      }
+      .icon{
+        margin: 20px 0 0;
+        display: block;
+        figure{
+          float: left;
+          margin:0;
+          .merukari-icon{            
+          }
+        }
+        .downroad{
+          float: left;
+          margin: 0 0 0 24px;
+          line-height: 68px;
+          li{
+            float: left;
+            display: list-item;
+            .link{
+              display: block;
+              line-height: 68px;
+              float: left;
+              .logo{
+                width: 133px;
+                // height: 40px;
+                text-align: match-parent;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+      }
+      .clearfix::after{
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+    .imgmovile{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      height: 100%;
+      img{
+        width:100%;
+        vertical-align: middle;
+        height:100%;
+      }
+    }
+  }
+
+}
