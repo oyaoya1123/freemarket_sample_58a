@@ -1,9 +1,7 @@
 $(function() {
-  //$('.slider').slick();
   $('.slider').slick({
-    prevArrow:'<i class="fa fa-angle-left arrow-left"></i>',
-    nextArrow:'<i class="fa fa-angle-right arrow-right"></i>',
-    dots: true,
+    prevArrow:'<i class="fas fa-chevron-left arrow-left"></i>',
+    nextArrow:'<i class="fas fa-chevron-right arrow-right"></i>',
     autoplay: true,
     autoplaySpeed: 4000,
     speed: 800,

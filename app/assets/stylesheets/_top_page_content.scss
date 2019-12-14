@@ -1,3 +1,6 @@
+body {
+  background-color: rgb(245, 245, 245);
+}
 .wraper {
   width: 1080px;
   margin: 0 auto;
@@ -7,28 +10,27 @@
     margin-left: -50vw;
     position: relative;
     width: 100vw;
-    background-color: skyblue;
-    border: rebeccapurple 1px solid;
+    background-color: white;
     .slider img {
       height: 390px;
       width: 100%;
     }
     .arrow-left {
       position: absolute;
-      top: 10px;
+      top: 50%;
       left: 10px;
+      font-size: 64px;
+      color: #fff;
+      text-shadow: 2px 2px 2px #f5f5f5, -2px 2px 2px #f5f5f5, 2px -2px 2px #f5f5f5, -2px -2px 2px #f5f5f5, 2px 2px 2px #f5f5f5, -2px 2px 2px #f5f5f5, 2px -2px 2px #f5f5f5, -2px -2px 2px #f5f5f5;
       z-index: 999;
     }
     .arrow-right {
       position: absolute;
-      top: 10px;
+      top: 50%;
       right:10px;
-      z-index: 999;
-    }
-    .slick-dots {
-      position: absolute;
-      top: 10px;
-      left: 100px;
+      font-size: 64px;
+      color: #fff;
+      text-shadow: 2px 2px 2px #f5f5f5, -2px 2px 2px #f5f5f5, 2px -2px 2px #f5f5f5, -2px -2px 2px #f5f5f5, 2px 2px 2px #f5f5f5, -2px 2px 2px #f5f5f5, 2px -2px 2px #f5f5f5, -2px -2px 2px #f5f5f5;
       z-index: 999;
     }
   }
