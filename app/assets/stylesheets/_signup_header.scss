@@ -98,6 +98,9 @@
             background: #ea352d;
           }
         }
+        .progress-status-start {
+          background: #ea352d;
+        }
         .progress-status-end {
           background: #ea352d;
           &:before {
@@ -180,6 +183,38 @@
           }
         }
       }
+    }
+  }
+}
+.button-wrap {
+  margin: 0 auto;
+  width: 768px;
+  text-align: center;
+  background-color: white;
+  padding: 40px 0;
+  #button_next {
+    display: inline-block;
+    width: 128px;
+    height:64px;
+    line-height: 64px;
+    font-size: 24px;
+    background-color: red;
+    color: white;
+    margin-right: 24px;
+    &:focus {
+      outline: 0;
+    }
+  }
+  #button_prev {
+    display: inline-block;
+    width: 128px;
+    height:64px;
+    line-height: 64px;
+    font-size: 24px;
+    background-color: red;
+    color: white;
+    &:focus {
+      outline: 0;
     }
   }
 }
