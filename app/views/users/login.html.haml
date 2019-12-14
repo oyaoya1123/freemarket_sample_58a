@@ -21,7 +21,6 @@
         .login-form-inner
           .form-group
             = f.text_field :email, placeholder:"メールアドレス", class:"input-form"
-            -# %input.login-input-text.input-default{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
           .form-group
             = f.password_field :password, placeholder:"パスワード", class:"input-form"
           = f.submit "ログイン", class:"btn-defoultred"
