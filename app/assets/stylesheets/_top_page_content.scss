@@ -6,10 +6,31 @@
     left: 50%;
     margin-left: -50vw;
     position: relative;
-    top: 0px;
     width: 100vw;
     background-color: skyblue;
     border: rebeccapurple 1px solid;
+    .slider img {
+      height: 390px;
+      width: 100%;
+    }
+    .arrow-left {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 999;
+    }
+    .arrow-right {
+      position: absolute;
+      top: 10px;
+      right:10px;
+      z-index: 999;
+    }
+    .slick-dots {
+      position: absolute;
+      top: 10px;
+      left: 100px;
+      z-index: 999;
+    }
   }
   .popular-categorys-header {
     padding: 56px 0px 30px;
