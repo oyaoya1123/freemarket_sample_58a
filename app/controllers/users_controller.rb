@@ -12,5 +12,7 @@ class UsersController < ApplicationController
   def login
   end
  
+  def signup_page
+  end
 
 end
