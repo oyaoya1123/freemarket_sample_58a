@@ -107,7 +107,6 @@ section {
               }
               .select-box {
                 padding: 0 10px;
-                // border-color: #ea352d;
                 width: 100%;
                 color: #333;
                 z-index: 2;
@@ -118,9 +117,9 @@ section {
                 font-size: 16px;
                 line-height: 1.5;
                 cursor: pointer;
-                -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
-                -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
-                appearance: none; /* 標準のスタイルを無効にする */
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
                 outline: none;
               }
             }
