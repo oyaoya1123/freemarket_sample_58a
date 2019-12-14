@@ -4,6 +4,8 @@
   text-align: center;
   box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;
   background-color: white;
+  position: relative;
+  z-index: 10;
   &__upper_box {
     margin: 0 auto;
     &__content {  
@@ -96,7 +98,7 @@
         &:hover {
           .child {
             background-color: white;
-            box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;
+            box-shadow: rgba(92, 77, 77, 0.18) 0px 2px 4px;
             .child-content {
               font-weight: normal;
               display: block;
@@ -105,6 +107,7 @@
         }
 
         ul.child {
+          z-index: 1000;
           position: absolute;
           top: 44px;
           width: 224px;
