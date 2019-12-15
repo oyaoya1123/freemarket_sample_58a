@@ -1,0 +1,12 @@
+.signup-footer
+  %nav
+    %ul
+      %li
+        = link_to "プライバシーポリシー", products_index_path
+      %li
+        = link_to "メルカリ利用規約", products_index_path
+      %li
+        = link_to "特定商取引に関する表記", products_index_path
+  = link_to products_index_path, class: "logo" do
+    = image_tag "logo-gray.svg", size: "80x65", alt: "メルカリ"
+  %p ©︎ Mercari, Inc.

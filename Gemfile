@@ -76,3 +76,5 @@ gem 'erb2haml'
 gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'jquery-rails'
+
