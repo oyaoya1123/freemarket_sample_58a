@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   def identification  
   end
 
+  def signupsmscon
+  end
+  
   def signupregistration
   end
   
