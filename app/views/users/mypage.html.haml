@@ -16,10 +16,10 @@
             出品数
             %span.bold 0
     %section.tabs
-      %input#all{:checked => "checked", :name => "tab_item", :type => "radio"}/
-      %label.tab_item{:for => "all"} お知らせ
-      %input#programming{:name => "tab_item", :type => "radio"}/
-      %label.tab_item{:for => "programming"} やることリスト
+      %input#all{checked: "checked", name: "tab_item", type: "radio"}/
+      %label.tab_item{for: "all"} お知らせ
+      %input#programming{name: "tab_item", type: "radio"}/
+      %label.tab_item{for: "programming"} やることリスト
       
       #all_content.tab_content
         .tab_content_description
@@ -44,10 +44,10 @@
 
     %section.tabs2.mypage-tab-container{style: 'margin-top:40px;'}
       %h2.mypage-tab-head 購入した商品
-      %input#buyed{:checked => "checked", :name => "tab_item2", :type => "radio"}/
-      %label.tab_item2{:for => "buyed"} 取引中
-      %input#ago{:name => "tab_item2", :type => "radio"}/
-      %label.tab_item2{:for => "ago"} 過去の取引
+      %input#buyed{checked: "checked", name: "tab_item2", type: "radio"}/
+      %label.tab_item2{for: "buyed"} 取引中
+      %input#ago{name: "tab_item2", type: "radio"}/
+      %label.tab_item2{for: "ago"} 過去の取引
       
       #buyed_content.tab_content2
         .tab_content_description
