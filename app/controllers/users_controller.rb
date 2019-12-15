@@ -15,6 +15,9 @@ class UsersController < ApplicationController
   def new_create
   end
 
+  def mypage
+  end
+
   def login
   end
  
