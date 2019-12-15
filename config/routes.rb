@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get 'users/logout' => 'users#logout'
   get 'products/itemshow'  => 'products#itemshow'
   get 'users/mypage'  => 'users#mypage'
+  get 'users/signupsmscon' => 'users#signupsmscon'
+  get 'users/signupregistration' => 'users#signupregistration'
   get 'users/new_create'  => 'users#new_create'
+  get 'users/login'  => 'users#login'
+  get 'users/signup_page'  => 'users#signup_page'
   
 end
