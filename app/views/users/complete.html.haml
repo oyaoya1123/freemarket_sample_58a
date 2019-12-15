@@ -1,0 +1,32 @@
+%main.single-main1
+  %section.l-single-container.signup-done
+    %h2.l-single-head.registration 会員登録完了
+    %div.l-single-inner.registration-form
+      %div.l-single-content
+        %p
+          ありがとうございます。
+          %br
+          会員登録が完了しました。
+
+        = link_to "/", class: "btn-default btn-red" do
+          メルカリをはじめる
+
+    %aside.app-banner
+      .app-banner__footer
+        .app-banner__footer__inner
+          %h2 スマホでかんたんフリマアプリ
+          %p 今すぐ無料ダウンロード！
+          .icon.clearfix
+            %figure
+              = image_tag "logo_red.svg", width: "68", class:"merukari-icon"
+
+            %ul.downroad.clearfix
+              %li
+                = link_to "/", target: "_blank", class:"link" do
+                  = image_tag "Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg", width:"133", height:"40", class:"logo"
+              %li
+                = link_to "/", target: "_blank", class:"link" do
+                  = image_tag "google-play-badge.png", width:"133", height:"60", class:"logo"
+
+        .imgmovile
+          =image_tag "ipadIMGL1260_TP_V.jpg", width:"300", height:"260"
