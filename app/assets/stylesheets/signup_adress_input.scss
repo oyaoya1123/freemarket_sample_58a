@@ -66,7 +66,6 @@
               line-height: 1;
               &::before{
                 font-family: "Font Awesome 5 Free";
-                // content: '\e00f';
                 font-weight: 900;
               }
             }
@@ -83,7 +82,6 @@
               line-height: 1.5;
               cursor: pointer;
               min-height: 1.5em;
-              // display: none;
               appearance: none;
               outline: 0;
               -webkit-appearance: none;
@@ -106,7 +104,6 @@
           cursor: pointer;
           text-align: center;
           min-height: 1.5em;
-          -webkit-appearance: button;
           overflow: visible;
           margin-top: 32px;
         }
