@@ -63,6 +63,26 @@
               display: inline-block;
               margin: 0 0 0 8px;
               vertical-align: middle;
+              .card_visa{
+                height: 20px;
+                width: 49px;
+              }
+              .card_master{
+                height: 20px;
+                width: 34px;
+              }
+              .card_saison{
+                height: 20px;
+                width: 30px;
+              }
+              .card_other{
+                height: 20px;
+                width: 32px;
+              }
+              .card_american{
+                height: 20px;
+                width: 21px;
+              }                            
             }
           }
           .signup-form-expire {
