@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'products/buy'  => 'products#buy'
   get 'products/create'  => 'products#create'
   get 'users/logout' => 'users#logout'
+  get 'users/card' => 'users#card'
+  get 'users/card_create' => 'users#card_create'
   get 'products/itemshow'  => 'products#itemshow'
   get 'users/mypage'  => 'users#mypage'
   get 'users/signupsmscon' => 'users#signupsmscon'
