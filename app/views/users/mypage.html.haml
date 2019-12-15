@@ -1,0 +1,62 @@
+%header
+  ヘッダー
+
+%main.l-container.clearfix
+  %div.l-content
+    %section.mypage-user-icon
+      = link_to "/" , class:"icon" do
+        %figure
+          =image_tag  "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: "60x60"
+        %h2.bold やんゆ
+        %div.mypage-number
+          %div.text1
+            評価
+            %span.bold 0
+          %div.text2
+            出品数
+            %span.bold 0
+    %section.tabs
+      %input#all{checked: "checked", name: "tab_item", type: "radio"}/
+      %label.tab_item{for: "all"} お知らせ
+      %input#programming{name: "tab_item", type: "radio"}/
+      %label.tab_item{for: "programming"} やることリスト
+      
+      #all_content.tab_content
+        .tab_content_description
+          %ul.mypage-item-list.tab-pane.active
+            %li.first-child
+              = link_to "/", class: "mypage-item-link" do
+                %figure
+                  =image_tag  "//static.mercdn.net/images/mercari_profile.png", class:"lazyloaded"
+                %div.mypage-item-body
+                  %div.mypage-item-text 《新規登録者限定》”最大1,000円分のポイントがもらえる”出品キャンペーン開催中！
+                  %time
+                    %i.icon-arrow-right
+                    %span 7 時間前
+                %i.icon-arrow-right
+            %li.mypage-go-list.last-child
+              = link_to "/" do
+                一覧を見る
+      #programming_content.tab_content
+        .tab_content_description
+          %ul.mypage-item-list.tab-pane
+            %li.mypage-item-not-found.bold 現在、やることリストはありません
+
+    %section.tabs2.mypage-tab-container{style: 'margin-top:40px;'}
+      %h2.mypage-tab-head 購入した商品
+      %input#buyed{checked: "checked", name: "tab_item2", type: "radio"}/
+      %label.tab_item2{for: "buyed"} 取引中
+      %input#ago{name: "tab_item2", type: "radio"}/
+      %label.tab_item2{for: "ago"} 過去の取引
+      
+      #buyed_content.tab_content2
+        .tab_content_description
+          %ul.mypage-item-list.tab-pane.active
+            %li.mypage-item-not-found.bold 取引中の商品がありません
+      #ago_content.tab_content2
+        .tab_content_description
+          %ul.mypage-item-list.tab-pane.active
+            %li.mypage-item-not-found.bold 過去に取引した商品がありません
+
+
+  
