@@ -9,8 +9,9 @@
         %form{action: "https://",class: "content-input"}
           .l-content__logout
             %button.btn-default.btn-red{type: "submit"} ログアウト
-    %aside.side
-      = render "aside"
+    = render "users/aside"
+  %aside
+    = render "products/top_aside_footer"
   %footer
     = render "products/top_footer"
     
