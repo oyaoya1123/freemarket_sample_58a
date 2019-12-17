@@ -22,6 +22,8 @@ class UsersController < ApplicationController
   end
  
   def signup_page
+    @user = Tuser.find(1)
+    @product = Tproduct.find(1)
   end
 
   def signup_adress_input 

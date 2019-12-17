@@ -1,7 +1,19 @@
 %header
   = render "signup_header"
 %main
-  メイン
+  = @user.name
+  出品商品
+  - @user.ex_tproducts.each do |product|
+    = product.name
+  購入商品
+  - @user.pu_tproducts.each do |product|
+    = product.name
+  %br
+  = @product.name
+  出品者
+  = @product.ex_tuser.name
+  購入者
+  = @product.pu_tuser.name
 %aside
 %footer
   = render "signup_footer"
