@@ -79,4 +79,5 @@ gem 'fog-aws'
 gem 'jquery-rails'
 
 gem 'mechanize'
+gem 'ancestry'
 
