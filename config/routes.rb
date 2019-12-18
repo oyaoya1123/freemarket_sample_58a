@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'users/mypage'  => 'users#mypage'
   get 'users/signupsmscon' => 'users#signupsmscon'
   get 'users/signupregistration' => 'users#signupregistration'
-  get 'users/new_create'  => 'users#new_create'
+  get 'users/signup/new_create'  => 'users#new_create'
   get 'users/login'  => 'users#login'
   get 'users/signup_page'  => 'users#signup_page'
   get 'users/signup_adress_input'  => 'users#signup_adress_input'
