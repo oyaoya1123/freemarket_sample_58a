@@ -10,9 +10,16 @@
 
         - @parents.each do |parent|
           =parent.name
+        -# %p
+        -# - @childrens.children.each do |c|
+        -#   =c.name
         %p
-        - @childrens.children.each do |c|
+        - @childrens.each do |c|
           =c.name
+
+        %p
+        - @gchildrens.each do |d|
+          =d.name
 
   %footer.single-footer
     = render "products/footer"

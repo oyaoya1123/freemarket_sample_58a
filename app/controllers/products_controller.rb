@@ -16,11 +16,12 @@ class ProductsController < ApplicationController
   def buy
   end
 
-  
+
   #テスト
   def a
     @parents = Category2.all.where(ancestry:nil)
-    @childrens=Category2.find("1141")
+    @childrens=Category2.find("1141").children
+    @gchildrens=@childrens.find("1142").children
 
   end
 end
