@@ -14,4 +14,5 @@ class ProductsController < ApplicationController
   # 商品購入確認
   def buy
   end
+  
 end
