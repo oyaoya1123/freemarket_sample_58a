@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   get 'users/signup_adress_input'  => 'users#signup_adress_input'
   get 'users/signup_card'  => 'users#signup_card'
   get 'users/complete'  => 'users#complete'
+  get 'products/a'  => 'products#a'
   
 end

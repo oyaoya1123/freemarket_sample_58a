@@ -1,0 +1,18 @@
+.single-container
+  %header 
+    = render "products/header"
+
+
+  .buy-main
+    .buy-main__content
+
+      .buy-main__content__text
+
+        - @parents.each do |parent|
+          =parent.name
+        %p
+        - @childrens.children.each do |c|
+          =c.name
+
+  %footer.single-footer
+    = render "products/footer"
