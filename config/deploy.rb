@@ -35,6 +35,43 @@ namespace :deploy do
   end
 end
 
+#seedデータの読み込み
+namespace :deploy do
+  desc 'reload the database with category_seed data'
+  task :seed_category do
+    on roles(:db) do
+      with rails_env: fetch(:rails_env) do
+        within release_path do
+          execute :bundle, :exec, :rake, 'seeds_sample:db:seed:category'
+        end
+      end
+    end
+  end
+
+  desc 'reload the database with user_seed data'
+  task :seed_user do
+    on roles(:db) do
+      with rails_env: fetch(:rails_env) do
+        within release_path do
+          execute :bundle, :exec, :rake, 'seeds_sample:db:seed:user'
+        end
+      end
+    end
+  end
+
+  desc 'reload the database with product_seed data'
+  task :seed_product do
+    on roles(:db) do
+      with rails_env: fetch(:rails_env) do
+        within release_path do
+          execute :bundle, :exec, :rake, 'seeds_sample:db:seed:product'
+        end
+      end
+    end
+  end
+
+end
+
 set :default_env, {
   BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
   BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
