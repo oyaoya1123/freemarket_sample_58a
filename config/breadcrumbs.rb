@@ -13,6 +13,11 @@ crumb :mypage do
   parent :root
 end
 
+crumb :mypage_identification do
+  link '本人情報の確認'
+  parent :mypage
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path
