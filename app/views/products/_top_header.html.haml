@@ -16,43 +16,53 @@
           = icon 'fas', 'list', class: "icon"
           カテゴリから探す
         %ul.child
+
           %li.child-content
-            = link_to "レディース", products_index_path
+            =@categorys.each do |parentc|
+              = link_to "#{parentc.name}", products_index_path
             %ul.grandchild
               %li.grandchild-content
-                = link_to "トップス", products_index_path
-                %ul.greatgrandchild
-                  %li.greatgrandchild-content
-                    = link_to "Tシャツ", products_index_path
-                  %li.greatgrandchild-content
-                    = link_to "シャツ", products_index_path
-                  %li.greatgrandchild-content
-                    = link_to "ポロシャツ", products_index_path
-              %li.grandchild-content
-                = link_to "ジャケット/アウター", products_index_path
-              %li.grandchild-content
-                = link_to "パンツ", products_index_path
-          %li.child-content
-            = link_to "メンズ", products_index_path
-            %ul.grandchild
-              %li.grandchild-content
-                = link_to "トップス", products_index_path
-              %li.grandchild-content
-                = link_to "ジャケット/アウター", products_index_path
-          %li.child-content
-            = link_to "ベビー・キッズ", products_index_path
-            %ul.grandchild
-              %li.grandchild-content
-                = link_to "ベビー服（女の子用）", products_index_path
-              %li.grandchild-content
-                = link_to "ベビー服（男の子用）", products_index_path
-                %ul.greatgrandchild
-                  %li.greatgrandchild-content
-                    = link_to "トップス", products_index_path
-                  %li.greatgrandchild-content
-                    = link_to "アウター", products_index_path
-                  %li.greatgrandchild-content
-                    = link_to "パンツ", products_index_path
+                = render partial: "header_child", collection: @category_children1, as: "category"
+
+
+
+          -# %li.child-content
+          -#   = link_to "レディース", products_index_path
+          -#   %ul.grandchild
+          -#     %li.grandchild-content
+          -#       = link_to "トップス", products_index_path
+          -#       %ul.greatgrandchild
+          -#         %li.greatgrandchild-content
+          -#           = link_to "Tシャツ", products_index_path
+          -#         %li.greatgrandchild-content
+          -#           = link_to "シャツ", products_index_path
+          -#         %li.greatgrandchild-content
+          -#           = link_to "ポロシャツ", products_index_path
+          -#     %li.grandchild-content
+          -#       = link_to "ジャケット/アウター", products_index_path
+          -#     %li.grandchild-content
+          -#       = link_to "パンツ", products_index_path
+          -# %li.child-content
+          -#   = link_to "メンズ", products_index_path
+          -#   %ul.grandchild
+          -#     %li.grandchild-content
+          -#       = link_to "トップス", products_index_path
+          -#     %li.grandchild-content
+          -#       = link_to "ジャケット/アウター", products_index_path
+          -# %li.child-content
+          -#   = link_to "ベビー・キッズ", products_index_path
+          -#   %ul.grandchild
+          -#     %li.grandchild-content
+          -#       = link_to "ベビー服（女の子用）", products_index_path
+          -#     %li.grandchild-content
+          -#       = link_to "ベビー服（男の子用）", products_index_path
+          -#       %ul.greatgrandchild
+          -#         %li.greatgrandchild-content
+          -#           = link_to "トップス", products_index_path
+          -#         %li.greatgrandchild-content
+          -#           = link_to "アウター", products_index_path
+          -#         %li.greatgrandchild-content
+          -#           = link_to "パンツ", products_index_path
       %li
         = link_to products_index_path do
           = icon 'fas', 'tags', class: "icon"

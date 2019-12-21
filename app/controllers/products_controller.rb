@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
   # 商品一覧
   def index
-    @parents = Category2.all.where(ancestry:nil).limit(13)
+    @categorys = Category2.all.where(ancestry:nil)
+
   end
 
   # 商品出品
