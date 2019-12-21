@@ -1,15 +1,16 @@
-crumb :root do
-  link "Home", root_path
-end
+# crumb :root do
+#   link "Home", root_path
+# end
 
 # ルート
 crumb :root do
-  link "トップページ", products_index_path
+  link "メルカリ", products_index_path
 end
 
 # マイページ
 crumb :mypage do
   link "マイページ", users_mypage_path
+  parent :root
 end
 
 

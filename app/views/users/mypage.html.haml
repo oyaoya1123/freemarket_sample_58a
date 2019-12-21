@@ -2,9 +2,12 @@
   %header 
     = render "products/top_header"
 
-  %nav.bread-crumbs 
-    -# - breadcrumb :mypage
-    = render "products/pankuzu"
+  - breadcrumb :mypage
+  = render 'products/breadcrumbs'
+  -# %nav.bread-crumbs 
+  -#   = breadcrumbs pretext: '', separator: ' &rsaquo; ', class: 'breadcrumbs-list'
+    -# -# - breadcrumb :mypage
+    -# = render "products/pankuzu"
 
   %main.l-container.clearfix
     %div.l-content
