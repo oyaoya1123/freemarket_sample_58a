@@ -7,8 +7,9 @@
       .sell-container
         .sell-container-inner
           %h2.l-single-head 商品の情報を入力
-          %form.sell-form
-          = form_with model: @products,class: "sell-form" do |f|
+          -# %form.sell-form
+          -# = form_with model: @products,class: "sell-form" do |f|
+          = form_with url: products_create_path,local: true,class: "sell-form" do |f|
             .sell-upload-box
               %h3.sell-upload-head
                 出品画像
@@ -203,6 +204,8 @@
                   また、出品をもちまして
                   %a{href: "/", target: "_blank"} 加盟店規約
                   に同意したことになります。
+
+                  
               = f.submit "出品する", class:"btn-default btn-red"
               -# %button.btn-default.btn-red{type: "submit"} 出品する
               %button.btn-default.btn-gray もどる
