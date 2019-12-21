@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :new, :create, :edit, :update] do
     get '/buy'  => 'products#buy' 
   end
+  
   #購入
   resources :users_purchases, only: [:create] 
   
