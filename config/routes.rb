@@ -22,5 +22,11 @@ Rails.application.routes.draw do
   get 'users/signup_adress_input'  => 'users#signup_adress_input'
   get 'users/signup_card'  => 'users#signup_card'
   get 'users/complete'  => 'users#complete'
+
+  resources :products, only: [:index, :show, :new, :create, :edit, :update] do
+    get '/buy'  => 'products#buy' 
+  end
+  #購入
+  resources :users_purchases, only: [:create] 
   
 end
