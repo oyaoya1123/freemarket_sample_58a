@@ -42,7 +42,7 @@ namespace :deploy do
     on roles(:db) do
       with rails_env: fetch(:rails_env) do
         within release_path do
-          execute :bundle, :exec, :rake, 'seeds_sample:db:seed:category'
+          execute :bundle, :exec, :rake, 'task_seed:db:seed:category'
         end
       end
     end
@@ -53,7 +53,7 @@ namespace :deploy do
     on roles(:db) do
       with rails_env: fetch(:rails_env) do
         within release_path do
-          execute :bundle, :exec, :rake, 'seeds_sample:db:seed:user'
+          execute :bundle, :exec, :rake, 'task_seed:db:seed:user'
         end
       end
     end
@@ -64,7 +64,7 @@ namespace :deploy do
     on roles(:db) do
       with rails_env: fetch(:rails_env) do
         within release_path do
-          execute :bundle, :exec, :rake, 'seeds_sample:db:seed:product'
+          execute :bundle, :exec, :rake, 'task_seed:db:seed:product'
         end
       end
     end
