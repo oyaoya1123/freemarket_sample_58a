@@ -16,13 +16,11 @@
           = icon 'fas', 'list', class: "icon"
           カテゴリから探す
         %ul.child
-
           %li.child-content
-            =@categorys.each do |parentc|
-              = link_to "#{parentc.name}", products_index_path
+            -@categorys.each do|c|
+              = link_to "#{c.name}", products_index_path
             %ul.grandchild
-              %li.grandchild-content
-                = render partial: "header_child", collection: @category_children1, as: "category"
+              = render partial: "header_child", collection: @categorys_children1, as: "category"
 
 
 
@@ -31,6 +29,7 @@
           -#   %ul.grandchild
           -#     %li.grandchild-content
           -#       = link_to "トップス", products_index_path
+
           -#       %ul.greatgrandchild
           -#         %li.greatgrandchild-content
           -#           = link_to "Tシャツ", products_index_path

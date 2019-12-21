@@ -9,15 +9,14 @@
     %h2 人気カテゴリー
     .popular-categorys-header__box
       %ul.popular-categorys-header__box__container
-      =@categorys.each do |parentc|
         %li.popular-categorys-header__box__container__content
-          = link_to "#{parentc.name}", products_index_path
-        -# %li.popular-categorys-header__box__container__content
-        -#   = link_to "メンズ", products_index_path
-        -# %li.popular-categorys-header__box__container__content
-        -#   = link_to "家電・スマホ・カメラ", products_index_path
-        -# %li.popular-categorys-header__box__container__content
-        -#   = link_to "おもちゃ・ホビー・グッズ", products_index_path
+          = link_to "レディース", products_index_path
+        %li.popular-categorys-header__box__container__content
+          = link_to "メンズ", products_index_path
+        %li.popular-categorys-header__box__container__content
+          = link_to "家電・スマホ・カメラ", products_index_path
+        %li.popular-categorys-header__box__container__content
+          = link_to "おもちゃ・ホビー・グッズ", products_index_path
   .popular-categorys-container
     .item-boxes
       .item-boxes__box
