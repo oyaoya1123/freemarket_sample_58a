@@ -8,6 +8,7 @@
         .sell-container-inner
           %h2.l-single-head 商品の情報を入力
           %form.sell-form
+          = form_with model: @products,class: "sell-form" do |f|
             .sell-upload-box
               %h3.sell-upload-head
                 出品画像
@@ -26,16 +27,19 @@
                   %i.icon-camera
             .sell-content
               .form-group1
+
                 %label
                   商品名
                   %span.form-require 必須
                 %div
-                  %input.input-default{placeholder: "商品名（必須 40文字まで)", value: ""}/
+                  = f.text_field :name,class:'input-default',placeholder: "商品名（必須 40文字まで)", value: ""
+                  -# %input.input-default{placeholder: "商品名（必須 40文字まで)", value: ""}/
               .form-group
                 %label
                   商品の説明
                   %span.form-require 必須
-                %textarea.textarea-default{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+                -# %textarea.textarea-default{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+                = f.text_area :description,class:'textarea-default',placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
                 
                       
             .sell-content.clearfix
@@ -172,7 +176,8 @@
                       .l-right.sell-price-input
                         ¥
                         %div
-                          %input.input-default{placeholder: "例）300", value: ""}/
+                          = f.text_field :price,class:'input-default',placeholder: "例）500"
+                          -# %input.input-default{placeholder: "例）300", value: ""}/
                   %li.clearfix
                     .l-left
                       販売手数料 (10%)
@@ -198,7 +203,8 @@
                   また、出品をもちまして
                   %a{href: "/", target: "_blank"} 加盟店規約
                   に同意したことになります。
-              %button.btn-default.btn-red{type: "submit"} 出品する
+              = f.submit "出品する" ,class:"btn-default btn-red"
+              -# %button.btn-default.btn-red{type: "submit"} 出品する
               %button.btn-default.btn-gray もどる
           .overlay
  
