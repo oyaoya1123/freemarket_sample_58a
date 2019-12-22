@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  def edit
+  def profile
   end
 
   def identification  
