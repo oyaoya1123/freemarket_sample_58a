@@ -1,5 +1,5 @@
 %li.grandchild-content
-  = link_to "#{category.name}", products_index_path
+  = link_to "#{category.name}", products_index_path(id: category.id)
 
   %ul.greatgrandchild
     = render partial: "header_grand-child", collection: category.children, as: "children"
