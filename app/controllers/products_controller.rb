@@ -1,20 +1,20 @@
 class ProductsController < ApplicationController
   # 商品一覧
   def index
-    @categorys = Category.all.where(ancestry:nil)
-    @category_children1 = Category.where(ancestry:1)
-    @category_children2 = Category.where(ancestry:199)
-    @category_children3 = Category.where(ancestry:345)
-    @category_children4 = Category.where(ancestry:480)
-    @category_children5 = Category.where(ancestry:622)
-    @category_children6 = Category.where(ancestry:681)
-    @category_children7 = Category.where(ancestry:794)
-    @category_children8 = Category.where(ancestry:894)
-    @category_children9 = Category.where(ancestry:980)
-    @category_children10 = Category.where(ancestry:1089)
-    @category_children11 = Category.where(ancestry:1141)
-    @category_children12 = Category.where(ancestry:1201)
-    @category_children13 = Category.where(ancestry:1264)
+
+    @category_children1 = Category.cat1
+    @category_children2 = Category.cat2
+    @category_children3 = Category.cat3
+    @category_children4 = Category.cat4
+    @category_children5 = Category.cat5
+    @category_children6 = Category.cat6
+    @category_children7 = Category.cat7
+    @category_children8 = Category.cat8
+    @category_children9 = Category.cat9
+    @category_children10 = Category.cat10
+    @category_children11 = Category.cat11
+    @category_children12 = Category.cat12
+    @category_children13 = Category.cat13
 
   end
 
