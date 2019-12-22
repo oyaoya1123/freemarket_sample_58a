@@ -7,6 +7,10 @@ class ProductsController < ApplicationController
   def create
   end
 
+  # 商品編集
+  def change
+  end
+
   # 商品詳細
   def itemshow
   end

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'products/index'  => 'products#index'
   get 'products/buy'  => 'products#buy'
   get 'products/create'  => 'products#create'
+  get 'products/change'  => 'products#change'
   get 'users/logout' => 'users#logout'
   get 'users/card' => 'users#card'
   get 'users/card_create' => 'users#card_create'
