@@ -18,6 +18,11 @@ crumb :mypage_identification do
   parent :mypage
 end
 
+crumb :mypage_profile do
+  link 'プロフィール'
+  parent :mypage
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path
