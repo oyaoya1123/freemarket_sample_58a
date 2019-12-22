@@ -43,8 +43,8 @@ Things you may want to cover:
 ### Association
 - has_many :users_exhibits, dependent: :destroy
 - has_many :users_purchases, dependent: :destroy
-- has_many :products, through: :users_exhibits, dependent: :destroy
-- has_many :products, through: :users_purchases, dependent: :destroy
+- has_many :ex_products, through: :users_exhibits, source: :product, dependent: :destroy
+- has_many :pu_products, through: :users_purchases, source: :product, dependent: :destroy
 - has_one :address, dependent: :destroy
 - has_one :cards, dependent: :destroy
 
@@ -59,8 +59,6 @@ Things you may want to cover:
 - belongs_to :user
 
 
-
-
 ## Addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -71,11 +69,8 @@ Things you may want to cover:
 |building_name|string|
 |user_id|integer|null: false, foreign_key: true|
 
-
 ### Association
 - belongs_to :user
-
-
 
 
 ## users_exhibitsテーブル
@@ -89,6 +84,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product
 - belongs_to :produt_status
+
 
 ## users_purchasesテーブル
 |Column|Type|Options|
@@ -130,11 +126,11 @@ Things you may want to cover:
 |brand_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :users_exhibits, dependent: :destroy
-- has_many :users_purchases, dependent: :destroy
+- has_one :users_exhibit, dependent: :destroy
+- has_one :users_purchase, dependent: :destroy
 - has_many :product_images, dependent: :destroy
-- has_many :users, through: :users_exhibits
-- has_many :users, through: :users_purchases
+- has_one :ex_user, through: :users_exhibit, source: :user
+- has_one :pu_user, through: :users_purchase, source: :user
 - belongs_to :catergory
 - belongs_to :product_condition
 - belongs_to :shipping_charge
@@ -149,11 +145,8 @@ Things you may want to cover:
 |image_url|string|null: false|
 |product_id|integer|null: false, foreign_key: true|
 
-
 ### Association
 - belongs_to :product
-
-
 
 
 ## product_conditionsテーブル 商品の状態
@@ -224,5 +217,3 @@ Things you may want to cover:
 ### Association
 - belongs_to :brand
 - belongs_to :catergory
-
-
