@@ -1,4 +1,4 @@
-Product_condition.create!(
+ProductCondition.create!(
   [
     
       {name: '新品、未使用'},
@@ -11,7 +11,7 @@ Product_condition.create!(
   ]
 ) 
 
-Shipping_charge.create!(
+ShippingCharge.create!(
   [
     
       {name: '送料込み(出品者負担)'},
@@ -24,7 +24,7 @@ Shipping_charge.create!(
   ]
 ) 
 
-Shipping_day.create!(
+ShippingDay.create!(
   [
     
       {name: '1~2日で発送'},
@@ -34,7 +34,7 @@ Shipping_day.create!(
   ]
 ) 
 
-Produt_status.create!(
+ProdutStatus.create!(
   [
     
       {name: '出品中'},
