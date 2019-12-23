@@ -16,59 +16,12 @@
           = icon 'fas', 'list', class: "icon"
           カテゴリから探す
         %ul.child
-          %li.child-content
-            = link_to "レディース", products_index_path(id: 1)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children1, as: "category"
-          %li.child-content
-            = link_to "メンズ", products_index_path(id: 199)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children2, as: "category"
-          %li.child-content
-            = link_to "ベビー・キッズ", products_index_path(id: 345)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children3, as: "category"
-          %li.child-content
-            = link_to "インテリア・住まい・小物", products_index_path(id: 480)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children4, as: "category"
-          %li.child-content
-            = link_to "本・音楽・ゲーム", products_index_path(id: 1)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children5, as: "category"
-          %li.child-content
-            = link_to "おもちゃ・ホビー・グッズ", products_index_path(id: 1)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children6, as: "category"
-          %li.child-content
-            = link_to "コスメ・香水・美容", products_index_path(id: 1)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children7, as: "category"
-          %li.child-content
-            = link_to "家電・スマホ・カメラ", products_index_path(id: 1)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children8, as: "category"
-          %li.child-content
-            = link_to "スポーツ・レジャー", products_index_path(id: 1)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children9, as: "category"
-          %li.child-content
-            = link_to "ハンドメイド", products_index_path(id: 1)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children10, as: "category"
-          %li.child-content
-            = link_to "チケット", products_index_path(id: 1)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children11, as: "category"
-          %li.child-content
-            = link_to "自動車・オートバイ", products_index_path(id: 1)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children12, as: "category"
-          %li.child-content
-            = link_to "その他", products_index_path(id: 1)
-            %ul.grandchild
-              = render partial: "header_child", collection: @category_children13, as: "category"
-          
+          - @categories.each do|parent|
+            %li.child-content
+              = link_to parent.name, products_index_path
+              %ul.grandchild
+                = render partial: "header_child", collection: parent.children, as: :category
+
       %li
         = link_to products_index_path do
           = icon 'fas', 'tags', class: "icon"
