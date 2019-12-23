@@ -1,59 +1,67 @@
-%main.l-container2.clearfix
-  %div.l-content2
-    %section.item-box-container
-      %h2.item-name 商品名
-      %div.item-main-content.clearfix
-        %div.item-photo
-          %div.owl-carousel.owl-loaded.owl-drag
-            %div.owl-stage-outer
-              %div.owl-stage
-                %div.owl-item.active
-                  %div.owl-item-inner.is-higher-width
-                    = image_tag "", class:"owl-lazy"
-            %div.owl-nav.disabled
-              %div.owl-prev prev
-              %div.owl-next next
-            %div.owl-dots.disabled
-              %div.owl-dot.active
-                %span
-        %table.item-detail-table
-          %tbody
-            %tr
-              %th 出品者
-              %td 名前
-            %tr
-              %th カテゴリー
-              %td 名前
-            %tr
-              %th ブランド
-              %td 名前
-            %tr
-              %th 商品の状態
-              %td 未使用に近い
-            %tr
-              %th 配送料の負担
-              %td 着払い(購入者負担)
-            %tr
-              %th 配送の方法
-              %td 未定
-            %tr
-              %th 配送元地域
-              %td 大阪
-            %tr
-              %th 発送日の目安
-              %td 4~7日で発送
-      %div.item-price-box.text-center
-        %span.item-price.bold ¥100,000
-        %span (税込)
-        %span.item-shipping-fee 着払い
-      %div.item-description.f14
-        %p.item-description-inner 商品説明
-    %div.listing-item-change-box
-      = link_to "/", class: "btn-default btn-red" do
-        商品の編集
-      %p.text-center or
-      %form
-        %button.btn-default.btn-gray 出品を一旦停止する
-      %button.btn-default.btn-gray この商品を削除する
+.single-container{style: 'padding-bottom:0px;'}
+  %header 
+    = render "products/top_header"
+
+  %main.l-container2.clearfix
+    %div.l-content2
+      %section.item-box-container
+        %h2.item-name 商品名
+        %div.item-main-content.clearfix
+          %div.item-photo
+            %div.owl-carousel.owl-loaded.owl-drag
+              %div.owl-stage-outer
+                %div.owl-stage
+                  %div.owl-item.active
+                    %div.owl-item-inner.is-higher-width
+                      = image_tag "", class:"owl-lazy"
+              %div.owl-nav.disabled
+                %div.owl-prev prev
+                %div.owl-next next
+              %div.owl-dots.disabled
+                %div.owl-dot.active
+                  %span
+          %table.item-detail-table
+            %tbody
+              %tr
+                %th 出品者
+                %td 名前
+              %tr
+                %th カテゴリー
+                %td 名前
+              %tr
+                %th ブランド
+                %td 名前
+              %tr
+                %th 商品の状態
+                %td 未使用に近い
+              %tr
+                %th 配送料の負担
+                %td 着払い(購入者負担)
+              %tr
+                %th 配送の方法
+                %td 未定
+              %tr
+                %th 配送元地域
+                %td 大阪
+              %tr
+                %th 発送日の目安
+                %td 4~7日で発送
+        %div.item-price-box.text-center
+          %span.item-price.bold ¥100,000
+          %span (税込)
+          %span.item-shipping-fee 着払い
+        %div.item-description.f14
+          %p.item-description-inner 商品説明
+      %div.listing-item-change-box
+        = link_to "/", class: "btn-default btn-red" do
+          商品の編集
+        %p.text-center or
+        %form
+          %button.btn-default.btn-gray 出品を一旦停止する
+        %button.btn-default.btn-gray この商品を削除する
+  %aside
+    = render "products/top_aside_footer"
+  %footer
+    = render "products/top_footer"
 
 
