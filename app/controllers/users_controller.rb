@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :validates_smscon, only: :signup_adress_input # signupsmsconのバリデーション
   before_action :validates_adress_input, only: :signup_card # signup_adress_inputのバリデーション
   
-  def edit
+  def profile
   end
 
   def identification

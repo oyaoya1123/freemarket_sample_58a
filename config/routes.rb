@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'githubtests' => 'githubtests#index'
   get 'githubtests/mypage' => 'githubtests#mypage'
-  get 'users/edit' => 'users#edit'
+  get 'users/profile' => 'users#profile'
   get 'users/identification' => 'users#identification'
   get 'products/index'  => 'products#index'
   get 'products/buy'  => 'products#buy'
