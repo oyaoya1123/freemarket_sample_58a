@@ -14,13 +14,16 @@ Rails.application.routes.draw do
   get 'users/card_create' => 'users#card_create'
   get 'products/itemshow'  => 'products#itemshow'
   get 'users/mypage'  => 'users#mypage'
-  get 'users/signupsmscon' => 'users#signupsmscon'
-  get 'users/signupregistration' => 'users#signupregistration'
-  get 'users/new_create'  => 'users#new_create'
+
+  get 'users/signup'  => 'users#new_create'
+  get 'users/signup/registration' => 'users#signupregistration'
+  post 'users/signup/smscon' => 'users#signupsmscon'
+  post 'users/signup/adress_input'  => 'users#signup_adress_input'
+  post 'users/signup/card'  => 'users#signup_card'
+  post 'users/signup/create'  => 'users#create'
+  get 'users/signup/complete'  => 'users#complete'
+
   get 'users/login'  => 'users#login'
   get 'users/signup_page'  => 'users#signup_page'
-  get 'users/signup_adress_input'  => 'users#signup_adress_input'
-  get 'users/signup_card'  => 'users#signup_card'
-  get 'users/complete'  => 'users#complete'
   
 end

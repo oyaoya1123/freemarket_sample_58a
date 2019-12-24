@@ -26,9 +26,26 @@ Things you may want to cover:
 # usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|last_name|string|null: false|
-|first_name|string|null: false|
-|phone_number|string|
+|nickname|string|null: false|
+|last_name_kanji|string|null: false|
+|first_name_kanji|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birthday_year|integer|null: false|
+|birthday_month|integer|null: false|
+|birthday_day|integer|null: false|
+|phone_number|integer|null: false|
+|address_last_name|string|null: false|
+|address_first_name|string|null: false|
+|address_last_name_kana|string|null: false|
+|address_first_name_kana|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|address1|string|null: false|
+|address2|string|
+|address_phone_number|string|
+|zip_code|string|
+
 |profile_name|string|null: false|
 |profile_text|text|null: false|
 |expiration_date_month|integer|null: false|
@@ -36,9 +53,7 @@ Things you may want to cover:
 |security_code|integer|null: false|
 |nickname|string|null: false|
 |mail_address|string|null: false, unique: true|
-|nickname|string|null: false|
 |password|string|null: false|
-|birthday|date|null: false|
 
 ### Association
 - has_many :users_exhibits, dependent: :destroy
