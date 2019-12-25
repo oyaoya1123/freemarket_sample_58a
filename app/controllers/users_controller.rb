@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def identification
   end
 
-  def new_create
+  def signup
   end
 
   def signupregistration

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resource :users do
     collection do
+      get 'signup'
       get 'signupregistration'
       post 'signupsmscon'
       post 'signup_adress_input'
@@ -25,14 +26,6 @@ Rails.application.routes.draw do
       get 'complete'
     end
   end
-
-  get 'users/signup'  => 'users#new_create'
-  #get 'users/signup/registration' => 'users#signupregistration'
-  #post 'users/signup/smscon' => 'users#signupsmscon'
-  #post 'users/signup/adress_input'  => 'users#signup_adress_input'
-  #post 'users/signup/card'  => 'users#signup_card'
-  #post 'users/signup/create'  => 'users#create'
-  #get 'users/signup/complete'  => 'users#complete'
 
   get 'users/login'  => 'users#login'
   get 'users/signup_page'  => 'users#signup_page'
