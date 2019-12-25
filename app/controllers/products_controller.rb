@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   # 商品一覧
   def index
+    @categories=Category.roots
+
   end
 
   # 商品詳細

@@ -16,43 +16,12 @@
           = icon 'fas', 'list', class: "icon"
           カテゴリから探す
         %ul.child
-          %li.child-content
-            = link_to "レディース", products_path
-            %ul.grandchild
-              %li.grandchild-content
-                = link_to "トップス", products_path
-                %ul.greatgrandchild
-                  %li.greatgrandchild-content
-                    = link_to "Tシャツ", products_path
-                  %li.greatgrandchild-content
-                    = link_to "シャツ", products_path
-                  %li.greatgrandchild-content
-                    = link_to "ポロシャツ", products_path
-              %li.grandchild-content
-                = link_to "ジャケット/アウター", products_path
-              %li.grandchild-content
-                = link_to "パンツ", products_path
-          %li.child-content
-            = link_to "メンズ", products_path
-            %ul.grandchild
-              %li.grandchild-content
-                = link_to "トップス", products_path
-              %li.grandchild-content
-                = link_to "ジャケット/アウター", products_path
-          %li.child-content
-            = link_to "ベビー・キッズ", products_path
-            %ul.grandchild
-              %li.grandchild-content
-                = link_to "ベビー服（女の子用）", products_path
-              %li.grandchild-content
-                = link_to "ベビー服（男の子用）", products_path
-                %ul.greatgrandchild
-                  %li.greatgrandchild-content
-                    = link_to "トップス", products_path
-                  %li.greatgrandchild-content
-                    = link_to "アウター", products_path
-                  %li.greatgrandchild-content
-                    = link_to "パンツ", products_path
+          - @categories.each do |parent|
+            %li.child-content
+              = link_to parent.name, products_path
+              %ul.grandchild
+                = render partial: "header_child", collection: parent.children, as: :category
+
       %li
         = link_to products_path do
           = icon 'fas', 'tags', class: "icon"
