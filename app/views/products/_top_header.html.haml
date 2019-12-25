@@ -16,9 +16,9 @@
           = icon 'fas', 'list', class: "icon"
           カテゴリから探す
         %ul.child
-          - @categories.each do|parent|
+          - @categories.each do |parent|
             %li.child-content
-              = link_to parent.name, products_index_path
+              = link_to parent.name, products_path
               %ul.grandchild
                 = render partial: "header_child", collection: parent.children, as: :category
 
