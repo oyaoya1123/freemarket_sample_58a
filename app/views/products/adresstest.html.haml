@@ -1,0 +1,9 @@
+= form_with model: @product do |f| 
+  .sell-main__form-group
+    = f.label :delivery_area_id do
+      発送元の地域
+      %span.sell-main__form-require 必須
+    .sell-main__select-wrap
+      %i.fas.fa-chevron-down
+      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '--' }, class: 'sell-main__select-default'
+ 
