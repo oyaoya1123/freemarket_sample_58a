@@ -81,3 +81,4 @@ gem 'fog-aws'
 gem 'jquery-rails'
 
 gem 'ancestry'
+gem 'mini_magick'
