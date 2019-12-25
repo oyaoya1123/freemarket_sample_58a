@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
+  include CommonActions
+  before_action :set_categories
+
   # 商品一覧
   def index
-    @categories=Category.roots
 
   end
 
