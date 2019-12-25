@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   get 'githubtests/mypage' => 'githubtests#mypage'
   get 'users/profile' => 'users#profile'
   get 'users/identification' => 'users#identification'
-  get 'products/index'  => 'products#index'
-  get 'products/buy'  => 'products#buy'
-  get 'products/create'  => 'products#create'
+  # get 'products/index'  => 'products#index'
+  # get 'products/buy'  => 'products#buy'
+  # get 'products/create'  => 'products#create'
   get 'users/logout' => 'users#logout'
   get 'users/card' => 'users#card'
   get 'users/card_create' => 'users#card_create'
-  get 'products/itemshow'  => 'products#itemshow'
+  # get 'products/itemshow'  => 'products#itemshow'
   get 'users/mypage'  => 'users#mypage'
   get 'users/signupsmscon' => 'users#signupsmscon'
   get 'users/signupregistration' => 'users#signupregistration'
@@ -22,5 +22,12 @@ Rails.application.routes.draw do
   get 'users/signup_adress_input'  => 'users#signup_adress_input'
   get 'users/signup_card'  => 'users#signup_card'
   get 'users/complete'  => 'users#complete'
+
+  resources :products, only: [:index, :show, :new, :create, :edit, :update] do
+    get '/buy'  => 'products#buy' 
+  end
+  
+  #購入
+  resources :users_purchases, only: [:create] 
   
 end

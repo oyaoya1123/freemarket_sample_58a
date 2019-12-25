@@ -2,80 +2,80 @@
   .top-header__upper_box
     %ul.top-header__upper_box__content
       %li.logo
-        = link_to products_index_path do
+        = link_to products_path do
           = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg", size: "134x36", alt: "メルカリ"
       %li.search
-        = form_with url: products_index_path, class: "search-box" do |f|
+        = form_with url: products_path, class: "search-box" do |f|
           = f.text_field :name, placeholder: '何かお探しですか？', class: "search-box__text"
           = button_tag type: 'submit', class: "search-box__btn" do
             = icon('fas', 'search')
   .top-header__bottom_box
     %ul.gnav-left
       %li
-        = link_to products_index_path do
+        = link_to products_path do
           = icon 'fas', 'list', class: "icon"
           カテゴリから探す
         %ul.child
           %li.child-content
-            = link_to "レディース", products_index_path
+            = link_to "レディース", products_path
             %ul.grandchild
               %li.grandchild-content
-                = link_to "トップス", products_index_path
+                = link_to "トップス", products_path
                 %ul.greatgrandchild
                   %li.greatgrandchild-content
-                    = link_to "Tシャツ", products_index_path
+                    = link_to "Tシャツ", products_path
                   %li.greatgrandchild-content
-                    = link_to "シャツ", products_index_path
+                    = link_to "シャツ", products_path
                   %li.greatgrandchild-content
-                    = link_to "ポロシャツ", products_index_path
+                    = link_to "ポロシャツ", products_path
               %li.grandchild-content
-                = link_to "ジャケット/アウター", products_index_path
+                = link_to "ジャケット/アウター", products_path
               %li.grandchild-content
-                = link_to "パンツ", products_index_path
+                = link_to "パンツ", products_path
           %li.child-content
-            = link_to "メンズ", products_index_path
+            = link_to "メンズ", products_path
             %ul.grandchild
               %li.grandchild-content
-                = link_to "トップス", products_index_path
+                = link_to "トップス", products_path
               %li.grandchild-content
-                = link_to "ジャケット/アウター", products_index_path
+                = link_to "ジャケット/アウター", products_path
           %li.child-content
-            = link_to "ベビー・キッズ", products_index_path
+            = link_to "ベビー・キッズ", products_path
             %ul.grandchild
               %li.grandchild-content
-                = link_to "ベビー服（女の子用）", products_index_path
+                = link_to "ベビー服（女の子用）", products_path
               %li.grandchild-content
-                = link_to "ベビー服（男の子用）", products_index_path
+                = link_to "ベビー服（男の子用）", products_path
                 %ul.greatgrandchild
                   %li.greatgrandchild-content
-                    = link_to "トップス", products_index_path
+                    = link_to "トップス", products_path
                   %li.greatgrandchild-content
-                    = link_to "アウター", products_index_path
+                    = link_to "アウター", products_path
                   %li.greatgrandchild-content
-                    = link_to "パンツ", products_index_path
+                    = link_to "パンツ", products_path
       %li
-        = link_to products_index_path do
+        = link_to products_path do
           = icon 'fas', 'tags', class: "icon"
           ブランドから探す
         %ul.child
           %li.child-content
-            = link_to "シャネル", products_index_path
-            = link_to "ナイキ", products_index_path
-            = link_to "ルイビトン", products_index_path
+            = link_to "シャネル", products_path
+            = link_to "ナイキ", products_path
+            = link_to "ルイビトン", products_path
     %ul.gnav-right
       %li
-        = link_to products_index_path do
+        = link_to products_path do
           = icon('far', 'heart')
           いいね！一覧
       %li
-        = link_to products_index_path do
+        = link_to products_path do
           = icon('far', 'bell')
           お知らせ
       %li
-        = link_to products_index_path do
+        = link_to products_path do
           = icon('fas', 'check')
           やることリスト
       %li
-        = link_to products_index_path do
+        = link_to products_path do
           = icon('far', 'smile')
           マイページ
