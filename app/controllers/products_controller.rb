@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   # 商品出品
   def new
     @product=Product.new
+    @categories=Category.roots
   end
 
   # 商品出品
@@ -38,7 +39,8 @@ class ProductsController < ApplicationController
   end
 
   def product_create_params
-    params.require(:prodact).permit(:name,:description,:price,images_attributes:[:image_url])
+    binding.pry
+    params.require(:product).permit(:name,:description,:price,product_images_attributes:[:image_url])
   end
   
 end

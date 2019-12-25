@@ -8,7 +8,7 @@
         .sell-container-inner
           %h2.l-single-head 商品の情報を入力
           -# %form.sell-form
-          = form_with url: products_create_path, local: true, class: "sell-form" do |f|
+          = form_with url: products_path, local: true, class: "sell-form" do |f|
             .sell-upload-box
               %h3.sell-upload-head
                 出品画像
@@ -19,8 +19,10 @@
                   .sell-upload-items.have-item-0
                     %ul
                 .sell-upload-drop-box.have-item-0
+                  = f.fields_for :product_images do |image|
+                    = image.file_field :image_url ,class:'sell-upload-drop-file'
                   -# %input.sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
-                  = f.file_field :image_url,class:'sell-upload-drop-file'
+                  -# = f.file_field :image_url,class:'sell-upload-drop-file'
                   -# ,style: "display: none;"
 
                   %pre.visible-pc
