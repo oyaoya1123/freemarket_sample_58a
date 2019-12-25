@@ -5,10 +5,12 @@ class ProductsController < ApplicationController
 
   def new
     @product=Product.new
+    # @image=Product_image.new
   end
 
   # 商品出品
   def create
+    # @image=Product_image.create(params[:image_url])
     @product = Product.create(product_create_params)
     render :new
   end
@@ -22,7 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def product_create_params
-    params.permit(:name,:description,:price)
+    params.require(:prodact).permit(:name,:description,:price,images_attributes:[:image_url])
   end
   
 end
