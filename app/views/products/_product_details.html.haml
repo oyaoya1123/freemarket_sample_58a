@@ -40,7 +40,7 @@
         (税込)
       %span.item-box-container__price-box__shipping-fee
         送料込み
-    = link_to "購入画面に進む", products_itemshow_path, class: "item-box-container__buy-btn"
+    = link_to "購入画面に進む", product_path, class: "item-box-container__buy-btn"
     .item-box-container__description
       %p.item-box-container__description__inner
         イタリア製
@@ -54,20 +54,20 @@
       .item-box-container__buttons__left
         %ul
           %li.item-btn
-            = link_to products_itemshow_path do
+            = link_to product_path do
               = icon('far', 'heart')
               %span いいね！
           %li.item-btn
-            = link_to products_itemshow_path do
+            = link_to product_path do
               = icon('far', 'flag')
               %span 不適切な商品の報告
       .item-box-container__buttons__right
-        = link_to products_itemshow_path do
+        = link_to product_path do
           = icon('fas', 'lock')
           %span あんしん・あんぜんへの取り組み
   .item-detail-message
     .item-detail-message__content
-      = form_with url: products_itemshow_path, class: "comment-box" do |f|
+      = form_with url: product_path, class: "comment-box" do |f|
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         = f.text_area :comment, class: "comment-box__text", size: "30x4"
         = button_tag type: 'submit', class: "comment-box__btn" do
@@ -75,34 +75,34 @@
   .item-link
     %ul.item-link__content
       %li.item-link__content__prev
-        = link_to products_itemshow_path do
+        = link_to product_path do
           = icon('fas', 'angle-left')
           前の出品
       %li.item-link__content__next
-        = link_to products_itemshow_path do
+        = link_to product_path do
           次の出品
           = icon('fas', 'angle-right')
   .item-social-media
     %ul.item-social-media__box
       %li.item-social-media__box__content
         .item-social-media__box__content__face-book
-          = link_to products_itemshow_path do
+          = link_to product_path do
             = icon 'fab', 'facebook-square', class: "icon"
       %li.item-social-media__box__content
         .item-social-media__box__content__twitter
-          = link_to products_itemshow_path do
+          = link_to product_path do
             = icon 'fab', 'twitter', class: "icon"
       %li.item-social-media__box__content
         .item-social-media__box__content__pinterest
-          = link_to products_itemshow_path do
+          = link_to product_path do
             = icon 'fab', 'pinterest', class: "icon"
   .item-in-user-profile
     .item-in-user-profile__container
       %h2
-        = link_to "出品者のその他の出品", products_itemshow_path
+        = link_to "出品者のその他の出品", product_path
       .item-in-user-profile__container__content.clerafix
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
@@ -114,7 +114,7 @@
                   = icon('far', 'heart')
                   %span 3
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
@@ -126,7 +126,7 @@
                   = icon('far', 'heart')
                   %span 3
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
@@ -138,7 +138,7 @@
                   = icon('far', 'heart')
                   %span 3
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
@@ -150,7 +150,7 @@
                   = icon('far', 'heart')
                   %span 3
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
@@ -162,7 +162,7 @@
                   = icon('far', 'heart')
                   %span 3
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
@@ -175,10 +175,10 @@
                   %span 3
     .item-in-user-profile__container
       %h2
-        = link_to "カテゴリ名　その他の出品", products_itemshow_path
+        = link_to "カテゴリ名　その他の出品", product_path
       .item-in-user-profile__container__content.clerafix
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
@@ -190,7 +190,7 @@
                   = icon('far', 'heart')
                   %span 3
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
@@ -202,7 +202,7 @@
                   = icon('far', 'heart')
                   %span 3
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
@@ -214,7 +214,7 @@
                   = icon('far', 'heart')
                   %span 3
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
@@ -226,7 +226,7 @@
                   = icon('far', 'heart')
                   %span 3
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
@@ -238,7 +238,7 @@
                   = icon('far', 'heart')
                   %span 3
         .item-in-user-profile__container__content__box
-          = link_to products_itemshow_path do
+          = link_to product_path do
             .item-in-user-profile__container__content__box__photo
               写真
             .item-in-user-profile__container__content__box__body
