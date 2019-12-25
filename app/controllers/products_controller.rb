@@ -5,8 +5,24 @@ class ProductsController < ApplicationController
 
   end
 
+  # 商品詳細
+  def show
+  end
+ 
+  # 商品出品
+  def new
+  end
+
   # 商品出品
   def create
+  end
+
+  # 商品編集
+  def edit
+  end
+
+  # 商品編集
+  def update
   end
 
   # 商品詳細
@@ -18,3 +34,4 @@ class ProductsController < ApplicationController
   end
   
 end
+
