@@ -1,7 +1,7 @@
 %section
   .ssc-container
     %h2.ssc-container__header 電話番号の確認
-    = form_with model: @user, url: users_signup_adress_input_path, method: :post, local: true, class: "ssc-container__registration-form" do |f|
+    = form_with model: @user, url: signup_adress_input_users_path, method: :post, local: true, class: "ssc-container__registration-form" do |f|
       .ssc-container__registration-form__container
         .ssc-container__registration-form__container__content
           = f.label 'phone_number', "携帯電話の番号"
@@ -13,6 +13,6 @@
           = button_tag "SMSを送信する", type: 'submit', class: "btn"
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
           .text-right
-            = link_to users_signup_smscon_path, class: "text-right__link" do
+            = link_to signup_adress_input_users_path, class: "text-right__link" do
               電話番号の確認が必要な理由
               = icon('fas', 'angle-right')

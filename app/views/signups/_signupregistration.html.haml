@@ -1,7 +1,7 @@
 %section
   .sr-container
     %h2.sr-container__header 会員情報入力
-    = form_with model: @user, url: signupsmscon_users_path, method: :post, local: true, class: "sr-container__registration-form" do |f|
+    = form_with model: @user, url: users_signup_smscon_path, method: :post, local: true, class: "sr-container__registration-form" do |f|
       .sr-container__registration-form__container
         .sr-container__registration-form__container__content
           = f.label 'nickname_', "ニックネーム"
@@ -78,7 +78,7 @@
           %p.text-center 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
           = button_tag "次へ進む", type: 'submit', class: "btn"
           .text-right
-            = link_to signupsmscon_users_path, class: "text-right__link" do
+            = link_to users_signup_smscon_path, class: "text-right__link" do
               本人情報の登録について
               = icon('fas', 'angle-right')
           .recaptcha-team

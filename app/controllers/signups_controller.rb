@@ -1,19 +1,13 @@
-class UsersController < ApplicationController
+class SignupsController < ApplicationController
 
   before_action :validates_registration, only: :signupsmscon # registrationのバリデーション
   before_action :validates_smscon, only: :signup_adress_input # signupsmsconのバリデーション
-  before_action :validates_adress_input, only: :signup_create # signup_adress_inputのバリデーション
-  
-  def profile
-  end
-
-  def identification
-  end
+  before_action :validates_adress_input, only: :create # signup_adress_inputのバリデーション
 
   def new_create
   end
 
-  def signupregistration
+  def registration
     @user = User.new
   end
 
@@ -71,7 +65,6 @@ class UsersController < ApplicationController
   end
 
   def validates_adress_input
-    binding.pry
     session[:address_last_name] = address_params[:address_last_name]
     session[:address_first_name] = address_params[:address_first_name]
     session[:address_last_name_kana] = address_params[:address_last_name_kana]
@@ -96,7 +89,6 @@ class UsersController < ApplicationController
       postal_code: session[:postal_code],
       user_id: 1
     )
-    binding.pry
     render action: :signup_adress_input unless @address.valid?
   end
 
@@ -113,17 +105,7 @@ class UsersController < ApplicationController
   def complete
   end
 
-  def mypage
-  end
-
-  def login
-  end
- 
-  def signup_page
-  end
-
-  def signup_create
-    binding.pry
+  def create
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -153,17 +135,13 @@ class UsersController < ApplicationController
         postal_code: session[:postal_code],
         user_id: session[:id]
       )
-      binding.pry
       if @address.save
-        binding.pry
-        redirect_to complete_users_path
+        redirect_to users_signup_complete_path
       else
-        binding.pry
         User.find(session[:id]).destroy
         render action: :signup_adress_input
       end
     else
-      binding.pry
       render action: :signup_adress_input
     end
   end
@@ -201,4 +179,5 @@ class UsersController < ApplicationController
       :postal_code
     )
   end
+
 end
