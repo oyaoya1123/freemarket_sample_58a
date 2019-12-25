@@ -21,14 +21,5 @@ class User < ApplicationRecord
   validates :birthdate_month, numericality: true
   validates :birthdate_day, numericality: true
   validates :phone_number, presence: true
-  validates :address_last_name, presence: true
-  validates :address_first_name, presence: true
-  validates :address_last_name_kana, presence: true
-  validates :address_first_name_kana, presence: true
-  validates :prefecture, presence: true
-  validates :prefecture, exclusion: { in: %w(---) }
-  validates :city, presence: true
-  validates :address1, presence: true
-  validates :zip_code, presence: true
 
 end

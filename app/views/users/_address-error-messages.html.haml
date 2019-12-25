@@ -1,0 +1,11 @@
+- if address.errors.any?
+  - unless address.valid?
+    - if errors = address.errors.full_messages_for(column.to_sym)
+      %ul.has-error-text
+        - errors.each do |error|
+          %li.has-error
+            - case error
+            - when "都道府県は予約されています"
+              = "都道府県を入力して下さい"
+            - else
+              = error

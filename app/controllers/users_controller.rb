@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :validates_registration, only: :signupsmscon # registrationのバリデーション
   before_action :validates_smscon, only: :signup_adress_input # signupsmsconのバリデーション
-  before_action :validates_adress_input, only: :signup_card # signup_adress_inputのバリデーション
+  before_action :validates_adress_input, only: :create # signup_adress_inputのバリデーション
   
   def profile
   end
@@ -47,16 +47,6 @@ class UsersController < ApplicationController
       birthdate_month: session[:birthdate_month],
       birthdate_day: session[:birthdate_day],
       phone_number: "09012345678",
-      address_last_name: "大矢",
-      address_first_name: "和輝",
-      address_last_name_kana: "オオヤ",
-      address_first_name_kana: "カズキ",
-      prefecture: "北海道",
-      city: "大阪府",
-      address1: "1-1-1",
-      address2: "大阪市",
-      address_phone_number: "09012345678",
-      zip_code: "123-4567"
     )
     render action: :signupregistration unless @user.valid?
   end
@@ -76,65 +66,46 @@ class UsersController < ApplicationController
       birthdate_month: session[:birthdate_month],
       birthdate_day: session[:birthdate_day],
       phone_number: session[:phone_number],
-      address_last_name: "大矢",
-      address_first_name: "和輝",
-      address_last_name_kana: "オオヤ",
-      address_first_name_kana: "カズキ",
-      prefecture: "北海道",
-      city: "大阪府",
-      address1: "1-1-1",
-      address2: "大阪市",
-      address_phone_number: "09012345678",
-      zip_code: "123-4567"
     )
     render action: :signupsmscon unless @user.valid?
   end
 
   def validates_adress_input
-    session[:address_last_name] = user_params[:address_last_name]
-    session[:address_first_name] = user_params[:address_first_name]
-    session[:address_last_name_kana] = user_params[:address_last_name_kana]
-    session[:address_first_name_kana] = user_params[:address_first_name_kana]
-    session[:prefecture] = user_params[:prefecture]
-    session[:city] = user_params[:city]
-    session[:address1] = user_params[:address1]
-    session[:address2] = user_params[:address2]
-    session[:address_phone_number] = user_params[:address_phone_number]
-    session[:zip_code] = user_params[:zip_code]
+    session[:address_last_name] = address_params[:address_last_name]
+    session[:address_first_name] = address_params[:address_first_name]
+    session[:address_last_name_kana] = address_params[:address_last_name_kana]
+    session[:address_first_name_kana] = address_params[:address_first_name_kana]
+    session[:prefectures] = address_params[:prefectures]
+    session[:city] = address_params[:city]
+    session[:house_number] = address_params[:house_number]
+    session[:building_name] = address_params[:building_name]
+    session[:address_phone_number] = address_params[:address_phone_number]
+    session[:postal_code] = address_params[:postal_code]
 
-    @user = User.new(
-      nickname: session[:nickname],
-      email: session[:email],
-      password: session[:password],
-      password_confirmation: session[:password_confirmation],
-      last_name_kanji: session[:last_name_kanji],
-      first_name_kanji: session[:first_name_kanji],
-      last_name_kana: session[:last_name_kana],
-      first_name_kana: session[:first_name_kana],
-      birthdate_year: session[:birthdate_year],
-      birthdate_month: session[:birthdate_month],
-      birthdate_day: session[:birthdate_day],
-      phone_number: session[:phone_number],
+    @address = Address.new(
       address_last_name: session[:address_last_name],
       address_first_name: session[:address_first_name],
       address_last_name_kana: session[:address_last_name_kana],
       address_first_name_kana: session[:address_first_name_kana],
-      prefecture: session[:prefecture],
+      prefectures: session[:prefectures],
       city: session[:city],
-      address1: session[:address1] ,
-      address2: session[:address2],
+      house_number: session[:house_number],
+      building_name: session[:building_name],
       address_phone_number: session[:address_phone_number],
-      zip_code: session[:zip_code]
+      postal_code: session[:postal_code],
+      user_id: 1
     )
-    render action: :signup_adress_input unless @user.valid?
+    render action: :signup_adress_input unless @address.valid?
   end
 
   def signup_adress_input
     @user = User.new
+    @address = Address.new
   end
 
   def signup_card
     @user = User.new
+    @address = Adress.new
   end
   
   def complete
@@ -163,20 +134,28 @@ class UsersController < ApplicationController
       birthdate_month: session[:birthdate_month],
       birthdate_day: session[:birthdate_day],
       phone_number: session[:phone_number],
-      address_last_name: user_params[:address_last_name],
-      address_first_name: user_params[:address_first_name],
-      address_last_name_kana: user_params[:address_last_name_kana],
-      address_first_name_kana: user_params[:address_first_name_kana],
-      prefecture: user_params[:prefecture],
-      city: user_params[:city],
-      address1: user_params[:address1],
-      address2: user_params[:address2],
-      address_phone_number: user_params[:address_phone_number],
-      zip_code: user_params[:zip_code]
     )
     if @user.save
       session[:id] = @user.id
-      redirect_to users_signup_complete_path
+      @address = Address.new(
+        address_last_name: session[:address_last_name],
+        address_first_name: session[:address_first_name],
+        address_last_name_kana: session[:address_last_name_kana],
+        address_first_name_kana: session[:address_first_name_kana],
+        prefectures: session[:prefectures],
+        city: session[:city],
+        house_number: session[:house_number],
+        building_name: session[:building_name],
+        address_phone_number: session[:address_phone_number],
+        postal_code: session[:postal_code],
+        user_id: session[:id]
+      )
+      if @address.save
+        redirect_to users_signup_complete_path
+      else
+        User.find(session[:id]).destroy
+        render action: :signup_adress_input
+      end
     else
       render action: :signup_adress_input
     end
@@ -198,16 +177,21 @@ class UsersController < ApplicationController
       :birthdate_month,
       :birthdate_day,
       :phone_number,
+    )
+  end
+
+  def address_params
+    params.require(:address).permit(
       :address_last_name,
       :address_first_name,
       :address_last_name_kana,
       :address_first_name_kana,
-      :prefecture,
+      :prefectures,
       :city,
-      :address1,
-      :address2,
+      :house_number,
+      :building_name,
       :address_phone_number,
-      :zip_code
+      :postal_code
     )
   end
 end

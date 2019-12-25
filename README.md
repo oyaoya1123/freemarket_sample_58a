@@ -35,25 +35,12 @@ Things you may want to cover:
 |birthday_month|integer|null: false|
 |birthday_day|integer|null: false|
 |phone_number|integer|null: false|
-|address_last_name|string|null: false|
-|address_first_name|string|null: false|
-|address_last_name_kana|string|null: false|
-|address_first_name_kana|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|address1|string|null: false|
-|address2|string|
-|address_phone_number|string|
-|zip_code|string|
 
 |profile_name|string|null: false|
 |profile_text|text|null: false|
 |expiration_date_month|integer|null: false|
 |expiration_date_days|integer|null: false|
 |security_code|integer|null: false|
-|nickname|string|null: false|
-|mail_address|string|null: false, unique: true|
-|password|string|null: false|
 
 ### Association
 - has_many :users_exhibits, dependent: :destroy
@@ -82,7 +69,12 @@ Things you may want to cover:
 |city|string|null: false|
 |house_number|string|null: false|
 |building_name|string|
-|user_id|integer|null: false, foreign_key: true|
+|address_last_name|string|null: false|
+|address_first_name|string|null: false|
+|address_last_name_kana|string|null: false|
+|address_first_name_kana|string|null: false|
+|address_phone_number|string|
+|user_id|biginteger|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
