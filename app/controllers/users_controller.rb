@@ -73,7 +73,6 @@ class UsersController < ApplicationController
   end
 
   def validates_adress_input
-    binding.pry
     session[:address_last_name] = address_params[:address_last_name]
     session[:address_first_name] = address_params[:address_first_name]
     session[:address_last_name_kana] = address_params[:address_last_name_kana]
@@ -98,7 +97,6 @@ class UsersController < ApplicationController
       postal_code: session[:postal_code],
       user_id: 1
     )
-    binding.pry
     render action: :signup_adress_input unless @address.valid?
   end
 
@@ -125,7 +123,6 @@ class UsersController < ApplicationController
   end
 
   def signup_create
-    binding.pry
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -155,17 +152,13 @@ class UsersController < ApplicationController
         postal_code: session[:postal_code],
         user_id: session[:id]
       )
-      binding.pry
       if @address.save
-        binding.pry
         redirect_to complete_users_path
       else
-        binding.pry
         User.find(session[:id]).destroy
         render action: :signup_adress_input
       end
     else
-      binding.pry
       render action: :signup_adress_input
     end
   end

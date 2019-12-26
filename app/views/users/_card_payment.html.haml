@@ -1,7 +1,6 @@
 .l-contents
   %section.l-chapter-container
     %h2.l-chapter-head クレジットカード情報入力
-    //%form#add-card-form.l-single-inner.registration-form{action: ""}
     = form_with model: @user, url: users_signup_create_path, method: :post, local: true, class: "l-single-inner registration-form", id: "add-card-form" do |f|
       .l-single-content
         .form-group
