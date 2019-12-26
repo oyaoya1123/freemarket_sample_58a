@@ -79,5 +79,6 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'jquery-rails'
-
+gem 'pry-rails'
+gem 'rails-i18n'
 gem 'ancestry'
