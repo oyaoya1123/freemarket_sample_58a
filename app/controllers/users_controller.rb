@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :validates_registration, only: :signupsmscon # registrationのバリデーション
   before_action :validates_smscon, only: :signup_adress_input # signupsmsconのバリデーション
   before_action :validates_adress_input, only: :signup_create # signup_adress_inputのバリデーション
+  include CommonActions
+  before_action :set_categories
   
   def profile
   end
