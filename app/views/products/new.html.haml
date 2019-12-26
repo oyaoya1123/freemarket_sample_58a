@@ -8,7 +8,8 @@
         .sell-container-inner
           %h2.l-single-head 商品の情報を入力
           -# %form.sell-form
-          = form_with url: products_path, local: true, class: "sell-form" do |f|
+          -# = form_with url: products_path, local: true, class: "sell-form" do |f|
+          = form_with model:@product, class: "sell-form" do |f|
             .sell-upload-box
               %h3.sell-upload-head
                 出品画像
@@ -37,7 +38,6 @@
                   %span.form-require 必須
                 %div
                   = f.text_field :name,class:'input-default',placeholder: "商品名（必須 40文字まで)", value: ""
-                  -# %input.input-default{placeholder: "商品名（必須 40文字まで)", value: ""}/
               .form-group
                 %label
                   商品の説明
