@@ -7,8 +7,7 @@
       .sell-container
         .sell-container-inner
           %h2.l-single-head 商品の情報を入力
-          -# %form.sell-form
-          -# = form_with url: products_path, local: true, class: "sell-form" do |f|
+
           = form_with model:@product, class: "sell-form" do |f|
             .sell-upload-box
               %h3.sell-upload-head
@@ -22,8 +21,6 @@
                 .sell-upload-drop-box.have-item-0
                   = f.fields_for :product_images do |image|
                     = image.file_field :image_url ,class:'sell-upload-drop-file'
-                  -# %input.sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
-                  -# = f.file_field :image_url,class:'sell-upload-drop-file'
                   -# ,style: "display: none;"
 
                   %pre.visible-pc
@@ -42,7 +39,6 @@
                 %label
                   商品の説明
                   %span.form-require 必須
-                -# %textarea.textarea-default{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
                 = f.text_area :description,class:'textarea-default',placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
 
             .sell-content.clearfix
@@ -180,7 +176,7 @@
                         ¥
                         %div
                           = f.text_field :price,class:'input-default',placeholder: "例）500"
-                          -# %input.input-default{placeholder: "例）300", value: ""}/
+
                   %li.clearfix
                     .l-left
                       販売手数料 (10%)
@@ -207,7 +203,7 @@
                   %a{href: "/", target: "_blank"} 加盟店規約
                   に同意したことになります。
               = f.submit "出品する", class:"btn-default btn-red"
-              -# %button.btn-default.btn-red{type: "submit"} 出品する
+
               %button.btn-default.btn-gray もどる
           .overlay
  
