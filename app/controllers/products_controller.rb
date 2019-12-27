@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   # 商品詳細
   def show
+    @categories=Category.roots
   end
  
   # 商品出品

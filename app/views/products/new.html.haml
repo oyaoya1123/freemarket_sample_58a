@@ -20,8 +20,7 @@
                     %ul
                 .sell-upload-drop-box.have-item-0
                   = f.fields_for :product_images do |image|
-                    = image.file_field :image_url ,class:'sell-upload-drop-file'
-                  -# ,style: "display: none;"
+                    = image.file_field :image_url ,class:'sell-upload-drop-file',style: "display: none;"
 
                   %pre.visible-pc
                     :preserve
