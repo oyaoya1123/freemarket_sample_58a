@@ -1,0 +1,57 @@
+.select-wrap
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '0'), :id, :value, { prompt: '--' }, class: 'select-default' ,name: "category"
+
+
+.select-wrap{ style: "display: none" ,id:'1'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '1'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'men'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '2'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'kids'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '3'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'interior'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '4'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'book'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '5'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'goods'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '6'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'beauty'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '7'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'appliances'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '8'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'sports'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '9'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'handmade'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '10'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'ticket'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '11'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'bicycle'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '12'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
+.select-wrap{ style: "display: none" ,id:'other'}
+  %i.icon-arrow-bottom
+  = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '13'), :id, :value, { prompt: '--' }, class: 'select-default2'
+
