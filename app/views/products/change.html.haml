@@ -3,22 +3,22 @@
     = render "products/top_header"
 
   %main.l-container2.clearfix
-    %div.l-content2
+    .l-content2
       %section.item-box-container
         %h2.item-name 商品名
-        %div.item-main-content.clearfix
-          %div.item-photo
-            %div.owl-carousel.owl-loaded.owl-drag
-              %div.owl-stage-outer
-                %div.owl-stage
-                  %div.owl-item.active
-                    %div.owl-item-inner.is-higher-width
+        .item-main-content.clearfix
+          .item-photo
+            .owl-carousel.owl-loaded.owl-drag
+              .owl-stage-outer
+                .owl-stage
+                  .owl-item.active
+                    .owl-item-inner.is-higher-width
                       = image_tag "", class:"owl-lazy"
-              %div.owl-nav.disabled
-                %div.owl-prev prev
-                %div.owl-next next
-              %div.owl-dots.disabled
-                %div.owl-dot.active
+              .owl-nav.disabled
+                .owl-prev prev
+                .owl-next next
+              .owl-dots.disabled
+                .owl-dot.active
                   %span
           %table.item-detail-table
             %tbody
@@ -46,13 +46,13 @@
               %tr
                 %th 発送日の目安
                 %td 4~7日で発送
-        %div.item-price-box.text-center
+        .item-price-box.text-center
           %span.item-price.bold ¥100,000
           %span (税込)
           %span.item-shipping-fee 着払い
-        %div.item-description.f14
+        .item-description.f14
           %p.item-description-inner 商品説明
-      %div.listing-item-change-box
+      .listing-item-change-box
         = link_to "/", class: "btn-default btn-red" do
           商品の編集
         %p.text-center or
