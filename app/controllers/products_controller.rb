@@ -9,6 +9,8 @@ class ProductsController < ApplicationController
 
   # 商品詳細
   def show
+    products = Product.find(params[:id])
+    @name = product.name
   end
  
   # 商品出品
