@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'users/logout' => 'users#logout'
   get 'users/card' => 'users#card'
   get 'users/card_create' => 'users#card_create'
-  # get 'products/itemshow'  => 'products#itemshow'
+
   get 'users/mypage'  => 'users#mypage'
 
   resource :users do
