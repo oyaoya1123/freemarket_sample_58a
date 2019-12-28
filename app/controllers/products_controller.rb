@@ -20,11 +20,16 @@ class ProductsController < ApplicationController
   end
 
   # 商品編集
+
+  def change
+  end
+
   def edit
   end
 
   # 商品編集
   def update
+
   end
 
   # 商品詳細
