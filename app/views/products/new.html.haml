@@ -63,21 +63,23 @@
               = link_to "/", class: "form-question" do
                 ?
               .sell-form-box
-                .form-group
+                .form-group{id: "select2"}
                   %label
                     配送料の負担
                     %span.form-require 必須
                   .select-wrap
                     %i.icon-arrow-bottom
-                    = f.collection_select :deliverycharge_id, Deliverycharge.all, :id, :value, { prompt: '--' }, class: 'select-default'
+                    = f.collection_select :deliverycharge_id, Deliverycharge.all, :id, :value, { prompt: '--' }, class: 'select-default' ,name: "delivery"
 
-                .form-group{ style: "display: none" }
-                  %label
+                
+
+                .form-group{ style: "display: none" ,id:'method'}
+                  %label{ style: "margin-top:30px" }
                     配送の方法
                     %span.form-require 必須
                   .select-wrap
                     %i.icon-arrow-bottom
-                    = f.collection_select :deliverymethod_id, Deliverymethod.all, :id, :value, { prompt: '--' }, class: 'select-default'
+                    = f.collection_select :deliverymethod_id, Deliverymethod.all, :id, :value, { prompt: '--' }, class: 'select-default2'
                     
                 .form-group
                   %label
@@ -109,7 +111,8 @@
                       .l-right.sell-price-input
                         ¥
                         %div
-                          %input.input-default{placeholder: "例）300", value: ""}/
+                          = f.text_field :price, placeholder: "例）300", class: "input-default", value: ""
+                          -# = f.number_field :price{placeholder: "例）300", value: "", class:"input-default"}
                   %li.clearfix
                     .l-left
                       販売手数料 (10%)

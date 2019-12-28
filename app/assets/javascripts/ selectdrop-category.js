@@ -1,5 +1,6 @@
 $(function(){
   $('#select select[name="category"]').change(function() {
+    
     if ($('select[name="category"] option:selected').val() == '1') $('#1').css('display','table-row');
     else $('#1').css('display','none');
     if ($('select[name="category"] option:selected').val() == '2') $('#men').css('display','table-row');
