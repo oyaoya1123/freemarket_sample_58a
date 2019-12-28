@@ -18,20 +18,32 @@
 
               .sell-dropbox-container.clearfix.state-image-number-10
                 .sell-upload-items-container
-                  .sell-upload-items.have-item-0
-                    %ul
+                  .sell-upload-items
+                    %ul#preview
+                      
                 -# .sell-upload-drop-box.have-item-0
 
                 .sell-upload-drop-box.have-item-0
+                  -# #preview
                   %pre.visible-pc
                  
                     ドラッグアンドドロップ
                     またはクリックしてファイルをアップロード
                   %i.icon-camera
-                  = f.label :image,for: "upload-image", class:"label-image" do
+                  = f.label :image,for: "upload-image0", class:"label-image" do
+                    -# #preview
                     = f.fields_for :product_images do |image|
-                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image_0"
-
+                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image0"
+                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image1"
+                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image2"
+                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image3"
+                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image4"
+                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image5"
+                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image6"
+                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image7"
+                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image8"
+                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image9"
+                  
                   -# %pre.visible-pc
                  
                   -#   ドラッグアンドドロップ

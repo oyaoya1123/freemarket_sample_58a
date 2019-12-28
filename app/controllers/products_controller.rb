@@ -13,8 +13,8 @@ class ProductsController < ApplicationController
   # 商品出品
   def new
     @product=Product.new
-    10.times { @product.product_images.build } #後で考察
-    # @product.product_images.build
+    # 10.times { @product.product_images.build } #後で考察
+    @product.product_images.build
   end
 
   # 商品出品

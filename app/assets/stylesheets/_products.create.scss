@@ -53,17 +53,17 @@
                   .sell-upload-items {
                     float: left;
                     display: block;
-                    width: 100%;
+                    // width: 100%;
                     margin-left: 0;
                     .sell-upload-items ul {
                       display: block;
-                      width: 100%;
+                      // width: 100%;
                      }
                     }
                   }
                 .sell-upload-drop-box {
                   float: right;
-                  width: 620px;
+                  // width: 620px;
                   padding: 40px;
                   position: relative;
                   min-height: 162px;
@@ -78,7 +78,7 @@
                     
                   .label-image{
                     float: right;
-                    width: 620px;
+                    // width: 620px;
                     padding: 40px;
                     position: relative;
                     min-height: 162px;
@@ -428,18 +428,19 @@
      }	
 }
 
-
 .sell-price>li {
   padding: 24px 0;
   border-top: 1px solid #ccc;
 }
 
-
-
-
-
 .clearfix:after {
   content: '';
   display: block;
   clear: both;
+}
+
+.have-item-0{
+  // -webkit-box-flex: 1;
+  float:left;
+  width: 480px;
 }
