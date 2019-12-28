@@ -54,7 +54,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       #redirect_to new_user_registration_url
       #redirect_to products_url
       session["devise.sns_id"] = sns_id #sns_credentialのid devise.他のアクションに持ち越せる(少し難)
-      render template: "devise/registrations/new" #redirect_to だと更新してしまうのでrenderで
+      #render template: "devise/registrations/new" #redirect_to だと更新してしまうのでrenderで
+      #render template: "users/signupregistration"
+      session[:password] = ""
+      session[:email] = ""
+      session[:password_confirmation] = ""
+      binding.pry
+      redirect_to controller: 'users', action: 'signupregistration'
     end
   end
 
