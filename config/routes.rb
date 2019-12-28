@@ -6,22 +6,33 @@ Rails.application.routes.draw do
   get 'githubtests/mypage' => 'githubtests#mypage'
   get 'users/profile' => 'users#profile'
   get 'users/identification' => 'users#identification'
-  get 'products/index'  => 'products#index'
-  get 'products/buy'  => 'products#buy'
-  get 'products/create'  => 'products#create'
   get 'products/change'  => 'products#change'
   get 'users/logout' => 'users#logout'
   get 'users/card' => 'users#card'
   get 'users/card_create' => 'users#card_create'
-  get 'products/itemshow'  => 'products#itemshow'
+  # get 'products/itemshow'  => 'products#itemshow'
   get 'users/mypage'  => 'users#mypage'
-  get 'users/signupsmscon' => 'users#signupsmscon'
-  get 'users/signupregistration' => 'users#signupregistration'
-  get 'users/new_create'  => 'users#new_create'
+
+  resource :users do
+    collection do
+      get 'signup'
+      get 'signupregistration'
+      post 'signupsmscon'
+      post 'signup_adress_input'
+      post 'signup_card'
+      post 'signup_create'
+      get 'complete'
+    end
+  end
+
   get 'users/login'  => 'users#login'
   get 'users/signup_page'  => 'users#signup_page'
-  get 'users/signup_adress_input'  => 'users#signup_adress_input'
-  get 'users/signup_card'  => 'users#signup_card'
-  get 'users/complete'  => 'users#complete'
+
+  resources :products, only: [:index, :show, :new, :create, :edit, :update] do
+    get '/buy'  => 'products#buy' 
+  end
+  
+  #購入
+  resources :users_purchases, only: [:create] 
   
 end
