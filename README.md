@@ -49,6 +49,18 @@ Things you may want to cover:
 - has_many :pu_products, through: :users_purchases, source: :product, dependent: :destroy
 - has_one :address, dependent: :destroy
 - has_one :cards, dependent: :destroy
+- has_many :sns_credentials, dependent: :destroy
+
+
+## Sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|uid|string||
+|provider|string||
+|user_id|bigint||
+
+### Association
+- belongs_to :user, optional: true
 
 
 ## Cardsテーブル

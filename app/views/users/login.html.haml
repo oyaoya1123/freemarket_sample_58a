@@ -16,7 +16,8 @@
           = icon('fab', 'google fa-2x',class: "google")
           Googleでログイン
 
-      = form_with url: "/", method: :get, class: "login-content__body__form",local: true do |f|
+      //= form_with url: user_session_path, method: :post, class: "login-content__body__form",local: true do |f|
+      = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'login-content__body__form'}) do |f|
 
         .login-form-inner
           .form-group
@@ -27,6 +28,7 @@
           = link_to "/",class:"reset" do
             パスワードをお忘れの方
 
-     
+      = link_to "facebook", user_facebook_omniauth_authorize_path
+      = link_to "google", user_google_oauth2_omniauth_authorize_path
   %footer.single-footer
     = render "products/footer"
