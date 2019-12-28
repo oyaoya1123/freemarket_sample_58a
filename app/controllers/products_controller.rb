@@ -14,13 +14,18 @@ class ProductsController < ApplicationController
   def new
     @product=Product.new
     10.times { @product.product_images.build } #後で考察
+    # @product.product_images.build
   end
 
   # 商品出品
   def create
+    binding.pry
 
-    @product = Product.create(product_create_params)
-    render :new
+    @product = Product.new(product_create_params)
+
+    @product.save
+    #@product = Product.create(product_create_params)
+    #render :new
 
   end
 
@@ -41,7 +46,7 @@ class ProductsController < ApplicationController
   end
 
   def product_create_params
-    # binding.pry
+   
     params.require(:product).permit(:name,:description,:price,product_images_attributes:[:image_url])
   end
   
