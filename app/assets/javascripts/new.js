@@ -1,7 +1,10 @@
 
 $(function(){
-  // var images = [];
+  //imageの数 削除した時とかに反映させて使用 10まで
+  var images = [];
+  //投稿カウント 削除した数とかは反映されない 連番 無制限
   var count =0;
+
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $(document).on('change', 'input[type="file"]', function(e) {
     var file = e.target.files[0],
