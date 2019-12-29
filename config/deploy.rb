@@ -70,6 +70,18 @@ namespace :deploy do
     end
   end
 
+  desc 'reload the database with other_seed data'
+  task :seed_other do
+    on roles(:db) do
+      with rails_env: fetch(:rails_env) do
+        within release_path do
+          execute :bundle, :exec, :rake, 'db:seed'
+        end
+      end
+    end
+  end
+
+
 end
 
 
