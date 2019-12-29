@@ -53,11 +53,15 @@
                   .sell-upload-items {
                     float: left;
                     display: block;
-                    // width: 100%;
+                    width: 100%;
                     margin-left: 0;
                     .sell-upload-items ul {
                       display: block;
-                      // width: 100%;
+                      width: 100%;
+                      li{
+                        width:120px;
+
+                      }
                      }
                     }
                   }

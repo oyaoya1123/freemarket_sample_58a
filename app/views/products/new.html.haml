@@ -21,6 +21,8 @@
                   .sell-upload-items
                     %ul#preview
                       
+                    
+                      
                 -# .sell-upload-drop-box.have-item-0
 
                 .sell-upload-drop-box.have-item-0
@@ -33,16 +35,9 @@
                   = f.label :image,for: "upload-image0", class:"label-image" do
                     -# #preview
                     = f.fields_for :product_images do |image|
-                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image0"
-                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image1"
-                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image2"
-                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image3"
-                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image4"
-                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image5"
-                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image6"
-                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image7"
-                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image8"
-                      = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image9"
+                      #imageform
+                        = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image0",name:"product[product_images_attributes][0][image_url]"
+
                   
                   -# %pre.visible-pc
                  
