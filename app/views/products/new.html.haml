@@ -36,7 +36,7 @@
                     -# #preview
                     = f.fields_for :product_images do |image|
                       #imageform
-                        = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image0",name:"product[product_images_attributes][0][image_url]"
+                        = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image0",'data-id': 0,name:"product[product_images_attributes][0][image_url]"
 
                   
                   -# %pre.visible-pc

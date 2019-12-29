@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 
   # 商品出品
   def create
-    binding.pry
+    # binding.pry
 
     @product = Product.new(product_create_params)
 
