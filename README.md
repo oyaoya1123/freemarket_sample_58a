@@ -57,7 +57,7 @@ Things you may want to cover:
 |------|----|-------|
 |uid|string||
 |provider|string||
-|user_id|bigint||
+|user_id|bigint|foreign_key: true|
 
 ### Association
 - belongs_to :user, optional: true
