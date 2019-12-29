@@ -18,7 +18,7 @@
                   .sell-upload-items.have-item-0
                     %ul
                 .sell-upload-drop-box.have-item-0
-                  %input.sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
+                  %input.sell-upload-drop-file{multiple: "multiple", name: "image1", type: "file"}/
                   %pre.visible-pc
                     :preserve
                         ドラッグアンドドロップ
@@ -73,8 +73,8 @@
 
                 
 
-                .form-group{ style: "display: none" ,id:'method'}
-                  %label{ style: "margin-top:30px" }
+                .form-group2{id:'method'}
+                  %label.label-margin
                     配送の方法
                     %span.form-require 必須
                   .select-wrap
@@ -125,18 +125,18 @@
               .modal-inner
             .sell-content.sell-btn-box
               %div
-                %p{style: "margin-bottom: 0px;margin-top: 0px"}
+                %p
                   %a{href: "/", target: "_blank"}> 禁止されている出品
                   、
                   =link_to "/", target: "_blank" do
                     行為
                   を必ずご確認ください。
-                %p{style: "margin-bottom: 0px;margin-top: 0px"}
+                %p
                   またブランド品でシリアルナンバー等がある場合はご記載ください。
                   =link_to "/", target: "_blank" do
                     偽ブランドの販売
                   は犯罪であり処罰される可能性があります。
-                %p{style: "margin-bottom: 0px;margin-top: 0px"}
+                %p
                   また、出品をもちまして
                   =link_to "/", target: "_blank" do
                     加盟店規約
