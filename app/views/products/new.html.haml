@@ -111,16 +111,16 @@
                       .l-right.sell-price-input
                         ¥
                         %div
-                          = f.text_field :price, placeholder: "例）300", class: "input-default", value: ""
+                          = f.text_field :price, placeholder: "例）300", class: "input-default", value: "" ,id:"price" ,onInput:"priceChange()"
                           -# = f.number_field :price{placeholder: "例）300", value: "", class:"input-default"}
                   %li.clearfix
                     .l-left
                       販売手数料 (10%)
-                    .l-right -
+                    .l-right{id: "pricetax"} -
                   %li.clearfix.bold
                     .l-left
                       販売利益
-                    .l-right -
+                    .l-right{id: "profit"} -
             .modal{role: "dialog", tabindex: "-1"}
               .modal-inner
             .sell-content.sell-btn-box

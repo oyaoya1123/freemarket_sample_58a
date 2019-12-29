@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
  
   # 商品出品
   def new
+    
   
   end
 
