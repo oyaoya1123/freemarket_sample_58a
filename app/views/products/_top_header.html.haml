@@ -44,7 +44,7 @@
         %li
           = link_to destroy_user_session_path, method: "DELETE" do
             = icon('fas', 'check')
-            やることリスト
+            ログアウト
         %li
           = link_to users_mypage_path do
             = icon('far', 'smile')
@@ -52,9 +52,9 @@
       - else
         %li
           = link_to signup_users_path do
-            = icon('far', 'bell')
+            = icon('fas', 'check')
             新規登録
         %li
           = link_to users_login_path do
-            = icon('far', 'bell')
+            = icon('fas', 'check')
             ログイン

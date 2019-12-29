@@ -11,13 +11,20 @@
         .sr-container__registration-form__container__content
           = f.label 'email_', "メールアドレス"
           %span.require 必須
-          = f.text_field :email, placeholder: 'PC・携帯どちらでも可', class: "default-text"
+          - if @sns_id
+            = f.text_field :email, placeholder: '入力不要', class: "default-text", id: "id-email", disabled: "disabled", value: @email
+          - else
+            = f.text_field :email, placeholder: 'PC・携帯どちらでも可', class: "default-text", id: "id-email"
           = render partial: 'error-messages', locals: {user: @user, column: "email"}
         .sr-container__registration-form__container__content
           = f.label 'password_', "パスワード"
           %span.require 必須
-          = f.password_field :password, placeholder: '7文字以上の半角英数字', class: "default-text"
-          = f.password_field :password_confirmation, placeholder: '7文字以上の半角英数字', class: "default-text"
+          - if @sns_id
+            = f.password_field :password, placeholder: '7文字以上の半角英数字', class: "default-text", id: "id-password", disabled: "disabled", value: @password
+            = f.password_field :password_confirmation, placeholder: '7文字以上の半角英数字', class: "default-text", id: "id-password_confirmation", disabled: "disabled", value: @password
+          - else
+            = f.password_field :password, placeholder: '7文字以上の半角英数字', class: "default-text", id: "id-password"
+            = f.password_field :password_confirmation, placeholder: '7文字以上の半角英数字', class: "default-text", id: "id-password_confirmation"
           = render partial: 'error-messages', locals: {user: @user, column: "password"}
           = render partial: 'error-messages', locals: {user: @user, column: "password_confirmation"}
           %p.sr-container__registration-form__container__content__info-text

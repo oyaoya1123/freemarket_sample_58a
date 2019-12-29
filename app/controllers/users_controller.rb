@@ -17,6 +17,9 @@ class UsersController < ApplicationController
 
   def signupregistration
     @user = User.new
+    @sns_id = session[:sns_id]
+    @email = session[:email]
+    @password = session[:password]
   end
 
   def signupsmscon
@@ -24,10 +27,15 @@ class UsersController < ApplicationController
   end
 
   def validates_registration
+
     session[:nickname] = user_params[:nickname]
-    session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
+
+    unless session[:sns_id].present?
+      session[:email] = user_params[:email]
+      session[:password] = user_params[:password]
+      session[:password_confirmation] = user_params[:password_confirmation]
+    end
+
     session[:last_name_kanji] = user_params[:last_name_kanji]
     session[:first_name_kanji] = user_params[:first_name_kanji]
     session[:last_name_kana] = user_params[:last_name_kana]
@@ -123,6 +131,9 @@ class UsersController < ApplicationController
   end
 
   def signup_create
+
+    session[:sns_id] = nil
+
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -153,6 +164,8 @@ class UsersController < ApplicationController
         user_id: session[:id]
       )
       if @address.save
+        sns = SnsCredential.update(user_id: session[:id])
+        sign_in User.find(session[:id]) unless user_signed_in?
         redirect_to complete_users_path
       else
         User.find(session[:id]).destroy

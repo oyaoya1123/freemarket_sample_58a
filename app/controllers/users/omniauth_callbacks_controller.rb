@@ -28,39 +28,27 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   super(scope)
   # end
 
-  # callback for facebook
   def facebook
     callback_for(:facebook)
   end
 
-  # callback for google
   def google_oauth2
     callback_for(:google)
   end
 
-  # common callback method
   def callback_for(provider)
-    #@user = User.from_omniauth(request.env["omniauth.auth"])
-    #binding.pry
-    info = User.find_oauth(request.env["omniauth.auth"]) #usersモデルのメソッド
+    info = User.find_oauth(request.env["omniauth.auth"])
     @user = info[:user]
     sns_id = info[:sns_id]
-    binding.pry
     if @user.persisted?
-      sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
+      sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
-      #session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
-      #redirect_to new_user_registration_url
-      #redirect_to products_url
-      session["devise.sns_id"] = sns_id #sns_credentialのid devise.他のアクションに持ち越せる(少し難)
-      #render template: "devise/registrations/new" #redirect_to だと更新してしまうのでrenderで
-      #render template: "users/signupregistration"
-      session[:password] = ""
-      session[:email] = ""
-      session[:password_confirmation] = ""
-      binding.pry
-      redirect_to controller: 'users', action: 'signupregistration'
+      session[:sns_id] = sns_id
+      session[:password] = Devise.friendly_token[0,20]
+      session[:email] = @user.email
+      session[:password_confirmation] = session[:password]
+      redirect_to signupregistration_users_url
     end
   end
 
