@@ -55,8 +55,8 @@ Things you may want to cover:
 ## Sns_credentialsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|uid|string||
-|provider|string||
+|uid|string|null: false|
+|provider|string|null: false|
 |user_id|bigint|foreign_key: true|
 
 ### Association
