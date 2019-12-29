@@ -15,23 +15,32 @@
                 %span.form-require 必須
               %p 最大10枚までアップロードできます
 
-
-              .sell-dropbox-container.clearfix.state-image-number-10
+              .sell-dropbox-container.clearfix.state-image-number-1.active
                 .sell-upload-items-container
                   .sell-upload-items
                     %ul#preview
-                      
-                    
-                      
-                -# .sell-upload-drop-box.have-item-0
-
-                .sell-upload-drop-box.have-item-0
-                  -# #preview
-                  %pre.visible-pc
-                 
+                .sell-upload-drop-box.have-item-1.active
+                  %pre.visible-pc                 
                     ドラッグアンドドロップ
                     またはクリックしてファイルをアップロード
                   %i.icon-camera
+
+                  = f.label :image,for: "upload-image0", class:"label-image" do
+                    = f.fields_for :product_images do |image|
+                      #imageform
+                        = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image0",'data-id': 0,name:"product[product_images_attributes][0][image_url]"
+
+
+              .sell-dropbox-container.clearfix.state-image-number-2.notactive
+                .sell-upload-items-container
+                  .sell-upload-items
+                    %ul#preview2
+                .sell-upload-drop-box.have-item-2
+                  %pre.visible-pc                 
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+                  %i.icon-camera
+
                   = f.label :image,for: "upload-image0", class:"label-image" do
                     -# #preview
                     = f.fields_for :product_images do |image|

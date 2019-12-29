@@ -1,8 +1,8 @@
 
 $(function(){
   //imageの数 削除した時とかに反映させて使用 10まで
-  // var images = [];
-  var images = $(".li");
+  var images = [];
+  var img = $(".imagepre");
   //投稿カウント 削除した数とかは反映されない 連番 無制限
   var count =0;
   //1個のimageの内容
@@ -15,6 +15,7 @@ $(function(){
   $(document).on('change', 'input[type="file"]', function(e) {
     var file = e.target.files[0],
         reader = new FileReader();
+        
     count=count+1;
 
     // ファイル読み込みが完了した際のイベント登録
@@ -26,9 +27,9 @@ $(function(){
         var btn_wrapper = `<div class="btn_wrapper"><button class="btn_edit">編集</button><button class="btn_delete">削除</button></div>`;
         var imagehtml=
         `<li>
-        <figure class="pre">
-        <img src="${result}" width="100px" class="imagepre" title="${file.name} data-id="${count}">
-        </figure>
+        <div class="pre">
+        <img src="${result}" width="100px" class="imagepre" title="${file.name}" data-id="${count}">
+        </div>
         ${btn_wrapper}
         </li>`
 
@@ -42,11 +43,8 @@ $(function(){
     reader.readAsDataURL(file);
 
     console.log($('.sell-upload-drop-file[id$=1]'));
-    // images.push(img);
+    images.push(img);
 
-    $(".sell-upload-drop-box").css(
-      'width', `calc(100% - (20% * ${count}))`
-    )
     console.log(count)
 
     var input_html=`<input class="sell-upload-drop-file" id="upload-image${count}" data-id="${count}" name="product[product_images_attributes][${count}][image_url]" type="file">`
@@ -55,33 +53,63 @@ $(function(){
 
     // inputタグ挿入
     $("#imageform").append(input_html);
+
+    //条件分岐
+    var dropbox1=$(".state-image-number-1")
+    var dropbox2=$(".state-image-number-2")
+    var imagebox1=$(".have-item-1")
+    var imagebox2=$(".have-item-2")
+    console.log(images.length);
+    if(images.length >= 5) {
+      dropbox2.removeClass('notactive');
+      dropbox2.addClass('active');
+      imagebox1.removeClass('active');
+      imagebox1.addClass('notactive');
+      // dropbox.attr(".notactive",".active");
+      imagebox2.css(
+        'width', `calc(100% - (20% * ${images.length} - 5))`
+      )
+      }
+    else{
+        imagebox1.css(
+          'width', `calc(100% - (20% * ${images.length}))`
+        )
+    }
   });
 
 
   //削除ボタン押した時のしょり
   $(document).on('click', '.btn_delete', function() {
     var target_image = $(this).parent().parent();
-    var target_dataid=$(this).parent().parent().children("figure").children(".img").data('id')
+    var target_dataid=$(this).parent().parent().children(".pre").children(".imagepre").attr('data-id')
+    
+    $('.sell-upload-drop-file').each(function(index,element){
 
-    $('.sell-upload-drop-file').each(function(){
     // $.each(inputs, function(index, input){
       // if ($('.sell-upload-drop-file[id="upload-image + ${target_dataid}"]')){
-      if ($(this).attr('data-image') == target_dataid){
+      if ($(this).attr('data-id') == target_dataid){
         $(this).remove();
         target_image.remove();
-        // var num = $(this).data('id');
-        // images.splice(num, 1);
+        var num = $(this).attr('data-id');
+        images.splice(num-1, 1);
         // inputs.splice(num, 1);
         // if(inputs.length == 0) {
         //   $('input[type= "file"].upload-image').attr({
         //     'data-image': 0
         //   })
         // }
+        console.log(images.length);
+        console.log(inputs.length);
       }
     })
     $(".sell-upload-drop-box").css(
-      'width', `calc(100% - (20% * ${count}) + 20%)`
-    )
+      'width', `calc(100% - (20% * ${images.length}))`)
+
+    if(images.length >= 5) {
+      var dropbox=$(".sell-dropbox-container")
+      dropbox.attr(".notactive",".active");
+
+    }
 
   });
 
