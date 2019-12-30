@@ -5,11 +5,12 @@ $(function(){
   var img = $(".imagepre");
   //投稿カウント 削除した数とかは反映されない 連番 無制限
   var count =0;
-  //1個のimageの内容
-  // var image=$(".li")
-
   //inputタグの配列 削除にしよう
   inputs=('.sell-upload-drop-file');
+  var dropbox1=$(".state-image-number-1")
+  var dropbox2=$(".state-image-number-2")
+  var imagebox1=$(".have-item-1")
+  var imagebox2=$(".have-item-2")
 
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $(document).on('change', 'input[type="file"]', function(e) {
@@ -28,53 +29,51 @@ $(function(){
         var imagehtml=
         `<li>
         <div class="pre">
-        <img src="${result}" width="100px" class="imagepre" title="${file.name}" data-id="${count}">
+        <img src="${result}" width="100px" class="imagepre" data-id="${count}">
         </div>
         ${btn_wrapper}
         </li>`
 
-        $('#preview').append(imagehtml);
-
-          // $(this).children().append(btn_wrapper);
-
+        //images4~9まで
+        if(images.length >= 6) {
+          $('#preview2').append(imagehtml);
+          }
+        else{
+          $('#preview').append(imagehtml);
+        }
+        
       };
     })(file);
 
     reader.readAsDataURL(file);
-
-    console.log($('.sell-upload-drop-file[id$=1]'));
     images.push(img);
 
-    console.log(count)
-
+    //inputタグ挿入用
     var input_html=`<input class="sell-upload-drop-file" id="upload-image${count}" data-id="${count}" name="product[product_images_attributes][${count}][image_url]" type="file">`
-    // labelタグのfor変える
-    $(".label-image").attr('for','upload-image' + count);
-
-    // inputタグ挿入
-    $("#imageform").append(input_html);
-
     //条件分岐
-    var dropbox1=$(".state-image-number-1")
-    var dropbox2=$(".state-image-number-2")
-    var imagebox1=$(".have-item-1")
-    var imagebox2=$(".have-item-2")
+
     console.log(images.length);
     if(images.length >= 5) {
       dropbox2.removeClass('notactive');
       dropbox2.addClass('active');
       imagebox1.removeClass('active');
       imagebox1.addClass('notactive');
-      // dropbox.attr(".notactive",".active");
+
       imagebox2.css(
         'width', `calc(100% - (20% * ${images.length} - 5))`
       )
+
       }
     else{
         imagebox1.css(
           'width', `calc(100% - (20% * ${images.length}))`
         )
     }
+    // labelタグのfor変える
+    $(".label-image").attr('for','upload-image' + count);
+    // inputタグ挿入
+    $("#imageform").append(input_html);
+
   });
 
 
@@ -102,14 +101,31 @@ $(function(){
         console.log(inputs.length);
       }
     })
-    $(".sell-upload-drop-box").css(
-      'width', `calc(100% - (20% * ${images.length}))`)
+
+    //条件分岐
+    // $(".sell-upload-drop-box").css(
+    //   'width', `calc(100% - (20% * ${images.length}))`)
 
     if(images.length >= 5) {
       var dropbox=$(".sell-dropbox-container")
       dropbox.attr(".notactive",".active");
 
+      imagebox2.css(
+        'width', `calc(100% - (20% * ${images.length} - 5))`
+      )
+
+    }else{
+      dropbox2.removeClass('active');
+      dropbox2.addClass('notactive');
+      imagebox1.removeClass('notactive');
+      imagebox1.addClass('active');
+      
+      imagebox1.css(
+        'width', `calc(100% - (20% * ${images.length}))`
+      )
+
     }
+
 
   });
 
