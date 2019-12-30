@@ -28,8 +28,6 @@ class User < ApplicationRecord
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.find_by(uid: uid, provider: provider)
-    binding.pry
-
     if snscredential.present? #sns登録済み
       user = User.find_by(id: snscredential.user_id)
       unless user.present? #ユーザーが存在しないなら
