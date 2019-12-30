@@ -42,11 +42,9 @@
                   %i.icon-camera
 
                   = f.label :image,for: "upload-image0", class:"label-image" do
-                    -# #preview
                     = f.fields_for :product_images do |image|
                       #imageform2
-                        -# = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image0",'data-id': 0,name:"product[product_images_attributes][0][image_url]"
-
+ 
 
             .sell-content
               .form-group1
