@@ -20,7 +20,7 @@
             %li.child-content
               = link_to parent.name, products_path
               %ul.grandchild
-                = render partial: "header_child", collection: parent.children, as: :category
+                = render partial: "products/header_child", collection: parent.children, as: :category
 
       %li
         = link_to products_path do
@@ -32,19 +32,29 @@
             = link_to "ナイキ", products_path
             = link_to "ルイビトン", products_path
     %ul.gnav-right
-      %li
-        = link_to products_path do
-          = icon('far', 'heart')
-          いいね！一覧
-      %li
-        = link_to products_path do
-          = icon('far', 'bell')
-          お知らせ
-      %li
-        = link_to products_path do
-          = icon('fas', 'check')
-          やることリスト
-      %li
-        = link_to products_path do
-          = icon('far', 'smile')
-          マイページ
+      - if user_signed_in?
+        %li
+          = link_to products_path do
+            = icon('far', 'heart')
+            いいね！一覧
+        %li
+          = link_to products_path do
+            = icon('far', 'bell')
+            お知らせ
+        %li
+          = link_to destroy_user_session_path, method: "DELETE" do
+            = icon('fas', 'check')
+            ログアウト
+        %li
+          = link_to users_mypage_path do
+            = icon('far', 'smile')
+            マイページ
+      - else
+        %li
+          = link_to signup_users_path do
+            = icon('fas', 'check')
+            新規登録
+        %li
+          = link_to users_login_path do
+            = icon('fas', 'check')
+            ログイン

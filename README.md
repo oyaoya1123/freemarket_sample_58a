@@ -26,19 +26,21 @@ Things you may want to cover:
 # usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|last_name|string|null: false|
-|first_name|string|null: false|
-|phone_number|string|
+|nickname|string|null: false|
+|last_name_kanji|string|null: false|
+|first_name_kanji|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birthday_year|integer|null: false|
+|birthday_month|integer|null: false|
+|birthday_day|integer|null: false|
+|phone_number|integer|null: false|
+
 |profile_name|string|null: false|
 |profile_text|text|null: false|
 |expiration_date_month|integer|null: false|
 |expiration_date_days|integer|null: false|
 |security_code|integer|null: false|
-|nickname|string|null: false|
-|mail_address|string|null: false, unique: true|
-|nickname|string|null: false|
-|password|string|null: false|
-|birthday|date|null: false|
 
 ### Association
 - has_many :users_exhibits, dependent: :destroy
@@ -47,6 +49,18 @@ Things you may want to cover:
 - has_many :pu_products, through: :users_purchases, source: :product, dependent: :destroy
 - has_one :address, dependent: :destroy
 - has_one :cards, dependent: :destroy
+- has_many :sns_credentials, dependent: :destroy
+
+
+## Sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|uid|string|null: false|
+|provider|string|null: false|
+|user_id|bigint|foreign_key: true|
+
+### Association
+- belongs_to :user, optional: true
 
 
 ## Cardsテーブル
@@ -67,7 +81,12 @@ Things you may want to cover:
 |city|string|null: false|
 |house_number|string|null: false|
 |building_name|string|
-|user_id|integer|null: false, foreign_key: true|
+|address_last_name|string|null: false|
+|address_first_name|string|null: false|
+|address_last_name_kana|string|null: false|
+|address_first_name_kana|string|null: false|
+|address_phone_number|string|
+|user_id|biginteger|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user

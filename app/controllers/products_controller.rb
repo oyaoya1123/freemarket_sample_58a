@@ -1,13 +1,20 @@
 class ProductsController < ApplicationController
+  include CommonActions
+  before_action :set_categories
+  before_action :release_sns_id
+
+  def release_sns_id
+    session[:sns_id] = nil
+  end
+
   # 商品一覧
   def index
-    @categories=Category.roots
 
   end
 
   # 商品詳細
   def show
-    @categories=Category.roots
+
   end
  
   # 商品出品

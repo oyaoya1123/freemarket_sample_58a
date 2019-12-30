@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  root 'products#index'
   get 'githubtests' => 'githubtests#index'
   get 'githubtests/mypage' => 'githubtests#mypage'
   get 'users/profile' => 'users#profile'
@@ -14,14 +14,21 @@ Rails.application.routes.draw do
   get 'users/card_create' => 'users#card_create'
   # get 'products/itemshow'  => 'products#itemshow'
   get 'users/mypage'  => 'users#mypage'
-  get 'users/signupsmscon' => 'users#signupsmscon'
-  get 'users/signupregistration' => 'users#signupregistration'
-  get 'users/new_create'  => 'users#new_create'
+
+  resource :users do
+    collection do
+      get 'signup'
+      get 'signupregistration'
+      post 'signupsmscon'
+      post 'signup_adress_input'
+      post 'signup_card'
+      post 'signup_create'
+      get 'complete'
+    end
+  end
+
   get 'users/login'  => 'users#login'
   get 'users/signup_page'  => 'users#signup_page'
-  get 'users/signup_adress_input'  => 'users#signup_adress_input'
-  get 'users/signup_card'  => 'users#signup_card'
-  get 'users/complete'  => 'users#complete'
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update] do
     get '/buy'  => 'products#buy' 
