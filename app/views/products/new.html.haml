@@ -8,29 +8,53 @@
       .sell-container
         .sell-container-inner
           %h2.l-single-head 商品の情報を入力
+
           = form_with model: @product ,local:true, html: { class: "sell-form" } do |f|
             .sell-upload-box
               %h3.sell-upload-head
                 出品画像
                 %span.form-require 必須
               %p 最大10枚までアップロードできます
-              .sell-dropbox-container.clearfix.state-image-number-10
+
+              .sell-dropbox-container.clearfix.state-image-number-1.active
                 .sell-upload-items-container
-                  .sell-upload-items.have-item-0
-                    %ul
-                .sell-upload-drop-box.have-item-0
-                  %input.sell-upload-drop-file{multiple: "multiple", name: "image1", type: "file"}/
-                  %pre.visible-pc
-                    :preserve
-                        ドラッグアンドドロップ
-                        またはクリックしてファイルをアップロード
+                  .sell-upload-items
+                    %ul#preview
+                .sell-upload-drop-box.have-item-1.active
+                  %pre.visible-pc                 
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
                   %i.icon-camera
+
+                  = f.label :image,for: "upload-image0", class:"label-image" do
+                    = f.fields_for :product_images do |image|
+                      #imageform1
+                        = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image0",'data-id': 0,name:"product[product_images_attributes][0][image_url]"
+
+
+              .sell-dropbox-container.clearfix.state-image-number-2.notactive
+                .sell-upload-items-container
+                  .sell-upload-items
+                    %ul#preview2
+                .sell-upload-drop-box.have-item-2
+                  %pre.visible-pc                 
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+
+                  %i.icon-camera
+
+                  = f.label :image,for: "upload-image0", class:"label-image" do
+                    = f.fields_for :product_images do |image|
+                      #imageform2
+ 
+
             .sell-content
               .form-group1
                 %label
                   商品名
                   %span.form-require 必須
                 %div
+
                   = f.text_field :name, placeholder: "商品名（必須 40文字まで)", value: "",class:"input-default"
                   
               .form-group
@@ -38,8 +62,7 @@
                   商品の説明
                   %span.form-require 必須
                 = f.text_area :description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" , rows: "5",class:"textarea-default"
-                
-                      
+        
             .sell-content.clearfix
               %h3.sell-sub-head 商品の詳細
               .sell-form-box
@@ -117,6 +140,7 @@
                         %div
                           = f.text_field :price, placeholder: "例）300", class: "input-default", value: "" ,id:"price" ,onInput:"priceChange()"
                           -# = f.number_field :price{placeholder: "例）300", value: "", class:"input-default"}
+
                   %li.clearfix
                     .l-left
                       販売手数料 (10%)
@@ -147,6 +171,7 @@
                   に同意したことになります。
              
               = f.submit '出品する', class: "btn-default btn-red"
+
               %button.btn-default.btn-gray もどる
           .overlay
  

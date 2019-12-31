@@ -51,9 +51,10 @@ ActiveRecord::Schema.define(version: 2019_12_30_075502) do
 
   create_table "product_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image_url", null: false
-    t.integer "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id", null: false
+    t.index ["product_id"], name: "index_product_images_on_product_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -142,6 +143,7 @@ ActiveRecord::Schema.define(version: 2019_12_30_075502) do
     t.index ["user_id"], name: "index_users_purchases_on_user_id"
   end
 
+  add_foreign_key "product_images", "products"
   add_foreign_key "users_exhibits", "products"
   add_foreign_key "users_exhibits", "users"
   add_foreign_key "users_purchases", "products"

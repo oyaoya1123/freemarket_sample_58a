@@ -4,5 +4,7 @@ class Product < ApplicationRecord
   has_one :ex_user, through: :users_exhibit, source: :user
   has_one :pu_user, through: :users_purchase, source: :user
 
-  
+  has_many :product_images
+  accepts_nested_attributes_for :product_images
+
 end
