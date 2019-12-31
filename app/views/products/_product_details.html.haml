@@ -1,9 +1,11 @@
 .wraper
   .item-box-container
-    %h1 商品名
+    %h1 商品名 
+    =@product.name
     .item-box-container__content.clerafix
       .item-box-container__content__photo
-        写真
+      =@product.product_images.each do |i|
+        =image_tag i.image_url.url
       %table.item-box-container__content__detail-table
         %tbody
           %tr

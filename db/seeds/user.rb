@@ -139,7 +139,7 @@ User.create!(
   ]
 )
 
-UsersExhibits.create!(
+UsersExhibit.create!(
   [
     {
       user_id: '1',
@@ -156,14 +156,14 @@ UsersExhibits.create!(
       
     },
     {
-      user_id: '2',
+      user_id: '1',
       product_id: '3',
       created_at: '2019-12-29 00:12:01',
       updated_at: '2019-12-29 00:12:01',
       
     },
     {
-      user_id: '3',
+      user_id: '2',
       product_id: '4',
       created_at: '2019-12-29 00:13:01',
       updated_at: '2019-12-29 00:13:01',
@@ -205,16 +205,114 @@ UsersExhibits.create!(
       
     },
     {
-      user_id: '4',
+      user_id: '3',
       product_id: '10',
       created_at: '2019-12-29 00:19:01',
       updated_at: '2019-12-29 00:19:01',
       
     },
     {
-      user_id: '5',
+      user_id: '4',
       product_id: '11',
       created_at: '2019-12-29 00:19:11',
       updated_at: '2019-12-29 00:19:11',
       
     },
+    {
+      user_id: '4',
+      product_id: '12',
+      created_at: '2019-12-29 00:19:11',
+      updated_at: '2019-12-29 00:19:11',
+      
+    },
+    {
+      user_id: '4',
+      product_id: '12',
+      created_at: '2019-12-29 00:19:11',
+      updated_at: '2019-12-29 00:19:11',
+      
+    },
+    {
+      user_id: '4',
+      product_id: '13',
+      created_at: '2019-12-29 00:19:11',
+      updated_at: '2019-12-29 00:19:11',
+      
+    },
+    {
+      user_id: '4',
+      product_id: '14',
+      created_at: '2019-12-29 00:19:11',
+      updated_at: '2019-12-29 00:19:11',
+      
+    },
+    {
+      user_id: '4',
+      product_id: '15',
+      created_at: '2019-12-29 00:19:11',
+      updated_at: '2019-12-29 00:19:11',
+      
+    },
+    {
+      user_id: '4',
+      product_id: '16',
+      created_at: '2019-12-29 00:19:11',
+      updated_at: '2019-12-29 00:19:11',
+      
+    }
+  ]
+)
+
+UsersPurchase.create!(
+  [
+    {
+      user_id: '1',
+      product_id: '4',
+      created_at: '2019-12-29 00:02:01',
+      updated_at: '2019-12-29 00:02:01',
+      
+    },
+    {
+      user_id: '1',
+      product_id: '5',
+      created_at: '2019-12-29 00:02:01',
+      updated_at: '2019-12-29 00:02:01',
+      
+    },
+    {
+      user_id: '4',
+      product_id: '6',
+      created_at: '2019-12-29 00:02:01',
+      updated_at: '2019-12-29 00:02:01',
+      
+    },
+    {
+      user_id: '5',
+      product_id: '7',
+      created_at: '2019-12-29 00:02:01',
+      updated_at: '2019-12-29 00:02:01',
+      
+    },
+    {
+      user_id: '5',
+      product_id: '14',
+      created_at: '2019-12-29 00:19:11',
+      updated_at: '2019-12-29 00:19:11',
+      
+    },
+    {
+      user_id: '5',
+      product_id: '15',
+      created_at: '2019-12-29 00:02:01',
+      updated_at: '2019-12-29 00:02:01',
+      
+    },
+    {
+      user_id: '6',
+      product_id: '16',
+      created_at: '2019-12-29 00:02:01',
+      updated_at: '2019-12-29 00:02:01',
+      
+    }
+  ]
+)
