@@ -4,14 +4,5 @@ class Product < ApplicationRecord
   has_one :ex_user, through: :users_exhibit, source: :user
   has_one :pu_user, through: :users_purchase, source: :user
 
-  def profit
-    price * 1.1 - price
-  end
-
-  def taxincluded(price)
-    zeikomi = (price * 1.1).round(0)
-    
-  end
-
   
 end
