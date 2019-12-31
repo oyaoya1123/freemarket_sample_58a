@@ -65,7 +65,7 @@ $(function(){
       imagebox2.addClass('active');
 
         imagebox2.css(
-          'width', `calc(100% - (20% * ${images.length} - 5))`
+          'width', `calc(100% - (20% * (${images.length} - 5)))`
         )
       // labelタグのfor変える
       $(".label-image").attr('for','upload-image' + count);
@@ -110,11 +110,11 @@ $(function(){
     //条件分岐
 
     if(images.length >= 5) {
-      var dropbox=$(".sell-dropbox-container")
-      dropbox.attr(".notactive",".active");
+      // var dropbox=$(".sell-dropbox-container")
+      // dropbox.attr(".notactive",".active");
 
       imagebox2.css(
-        'width', `calc(100% - (20% * ${images.length} - 5))`
+        'width', `calc(100% - (20% * (${images.length} - 5)))`
       )
 
       if(images.length==9){
