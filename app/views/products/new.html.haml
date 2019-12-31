@@ -48,7 +48,9 @@
                     カテゴリー
                     %span.form-require 必須
 
-                  = render "products/category.select", f: f
+                  .select-wrap
+                    %i.icon-arrow-bottom
+                    = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '0'), :id, :value, { prompt: '--' }, class: 'select-default' ,name: "category"
                   
                   
                     
