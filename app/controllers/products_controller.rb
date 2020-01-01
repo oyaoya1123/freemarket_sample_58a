@@ -7,9 +7,15 @@ class ProductsController < ApplicationController
     session[:sns_id] = nil
   end
 
+  def indextest
+  end
+
   # 商品一覧
   def index
-
+    @ladys = Product.where(category_id: 1).limit(10).order('created_at DESC')
+    @mens = Product.where(category_id: 2)
+    @homeappliances = Product.where(category_id: 3)
+    @amuses = Product.where(category_id: 4)
   end
 
   # 商品詳細
