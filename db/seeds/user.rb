@@ -266,14 +266,14 @@ UsersExhibit.create!(
 UsersPurchase.create!(
   [
     {
-      user_id: '1',
+      user_id: '4',
       product_id: '4',
       created_at: '2019-12-29 00:02:01',
       updated_at: '2019-12-29 00:02:01',
       
     },
     {
-      user_id: '1',
+      user_id: '4',
       product_id: '5',
       created_at: '2019-12-29 00:02:01',
       updated_at: '2019-12-29 00:02:01',
@@ -287,11 +287,14 @@ UsersPurchase.create!(
       
     },
     {
-      user_id: '5',
+      user_id: '4',
       product_id: '7',
       created_at: '2019-12-29 00:02:01',
       updated_at: '2019-12-29 00:02:01',
       
+    },
+    {
+      user_id: '4',
       product_id: '1',
       created_at: '2019-12-29 00:02:01',
       updated_at: '2019-12-29 00:02:01',
