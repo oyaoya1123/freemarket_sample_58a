@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
 
   # 商品一覧
   def index
-    @product=Product.find(1)
+
   end
 
   # 商品詳細
@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
     else 
       render new
     end
-
+    
   end
 
   # 商品編集
@@ -46,8 +46,7 @@ class ProductsController < ApplicationController
   end
 
   # 商品詳細
-  def show
-    @product=Product.find(2)
+  def itemshow
   end
 
   # 商品購入確認

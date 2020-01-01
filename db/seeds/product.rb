@@ -29,6 +29,7 @@ Product.create!(
       
       ※中古品です。',
       price: '350',
+      price: '350'
       created_at: '2019-11-31 13:23:23',
       updated_at: '2019-11-31 13:23:23',
       shipping_origin: '滋賀県',
@@ -68,7 +69,7 @@ Product.create!(
     {
       name: 'SHIPS ビッグフード　ダウン　Sサイズ',
       description: 'SHIPS ビッグフードダウン
-      
+
       新品未使用です。
       ピンク色です。
       Sサイズです。',
@@ -152,7 +153,7 @@ Product.create!(
       description: 'RICOH 一眼レフカメラ
 
       ●定価：1,000
-
+      
       ●定価：1,000
       ●定価：1,000
 
@@ -177,7 +178,6 @@ Product.create!(
 
       ●定価：1,000
       ●定価：1,000
-      
       ●定価：1,000
 
       ●定価：1,000
@@ -197,7 +197,7 @@ Product.create!(
     {
       name: 'ユニベア ぬいぐるみ 不思議の国のアリス',
       description: 'アリスのぬいぐるみです。
-      
+
       よろしくおねがいします。
       ',
       price: '3300',
@@ -218,7 +218,6 @@ Product.create!(
 
       ●定価：1,000
       ●定価：1,000
-
       ●定価：1,000
       ●定価：1,000
       ',
@@ -235,6 +234,7 @@ Product.create!(
       name: '【著者サイン入り☆】「龍馬伝」',
       description: '「龍馬伝」
       ●●
+
       定価: ￥ 2,090
       よろしくおねがいします。
       ',
@@ -263,8 +263,6 @@ Product.create!(
       name: 'パイレーツオブカリビアン DVD',
       description: '※DVDセット
       ●定価：1,000
-      ●定価：1,000
-      
       ●定価：1,000
 
       ●定価：1,000
