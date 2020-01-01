@@ -30,7 +30,6 @@ Product.create!(
       
       ※中古品です。',
       price: '350',
-      price: '350'
       created_at: '2019-11-31 13:23:23',
       updated_at: '2019-11-31 13:23:23',
       shipping_origin: '滋賀県',
