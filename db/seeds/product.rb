@@ -15,7 +15,8 @@ Product.create!(
       shipping_method: 'らくらくメルカリ便',
       shipping_charge: '送料込み(出品者負担)',
       shipping_day: '1~2日で発送',
-      product_condition: '目立った傷や汚れなし'
+      product_condition: '目立った傷や汚れなし',
+      category_id: '3'  #レディース
       
     },
     {
@@ -36,7 +37,8 @@ Product.create!(
       shipping_method: 'クリックポスト',
       shipping_charge: '着払い(購入者負担)',
       shipping_day: '2~3日で発送',
-      product_condition: '未使用に近い'
+      product_condition: '未使用に近い',
+      category_id: '119' #レディース
     },
     {
       name: 'ヒョウ柄　リングベルト＆スタンド用クリップ付　iPhoneケース',
@@ -50,7 +52,8 @@ Product.create!(
       shipping_method: 'クロネコヤマト',
       shipping_charge: '送料込み(出品者負担)',
       shipping_day: '4~7日で発送',
-      product_condition: 'やや傷や汚れあり'
+      product_condition: 'やや傷や汚れあり',
+      category_id: '903' #家電スマホカメラ
     },
     {
       name: 'NIKE ナイキ 薄スウェット パーカー ゴツナイキ サイドロゴ グレー',
@@ -64,7 +67,8 @@ Product.create!(
       shipping_method: '普通郵便(提携、定形外)',
       shipping_charge: '送料込み(出品者負担)',
       shipping_day: '1~2日で発送',
-      product_condition: 'やや傷や汚れあり'
+      product_condition: 'やや傷や汚れあり',
+      category_id: '248' #メンズ
     },
     {
       name: 'SHIPS ビッグフード　ダウン　Sサイズ',
@@ -80,7 +84,8 @@ Product.create!(
       shipping_method: 'クロネコヤマト',
       shipping_charge: '送料込み(出品者負担)',
       shipping_day: '4~7日で発送',
-      product_condition: 'やや傷や汚れあり'
+      product_condition: 'やや傷や汚れあり',
+      category_id: '3'  #レディース
     },
     {
       name: 'Banana republic 膝丈スカート',
@@ -97,7 +102,8 @@ Product.create!(
       shipping_method: 'らくらくメルカリ便',
       shipping_charge: '着払い(購入者負担)',
       shipping_day: '4~7日で発送',
-      product_condition: '未使用に近い'
+      product_condition: '未使用に近い',
+      category_id: '58'  #レディース
     },
     {
       name: 'CHANEL シャネル キャビアスキン',
@@ -114,7 +120,8 @@ Product.create!(
       shipping_method: '未定',
       shipping_charge: '着払い(購入者負担)',
       shipping_day: '1~2日で発送',
-      product_condition: '新品・未使用'
+      product_condition: '新品・未使用',
+      category_id: '132'  #レディース
     },
     {
       name: 'マッキントッシュ　モッズコート',
@@ -127,7 +134,8 @@ Product.create!(
       shipping_method: 'らくらくメルカリ便',
       shipping_charge: '送料込み(出品者負担)',
       shipping_day: '2~3日で発送',
-      product_condition: '傷や汚れあり'
+      product_condition: '傷や汚れあり',
+      category_id: '37'  #レディース
     },
     {
       name: '【新品未使用】ハローキティ カバーオール サンリオ',
@@ -146,7 +154,8 @@ Product.create!(
       shipping_method: 'ゆうメール',
       shipping_charge: '送料込み(出品者負担)',
       shipping_day: '2~3日で発送',
-      product_condition: '目立った傷や汚れなし'
+      product_condition: '目立った傷や汚れなし',
+      category_id: '683'  #おもちゃ
     },
     {
       name: 'RICOH XR200一眼レフカメラ',
@@ -166,7 +175,8 @@ Product.create!(
       shipping_method: 'らくらくメルカリ便',
       shipping_charge: '送料込み(出品者負担)',
       shipping_day: '1~2日で発送',
-      product_condition: '新品・未使用'
+      product_condition: '新品・未使用',
+      category_id: '920'  #家電すまほ
     },
     {
       name: 'ONE PIECE BEST ALBUM',
@@ -192,7 +202,8 @@ Product.create!(
       shipping_method: 'クロネコヤマト',
       shipping_charge: '着払い(購入者負担)',
       shipping_day: '1~2日で発送',
-      product_condition: '傷や汚れあり'
+      product_condition: '傷や汚れあり',
+      category_id: '655'  #本音楽アニメ
     },
     {
       name: 'ユニベア ぬいぐるみ 不思議の国のアリス',
@@ -207,7 +218,8 @@ Product.create!(
       shipping_method: 'ゆうメール',
       shipping_charge: '着払い(購入者負担)',
       shipping_day: '1~2日で発送',
-      product_condition: '未使用に近い'
+      product_condition: '未使用に近い',
+      category_id: '681'  #おもちゃ
     },
     {
       name: 'CHANEL 2ウェイバッグ',
@@ -228,7 +240,8 @@ Product.create!(
       shipping_method: 'ゆうパック',
       shipping_charge: '送料込み(出品者負担)',
       shipping_day: '4~7日で発送',
-      product_condition: '目立った傷や汚れなし'
+      product_condition: '目立った傷や汚れなし',
+      category_id: '96'  #レディース
     },
     {
       name: '【著者サイン入り☆】「龍馬伝」',
@@ -245,7 +258,8 @@ Product.create!(
       shipping_method: '未定',
       shipping_charge: '送料込み(出品者負担)',
       shipping_day: '2~3日で発送',
-      product_condition: '目立った傷や汚れなし'
+      product_condition: '目立った傷や汚れなし',
+      category_id: '624'  #本音楽
     },
     {
       name: 'new blance　スニーカー',
@@ -257,7 +271,8 @@ Product.create!(
       shipping_method: 'クロネコヤマト',
       shipping_charge: '着払い(購入者負担)',
       shipping_day: '4~7日で発送',
-      product_condition: 'やや傷や汚れあり'
+      product_condition: 'やや傷や汚れあり',
+      category_id: '71'  #レディース
     },
     {
       name: 'パイレーツオブカリビアン DVD',
@@ -279,7 +294,8 @@ Product.create!(
       shipping_method: 'らくらくメルカリ便',
       shipping_charge: '送料込み(出品者負担)',
       shipping_day: '1~2日で発送',
-      product_condition: '傷や汚れあり'
+      product_condition: '傷や汚れあり',
+      category_id: '661'  #本音楽
     },
   ]
 )
