@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
 
     @product = Product.new(products_params)
     if @product.save
+      UsersExhibit.create(exhibit_user_params)
       redirect_to "/"
     else 
       render new
@@ -57,6 +58,10 @@ class ProductsController < ApplicationController
 
   def products_params
     params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url])
+  end
+
+  def exhibit_user_params
+    params.require(:product).permit(:id).merge(user_id: current_user.id,)
   end
 
 end
