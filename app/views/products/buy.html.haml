@@ -12,7 +12,8 @@
       .buy-main__content__detailbox
         .buy-main__content__detailbox__inner
           .buy-main__content__detailbox__inner__item
-            = image_tag "hito2.jpg", class:"item-image"
+            -# = image_tag "hito2.jpg", class:"item-image"
+            = image_tag @image.image_url.url, class:"item-image"
             
             .item-detail
               %p.item-detail__text

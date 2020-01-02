@@ -49,12 +49,15 @@ class ProductsController < ApplicationController
   def itemshow
   end
 
-  #商品購入
+  #商品購入確認
   def buy
-    @product = Product.find(1)
+    @product = Product.find(params[:product_id])
+    @images=ProductImage.where(product_id:params[:product_id])
+    @image=@images.first
+    # binding.pry
   end
 
-  # 商品購入確認
+  # 商品支払い
   def pay
     # binding.pry
     @product = Product.find(params[:product_id])
@@ -64,6 +67,16 @@ class ProductsController < ApplicationController
     card: params['payjp-token'],
     currency: 'jpy'
     )
+
+    #購入ユーザの登録
+    @purchase_user=UsersPurchase.new(
+      purchase_user_params
+      #ステータスID追加後追記
+    )
+    if @purchase_user.save
+      redirect_to action: :new
+    end
+    binding.pry
   end
 
   private
@@ -71,6 +84,11 @@ class ProductsController < ApplicationController
   def products_params
     params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url])
   end
+
+  def purchase_user_params
+    params.permit(:product_id).merge(user_id: current_user.id)
+  end
+
 
 end
 
