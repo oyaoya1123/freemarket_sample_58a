@@ -9,11 +9,12 @@ class ProductsController < ApplicationController
 
   # 商品一覧
   def index
-
+  @products = Product.all
   end
 
   # 商品詳細
   def show
+    @products = Product.find(params[:id])
   end
  
   # 商品出品
