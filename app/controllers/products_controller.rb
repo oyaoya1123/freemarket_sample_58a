@@ -49,8 +49,21 @@ class ProductsController < ApplicationController
   def itemshow
   end
 
-  # 商品購入確認
+  #商品購入
   def buy
+    @product = Product.find(1)
+  end
+
+  # 商品購入確認
+  def pay
+    # binding.pry
+    @product = Product.find(params[:product_id])
+    Payjp.api_key = ENV['PAYJP_TEST_SECRET_KEY']
+    Payjp::Charge.create(
+    amount: @product.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
   end
 
   private
