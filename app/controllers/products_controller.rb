@@ -55,6 +55,8 @@ class ProductsController < ApplicationController
     @images=ProductImage.where(product_id:params[:product_id])
     @image=@images.first
     # binding.pry
+    @address=Address.find_by(user_id:current_user)
+    @user=User.find(current_user.id)
   end
 
   # 商品支払い

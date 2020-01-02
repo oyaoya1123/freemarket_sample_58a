@@ -67,11 +67,15 @@
                   = link_to "/", class: "right" do
                     %span 変更する
                 %div.userinfo__inner__text
-                〒001-0001
+                =@address.postal_code
                 %br
-                北海道 札幌市 北区 北 1-1-1 ●●マンション111
+                =@address.prefectures
+                =@address.city
+                =@address.house_number
+                =@address.building_name
                 %br
-                山田 花子
+                =@user.last_name_kanji
+                =@user.first_name_kanji
                 %br
 
             %section.buyuserinfo
