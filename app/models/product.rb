@@ -8,6 +8,5 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images
 
   has_many :categories
-  has_many :product_images
 
 end

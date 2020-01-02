@@ -13,21 +13,29 @@ class ProductsController < ApplicationController
   # 商品一覧
   def index
     @ladys = Product.where(category_id: 1).limit(10).order('created_at DESC')
-    @mens = Product.where(category_id: 2)
-    @homeappliances = Product.where(category_id: 3)
-    @amuses = Product.where(category_id: 4)
+    @mens = Product.where(category_id: 2).limit(10).order('created_at DESC')
+    @homeappliances = Product.where(category_id: 3).limit(10).order('created_at DESC')
+    @amuses = Product.where(category_id: 4).limit(10).order('created_at DESC')
+    # @menimage = []
+    # @mens.each do |men|
+    #   @menimage << men.product_images
+    # end
+ 
+    # @image = @menimage.first
+
   end
 
   # 商品詳細
   def show
-
+    @product = Product.find(params[:id])
+    @product_images = ProductImage.where(product_id: params[:id])
   end
  
   # 商品出品
   def new
 
     @product=Product.new
-    @product.product_images.build
+    10.times{@product.product_images.build}
 
   end
 
@@ -35,7 +43,10 @@ class ProductsController < ApplicationController
   def create
 
     @product = Product.new(products_params)
+  
     if @product.save
+      @product_image = ProductImage.create(product_id: @product.id, image_url: params[:product][:product_images_attributes]["0"][:image_url])
+      
       redirect_to "/"
     else 
       render new

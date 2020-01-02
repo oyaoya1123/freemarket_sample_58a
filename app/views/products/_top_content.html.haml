@@ -32,6 +32,7 @@
               .inner-item-box__container
                 .inner-item-box__container__img-box
                   .inner-item-box__container__img-box__img
+                    -# = image_tag lady.product_images[0].image_url.to_s
                   %span.inner-item-box__container__img-box__price
                     ¥
                     = lady.price
@@ -52,6 +53,8 @@
               .inner-item-box__container
                 .inner-item-box__container__img-box
                   .inner-item-box__container__img-box__img
+                    -# = image_tag men.product_images[0].image_url.to_s
+                    -# = image_tag @image.image_url.to_s
                   %span.inner-item-box__container__img-box__price
                     ¥
                     = men.price
