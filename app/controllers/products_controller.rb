@@ -30,6 +30,11 @@ class ProductsController < ApplicationController
 
     @product = Product.new(products_params)
     if @product.save
+      UsersExhibit.create(
+        product_id:@product.id,
+        user_id:current_user.id,
+        produt_status_id:1
+      )
       redirect_to "/"
     else 
       render new
@@ -58,6 +63,7 @@ class ProductsController < ApplicationController
   def products_params
     params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url])
   end
+
 
 end
 
