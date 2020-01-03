@@ -30,6 +30,7 @@
           - @ladys.each do |lady|
             %li.item-boxes__box__main__container__content
               .inner-item-box__container
+              = link_to product_path(lady.id) do
                 .inner-item-box__container__img-box
                   .inner-item-box__container__img-box__img
                     = image_tag lady.product_images[0].image_url.to_s, size: '185x188'
@@ -51,6 +52,7 @@
           - @mens.each do |men|
             %li.item-boxes__box__main__container__content
               .inner-item-box__container
+              = link_to product_path(men.id) do
                 .inner-item-box__container__img-box
                   .inner-item-box__container__img-box__img
                     = image_tag men.product_images[0].image_url.to_s, size: '185x188'
@@ -71,6 +73,7 @@
           - @homeappliances.each do |homeappliance|
             %li.item-boxes__box__main__container__content
               .inner-item-box__container
+              = link_to product_path(homeappliance.id) do
                 .inner-item-box__container__img-box
                   .inner-item-box__container__img-box__img
                     = image_tag homeappliance.product_images[0].image_url.to_s, size: '185x188'
@@ -91,6 +94,7 @@
           - @amuses.each do |amuse|
             %li.item-boxes__box__main__container__content
               .inner-item-box__container
+              = link_to product_path(amuse.id) do
                 .inner-item-box__container__img-box
                   .inner-item-box__container__img-box__img
                     = image_tag amuse.product_images[0].image_url.to_s, size: '185x188'
