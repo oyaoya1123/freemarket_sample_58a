@@ -70,13 +70,18 @@
                   %label
                     カテゴリー
                     %span.form-require 必須
-
+                  .select-wrap.category-views
+                    %i.icon-arrow-bottom
+                    = f.select :category, @category_parent_array, {}, class: 'select-default', id: 'parent_category'
+                
+                .form-group
+                  %label
+                    サイズ
+                    %span.form-require 必須
                   .select-wrap
                     %i.icon-arrow-bottom
-                    = f.collection_select :categoryactivehash_id, Categoryactivehash.where(sub: '0'), :id, :value, { prompt: '--' }, class: 'select-default' ,name: "category"
-                  
-                  
-                    
+                    = f.select :product_size, ["--", "L", "M", "S"], {}, class: 'select-default'
+
                 .form-group
                   %label
                     商品の状態
