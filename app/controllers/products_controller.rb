@@ -38,12 +38,14 @@ class ProductsController < ApplicationController
 
   # 商品出品
   def create
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array.unshift("---")
 
     @product = Product.new(products_params)
     if @product.save
       redirect_to "/"
     else 
-      render new
+      render :new
     end
     
   end
