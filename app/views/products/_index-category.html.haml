@@ -1,0 +1,12 @@
+%li.item-boxes__box__main__container__content
+  .inner-item-box__container
+  = link_to product_path(category.id) do
+    .inner-item-box__container__img-box
+      .inner-item-box__container__img-box__img
+        = image_tag category.product_images[0].image_url.to_s, size: '185x188'
+      %span.inner-item-box__container__img-box__price
+        ¥
+        = category.price.to_s(:delimited, delimiter: ',')
+      .inner-item-box__container__caption
+        %span.inner-item-box__container__caption__text
+          = category.name
