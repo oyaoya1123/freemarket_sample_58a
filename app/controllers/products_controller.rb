@@ -30,6 +30,11 @@ class ProductsController < ApplicationController
 
     @product = Product.new(products_params)
     if @product.save
+      UsersExhibit.create(
+        product_id:@product.id,
+        user_id:current_user.id,
+        product_status_id:1
+      )
       redirect_to "/"
     else 
       render new
