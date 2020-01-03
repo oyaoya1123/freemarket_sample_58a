@@ -16,13 +16,6 @@ class ProductsController < ApplicationController
     @mens = Product.where(category_id: 2).limit(10).order('created_at DESC')
     @homeappliances = Product.where(category_id: 3).limit(10).order('created_at DESC')
     @amuses = Product.where(category_id: 4).limit(10).order('created_at DESC')
-    # @menimage = []
-    # @mens.each do |men|
-    #   @menimage << men.product_images
-    # end
- 
-    # @image = @menimage.first
-
   end
 
   # 商品詳細
