@@ -67,7 +67,8 @@ class ProductsController < ApplicationController
   private
 
   def products_params
-    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url])
+    @category=Category.find_by(name:params[:category_id])
+    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url]).merge(category_id:@category.id)
   end
 
 end
