@@ -27,20 +27,8 @@
             = icon('fas', 'angle-right')
         .item-boxes__box__main
           %ul.item-boxes__box__main__container
-          - @ladys.each do |lady|
-            %li.item-boxes__box__main__container__content
-              .inner-item-box__container
-              = link_to product_path(lady.id) do
-                .inner-item-box__container__img-box
-                  .inner-item-box__container__img-box__img
-                    = image_tag lady.product_images[0].image_url.to_s, size: '185x188'
-                  %span.inner-item-box__container__img-box__price
-                    ¥
-                    = lady.price
-                  .inner-item-box__container__caption
-                    %span.inner-item-box__container__caption__text
-                      = lady.name
-            
+          = render partial: 'index-category', collection: @ladys, as: "category"
+
       .item-boxes__box
         .item-boxes__box__header
           %h3 メンズ新着アイテム
@@ -49,19 +37,7 @@
             = icon('fas', 'angle-right')
         .item-boxes__box__main
           %ul.item-boxes__box__main__container
-          - @mens.each do |men|
-            %li.item-boxes__box__main__container__content
-              .inner-item-box__container
-              = link_to product_path(men.id) do
-                .inner-item-box__container__img-box
-                  .inner-item-box__container__img-box__img
-                    = image_tag men.product_images[0].image_url.to_s, size: '185x188'
-                  %span.inner-item-box__container__img-box__price
-                    ¥
-                    = men.price
-                  .inner-item-box__container__caption
-                    %span.inner-item-box__container__caption__text
-                      = men.name
+          = render partial: 'index-category', collection: @mens, as: "category"
       .item-boxes__box
         .item-boxes__box__header
           %h3 家電・スマホ・カメラ新着アイテム
@@ -70,19 +46,8 @@
             = icon('fas', 'angle-right')
         .item-boxes__box__main
           %ul.item-boxes__box__main__container
-          - @homeappliances.each do |homeappliance|
-            %li.item-boxes__box__main__container__content
-              .inner-item-box__container
-              = link_to product_path(homeappliance.id) do
-                .inner-item-box__container__img-box
-                  .inner-item-box__container__img-box__img
-                    = image_tag homeappliance.product_images[0].image_url.to_s, size: '185x188'
-                  %span.inner-item-box__container__img-box__price
-                    ¥
-                    = homeappliance.price
-                  .inner-item-box__container__caption
-                    %span.inner-item-box__container__caption__text
-                      = homeappliance.name
+          = render partial: 'index-category', collection: @homeappliances, as: "category"
+
       .item-boxes__box
         .item-boxes__box__header
           %h3 おもちゃ・ホビー・グッズ新着アイテム
@@ -91,16 +56,4 @@
             = icon('fas', 'angle-right')
         .item-boxes__box__main
           %ul.item-boxes__box__main__container
-          - @amuses.each do |amuse|
-            %li.item-boxes__box__main__container__content
-              .inner-item-box__container
-              = link_to product_path(amuse.id) do
-                .inner-item-box__container__img-box
-                  .inner-item-box__container__img-box__img
-                    = image_tag amuse.product_images[0].image_url.to_s, size: '185x188'
-                  %span.inner-item-box__container__img-box__price
-                    ¥
-                    = amuse.price
-                  .inner-item-box__container__caption
-                    %span.inner-item-box__container__caption__text
-                      = amuse.name
+          = render partial: 'index-category', collection: @amuses, as: "category"
