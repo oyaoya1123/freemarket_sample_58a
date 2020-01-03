@@ -29,3 +29,6 @@
 /public/uploads/*
 # dotenv
 .env
+
+#画像seed用
+/db/fixtures/*

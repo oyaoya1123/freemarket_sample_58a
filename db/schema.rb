@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_30_075502) do
+ActiveRecord::Schema.define(version: 2020_01_01_013443) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2019_12_30_075502) do
     t.string "shipping_charge"
     t.string "shipping_day"
     t.string "product_condition"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "produt_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -130,7 +132,9 @@ ActiveRecord::Schema.define(version: 2019_12_30_075502) do
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "produt_status_id"
     t.index ["product_id"], name: "index_users_exhibits_on_product_id"
+    t.index ["produt_status_id"], name: "index_users_exhibits_on_produt_status_id"
     t.index ["user_id"], name: "index_users_exhibits_on_user_id"
   end
 
@@ -139,13 +143,18 @@ ActiveRecord::Schema.define(version: 2019_12_30_075502) do
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "produt_status_id"
     t.index ["product_id"], name: "index_users_purchases_on_product_id"
+    t.index ["produt_status_id"], name: "index_users_purchases_on_produt_status_id"
     t.index ["user_id"], name: "index_users_purchases_on_user_id"
   end
 
   add_foreign_key "product_images", "products"
+  add_foreign_key "products", "categories"
   add_foreign_key "users_exhibits", "products"
+  add_foreign_key "users_exhibits", "produt_statuses"
   add_foreign_key "users_exhibits", "users"
   add_foreign_key "users_purchases", "products"
+  add_foreign_key "users_purchases", "produt_statuses"
   add_foreign_key "users_purchases", "users"
 end
