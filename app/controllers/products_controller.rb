@@ -20,6 +20,11 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @product_images = ProductImage.where(product_id: params[:id])
+    @exproduct = UsersExhibit.find_by(product_id: @product.id)
+    @exuser = User.find(@exproduct.user_id)
+    @grandchaild_category = Category.find(@product.category_id)
+    @chaild_category = @grandchaild_category.parent
+    @category = @chaild_category.parent
   end
  
   # 商品出品
@@ -46,7 +51,6 @@ class ProductsController < ApplicationController
 
     @product = Product.new(products_params)
     if @product.save
-      @product_image = ProductImage.create(product_id: @product.id, image_url: params[:product][:product_images_attributes]["0"][:image_url])
       redirect_to "/"
     else 
       render new

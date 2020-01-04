@@ -1,17 +1,27 @@
 .wraper
   .item-box-container
-    %h1 商品名
+    %h1 
+      = @product.name
     .item-box-container__content.clerafix
       .item-box-container__content__photo
-        写真
+        = image_tag @product_images[0].image_url.to_s, :size => "300x330",id:"img"
+        .item-box-container__content__photo__each
+          - @product_images.each do |product_image|
+            = image_tag product_image.image_url.to_s,style:"width:20%;",onmouseover: "changeimage('#{product_image.image_url.to_s}');"
+
+
       %table.item-box-container__content__detail-table
         %tbody
           %tr
             %th 出品者
-            %td コンテンツ
+            %td 
+              = @exuser.nickname
           %tr
             %th カテゴリ
-            %td コンテンツ
+            %td 
+              = @category.name
+              = @chaild_category.name
+              = @grandchaild_category.name
           %tr
             %th ブランド
             %td コンテンツ
@@ -20,22 +30,28 @@
             %td コンテンツ
           %tr
             %th 商品の状態
-            %td コンテンツ
+            %td 
+              =@product.product_condition
           %tr
             %th 配送料の負担
-            %td コンテンツ
+            %td 
+              =@product.shipping_charge
           %tr
             %th 配送の方法
-            %td コンテンツ
+            %td 
+              =@product.shipping_method
           %tr
             %th 配送元地域
-            %td コンテンツ
+            %td 
+              =@product.shipping_origin
           %tr
             %th 配送日の目安
-            %td コンテンツ
+            %td 
+              =@product.shipping_day
     .item-box-container__price-box
       %span.item-box-container__price-box__item-price
-        ¥1,500
+        ¥
+        =@product.price.to_s(:delimited, delimiter: ',')
       %span.item-box-container__price-box__item-tax
         (税込)
       %span.item-box-container__price-box__shipping-fee
@@ -43,13 +59,7 @@
     = link_to "購入画面に進む", product_path, class: "item-box-container__buy-btn"
     .item-box-container__description
       %p.item-box-container__description__inner
-        イタリア製
-        高いよ
-        いいものだよ<br>
-
-        改行もできる<br>
-
-        OK
+        = @product.description
     .item-box-container__buttons.clearfix
       .item-box-container__buttons__left
         %ul
