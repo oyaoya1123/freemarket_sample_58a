@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
 
     @product = Product.new(products_params)
     if @product.save
-      redirect_to "/"
+      redirect_to root_path
     else 
       render action: :new
     end
