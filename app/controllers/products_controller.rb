@@ -64,6 +64,10 @@ class ProductsController < ApplicationController
   def buy
   end
 
+    # 商品購入完了
+    def pay_finish
+    end
+
   private
 
   def products_params
