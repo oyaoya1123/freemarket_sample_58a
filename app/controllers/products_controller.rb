@@ -9,10 +9,10 @@ class ProductsController < ApplicationController
 
   # 商品一覧
   def index
-    @ladys = Product.where(category_id: 1).limit(10).order('created_at DESC')
-    @mens = Product.where(category_id: 2).limit(10).order('created_at DESC')
-    @homeappliances = Product.where(category_id: 3).limit(10).order('created_at DESC')
-    @amuses = Product.where(category_id: 4).limit(10).order('created_at DESC')
+    @ladys = Product.where(category_id: 1..198).limit(10).order('created_at DESC')
+    @mens = Product.where(category_id: 199..344).limit(10).order('created_at DESC')
+    @homeappliances = Product.where(category_id: 894..979).limit(10).order('created_at DESC')
+    @amuses = Product.where(category_id: 681..793).limit(10).order('created_at DESC')
 
   end
 
