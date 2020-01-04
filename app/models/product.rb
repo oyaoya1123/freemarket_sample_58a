@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images, allow_destroy: true
 
   # validates :product_images, presence: true
-  validates :product_images,length: { minimum: 1, maximum: 10 }
+  validates :product_images,presence: true, length: { minimum: 1, maximum: 10 }
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
   validates :category_id, presence: true
@@ -18,13 +18,8 @@ class Product < ApplicationRecord
   }
   validates :shipping_origin, presence: true
   validates :shipping_method, presence: true
+  validates :shipping_charge, presence: true
   validates :shipping_day, presence: true
   validates :product_condition, presence: true
-
-  # private
-  # def products_number
-  #   errors.add(:product_images, "を1つ以上指定して下さい") if product_images.size < 1
-  #   errors.add(:product_images, "は10個までです") if product_images.size > 10
-  # end
 
 end
