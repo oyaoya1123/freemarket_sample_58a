@@ -35,6 +35,23 @@ User.create!(
       birthdate_day: '2',
       phone_number: '12345678900',
 
-    }
+    },
+    {
+      email: 'testuser3@merukari.com',
+      password: 'PassPass33user',
+      password_confirmation:'PassPass33user',
+      created_at: '2019-12-29 00:01:01',
+      updated_at: '2019-12-29 00:01:01',
+      nickname: 'ネコ',
+      last_name_kanji: '鈴木',
+      first_name_kanji: '敏之',
+      last_name_kana: 'すずき',
+      first_name_kana: 'としゆき',
+      birthdate_year: '1990',
+      birthdate_month: '9',
+      birthdate_day: '29',
+      phone_number: '12345678000',
+
+    },
   ]
 )
