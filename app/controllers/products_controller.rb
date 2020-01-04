@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   include CommonActions
   before_action :set_categories
   before_action :release_sns_id
+  before_action :login, except: [:index,:show]
 
   def release_sns_id
     session[:sns_id] = nil
@@ -43,6 +44,11 @@ class ProductsController < ApplicationController
 
     @product = Product.new(products_params)
     if @product.save
+      UsersExhibit.create(
+        product_id:@product.id,
+        user_id:current_user.id,
+        product_status_id:1
+      )
       redirect_to root_path
     else 
       render action: :new
