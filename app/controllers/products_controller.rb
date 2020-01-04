@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to "/"
     else 
-      render :new
+      render action: :new
     end
     
   end
