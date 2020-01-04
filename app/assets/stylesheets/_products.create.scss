@@ -249,7 +249,6 @@
             float: left;
             color: #888;
             font-size: 14px;
-            margin-top:20px;
            }
           .sell-form-box {
             float: right;
@@ -282,7 +281,7 @@
                   z-index: 2;
                   color: #888;
                   font-size: 8px;
-                  }
+                }
                 .select-default {
                   position: relative;
                   z-index: 2;
@@ -295,8 +294,11 @@
                   line-height: 1.5;
                   cursor: pointer;
                   width: 100%;
-                   }
-                   .select-default2 {
+                }
+                .js-append {
+                  margin: 8px 0 0;
+                }
+                .select-default2 {
                     position: relative;
                     z-index: 2;
                     height: 48px;
@@ -309,9 +311,9 @@
                     cursor: pointer;
                     width: 400px;
                     margin-top: 8px;
-                     }
                 }
               }
+            }
             .form-group {
               margin: 40px 0 0;
               label {
