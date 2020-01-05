@@ -46,17 +46,17 @@
               %span 月
             .select-wrap__half
               %select#payment_card_expire_yy.select-default
-                %option{value: "19"} 19
-                %option{value: "20"} 20
-                %option{value: "21"} 21
-                %option{value: "22"} 22
-                %option{value: "23"} 23
-                %option{value: "24"} 24
-                %option{value: "25"} 25
-                %option{value: "26"} 26
-                %option{value: "27"} 27
-                %option{value: "28"} 28
-                %option{value: "29"} 29
+                %option{value: "2019"} 19
+                %option{value: "2020"} 20
+                %option{value: "2021"} 21
+                %option{value: "2022"} 22
+                %option{value: "2023"} 23
+                %option{value: "2024"} 24
+                %option{value: "2025"} 25
+                %option{value: "2026"} 26
+                %option{value: "2027"} 27
+                %option{value: "2028"} 28
+                %option{value: "2029"} 29
               = icon('fas', 'chevron-down', class: "icon-arrow-bottom")
               %span 年
             %ul#expire-mm-error-wrapper.has-error-text
@@ -64,7 +64,7 @@
         .form-group_under
           %label{for: "payment_card_security_code"} セキュリティコード
           %span.form-require 必須
-          %input#payment_card_security_code.input-default{placeholder: "カード背面4桁もしくは3桁の番号", type: "", value: ""}/
+          %input#payment_card_security_code.input-default{placeholder: "カード背面4桁もしくは3桁の番号", type: "text", value: ""}/
           %ul#security-code-error-wrapper.has-error-text
           .signup-seqcode
             .signup-seqcode__text

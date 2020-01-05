@@ -1,4 +1,7 @@
 class CardController < ApplicationController
+  
+  require "payjp"
+
   def new
   end
 
@@ -9,13 +12,13 @@ class CardController < ApplicationController
       #binding.pry
       redirect_to action: "new"
     else
-      #binding.pry
-      customer = Payjp::Customer.create(
-      description: '登録テスト', #なくてもOK
-      email: current_user.email, #なくてもOK
-      card: params['payjp-token'],
-      metadata: {user_id: current_user.id}
-      ) #念の為metadataにuser_idを入れましたがなくてもOK
+      binding.pry
+      #customer = Payjp::Customer.create(
+      #email: current_user.email,
+      #card: params['payjp-token'],
+      #metadata: {user_id: current_user.id}
+      #) #念の為metadataにuser_idを入れましたがなくてもOK
+      customer = Payjp::Customer.create(card: params['payjp-token'])
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         #binding.pry
