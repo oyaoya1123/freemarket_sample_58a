@@ -10,12 +10,27 @@ class ProductsController < ApplicationController
 
   # 商品一覧
   def index
+    @ladys = Product.where(category_id: 1..198).limit(10).order('created_at DESC')
+    @mens = Product.where(category_id: 199..344).limit(10).order('created_at DESC')
+    @homeappliances = Product.where(category_id: 894..979).limit(10).order('created_at DESC')
+    @amuses = Product.where(category_id: 681..793).limit(10).order('created_at DESC')
 
   end
 
   # 商品詳細
   def show
+    @product = Product.find(params[:id])
+    @product_images = ProductImage.where(product_id: params[:id])
+    @exproduct = UsersExhibit.find_by(product_id: @product.id)
+    @exuser = User.find(@exproduct.user_id)
+    @exuser_products = UsersExhibit.where(user_id: @exproduct.user_id)
+    @userproducts = @exuser.ex_products.where.not(id: @product.id).limit(6).order('created_at DESC')
+    @grandchaild_category = Category.find(@product.category_id)
+    @chaild_category = @grandchaild_category.parent
+    @category = @chaild_category.parent
 
+    @samecategory = Product.where(category_id: @grandchaild_category.id)
+    @othercategory = @samecategory.where.not(id: @product.id).limit(6).order('created_at DESC')
   end
  
   # 商品出品
