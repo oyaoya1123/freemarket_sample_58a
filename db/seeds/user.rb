@@ -18,6 +18,40 @@ User.create!(
       birthdate_day: '25',
       phone_number: '12345678901',
 
-    }
+    },
+    {
+      email: 'testuser2@merukari.com',
+      password: 'PassPass22user',
+      password_confirmation:'PassPass22user',
+      created_at: '2019-12-28 00:01:01',
+      updated_at: '2019-12-28 00:01:01',
+      nickname: 'ちえ',
+      last_name_kanji: '赤坂',
+      first_name_kanji: '智枝美',
+      last_name_kana: 'あかさか',
+      first_name_kana: 'ちえみ',
+      birthdate_year: '2001',
+      birthdate_month: '6',
+      birthdate_day: '2',
+      phone_number: '12345678900',
+
+    },
+    {
+      email: 'testuser3@merukari.com',
+      password: 'PassPass33user',
+      password_confirmation:'PassPass33user',
+      created_at: '2019-12-29 00:01:01',
+      updated_at: '2019-12-29 00:01:01',
+      nickname: 'ネコ',
+      last_name_kanji: '鈴木',
+      first_name_kanji: '敏之',
+      last_name_kana: 'すずき',
+      first_name_kana: 'としゆき',
+      birthdate_year: '1990',
+      birthdate_month: '9',
+      birthdate_day: '29',
+      phone_number: '12345678000',
+
+    },
   ]
 )
