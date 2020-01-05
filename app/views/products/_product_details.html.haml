@@ -111,151 +111,98 @@
       %h2
         = link_to "出品者のその他の出品", product_path
       .item-in-user-profile__container__content.clerafix
+      - @userproducts.each do |userproduct|
         .item-in-user-profile__container__content__box
           = link_to product_path do
             .item-in-user-profile__container__content__box__photo
-              写真
+              = image_tag userproduct.product_images[0].image_url.to_s, size: '213x230'
             .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
+              %h3 
+                = userproduct.name
               .item-box-num
                 .item-box-num__price
-                  ¥2,500
+                  ¥
+                  = userproduct.price.to_s(:delimited, delimiter: ',')
                 .item-box-num__icon
                   = icon('far', 'heart')
                   %span 3
-        .item-in-user-profile__container__content__box
-          = link_to product_path do
-            .item-in-user-profile__container__content__box__photo
-              写真
-            .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
-              .item-box-num
-                .item-box-num__price
-                  ¥2,500
-                .item-box-num__icon
-                  = icon('far', 'heart')
-                  %span 3
-        .item-in-user-profile__container__content__box
-          = link_to product_path do
-            .item-in-user-profile__container__content__box__photo
-              写真
-            .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
-              .item-box-num
-                .item-box-num__price
-                  ¥2,500
-                .item-box-num__icon
-                  = icon('far', 'heart')
-                  %span 3
-        .item-in-user-profile__container__content__box
-          = link_to product_path do
-            .item-in-user-profile__container__content__box__photo
-              写真
-            .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
-              .item-box-num
-                .item-box-num__price
-                  ¥2,500
-                .item-box-num__icon
-                  = icon('far', 'heart')
-                  %span 3
-        .item-in-user-profile__container__content__box
-          = link_to product_path do
-            .item-in-user-profile__container__content__box__photo
-              写真
-            .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
-              .item-box-num
-                .item-box-num__price
-                  ¥2,500
-                .item-box-num__icon
-                  = icon('far', 'heart')
-                  %span 3
-        .item-in-user-profile__container__content__box
-          = link_to product_path do
-            .item-in-user-profile__container__content__box__photo
-              写真
-            .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
-              .item-box-num
-                .item-box-num__price
-                  ¥2,500
-                .item-box-num__icon
-                  = icon('far', 'heart')
-                  %span 3
+        
     .item-in-user-profile__container
       %h2
         = link_to "カテゴリ名　その他の出品", product_path
       .item-in-user-profile__container__content.clerafix
+      - @othercategory.each do |othercategory|
         .item-in-user-profile__container__content__box
           = link_to product_path do
             .item-in-user-profile__container__content__box__photo
-              写真
+              = image_tag othercategory.product_images[0].image_url.to_s, size: '213x230'
             .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
+              %h3 
+                = othercategory.name
               .item-box-num
                 .item-box-num__price
-                  ¥2,500
+                  ¥
+                  = othercategory.price.to_s(:delimited, delimiter: ',')
                 .item-box-num__icon
                   = icon('far', 'heart')
                   %span 3
-        .item-in-user-profile__container__content__box
-          = link_to product_path do
-            .item-in-user-profile__container__content__box__photo
-              写真
-            .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
-              .item-box-num
-                .item-box-num__price
-                  ¥2,500
-                .item-box-num__icon
-                  = icon('far', 'heart')
-                  %span 3
-        .item-in-user-profile__container__content__box
-          = link_to product_path do
-            .item-in-user-profile__container__content__box__photo
-              写真
-            .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
-              .item-box-num
-                .item-box-num__price
-                  ¥2,500
-                .item-box-num__icon
-                  = icon('far', 'heart')
-                  %span 3
-        .item-in-user-profile__container__content__box
-          = link_to product_path do
-            .item-in-user-profile__container__content__box__photo
-              写真
-            .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
-              .item-box-num
-                .item-box-num__price
-                  ¥2,500
-                .item-box-num__icon
-                  = icon('far', 'heart')
-                  %span 3
-        .item-in-user-profile__container__content__box
-          = link_to product_path do
-            .item-in-user-profile__container__content__box__photo
-              写真
-            .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
-              .item-box-num
-                .item-box-num__price
-                  ¥2,500
-                .item-box-num__icon
-                  = icon('far', 'heart')
-                  %span 3
-        .item-in-user-profile__container__content__box
-          = link_to product_path do
-            .item-in-user-profile__container__content__box__photo
-              写真
-            .item-in-user-profile__container__content__box__body
-              %h3 商品名商品名商品名商品名商品名商品名
-              .item-box-num
-                .item-box-num__price
-                  ¥2,500
-                .item-box-num__icon
-                  = icon('far', 'heart')
-                  %span 3
+        -# .item-in-user-profile__container__content__box
+        -#   = link_to product_path do
+        -#     .item-in-user-profile__container__content__box__photo
+        -#       写真
+        -#     .item-in-user-profile__container__content__box__body
+        -#       %h3 商品名商品名商品名商品名商品名商品名
+        -#       .item-box-num
+        -#         .item-box-num__price
+        -#           ¥2,500
+        -#         .item-box-num__icon
+        -#           = icon('far', 'heart')
+        -#           %span 3
+        -# .item-in-user-profile__container__content__box
+        -#   = link_to product_path do
+        -#     .item-in-user-profile__container__content__box__photo
+        -#       写真
+        -#     .item-in-user-profile__container__content__box__body
+        -#       %h3 商品名商品名商品名商品名商品名商品名
+        -#       .item-box-num
+        -#         .item-box-num__price
+        -#           ¥2,500
+        -#         .item-box-num__icon
+        -#           = icon('far', 'heart')
+        -#           %span 3
+        -# .item-in-user-profile__container__content__box
+        -#   = link_to product_path do
+        -#     .item-in-user-profile__container__content__box__photo
+        -#       写真
+        -#     .item-in-user-profile__container__content__box__body
+        -#       %h3 商品名商品名商品名商品名商品名商品名
+        -#       .item-box-num
+        -#         .item-box-num__price
+        -#           ¥2,500
+        -#         .item-box-num__icon
+        -#           = icon('far', 'heart')
+        -#           %span 3
+        -# .item-in-user-profile__container__content__box
+        -#   = link_to product_path do
+        -#     .item-in-user-profile__container__content__box__photo
+        -#       写真
+        -#     .item-in-user-profile__container__content__box__body
+        -#       %h3 商品名商品名商品名商品名商品名商品名
+        -#       .item-box-num
+        -#         .item-box-num__price
+        -#           ¥2,500
+        -#         .item-box-num__icon
+        -#           = icon('far', 'heart')
+        -#           %span 3
+        -# .item-in-user-profile__container__content__box
+        -#   = link_to product_path do
+        -#     .item-in-user-profile__container__content__box__photo
+        -#       写真
+        -#     .item-in-user-profile__container__content__box__body
+        -#       %h3 商品名商品名商品名商品名商品名商品名
+        -#       .item-box-num
+        -#         .item-box-num__price
+        -#           ¥2,500
+        -#         .item-box-num__icon
+        -#           = icon('far', 'heart')
+        -#           %span 3
