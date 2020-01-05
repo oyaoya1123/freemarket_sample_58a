@@ -24,13 +24,6 @@ class ProductsController < ApplicationController
     @exuser = User.find(@exproduct.user_id)
     @exuser_products = UsersExhibit.where(user_id: @exproduct.user_id)
     @userproducts = @exuser.ex_products.where.not(id: @product.id).limit(6).order('created_at DESC')
-    # @otherproducts = @userproducts
-    # @products_ids = []
-    # @exuser_products.each do |exuser_product|
-    #   @products_ids << exuser_product.product_id
-    # end
-    # @userproducts = Product.where(id: @products_ids)
-
     @grandchaild_category = Category.find(@product.category_id)
     @chaild_category = @grandchaild_category.parent
     @category = @chaild_category.parent
