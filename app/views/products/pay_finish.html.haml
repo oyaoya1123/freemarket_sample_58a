@@ -39,52 +39,45 @@
                 %span.price__box__number__value
                   ￥3400
             
-            %section.userinfo
-              %div.userinfo__inner
-                %div.title
-                  %span.left 配送先
-                  = link_to "/", class: "right" do
-                    -# %span 変更する
-                %div.userinfo__inner__text
-                〒001-0001
-                %br
-                北海道 札幌市 北区 北 1-1-1 ●●マンション111
-                %br
-                山田 花子
-                %br
+      %section.userinfo
+        %div.userinfo__inner
+          %h3 配送先
+          %address.userinfo__inner__text
+            %p
+              〒001-0001
+              %br
+              北海道 札幌市 北区 北 1-1-1 ●●マンション111
+              %br
+              山田 花子
+              
 
-            %section.userinfo
-              %div.userinfo__inner
-                %div.title
-                  %span.left 支払い方法
-                  = link_to "/", class: "right" do
-                    -# %span 変更する
-                %p.userinfo__inner__text
-                クレジットカード
-                %br
-                **********8990
-                %br
-                有効期限01/33
-                %br
-                  = icon('fab', 'cc-visa fa-3x')
+      %section.userinfo
+        %div.userinfo__inner
+          -# %div.title
+          %h3 支払い方法
+          %p.userinfo__inner__text
+            **********8990
+            %br
+            有効期限01/33
+            %br
+          = icon('fab', 'cc-visa fa-2x')
 
-            %section.pay-done-flow
-              %h3
-              発送通知後の流れ
-              %div
-                = icon('fab', 'cc-visa fa-3x')
-                = icon('fab', 'cc-visa fa-3x')
-                = icon('fab', 'cc-visa fa-3x')
-              %p
-                商品を受け取ったら
-                %br
-                出品者の評価をしましょう。
-                %br
-                購入代金が出品者に振り込まれます。
-                %br
-                評価後に取引は完了です。
-              = link_to "/", class: "right" do
-                マイページへもどる
+      %section.pay-done-flow
+        %h3 発送通知後の流れ
+        %div
+          = icon('fa', 'laugh')
+          = icon('fa', 'meh')
+          = icon('fa', 'frown')
+        %p
+          商品を受け取ったら
+          %br
+          出品者の評価をしましょう。
+          %br
+          購入代金が出品者に振り込まれます。
+          %br
+          評価後に取引は完了です。
+        = link_to "/", class: "right" do
+          マイページへもどる
 
         
   %footer.single-footer
