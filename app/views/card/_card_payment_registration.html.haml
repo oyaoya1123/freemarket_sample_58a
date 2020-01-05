@@ -1,7 +1,7 @@
-.l-contents
+.l-contents_registration
   %section.l-chapter-container
     %h2.l-chapter-head クレジットカード情報入力
-    = form_with model: @user, url: users_card_create_path, method: :post, local: true, class: "l-single-inner registration-form", id: "add-card-form" do |f|
+    = form_with url: pay_card_index_path, method: :post, local: true, class: "l-single-inner registration-form", id: "add-card-form", html: { name: "inputForm" } do |f|
       .l-single-content
         .form-group
           %label{for: "payment_card_no"} カード番号
@@ -74,4 +74,5 @@
               カードの裏面をご参照ください。
               %br/
               =image_tag  "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?2356214421", width: "240"
-        = f.submit "追加する", class: "btn-default btn-red", id: "submit-button"
+        #card_token
+          = f.submit "追加する", class: "btn-default btn-red", id: "submit-button-card"
