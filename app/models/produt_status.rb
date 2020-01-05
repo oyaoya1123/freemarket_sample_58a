@@ -1,2 +1,0 @@
-class ProdutStatus < ApplicationRecord
-end
