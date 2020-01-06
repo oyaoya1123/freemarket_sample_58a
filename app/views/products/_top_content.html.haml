@@ -27,7 +27,8 @@
             = icon('fas', 'angle-right')
         .item-boxes__box__main
           %ul.item-boxes__box__main__container
-          = render partial: 'index-category', collection: @ladys, as: "category"
+          - if @ladys
+            = render partial: 'index-category', collection: @ladys, as: "category"
 
       .item-boxes__box
         .item-boxes__box__header
@@ -37,7 +38,8 @@
             = icon('fas', 'angle-right')
         .item-boxes__box__main
           %ul.item-boxes__box__main__container
-          = render partial: 'index-category', collection: @mens, as: "category"
+          - if @mens
+            = render partial: 'index-category', collection: @mens, as: "category"
       .item-boxes__box
         .item-boxes__box__header
           %h3 家電・スマホ・カメラ新着アイテム
@@ -46,7 +48,8 @@
             = icon('fas', 'angle-right')
         .item-boxes__box__main
           %ul.item-boxes__box__main__container
-          = render partial: 'index-category', collection: @homeappliances, as: "category"
+          - if @homeappliances
+            = render partial: 'index-category', collection: @homeappliances, as: "category"
 
       .item-boxes__box
         .item-boxes__box__header

@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
   has_ancestry
-  belongs_to :product
+  has_many :products
 
 end

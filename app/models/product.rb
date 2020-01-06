@@ -22,6 +22,6 @@ class Product < ApplicationRecord
   validates :shipping_day, presence: true
   validates :product_condition, presence: true
 
-  has_many :categories
+  belongs_to :category
 
 end

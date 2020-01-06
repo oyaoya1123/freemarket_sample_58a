@@ -3,6 +3,7 @@
   = link_to product_path(category.id) do
     .inner-item-box__container__img-box
       .inner-item-box__container__img-box__img
+        - binding.pry
         = image_tag category.product_images[0].image_url.to_s, size: '185x188'
       %span.inner-item-box__container__img-box__price
         ¥

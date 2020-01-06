@@ -316,4 +316,4 @@ other_child_array.each_with_index do |child, i|
  other_grandchild_array[i].each do |grandchild|
    child.children.create(name: grandchild)
  end
-end
+end 
