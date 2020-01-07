@@ -4,10 +4,10 @@
       = @product.name
     .item-box-container__content.clerafix
       .item-box-container__content__photo
-        = image_tag @product_images[0].image_url.to_s, :size => "300x330",id:"img"
+        = image_tag @product_images[0].image_url.url, :size => "300x330",id:"img"
         .item-box-container__content__photo__each
           - @product_images.each do |product_image|
-            = image_tag product_image.image_url.to_s,style:"width:20%;",onmouseover: "changeimage('#{product_image.image_url.to_s}');"
+            = image_tag product_image.image_url.url,style:"width:20%;",onmouseover: "changeimage('#{product_image.image_url.url}');"
 
 
       %table.item-box-container__content__detail-table
@@ -51,7 +51,7 @@
     .item-box-container__price-box
       %span.item-box-container__price-box__item-price
         ¥
-        =@product.price.to_s(:delimited, delimiter: ',')
+        =@product.price
       %span.item-box-container__price-box__item-tax
         (税込)
       %span.item-box-container__price-box__shipping-fee
@@ -115,14 +115,14 @@
         .item-in-user-profile__container__content__box
           = link_to product_path do
             .item-in-user-profile__container__content__box__photo
-              = image_tag userproduct.product_images[0].image_url.to_s, size: '213x230'
+              = image_tag userproduct.product_images[0].image_url.url, size: '213x230'
             .item-in-user-profile__container__content__box__body
               %h3 
                 = userproduct.name
               .item-box-num
                 .item-box-num__price
                   ¥
-                  = userproduct.price.to_s(:delimited, delimiter: ',')
+                  = userproduct.price
                 .item-box-num__icon
                   = icon('far', 'heart')
                   %span 3
@@ -135,14 +135,14 @@
         .item-in-user-profile__container__content__box
           = link_to product_path do
             .item-in-user-profile__container__content__box__photo
-              = image_tag othercategory.product_images[0].image_url.to_s, size: '213x230'
+              = image_tag othercategory.product_images[0].image_url.url, size: '213x230'
             .item-in-user-profile__container__content__box__body
               %h3 
                 = othercategory.name
               .item-box-num
                 .item-box-num__price
                   ¥
-                  = othercategory.price.to_s(:delimited, delimiter: ',')
+                  = othercategory.price
                 .item-box-num__icon
                   = icon('far', 'heart')
                   %span 3
