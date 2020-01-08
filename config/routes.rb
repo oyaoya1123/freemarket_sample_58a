@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'users/card_create' => 'users#card_create'
   # get 'products/itemshow'  => 'products#itemshow'
   get 'users/mypage'  => 'users#mypage'
+  get 'users/mypage_product_list'  => 'users#mypage_product_list'
 
   resource :users do
     collection do
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
 
   get 'users/login'  => 'users#login'
   get 'users/signup_page'  => 'users#signup_page'
+  
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update] do
     get '/buy'  => 'products#buy'

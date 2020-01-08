@@ -59,11 +59,6 @@ ActiveRecord::Schema.define(version: 2020_01_04_062502) do
 
   create_table "product_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-<<<<<<< HEAD
-    t.string "description", null: false
-    t.string "price", null: false
-=======
->>>>>>> cd5666483dd555c6b7db63fe387bedd12a638b13
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
