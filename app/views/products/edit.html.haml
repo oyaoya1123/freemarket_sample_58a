@@ -1,0 +1,193 @@
+.single-container
+  %header 
+    = render "products/header"
+    
+
+  %main.single-mains
+    %section.ll-single-container.buy-item-container
+      .sell-container
+        .sell-container-inner
+          %h2.l-single-head 商品の情報を入力
+
+          = form_with model: @product ,local:true, html: { class: "sell-form" } do |f|
+            .sell-upload-box
+              %h3.sell-upload-head
+                出品画像
+                %span.form-require 必須
+              %p 最大10枚までアップロードできます
+
+              .sell-dropbox-container.clearfix.state-image-number-1.active
+                .sell-upload-items-container
+                  .sell-upload-items
+                    %ul#preview
+                      -@product_images_min.each do |i|
+                        %li
+                          %div.pre
+                            =image_tag i.image_url.url, class:"imagepre", width:"100px"
+                          %div.btn_wrapper
+                            %button.btn_edit 編集
+                            %button.btn_delete 削除
+                .sell-upload-drop-box.have-item-1.active
+                  %pre.visible-pc                 
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+                  %i.icon-camera
+
+                  = f.label :image,for: "upload-image0", class:"label-image" do
+                    = f.fields_for :product_images, @product_images_min do |image|
+                      #imageform1
+                        = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image0",'data-id': 0,name:"product[product_images_attributes][0][image_url]"
+
+
+              .sell-dropbox-container.clearfix.state-image-number-2.notactive
+                .sell-upload-items-container
+                  .sell-upload-items
+                    %ul#preview2
+                .sell-upload-drop-box.have-item-2
+                  %pre.visible-pc                 
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+
+                  %i.icon-camera
+
+                  = f.label :image,for: "upload-image0", class:"label-image" do
+                    = f.fields_for :product_images do |image|
+                      #imageform2
+ 
+
+            .sell-content
+              .form-group1
+                %label
+                  商品名
+                  %span.form-require 必須
+                %div
+
+                  = f.text_field :name, placeholder: "商品名（必須 40文字まで)", value: "",class:"input-default"
+                  
+              .form-group
+                %label
+                  商品の説明
+                  %span.form-require 必須
+                = f.text_area :description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" , rows: "5",class:"textarea-default"
+        
+            .sell-content.clearfix
+              %h3.sell-sub-head 商品の詳細
+              .sell-form-box
+                .form-group1{id: "select"}
+                  %label
+                    カテゴリー
+                    %span.form-require 必須
+                  .select-wrap.category-views
+                    %i.icon-arrow-bottom
+                    = f.select :category, @category_parent_array, {}, class: 'select-default', id: 'parent_category'
+                
+                .form-group
+                  %label
+                    サイズ
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.icon-arrow-bottom
+                    = f.select :product_size, ["--", "L", "M", "S"], {}, class: 'select-default'
+
+                .form-group
+                  %label
+                    商品の状態
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.icon-arrow-bottom
+                    = f.collection_select :product_condition, Productcondition.all, :value, :value, { prompt: '--' }, class: 'select-default'
+                    
+            .sell-content.clearfix
+              %h3.sell-sub-head 配送について
+              = link_to "/", class: "form-question" do
+                ?
+              .sell-form-box
+                .form-group{id: "select2"}
+                  %label
+                    配送料の負担
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.icon-arrow-bottom
+                    = f.collection_select :shipping_charge, Deliverycharge.all, :value, :value, { prompt: '--' }, class: 'select-default' 
+
+                
+
+                .form-group2{id:'method'}
+                  %label.label-margin
+                    配送の方法
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.icon-arrow-bottom
+                    = f.collection_select :shipping_method, Deliverymethod.all, :value, :value, { prompt: '--' }, class: 'select-default2'
+                    
+                .form-group
+                  %label
+                    発送元の地域
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.icon-arrow-bottom
+                    = f.collection_select :shipping_origin, Prefecture.all, :name, :name, { prompt: '--' }, class: 'select-default'
+                    
+                .form-group
+                  %label
+                    発送までの日数
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.icon-arrow-bottom
+                    = f.collection_select :shipping_day, Deliveryday.all, :value, :value, { prompt: '--' }, class: 'select-default'
+                    
+            .sell-content.clearfix
+              %h3.sell-sub-head 販売価格(300〜9,999,999)
+              = link_to "/", class: "form-question" do
+                ?
+              .sell-form-box
+                %ul.sell-price
+                  %li.form-group
+                    .clearfix
+                      %label.l-left
+                        価格
+                        %span.form-require 必須
+                      .l-right.sell-price-input
+                        ¥
+                        %div
+                          = f.text_field :price, placeholder: "例）300", class: "input-default", value: "" ,id:"price" ,onInput:"priceChange()"
+                          -# = f.number_field :price{placeholder: "例）300", value: "", class:"input-default"}
+
+                  %li.clearfix
+                    .l-left
+                      販売手数料 (10%)
+                    .l-right{id: "pricetax"} -
+                  %li.clearfix.bold
+                    .l-left
+                      販売利益
+                    .l-right{id: "profit"} -
+            .modal{role: "dialog", tabindex: "-1"}
+              .modal-inner
+            .sell-content.sell-btn-box
+              %div
+                %p
+                  %a{href: "/", target: "_blank"}> 禁止されている出品
+                  、
+                  =link_to "/", target: "_blank" do
+                    行為
+                  を必ずご確認ください。
+                %p
+                  またブランド品でシリアルナンバー等がある場合はご記載ください。
+                  =link_to "/", target: "_blank" do
+                    偽ブランドの販売
+                  は犯罪であり処罰される可能性があります。
+                %p
+                  また、出品をもちまして
+                  =link_to "/", target: "_blank" do
+                    加盟店規約
+                  に同意したことになります。
+             
+              = f.submit '出品する', class: "btn-default btn-red"
+
+              %button.btn-default.btn-gray もどる
+          .overlay
+ 
+  %footer.single-footer
+    = render "products/footer"
+
+    

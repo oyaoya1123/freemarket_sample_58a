@@ -71,8 +71,18 @@ class ProductsController < ApplicationController
     
   end
 
+  # 商品編集画面へのパス
+  def edit_select
+  end
+
   # 商品編集
   def edit
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array.unshift("---")
+
+    # binding.pry
+    @product=Product.find_by(id: params[:id])
+    @product_images_min=ProductImage.where(product_id: params[:id]).limit(5).order('created_at ASC')
   end
 
   # 商品編集

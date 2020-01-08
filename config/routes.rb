@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'users/card' => 'users#card'
   get 'users/card_create' => 'users#card_create'
   # get 'products/itemshow'  => 'products#itemshow'
-  get 'users/mypage'  => 'users#mypage'
+  # get 'users/mypage'  => 'users#mypage'
 
   resource :users do
     collection do
@@ -27,10 +27,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only:[:show] do
+  end
+
+
   get 'users/login'  => 'users#login'
   get 'users/signup_page'  => 'users#signup_page'
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update] do
+    get '/edit_select'  => 'products#edit_select'    
     get '/buy'  => 'products#buy'
 
     collection do
