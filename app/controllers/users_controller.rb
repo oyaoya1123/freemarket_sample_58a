@@ -166,7 +166,6 @@ class UsersController < ApplicationController
       if @address.save
         sns = SnsCredential.update(user_id: session[:id])
         sign_in User.find(session[:id]) unless user_signed_in?
-        #redirect_to complete_users_path
         redirect_to controller: 'card', action: 'new'
       else
         User.find(session[:id]).destroy
