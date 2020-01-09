@@ -58,23 +58,27 @@ ActiveRecord::Schema.define(version: 2020_01_08_145527) do
     t.index ["product_id"], name: "index_product_images_on_product_id"
   end
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "product_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
+    t.string "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
     t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "shipping_origin"
-    t.string "shipping_method"
-    t.string "shipping_charge"
-    t.string "shipping_day"
-    t.string "product_condition"
-  end
-
-  create_table "produt_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "shipping_origin", null: false
+    t.string "shipping_method", null: false
+    t.string "shipping_charge", null: false
+    t.string "shipping_day", null: false
+    t.string "product_condition", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "shipping_charges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -131,7 +135,9 @@ ActiveRecord::Schema.define(version: 2020_01_08_145527) do
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_status_id"
     t.index ["product_id"], name: "index_users_exhibits_on_product_id"
+    t.index ["product_status_id"], name: "index_users_exhibits_on_product_status_id"
     t.index ["user_id"], name: "index_users_exhibits_on_user_id"
   end
 
@@ -140,13 +146,18 @@ ActiveRecord::Schema.define(version: 2020_01_08_145527) do
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_status_id"
     t.index ["product_id"], name: "index_users_purchases_on_product_id"
+    t.index ["product_status_id"], name: "index_users_purchases_on_product_status_id"
     t.index ["user_id"], name: "index_users_purchases_on_user_id"
   end
 
   add_foreign_key "product_images", "products"
+  add_foreign_key "products", "categories"
+  add_foreign_key "users_exhibits", "product_statuses"
   add_foreign_key "users_exhibits", "products"
   add_foreign_key "users_exhibits", "users"
+  add_foreign_key "users_purchases", "product_statuses"
   add_foreign_key "users_purchases", "products"
   add_foreign_key "users_purchases", "users"
 end
