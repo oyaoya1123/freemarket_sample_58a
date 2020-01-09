@@ -75,6 +75,10 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  # 商品編集画面へのパス
+  def edit_select
+  end
+
   # 商品編集
   def update
   end
@@ -85,6 +89,10 @@ class ProductsController < ApplicationController
 
   # 商品購入確認
   def buy
+  end
+
+  # 商品購入完了
+  def pay_finish
   end
 
   private
