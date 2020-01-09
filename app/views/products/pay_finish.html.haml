@@ -1,0 +1,80 @@
+.single-container
+  %header 
+    = render "products/header"
+
+  .pay-main
+    .pay-main__content
+
+      %div.pay-main__content__infomation
+        %h3
+          = icon('fa', 'clock')
+          %span 発送をお待ちください
+        %p 出品者からの発送通知をお待ちください
+
+      .pay-main__content__text
+        購入が完了しました
+
+      .pay-main__content__detailbox
+        .pay-main__content__detailbox__inner
+          .pay-main__content__detailbox__inner__item
+            = image_tag "hito2.jpg", class:"item-image"
+
+            .item-detail
+              %p.item-detail__text
+                小松菜奈着 laula ドロップ フレア スカート
+              %p.itemprice
+                %span
+                  ¥3400
+                %span.fee
+                  （税込）送料込み
+
+      %section.pay-main__content__price
+        %div.pay-main__content__price__inner
+          %ul.price
+            %li.price__box
+              %div.price__box__text
+                支払い金額
+              %div.price__box__number
+                %span.price__box__number__value
+                  ￥3400
+
+      %section.userinfo
+        %div.userinfo__inner
+          %h3 配送先
+          %address.userinfo__inner__text
+            %p
+              〒001-0001
+              %br
+              北海道 札幌市 北区 北 1-1-1 ●●マンション111
+              %br
+              山田 花子
+
+      %section.userinfo
+        %div.userinfo__inner
+          %h3 支払い方法
+          %p.userinfo__inner__text
+            **********8990
+            %br
+            有効期限01/33
+            %br
+          = icon('fab', 'cc-visa fa-2x')
+
+      %section.pay-done-flow
+        %h3 発送通知後の流れ
+        %div
+          = icon('fa', 'laugh')
+          = icon('fa', 'meh')
+          = icon('fa', 'frown')
+        %p
+          商品を受け取ったら
+          %br
+          出品者の評価をしましょう。
+          %br
+          購入代金が出品者に振り込まれます。
+          %br
+          評価後に取引は完了です。
+        = link_to "/", class: "right" do
+          マイページへもどる
+
+  %footer.single-footer
+    = render "products/footer" 
