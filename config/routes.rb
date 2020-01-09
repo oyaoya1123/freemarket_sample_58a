@@ -43,4 +43,11 @@ Rails.application.routes.draw do
   #購入
   resources :users_purchases, only: [:create] 
   
+  #クレジットカード登録
+  resources :card, only: [:new] do
+    collection do
+      post 'pay', to: 'card#pay_create'
+    end
+  end
+
 end
