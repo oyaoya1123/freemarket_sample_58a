@@ -2,21 +2,22 @@
     = render "products/top_header"
 %main.l-main.box
     .l-product_list
-    %section.mypage-tab-container
-        %h2.mypage-tab-head 出品した商品
-        %ul.listing-tabs
-            %li.active
-                %h3
-                = link_to  "#mypage-tab-transaction-now", class: "data-toggle" do
-                    出品中
-            %li
-                %h3
-                = link_to  "", class: "data-toggle" do
-                    取引中
-            %li
-                %h3
-                = link_to  "", class: "data-toggle" do
-                    売却済み
+        %section.mypage-tab-container
+            %h2.mypage-tab-head 出品した商品
+            %ul.listing-tabs
+        %section.tabs
+            %input#all{checked: "checked", name: "tab_item", type: "radio"}/
+            %label.tab_item{for: "all"} 出品中
+            %input#programming{name: "tab_item", type: "radio"}/
+            %label.tab_item{for: "programming"} 取引中
+            %input#design{name: "tab_item", type: "radio"}/
+            %label.tab_item{for: "design"} 売却済み
+            #all_content.tab_content
+                総合の内容がここに入ります
+            #programming_content.tab_content
+                プログラミングの内容がここに入ります
+            #design_content.tab_content
+                デザインの内容がここに入ります
         .tab-content
             %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
             %li
