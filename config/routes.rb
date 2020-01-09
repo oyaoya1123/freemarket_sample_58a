@@ -46,11 +46,9 @@ Rails.application.routes.draw do
   resources :users_purchases, only: [:create] 
   
   #クレジットカード登録
-  resources :card, only: [:new, :show] do
+  resources :card, only: [:new] do
     collection do
-      post 'show', to: 'card#show'
       post 'pay', to: 'card#pay_create'
-      post 'delete', to: 'card#delete'
     end
   end
 
