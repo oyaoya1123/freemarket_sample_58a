@@ -35,6 +35,8 @@ $(document).ready( function(){
     imgnum=imgnum+1
   });
   // inputタグ挿入
+  if(p_imgs.length == 0){
+  }else{
   var input_html=`<input class="sell-upload-drop-file" id="upload-image${n}" data-id="${n}" name="product[product_images_attributes][${n}][image_url]" type="file">`
   $("#imageform1").append(input_html);
   //ドロップエリアの範囲変更
@@ -42,7 +44,9 @@ $(document).ready( function(){
     'width', `calc(100% - (20% * ${n}))`
   )
   }
-  });
+
+  }
+});
 
 
 $(function(){
