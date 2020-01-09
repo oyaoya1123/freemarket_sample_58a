@@ -28,7 +28,7 @@ $(document).ready( function(){
 
   //inputタグdata-id変更・labelタグのfor変更
   var imgnum=0;
-  $(".label-image").attr('for','upload-image' + p_imgs.length);
+  $(".label-image").attr('for','upload-image' + n);
   p_input.each(function(index) {
     console.log($(this));
     $(this).attr('data-id', imgnum);
@@ -66,11 +66,11 @@ $(function(){
     var file = e.target.files[0],
         reader = new FileReader();
         
-    count=count+1;
+    // count=count+1;
 
     // ファイル読み込みが完了した際のイベント登録
     reader.onload = (function(file) {
-      console.log(file);
+      // console.log(file);
       return function(e) {
 
         var result=e.target.result
@@ -78,7 +78,7 @@ $(function(){
         var imagehtml=
         `<li>
         <div class="pre">
-        <img src="${result}" width="100px" class="imagepre" data-id="${count}">
+        <img src="${result}" width="100px" class="imagepre" data-id="${count -1}">
         </div>
         ${btn_wrapper}
         </li>`
@@ -96,9 +96,10 @@ $(function(){
     })(file);
 
     reader.readAsDataURL(file);
+
     //imagesに追加
     // images.push(img);
-
+    count=count+1;
     //inputタグ挿入用
     var input_html=`<input class="sell-upload-drop-file" id="upload-image${count}" data-id="${count}" name="product[product_images_attributes][${count}][image_url]" type="file">`
 
