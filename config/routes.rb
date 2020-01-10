@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get 'users/login'  => 'users#login'
   get 'users/signup_page'  => 'users#signup_page'
 
-  resources :products, only: [:index, :show, :new, :create, :edit, :update] do  
+  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do  
     get '/buy'  => 'products#buy'
     get '/pay_finish' => 'products#pay_finish'
 

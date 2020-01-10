@@ -68,7 +68,9 @@
         %p.text-center or
         %form
           %button.btn-default.btn-gray 出品を一旦停止する
-        %button.btn-default.btn-gray この商品を削除する
+        -# %button.btn-default.btn-gray この商品を削除する
+        = link_to 'この商品を削除する',product_path(@product),method: :delete,data: {confirm: "削除しますか？"},class:'btn-default btn-gray' 
+
 %aside
   = render "products/top_aside_footer"
 %footer
