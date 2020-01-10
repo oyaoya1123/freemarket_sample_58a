@@ -91,9 +91,11 @@ class ProductsController < ApplicationController
   def update
   end
 
-  # 商品詳細
-  def itemshow
+  #商品削除
+  def destroy
   end
+
+ 
 
   # 商品購入確認
   def buy
