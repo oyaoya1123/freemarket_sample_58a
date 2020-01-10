@@ -77,7 +77,15 @@ class ProductsController < ApplicationController
 
   # 商品編集画面へのパス
   def edit_select
+    @product = Product.find(params[:id])
+    @product_images = ProductImage.where(product_id: params[:id])
+    @exproduct = UsersExhibit.find_by(product_id: @product.id)
+    @exuser = User.find(@exproduct.user_id)
+    @grandchaild_category = Category.find(@product.category_id)
+    @chaild_category = @grandchaild_category.parent
+    @category = @chaild_category.parent
   end
+
 
   # 商品編集
   def update
