@@ -94,7 +94,7 @@ class ProductsController < ApplicationController
   #商品削除
   def destroy
     @product = Product.find(params[:id])
-    @@product.destroy
+    @product.destroy
     redirect_to users_mypage_path
   end
 
