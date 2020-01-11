@@ -6,7 +6,7 @@ class Product < ApplicationRecord
 
   has_many :product_images, dependent: :destroy
 
-  accepts_nested_attributes_for :product_images, allow_destroy: true
+  accepts_nested_attributes_for :product_images, allow_destroy: true, reject_if: :reject_both_blank
 
   # validates :product_images, presence: true
   validates :product_images,presence: true, length: { minimum: 1, maximum: 10 }
@@ -23,5 +23,15 @@ class Product < ApplicationRecord
   validates :product_condition, presence: true
 
   belongs_to :category
+
+  def reject_both_blank(attributes)
+    if attributes[:id]
+      attributes.merge!(_destroy: "1") if attributes[:image_url].blank?
+      # !attributes[:image_url].blank?
+    else
+      attributes[:image_url].blank?
+    end
+  end
+
 
 end

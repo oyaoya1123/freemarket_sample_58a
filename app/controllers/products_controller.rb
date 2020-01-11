@@ -83,11 +83,23 @@ class ProductsController < ApplicationController
 
     # binding.pry
     @product=Product.find_by(id: params[:id])
-    @product_images_min=ProductImage.where(product_id: params[:id]).limit(5).order('created_at ASC')
+    @product_images_min=ProductImage.where(product_id: params[:id])
+    # @select_glandchild_category=Category.find_by(id: @product.category_id)
+    # @select_child_category=@select_glandchild_category.parent
+    # @select_parent_category=@select_child_category.parent
+    @category_child_array = @product.category.parent.parent.children
+    @category_grandchild_array = @product.category.parent.children
   end
 
   # 商品編集
   def update
+    @product=Product.find_by(id: params[:id])
+    if @product.update(products_update_params)
+      redirect_to root_path, notice: '商品を更新しました'
+    else
+      render :edit
+    end
+
   end
 
   # 商品詳細
@@ -102,8 +114,13 @@ class ProductsController < ApplicationController
 
   def products_params
     @category=Category.find_by(name:params[:category_id])
-    # binding.pry
     params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url]).merge(category_id:@category.id)
+  end
+
+  def products_update_params
+    binding.pry
+    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id, product_images_attributes:[:id, :image_url, :_destroy])
+    # binding.pry
   end
 
 end

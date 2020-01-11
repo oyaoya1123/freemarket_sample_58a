@@ -34,10 +34,11 @@
                   %i.icon-camera
 
                   = f.label :image,for: "upload-image0", class:"label-image" do
-                    = f.fields_for :product_images, @product_images_min do |image|
-                      #imageform1
-                        = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image0",'data-id': 0,name:"product[product_images_attributes][0][image_url]"
+                    = f.fields_for :product_images ,@product.product_images do |image|
 
+                      = image.file_field :image_url , class:'sell-upload-drop-file',id:"upload-image0",'data-id': 0,'data-image':0,name:"product[product_images_attributes][0][image_url]"
+                      = image.hidden_field :_destroy ,value:0,class:'destroy','data-image':0
+                    #imageform1
 
               .sell-dropbox-container.clearfix.state-image-number-2.notactive
                 .sell-upload-items-container
@@ -50,9 +51,9 @@
 
                   %i.icon-camera
 
-                  = f.label :image,for: "upload-image0", class:"label-image" do
-                    = f.fields_for :product_images do |image|
-                      #imageform2
+                  -# = f.label :image,for: "upload-image0", class:"label-image" do
+                  -#   = f.fields_for :product_images do |image|
+                  -#     #imageform2
  
 
             .sell-content
@@ -62,13 +63,13 @@
                   %span.form-require 必須
                 %div
 
-                  = f.text_field :name, placeholder: "商品名（必須 40文字まで)", value: "",class:"input-default"
+                  = f.text_field :name, placeholder: "商品名（必須 40文字まで)", value: @product.name,class:"input-default"
                   
               .form-group
                 %label
                   商品の説明
                   %span.form-require 必須
-                = f.text_area :description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" , rows: "5",class:"textarea-default"
+                = f.text_area :description, value: @product.description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" , rows: "5",class:"textarea-default"
         
             .sell-content.clearfix
               %h3.sell-sub-head 商品の詳細
@@ -79,8 +80,12 @@
                     %span.form-require 必須
                   .select-wrap.category-views
                     %i.icon-arrow-bottom
-                    = f.select :category, @category_parent_array, {}, class: 'select-default', id: 'parent_category'
-                
+                    -# = f.select :category, @category_parent_array, {}, class: 'select-default', id: 'parent_category'
+                    = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @product.category.parent.parent.name), {}, {class: 'select-default', id: 'parent_category'}
+                    = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.parent.id), {}, {class: 'select-default', id: 'child_category'}                  
+                    = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.id), {}, {class: 'select-default', id: 'grandchild_category'}
+                    = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
+
                 .form-group
                   %label
                     サイズ
@@ -112,7 +117,7 @@
 
                 
 
-                .form-group2{id:'method'}
+                .form-group
                   %label.label-margin
                     配送の方法
                     %span.form-require 必須
@@ -150,7 +155,7 @@
                       .l-right.sell-price-input
                         ¥
                         %div
-                          = f.text_field :price, placeholder: "例）300", class: "input-default", value: "" ,id:"price" ,onInput:"priceChange()"
+                          = f.text_field :price, placeholder: "例）300", class: "input-default", value: @product.price ,id:"price" ,onInput:"priceChange()"
                           -# = f.number_field :price{placeholder: "例）300", value: "", class:"input-default"}
 
                   %li.clearfix

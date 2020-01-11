@@ -35,8 +35,10 @@ Rails.application.routes.draw do
   get 'users/signup_page'  => 'users#signup_page'
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update] do
-    get '/edit_select'  => 'products#edit_select'    
+    get '/edit_select'  => 'products#edit_select'   
     get '/buy'  => 'products#buy'
+    get 'get_category_children', defaults: { format: 'json' }
+    get 'get_category_grandchildren', defaults: { format: 'json' }
 
     collection do
       get 'get_category_children', defaults: { format: 'json' }

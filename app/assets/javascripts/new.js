@@ -19,19 +19,22 @@ $(document).ready( function(){
 
   //5マイ以下の場合
   if(p_imgs.length <= 5) {
-  //imageに番号フル
+  //imageにdata-id番号フル
   p_imgs.each(function(index) {
     console.log($(this));
     $(this).attr('data-id', imgnum);
     imgnum=imgnum+1
   });
-
+  //既存inputタグにdata-image番号フル
   //inputタグdata-id変更・labelタグのfor変更
   var imgnum=0;
   $(".label-image").attr('for','upload-image' + n);
   p_input.each(function(index) {
     console.log($(this));
     $(this).attr('data-id', imgnum);
+    $(this).attr('data-image', imgnum);
+    //hiddenタグにdata-imageフル（削除用）
+    $(this).next(".destroy").attr('data-image', imgnum);
     imgnum=imgnum+1
   });
   // inputタグ挿入
@@ -105,8 +108,8 @@ $(function(){
     // images.push(img);
     count=count+1;
     //inputタグ挿入用
-    var input_html=`<input class="sell-upload-drop-file" id="upload-image${count}" data-id="${count}" name="product[product_images_attributes][${count}][image_url]" type="file">`
-
+    var input_html=`<input class="sell-upload-drop-file" id="upload-image${count}" data-id="${count}" name="product[product_images_attributes][${n+1}][image_url]" type="file">`
+    n=n+1
     //条件分岐
     console.log(count);
     if(count >= 5) {
@@ -149,15 +152,22 @@ $(function(){
   $(document).on('click', '.btn_delete', function() {
     var target_image = $(this).parent().parent();
     var target_dataid=$(this).parent().parent().children(".pre").children(".imagepre").attr('data-id')
+
+
     count=count-1
     console.log(count)
     $('.sell-upload-drop-file').each(function(index,element){
 
       if ($(this).attr('data-id') == target_dataid){
+        //既存画像の場合destroy追加
+        if($(this).attr('data-image')==$(this).next(".destroy").attr('data-image')){
+          $(this).next('.destroy').attr('value', '1')        
+        }
         $(this).remove();
         target_image.remove();
         var num = $(this).attr('data-id');
-        images.splice(num-1, 1);
+        // images.splice(num-1, 1);
+
       }
     })
 
@@ -193,13 +203,16 @@ $(function(){
         imgnum=imgnum+1
       });
 
-      //inputタグdata-id
+      //inputタグdata-id,idの振り直し
       var imgnum=0;
       $('.sell-upload-drop-file').each(function(index) {
         console.log($(this));
         $(this).attr('data-id', imgnum);
+        $(this).attr('id', "upload-image" + imgnum);
         imgnum=imgnum+1
       });
+      //forの値変更
+      $(".label-image").attr('for','upload-image' + count);
       
       imagebox1.css(
         'width', `calc(100% - (20% * ${count}))`
