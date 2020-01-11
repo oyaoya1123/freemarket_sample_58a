@@ -1,4 +1,7 @@
 module ProductsHelper
+
+  require 'active_support/all'
+
   def converting_to_jpy(price)
     "#{price.to_s(:delimited, delimiter: ',')}"
   end

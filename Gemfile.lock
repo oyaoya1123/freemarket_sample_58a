@@ -379,6 +379,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash
+  activesupport
   ancestry
   bootsnap (>= 1.1.0)
   byebug
