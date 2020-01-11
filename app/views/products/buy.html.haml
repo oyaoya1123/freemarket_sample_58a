@@ -12,14 +12,14 @@
       .buy-main__content__detailbox
         .buy-main__content__detailbox__inner
           .buy-main__content__detailbox__inner__item
-            = image_tag "hito2.jpg", class:"item-image"
+            = image_tag @product_images[0].image_url.url, class:"item-image"
             
             .item-detail
               %p.item-detail__text
-                小松菜奈着 laula ドロップ フレア スカート
+                =@product.name
               %p.itemprice
                 %span
-                  111円
+                  =converting_to_jpy(@product.price)
                 %span.fee
                   （税込）送料込み
 
@@ -32,7 +32,8 @@
                   支払い金額
                 %div.price__box__number
                   %span.price__box__number__value
-                    ￥3400
+                    ￥
+                    =converting_to_jpy(@product.price)
             
             %ul.point
               %li.point__box
@@ -50,9 +51,10 @@
                 %p.userinfo__inner__text
                 クレジットカード
                 %br
-                **********8990
+                = "************" + @default_card_information.last4
                 %br
-                有効期限01/33
+                有効期限
+                = expiration_date(@default_card_information.exp_month, @default_card_information.exp_year)
                 %br
                   = icon('fab', 'cc-visa fa-3x')
 
@@ -63,18 +65,20 @@
                   = link_to "/", class: "right" do
                     %span 変更する
                 %div.userinfo__inner__text
-                〒001-0001
+                〒
+                =@address.postal_code
                 %br
-                北海道 札幌市 北区 北 1-1-1 ●●マンション111
+                =@address.prefectures
+                =@address.city
+                =@address.house_number
+                =@address.building_name
                 %br
-                山田 花子
+                =@address.address_last_name
+                =@address.address_first_name
                 %br
 
             %section.buyuserinfo
+              = link_to "購入する", product_purchase_path(@product), class: "buy-btn"
 
-              = button_tag type: 'submit', class: "buy-btn" do
-                購入する
-      
-        
   %footer.single-footer
     = render "products/footer"

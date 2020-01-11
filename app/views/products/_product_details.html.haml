@@ -51,12 +51,12 @@
     .item-box-container__price-box
       %span.item-box-container__price-box__item-price
         ¥
-        =@product.price
+        =converting_to_jpy(@product.price)
       %span.item-box-container__price-box__item-tax
         (税込)
       %span.item-box-container__price-box__shipping-fee
         送料込み
-    = link_to "購入画面に進む", product_path, class: "item-box-container__buy-btn"
+    = link_to "購入画面に進む", product_buy_path(@product), class: "item-box-container__buy-btn"
     .item-box-container__description
       %p.item-box-container__description__inner
         = @product.description

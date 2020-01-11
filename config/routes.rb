@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :new, :create, :edit, :update] do  
     get '/buy'  => 'products#buy'
     get '/pay_finish' => 'products#pay_finish'
+    get '/purchase' => 'products#purchase'
 
     collection do
       get 'get_category_children', defaults: { format: 'json' }
