@@ -101,7 +101,6 @@ class ProductsController < ApplicationController
 
   def purchase
     price = Product.find(params[:product_id]).price
-    binding.pry
     card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
