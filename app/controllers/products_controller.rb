@@ -89,10 +89,39 @@ class ProductsController < ApplicationController
 
   # 商品購入確認
   def buy
+    @product = Product.find(params[:product_id])
+    @product_images = ProductImage.where(product_id: params[:product_id])
+    @address = Address.find_by(user_id: current_user.id)
+
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @default_card_information = customer.cards.retrieve(card.card_id)
+  end
+
+  def purchase
+    price = Product.find(params[:product_id]).price
+    binding.pry
+    card = Card.find_by(user_id: current_user.id)
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+      :amount => price, #支払金額を入力（itemテーブル等に紐づけても良い）
+      :customer => card.customer_id, #顧客ID
+      :currency => 'jpy', #日本円
+    )
+    redirect_to action: 'pay_finish' #完了画面に移動
   end
 
   # 商品購入完了
   def pay_finish
+    @product = Product.find(params[:product_id])
+    @product_images = ProductImage.where(product_id: params[:product_id])
+    @address = Address.find_by(user_id: current_user.id)
+
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @default_card_information = customer.cards.retrieve(card.card_id)
   end
 
   private

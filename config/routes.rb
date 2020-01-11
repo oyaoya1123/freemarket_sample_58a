@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get '/edit_select'  => 'products#edit_select'   
     get '/buy'  => 'products#buy'
     get '/pay_finish' => 'products#pay_finish'
+    get '/purchase' => 'products#purchase'
 
     collection do
       get 'get_category_children', defaults: { format: 'json' }
