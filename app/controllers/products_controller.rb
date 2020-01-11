@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_categories
   before_action :release_sns_id
   before_action :login, except: [:index,:show]
+  before_action :set_card, only: [:buy, :purchase, :pay_finish]
 
   def release_sns_id
     session[:sns_id] = nil
@@ -93,20 +94,18 @@ class ProductsController < ApplicationController
     @product_images = ProductImage.where(product_id: params[:product_id])
     @address = Address.find_by(user_id: current_user.id)
 
-    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @default_card_information = customer.cards.retrieve(card.card_id)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 
   def purchase
     price = Product.find(params[:product_id]).price
-    card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-      :amount => price, #支払金額を入力（itemテーブル等に紐づけても良い）
-      :customer => card.customer_id, #顧客ID
-      :currency => 'jpy', #日本円
+      amount: price, #支払金額を入力（itemテーブル等に紐づけても良い）
+      customer: @card.customer_id, #顧客ID
+      currency: 'jpy', #日本円
     )
     redirect_to action: 'pay_finish' #完了画面に移動
   end
@@ -117,10 +116,9 @@ class ProductsController < ApplicationController
     @product_images = ProductImage.where(product_id: params[:product_id])
     @address = Address.find_by(user_id: current_user.id)
 
-    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @default_card_information = customer.cards.retrieve(card.card_id)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 
   private
@@ -128,6 +126,10 @@ class ProductsController < ApplicationController
   def products_params
     @category=Category.find_by(name:params[:category_id])
     params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url]).merge(category_id:@category.id)
+  end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
   end
 
 end
