@@ -98,6 +98,8 @@ class ProductsController < ApplicationController
     redirect_to users_mypage_path
   end
 
+  
+
  
 
   # 商品購入確認

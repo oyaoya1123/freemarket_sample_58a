@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'users/card' => 'users#card'
   get 'users/card_create' => 'users#card_create'
   get 'users/mypage'  => 'users#mypage'
-  get 'products/:id/edit_select'  => 'products#edit_select' 
+  get 'products/:id/edit_select'  => 'products#edit_select'
 
   resource :users do
     collection do
