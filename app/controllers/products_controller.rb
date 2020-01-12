@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_categories
   before_action :release_sns_id
   before_action :login, except: [:index,:show]
+  before_action :set_card, only: [:buy, :purchase, :pay_finish]
 
   def release_sns_id
     session[:sns_id] = nil
@@ -58,7 +59,6 @@ class ProductsController < ApplicationController
     @category_parent_array.unshift("---")
 
     @product = Product.new(products_params)
-    binding.pry
     if @product.save
       UsersExhibit.create(
         product_id:@product.id,
@@ -72,21 +72,28 @@ class ProductsController < ApplicationController
     
   end
 
-  # 商品編集画面へのパス
-  def edit_select
-  end
-
   # 商品編集
   def edit
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("---")
 
-    # binding.pry
     @product=Product.find_by(id: params[:id])
     @product_images_min=ProductImage.where(product_id: params[:id])
     @category_child_array = @product.category.parent.parent.children
     @category_grandchild_array = @product.category.parent.children
   end
+
+  # 商品編集画面へのパス
+  def edit_select
+    @product = Product.find(params[:id])
+    @product_images = ProductImage.where(product_id: params[:id])
+    @exproduct = UsersExhibit.find_by(product_id: @product.id)
+    @exuser = User.find(@exproduct.user_id)
+    @grandchaild_category = Category.find(@product.category_id)
+    @chaild_category = @grandchaild_category.parent
+    @category = @chaild_category.parent
+  end
+
 
   # 商品編集
   def update
@@ -105,6 +112,35 @@ class ProductsController < ApplicationController
 
   # 商品購入確認
   def buy
+    @product = Product.find(params[:product_id])
+    @product_images = ProductImage.where(product_id: params[:product_id])
+    @address = Address.find_by(user_id: current_user.id)
+
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
+  end
+
+  def purchase
+    price = Product.find(params[:product_id]).price
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+      amount: price, #支払金額を入力（itemテーブル等に紐づけても良い）
+      customer: @card.customer_id, #顧客ID
+      currency: 'jpy', #日本円
+    )
+    redirect_to action: 'pay_finish' #完了画面に移動
+  end
+
+  # 商品購入完了
+  def pay_finish
+    @product = Product.find(params[:product_id])
+    @product_images = ProductImage.where(product_id: params[:product_id])
+    @address = Address.find_by(user_id: current_user.id)
+
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 
   private
@@ -117,6 +153,10 @@ class ProductsController < ApplicationController
   def products_update_params
     @category=Category.find_by(name:params[:category_id])
     params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:id, :image_url, :_destroy]).merge(category_id:@category.id)
+  end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
   end
 
 end

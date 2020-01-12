@@ -6,14 +6,11 @@ Rails.application.routes.draw do
   get 'githubtests/mypage' => 'githubtests#mypage'
   get 'users/profile' => 'users#profile'
   get 'users/identification' => 'users#identification'
-  # get 'products/index'  => 'products#index'
-  # get 'products/buy'  => 'products#buy'
-  # get 'products/create'  => 'products#create'
   get 'users/logout' => 'users#logout'
   get 'users/card' => 'users#card'
   get 'users/card_create' => 'users#card_create'
-  # get 'products/itemshow'  => 'products#itemshow'
-  # get 'users/mypage'  => 'users#mypage'
+  get 'users/mypage'  => 'users#mypage'
+  get 'products/:id/edit_select'  => 'products#edit_select' 
 
   resource :users do
     collection do
@@ -34,9 +31,10 @@ Rails.application.routes.draw do
   get 'users/login'  => 'users#login'
   get 'users/signup_page'  => 'users#signup_page'
 
-  resources :products, only: [:index, :show, :new, :create, :edit, :update] do
-    get '/edit_select'  => 'products#edit_select'   
+  resources :products, only: [:index, :show, :new, :create, :edit, :update] do  
     get '/buy'  => 'products#buy'
+    get '/pay_finish' => 'products#pay_finish'
+    get '/purchase' => 'products#purchase'
     get 'get_category_children', defaults: { format: 'json' }
     get 'get_category_grandchildren', defaults: { format: 'json' }
 
@@ -50,4 +48,11 @@ Rails.application.routes.draw do
   #購入
   resources :users_purchases, only: [:create] 
   
+  #クレジットカード登録
+  resources :card, only: [:new] do
+    collection do
+      post 'pay', to: 'card#pay_create'
+    end
+  end
+
 end
