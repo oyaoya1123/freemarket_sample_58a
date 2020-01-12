@@ -54,9 +54,8 @@ $(function(){
   //imageの数 削除した時とかに反映させて使用 10まで
   var images = [];
   var img = $(".imagepre");
-  //投稿カウント 削除した数とかは反映されない 連番 無制限
+  //投稿カウント
   var count =img.length;
-  console.log(count)
   //inputタグの配列 削除にしよう
   inputs=('.sell-upload-drop-file');
   //画像領域
@@ -70,8 +69,6 @@ $(function(){
   $(document).on('change', 'input[type="file"]', function(e) {
     var file = e.target.files[0],
         reader = new FileReader();
-        
-    // count=count+1;
 
     // ファイル読み込みが完了した際のイベント登録
     reader.onload = (function(file) {
@@ -161,7 +158,6 @@ $(function(){
         target_image.remove();
         var num = $(this).attr('data-id');
         // images.splice(num-1, 1);
-
       }
     })
 

@@ -77,7 +77,7 @@ class ProductsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("---")
 
-    @product=Product.find_by(id: params[:id])
+    @product=Product.find(params[:id])
     @product_images_min=ProductImage.where(product_id: params[:id])
     @category_child_array = @product.category.parent.parent.children
     @category_grandchild_array = @product.category.parent.children
@@ -97,7 +97,7 @@ class ProductsController < ApplicationController
 
   # 商品編集
   def update
-    @product=Product.find_by(id: params[:id])
+    @product=Product.find(params[:id])
     if @product.update(products_update_params)
       redirect_to root_path, notice: '商品を更新しました'
     else
