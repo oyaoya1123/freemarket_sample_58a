@@ -17,14 +17,15 @@
       .pay-main__content__detailbox
         .pay-main__content__detailbox__inner
           .pay-main__content__detailbox__inner__item
-            = image_tag "hito2.jpg", class:"item-image"
+            = image_tag @product_images[0].image_url.url, class:"item-image"
 
             .item-detail
               %p.item-detail__text
-                小松菜奈着 laula ドロップ フレア スカート
+                =@product.name
               %p.itemprice
                 %span
-                  ¥3400
+                  ¥
+                  =converting_to_jpy(@product.price)
                 %span.fee
                   （税込）送料込み
 
@@ -36,26 +37,33 @@
                 支払い金額
               %div.price__box__number
                 %span.price__box__number__value
-                  ￥3400
+                  ￥
+                  =converting_to_jpy(@product.price)
 
       %section.userinfo
         %div.userinfo__inner
           %h3 配送先
           %address.userinfo__inner__text
             %p
-              〒001-0001
+              〒
+              =@address.postal_code
               %br
-              北海道 札幌市 北区 北 1-1-1 ●●マンション111
+              =@address.prefectures
+              =@address.city
+              =@address.house_number
+              =@address.building_name
               %br
-              山田 花子
+              =@address.address_last_name
+              =@address.address_first_name
 
       %section.userinfo
         %div.userinfo__inner
           %h3 支払い方法
           %p.userinfo__inner__text
-            **********8990
+            = "************" + @default_card_information.last4
             %br
-            有効期限01/33
+            有効期限
+            = expiration_date(@default_card_information.exp_month, @default_card_information.exp_year)
             %br
           = icon('fab', 'cc-visa fa-2x')
 
@@ -73,7 +81,7 @@
           購入代金が出品者に振り込まれます。
           %br
           評価後に取引は完了です。
-        = link_to "/", class: "right" do
+        = link_to users_mypage_path, class: "right" do
           マイページへもどる
 
   %footer.single-footer

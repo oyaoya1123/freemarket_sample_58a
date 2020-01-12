@@ -292,6 +292,7 @@
     }
   }
 }
+
 }
 
 .modal.is-animate {
@@ -354,4 +355,5 @@
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.5);
   animation: modal-open .4s ease;
+
 }

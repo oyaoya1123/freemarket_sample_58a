@@ -24,12 +24,19 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only:[:show] do
+  end
+
+
   get 'users/login'  => 'users#login'
   get 'users/signup_page'  => 'users#signup_page'
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do  
     get '/buy'  => 'products#buy'
     get '/pay_finish' => 'products#pay_finish'
+    get '/purchase' => 'products#purchase'
+    get 'get_category_children', defaults: { format: 'json' }
+    get 'get_category_grandchildren', defaults: { format: 'json' }
 
     collection do
       get 'get_category_children', defaults: { format: 'json' }
