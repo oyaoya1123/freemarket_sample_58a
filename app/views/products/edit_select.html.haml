@@ -62,13 +62,15 @@
       %p.item-box-container__description__inner
         = @product.description
     .listing-item-change-box-parent
+
       .listing-item-change-box
-        = link_to edit_product_path(id:1), class: "btn-default btn-red" do
+        = link_to edit_product_path(id:@product.id), class: "btn-default btn-red" do
           商品の編集
         %p.text-center or
         %form
           %button.btn-default.btn-gray 出品を一旦停止する
         %button.btn-default.btn-gray この商品を削除する
+
 %aside
   = render "products/top_aside_footer"
 %footer

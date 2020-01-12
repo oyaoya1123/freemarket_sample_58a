@@ -74,6 +74,13 @@ class ProductsController < ApplicationController
 
   # 商品編集
   def edit
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array.unshift("---")
+
+    @product=Product.find(params[:id])
+    @product_images_min=ProductImage.where(product_id: params[:id])
+    @category_child_array = @product.category.parent.parent.children
+    @category_grandchild_array = @product.category.parent.children
   end
 
   # 商品編集画面へのパス
@@ -90,6 +97,13 @@ class ProductsController < ApplicationController
 
   # 商品編集
   def update
+    @product=Product.find(params[:id])
+    if @product.update(products_update_params)
+      redirect_to root_path, notice: '商品を更新しました'
+    else
+      render :edit
+    end
+
   end
 
   # 商品詳細
@@ -134,6 +148,11 @@ class ProductsController < ApplicationController
   def products_params
     @category=Category.find_by(name:params[:category_id])
     params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url]).merge(category_id:@category.id)
+  end
+
+  def products_update_params
+    @category=Category.find_by(name:params[:category_id])
+    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:id, :image_url, :_destroy]).merge(category_id:@category.id)
   end
 
   def set_card

@@ -6,6 +6,10 @@ class UsersController < ApplicationController
   include CommonActions
   before_action :set_categories
   
+
+  def show
+  end
+  
   def profile
   end
 
