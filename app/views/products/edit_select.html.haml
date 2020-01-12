@@ -1,5 +1,22 @@
 %header
   = render "top_header"
+
+%dialog{ class:"modal is-show is-animate"}
+  .modal-inner.modal-banner
+    .modal-body
+      .modal-head.bold 確認
+      削除すると二度と復活できません。
+      %br
+      削除する代わりに停止することもできます。
+      %br
+      %br
+      本当に削除しますか？
+    .clearfix
+      .modal-btn.modal-btn-cancel.close{ id:"close"} キャンセル
+      %form{ method:"POST", novalidate:"novalidate"}
+        %input{ type:"hidden"}
+        = link_to '削除する',product_path(@product),method: :delete,class:'modal-btn modal-btn-submit' 
+
 %section
   .wraper
     .item-box-container
@@ -67,9 +84,10 @@
         = link_to edit_product_path(id:@product.id), class: "btn-default btn-red" do
           商品の編集
         %p.text-center or
-        %form
+        %form{ name:"myform"}
           %button.btn-default.btn-gray 出品を一旦停止する
-        %button.btn-default.btn-gray この商品を削除する
+          %button.btn-default.btn-gray.open{ id:"open"} この商品を削除する
+
 
 %aside
   = render "products/top_aside_footer"
