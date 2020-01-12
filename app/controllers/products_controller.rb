@@ -151,8 +151,8 @@ class ProductsController < ApplicationController
   end
 
   def products_update_params
-    @category=Category.find_by(name:params[:category_id])
-    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:id, :image_url, :_destroy]).merge(category_id:@category.id)
+    # @category=Category.find_by(name:params[:category_id])
+    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:id, :image_url, :_destroy])
   end
 
   def set_card
