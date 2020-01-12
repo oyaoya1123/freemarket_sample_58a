@@ -84,9 +84,6 @@ class ProductsController < ApplicationController
     # binding.pry
     @product=Product.find_by(id: params[:id])
     @product_images_min=ProductImage.where(product_id: params[:id])
-    # @select_glandchild_category=Category.find_by(id: @product.category_id)
-    # @select_child_category=@select_glandchild_category.parent
-    # @select_parent_category=@select_child_category.parent
     @category_child_array = @product.category.parent.parent.children
     @category_grandchild_array = @product.category.parent.children
   end
@@ -118,9 +115,7 @@ class ProductsController < ApplicationController
   end
 
   def products_update_params
-    binding.pry
     params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id, product_images_attributes:[:id, :image_url, :_destroy])
-    # binding.pry
   end
 
 end

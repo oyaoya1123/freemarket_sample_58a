@@ -4,10 +4,8 @@ $(document).ready( function(){
   //imageの数
   var p_imgs = $(".imagepre");
   n=p_imgs.length
-  // console.log(p_imgs.length)
-  // console.log(p_imgs)
-  // var imgnum=[];
   var imgnum=0;
+  
   //画像領域
   var dropbox1=$(".state-image-number-1")
   var dropbox2=$(".state-image-number-2")
@@ -77,7 +75,6 @@ $(function(){
 
     // ファイル読み込みが完了した際のイベント登録
     reader.onload = (function(file) {
-      // console.log(file);
       return function(e) {
 
         var result=e.target.result
@@ -91,7 +88,6 @@ $(function(){
         </li>`
 
         //images6~10まで
-        // if(images.length >= 6) {
         if(count >= 6) {
           $('#preview2').append(imagehtml);
           }
@@ -104,8 +100,6 @@ $(function(){
 
     reader.readAsDataURL(file);
 
-    //imagesに追加
-    // images.push(img);
     count=count+1;
     //inputタグ挿入用
     var input_html=`<input class="sell-upload-drop-file" id="upload-image${count}" data-id="${count}" name="product[product_images_attributes][${n+1}][image_url]" type="file">`
@@ -174,8 +168,6 @@ $(function(){
     //条件分岐
     var img = $(".imagepre");
     if(images.length >= 5) {
-      // var dropbox=$(".sell-dropbox-container")
-      // dropbox.attr(".notactive",".active");
 
       imagebox2.css(
         'width', `calc(100% - (20% * (${images.length} - 5)))`
