@@ -108,11 +108,10 @@ class ProductsController < ApplicationController
   #商品削除
   def destroy
     @exproduct = UsersExhibit.find_by(product_id: @product.id)
-    if @exproduct.user_id == current_user.id
-    @product.destroy
-    redirect_to products_path
+    if @exproduct.user_id == current_user.id && @product.destroy
+      redirect_to products_path
     else
-    render :edit_select
+      render :edit_select
     end
 
   end
