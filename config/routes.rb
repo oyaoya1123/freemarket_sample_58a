@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'users/login'  => 'users#login'
+
   resources :users, only:[:show] do
   end
 
