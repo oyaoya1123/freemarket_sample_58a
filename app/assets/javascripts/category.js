@@ -71,6 +71,10 @@ $(function(){
       $('#grandchild_category').remove();
     }
   });
+
+  //edit用
   $('.category-views').on('change', '#grandchild_category', function(){
+    var gchildId = $('#grandchild_category option:selected').data('category');
+    $('#grand_child_result_id').attr("value", gchildId)
   });
 });
