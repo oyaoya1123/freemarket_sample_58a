@@ -1,5 +1,5 @@
 .l-contents_registration
-  %section.l-chapter-container
+  %section#card_payment.l-chapter-container
     %h2.l-chapter-head クレジットカード情報入力
     = form_with url: pay_card_index_path, method: :post, local: true, class: "l-single-inner registration-form", id: "add-card-form", html: { name: "inputForm" } do |f|
       .l-single-content

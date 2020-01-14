@@ -12,10 +12,10 @@
             = link_to signupregistration_users_path , class:"btn-mail" do 
               = icon('far', 'envelope fa-2x',class: "mail")
               メールアドレスで登録
-            %button#facebook-login.btn-facebook
+            = link_to user_facebook_omniauth_authorize_path , id:"facebook-login", class:"btn-facebook" do 
               = icon('fab', 'facebook-square fa-2x',class: "facebook")
               Facebookで登録
-            %button#google-login.btn-google
+            = link_to user_google_oauth2_omniauth_authorize_path , id:"google-login", class:"btn-google" do
               = icon('fab', 'google fa-2x',class: "google")
               Googleで登録
 

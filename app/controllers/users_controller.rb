@@ -176,7 +176,13 @@ class UsersController < ApplicationController
         render action: :signup_adress_input
       end
     else
-      render action: :signup_adress_input
+      #支払い登録ページから戻るを選択した時は支払い登録に遷移できるようにする
+      binding.pry
+      if User.find(session[:id])
+        redirect_to controller: 'card', action: 'new'
+      else
+        render action: :signup_adress_input
+      end
     end
   end
 
