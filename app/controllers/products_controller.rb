@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   before_action :release_sns_id
   before_action :login, except: [:index,:show]
   before_action :set_card, only: [:buy, :purchase, :pay_finish]
+  before_action :find_product, only: [:show,:destroy,:edit_select]
 
   def release_sns_id
     session[:sns_id] = nil
@@ -20,7 +21,6 @@ class ProductsController < ApplicationController
 
   # 商品詳細
   def show
-    @product = Product.find(params[:id])
     @product_images = ProductImage.where(product_id: params[:id])
     @exproduct = UsersExhibit.find_by(product_id: @product.id)
     @exuser = User.find(@exproduct.user_id)
@@ -85,7 +85,6 @@ class ProductsController < ApplicationController
 
   # 商品編集画面へのパス
   def edit_select
-    @product = Product.find(params[:id])
     @product_images = ProductImage.where(product_id: params[:id])
     @exproduct = UsersExhibit.find_by(product_id: @product.id)
     @exuser = User.find(@exproduct.user_id)
@@ -106,9 +105,20 @@ class ProductsController < ApplicationController
 
   end
 
-  # 商品詳細
-  def itemshow
+  #商品削除
+  def destroy
+    @exproduct = UsersExhibit.find_by(product_id: @product.id)
+    if @exproduct.user_id == current_user.id && @product.destroy
+      redirect_to products_path
+    else
+      render :edit_select
+    end
+
   end
+
+  
+
+ 
 
   # 商品購入確認
   def buy
@@ -144,6 +154,10 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def find_product
+    @product = Product.find(params[:id])
+  end
 
   def products_params
     @category=Category.find_by(name:params[:category_id])
