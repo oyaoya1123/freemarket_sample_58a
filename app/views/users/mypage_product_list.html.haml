@@ -13,37 +13,38 @@
             %input#design{name: "tab_item", type: "radio"}/
             %label.tab_item{for: "design"} 売却済み
             #all_content.tab_content
-                総合の内容がここに入ります
+                - @user_products.each do |product|
+                    %li
+                        = link_to  "/", class: "mypage-item-link" do
+                            %figure
+                                .is-higher-height.lazyloaded
+                                    =image_tag product.product_images[0].image_url.url
+                            .mypage-item-body.show-stock-item
+                                .mypage-item-text
+                                    = product.name
+                                .mypage-item-comment
+                                    %span.listing-item-count
+                                        = icon('far', 'heart', class: "icon-like-border")
+                                        %span 0
+                                    %span.listing-item-count
+                                        = icon('far', 'comment-alt', class: "icon-like-border")
+                                        %i.icon-message
+                                        %span 0
+                                    .mypage-item-status.bold.awaiting
+                                        = @stasus_name.name
+                            .icon-arrow-right
+                                = icon('fas', 'angle-right')
             #programming_content.tab_content
-                プログラミングの内容がここに入ります
+                現在取扱いの商品がございません。
             #design_content.tab_content
-                デザインの内容がここに入ります
-        .tab-content
-            %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
-            %li
-                %a.mypage-item-link{:href => "https://www.mercari.com/jp/items/m98749264901/"}
-                    %figure
-                    %img.is-higher-height.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/thumb/photos/m98749264901_1.jpg?1578032041", :src => "//static.mercdn.net/thumb/photos/m98749264901_1.jpg?1578032041"}/
-                .mypage-item-body.show-stock-item
-                    .mypage-item-text
-                    シューキープ　バック
-                    %div
-                    %span.listing-item-count
-                        %i.icon-like-border
-                        %span 0
-                    %span.listing-item-count
-                        %i.icon-message
-                        %span 0
-                    .mypage-item-status.bold.awaiting
-                        出品中
-                %i.icon-arrow-right
-    %ul.mypage-history.pager
-        %li.pager-prev.pager-cell
-        %a{:href => "/jp/mypage/listings/listing/?min_pager_id=5154562106"}
-            %i.icon-arrow-left
-        %li.pager-next.pager-cell
-        %a{:href => "/jp/mypage/listings/listing/?max_pager_id=4908627893"}
-            %i.icon-arrow-right
+                現在取扱いの商品がございません。
+        .mypage-history.pager
+            %li.pager-prev.pager-cell
+                = link_to  "/" do
+                    = icon('fas', 'angle-left')
+            %li.pager-next.pager-cell
+                = link_to  "/" do
+                    = icon('fas', 'angle-right')
     = render "users/aside"
 %aside
     = render "products/top_aside_footer"
