@@ -71,4 +71,6 @@ $(function(){
       $('#grandchild_category').remove();
     }
   });
+  $('.category-views').on('change', '#grandchild_category', function(){
+  });
 });
