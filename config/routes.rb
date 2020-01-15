@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'users/card' => 'users#card'
   get 'users/card_create' => 'users#card_create'
   get 'users/mypage'  => 'users#mypage'
+  get 'users/mypage_product_list'  => 'users#mypage_product_list'
   get 'products/:id/edit_select'  => 'products#edit_select'
   get 'users/login'  => 'users#login'
   
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
   end
 
   get 'users/signup_page'  => 'users#signup_page'
+  
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do  
     get '/buy'  => 'products#buy'

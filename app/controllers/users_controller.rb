@@ -128,6 +128,12 @@ class UsersController < ApplicationController
   def mypage
   end
 
+  def mypage_product_list
+    @user = User.find(current_user.id)
+    @user_products = @user.ex_products
+    @stasus_name = ProductStatus.find(1)
+  end
+
   def login
   end
  
