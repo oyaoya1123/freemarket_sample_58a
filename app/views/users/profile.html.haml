@@ -2,6 +2,9 @@
   %header 
     = render "products/top_header"
 
+  - breadcrumb :mypage_profile
+  = render 'products/breadcrumbs'
+
   %main.l-container.clearfix
     .l-container__content
       %section.l-container__content__chapter
@@ -22,3 +25,4 @@
     = render "products/top_aside_footer"
   %footer
     = render "products/top_footer"
+  = render "products/ex_logo"

@@ -1,0 +1,88 @@
+.single-container
+  %header 
+    = render "products/header"
+
+  .pay-main
+    .pay-main__content
+
+      %div.pay-main__content__infomation
+        %h3
+          = icon('fa', 'clock')
+          %span 発送をお待ちください
+        %p 出品者からの発送通知をお待ちください
+
+      .pay-main__content__text
+        購入が完了しました
+
+      .pay-main__content__detailbox
+        .pay-main__content__detailbox__inner
+          .pay-main__content__detailbox__inner__item
+            = image_tag @product_images[0].image_url.url, class:"item-image"
+
+            .item-detail
+              %p.item-detail__text
+                =@product.name
+              %p.itemprice
+                %span
+                  ¥
+                  =converting_to_jpy(@product.price)
+                %span.fee
+                  （税込）送料込み
+
+      %section.pay-main__content__price
+        %div.pay-main__content__price__inner
+          %ul.price
+            %li.price__box
+              %div.price__box__text
+                支払い金額
+              %div.price__box__number
+                %span.price__box__number__value
+                  ￥
+                  =converting_to_jpy(@product.price)
+
+      %section.userinfo
+        %div.userinfo__inner
+          %h3 配送先
+          %address.userinfo__inner__text
+            %p
+              〒
+              =@address.postal_code
+              %br
+              =@address.prefectures
+              =@address.city
+              =@address.house_number
+              =@address.building_name
+              %br
+              =@address.address_last_name
+              =@address.address_first_name
+
+      %section.userinfo
+        %div.userinfo__inner
+          %h3 支払い方法
+          %p.userinfo__inner__text
+            = "************" + @default_card_information.last4
+            %br
+            有効期限
+            = expiration_date(@default_card_information.exp_month, @default_card_information.exp_year)
+            %br
+          = icon('fab', 'cc-visa fa-2x')
+
+      %section.pay-done-flow
+        %h3 発送通知後の流れ
+        %div
+          = icon('fa', 'laugh')
+          = icon('fa', 'meh')
+          = icon('fa', 'frown')
+        %p
+          商品を受け取ったら
+          %br
+          出品者の評価をしましょう。
+          %br
+          購入代金が出品者に振り込まれます。
+          %br
+          評価後に取引は完了です。
+        = link_to users_mypage_path, class: "right" do
+          マイページへもどる
+
+  %footer.single-footer
+    = render "products/footer" 

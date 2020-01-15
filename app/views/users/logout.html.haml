@@ -2,6 +2,10 @@
   
   %header
     = render "products/top_header"
+
+    - breadcrumb :logout
+    = render 'products/bread-crumbs'
+
   .wraper
   %main.l-main.box
     .l-content
@@ -14,4 +18,5 @@
     = render "products/top_aside_footer"
   %footer
     = render "products/top_footer"
+  = render "products/ex_logo"
     

@@ -1,5 +1,11 @@
 .single-container{style: 'padding-bottom:0px;'}
+
   %header 
+    = render "products/top_header"
+
+  - breadcrumb :mypage
+  = render 'products/breadcrumbs'
+
 
   %main.l-container.clearfix
     %div.l-content
@@ -15,6 +21,7 @@
             %div.text2
               出品数
               %span.bold 0
+              
       %section.tabs
         %input#all{checked: "checked", name: "tab_item", type: "radio"}/
         %label.tab_item{for: "all"} お知らせ
@@ -57,10 +64,12 @@
           .tab_content_description
             %ul.mypage-item-list.tab-pane.active
               %li.mypage-item-not-found.bold 過去に取引した商品がありません
+
     = render "users/aside"
   %aside
     = render "products/top_aside_footer"
   %footer
     = render "products/top_footer"
+  = render "products/ex_logo"
 
   
