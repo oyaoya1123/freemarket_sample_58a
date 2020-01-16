@@ -1,7 +1,7 @@
 %header
   = render "signup_header"
 %main.single-main1
-  %section.l-single-container.signup-done
+  %section#complete.l-single-container.signup-done
     %h2.l-single-head.registration 会員登録完了
     %div.l-single-inner.registration-form
       %div.l-single-content
@@ -10,7 +10,7 @@
           %br
           会員登録が完了しました。
 
-        = link_to users_mypage_path, class: "btn-default btn-red" do
+        = link_to users_path, class: "btn-default btn-red" do
           メルカリをはじめる
 
     %aside.app-banner

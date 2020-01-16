@@ -1,5 +1,5 @@
 .l-contents
-  %section.l-chapter-container
+  %section#card_payment.l-chapter-container
     %h2.l-chapter-head クレジットカード情報入力
     = form_with model: @user, url: users_card_create_path, method: :post, local: true, class: "l-single-inner registration-form", id: "add-card-form" do |f|
       .l-single-content

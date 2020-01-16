@@ -27,12 +27,10 @@ Rails.application.routes.draw do
   end
 
   get 'users/login'  => 'users#login'
+  get 'users/signup_page'  => 'users#signup_page'
 
   resources :users, only:[:show] do
   end
-
-  get 'users/signup_page'  => 'users#signup_page'
-  
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do  
     get '/buy'  => 'products#buy'
