@@ -1,0 +1,54 @@
+%header
+    = render "products/top_header"
+%main.l-main.box
+    .l-product_list
+        %section.mypage-tab-container
+            %h2.mypage-tab-head 出品した商品
+            %ul.listing-tabs
+        %section.tabs
+            %input#all{checked: "checked", name: "tab_item", type: "radio"}/
+            %label.tab_item{for: "all"} 出品中
+            %input#programming{name: "tab_item", type: "radio"}/
+            %label.tab_item{for: "programming"} 取引中
+            %input#design{name: "tab_item", type: "radio"}/
+            %label.tab_item{for: "design"} 売却済み
+            #all_content.tab_content
+                - @user_products.each do |product|
+                    %li
+                        = link_to  "/", class: "mypage-item-link" do
+                            %figure
+                                .is-higher-height.lazyloaded
+                                    =image_tag product.product_images[0].image_url.url
+                            .mypage-item-body.show-stock-item
+                                .mypage-item-text
+                                    = product.name
+                                .mypage-item-comment
+                                    %span.listing-item-count
+                                        = icon('far', 'heart', class: "icon-like-border")
+                                        %span 0
+                                    %span.listing-item-count
+                                        = icon('far', 'comment-alt', class: "icon-like-border")
+                                        %i.icon-message
+                                        %span 0
+                                    .mypage-item-status.bold.awaiting
+                                        = @stasus_name.name
+                            .icon-arrow-right
+                                = icon('fas', 'angle-right')
+            #programming_content.tab_content
+                現在取扱いの商品がございません。
+            #design_content.tab_content
+                現在取扱いの商品がございません。
+        .mypage-history.pager
+            %li.pager-prev.pager-cell
+                = link_to  "/" do
+                    = icon('fas', 'angle-left')
+            %li.pager-next.pager-cell
+                = link_to  "/" do
+                    = icon('fas', 'angle-right')
+    = render "users/aside"
+%aside
+    = render "products/top_aside_footer"
+%footer
+    = render "products/top_footer"
+
+
