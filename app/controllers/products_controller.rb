@@ -153,6 +153,10 @@ class ProductsController < ApplicationController
     @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 
+  # カテゴリー一覧
+  def category_index
+  end
+
   private
 
   def find_product
