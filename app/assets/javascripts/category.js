@@ -28,8 +28,8 @@ $(function(){
     sizeSelectHtml = `<div id="size_category">
                       <label>サイズ<span class="form-require">必須</span></label>
                       <div class="select-wrap">
-                      <select class="select-default js-append" name="size_id">
-                        <option value="---" data-size="---">---</option>
+                      <select class="select-default js-append" name="product[size]">
+                        <option value=>---</option>
                           ${insertHTML}
                         <select></div></div>`;
     $('.size-group').append(sizeSelectHtml);

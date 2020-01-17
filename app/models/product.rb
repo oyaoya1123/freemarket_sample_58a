@@ -21,6 +21,7 @@ class Product < ApplicationRecord
   validates :shipping_charge, presence: true
   validates :shipping_day, presence: true
   validates :product_condition, presence: true
+  validates :size, presence: true
 
   belongs_to :category
 

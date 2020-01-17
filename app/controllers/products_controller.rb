@@ -66,6 +66,7 @@ class ProductsController < ApplicationController
     @category_parent_array.unshift("---")
 
     @product = Product.new(products_params)
+    #binding.pry
     if @product.save
       UsersExhibit.create(
         product_id:@product.id,
@@ -168,7 +169,8 @@ class ProductsController < ApplicationController
 
   def products_params
     @category=Category.find_by(name:params[:category_id])
-    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url]).merge(category_id:@category.id)
+    binding.pry
+    params.require(:product).permit(:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url]).merge(category_id:@category.id)
   end
 
   def products_update_params
