@@ -74,13 +74,7 @@
                     %i.icon-arrow-bottom
                     = f.select :category, @category_parent_array, {}, class: 'select-default', id: 'parent_category', value: '@select_parent_category'
 
-                .form-group
-                  %label
-                    サイズ
-                    %span.form-require 必須
-                  .select-wrap
-                    %i.icon-arrow-bottom
-                    = f.select :product_size, ["--", "L", "M", "S"], {}, class: 'select-default'
+                .form-group.size-group
 
                 .form-group
                   %label

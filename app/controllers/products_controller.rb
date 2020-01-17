@@ -53,6 +53,13 @@ class ProductsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def get_size
+    size_category = Category.find("#{params[:grandchild_id]}")
+    #binding.pry
+    @sizes = Size.where(size_category: size_category.size_category)
+    #binding.pry
+  end
+
   # 商品出品
   def create
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
