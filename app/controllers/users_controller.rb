@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   
 
   def show
+    @user=User.find(current_user.id)
   end
   
   def profile
@@ -125,8 +126,8 @@ class UsersController < ApplicationController
   def complete
   end
 
-  def mypage
-  end
+  # def mypage
+  # end
 
   def mypage_product_list
     @user = User.find(current_user.id)

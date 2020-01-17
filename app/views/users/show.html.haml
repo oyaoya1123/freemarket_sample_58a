@@ -13,7 +13,8 @@
         = link_to "/" , class:"icon" do
           %figure
             =image_tag  "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: "60x60"
-          %h2.bold やんゆ
+          %h2.bold 
+            =@user.nickname
           %div.mypage-number
             %div.text1
               評価

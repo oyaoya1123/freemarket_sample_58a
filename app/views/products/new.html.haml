@@ -73,6 +73,7 @@
                   .select-wrap.category-views
                     %i.icon-arrow-bottom
                     = f.select :category, @category_parent_array, {}, class: 'select-default', id: 'parent_category', value: '@select_parent_category'
+                  = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
 
                 .form-group
                   %label
