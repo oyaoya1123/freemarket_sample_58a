@@ -4,7 +4,8 @@ class ProductsController < ApplicationController
   before_action :release_sns_id
   before_action :login, except: [:index,:show]
   before_action :set_card, only: [:buy, :purchase, :pay_finish]
-  before_action :find_product, only: [:show,:destroy,:edit_select]
+  before_action :find_product, only: [:show,:destroy,:edit_select ,:edit, :update]
+  
 
   def release_sns_id
     session[:sns_id] = nil
@@ -77,7 +78,6 @@ class ProductsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("---")
 
-    @product=Product.find(params[:id])
     @product_images_min=ProductImage.where(product_id: params[:id])
     @category_child_array = @product.category.parent.parent.children
     @category_grandchild_array = @product.category.parent.children
@@ -94,9 +94,9 @@ class ProductsController < ApplicationController
   end
 
 
-  # 商品編集
+  # 商品更新
   def update
-    @product=Product.find(params[:id])
+
     if @product.update(products_update_params)
       redirect_to root_path, notice: '商品を更新しました'
     else
