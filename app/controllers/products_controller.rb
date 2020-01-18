@@ -89,6 +89,7 @@ class ProductsController < ApplicationController
     @product_images_min=ProductImage.where(product_id: params[:id])
     @category_child_array = @product.category.parent.parent.children
     @category_grandchild_array = @product.category.parent.children
+    binding.pry
   end
 
   # 商品編集画面へのパス
@@ -105,9 +106,12 @@ class ProductsController < ApplicationController
   # 商品編集
   def update
     @product=Product.find(params[:id])
+    binding.pry
     if @product.update(products_update_params)
+      binding.pry
       redirect_to root_path, notice: '商品を更新しました'
     else
+      binding.pry
       render :edit
     end
 
@@ -169,12 +173,11 @@ class ProductsController < ApplicationController
 
   def products_params
     @category=Category.find_by(name:params[:category_id])
-    binding.pry
     params.require(:product).permit(:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url]).merge(category_id:@category.id)
   end
 
   def products_update_params
-    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:id, :image_url, :_destroy])
+    params.require(:product).permit(:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:id, :image_url, :_destroy])
   end
 
   def set_card
