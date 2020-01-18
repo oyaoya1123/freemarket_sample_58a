@@ -154,7 +154,30 @@ class ProductsController < ApplicationController
   end
 
   # カテゴリー一覧
-  def category_index
+  def category_list
+    @category = Category.find(params[:id])
+    @child_categorys = @category.children
+    @grandchild_categorys = @child_categorys.map {|child_category| child_category.children} 
+
+    @child_categorys_ids = @child_categorys.map {|child_category| child_category.id}
+    
+    @grandchild_categorys_ids = []
+    if @grandchild_categorys != []
+      @grandchild_categorys.each do |grandchild_category|
+        grandchild_category.each do |category|
+          @grandchild_categorys_ids << category.id
+        end
+      end
+    end
+
+    if @grandchild_categorys_ids != []
+      @grandchild_products = Product.where(category_id: @grandchild_categorys_ids)
+    elsif @child_categorys != []
+      @grandchild_products = Product.where(category_id: @child_categorys_ids)
+    else
+      @grandchild_products = Product.where(category_id: @category.id)
+    end
+
   end
 
   private

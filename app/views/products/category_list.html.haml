@@ -1,0 +1,36 @@
+%header
+  = render "top_header"
+%main.l-containerr.clearfix
+  .popular-categorys-container
+    .item-boxes
+      .item-boxes__box
+        .item-boxes__box__header
+          %h3 レディース新着アイテム
+        .item-boxes__box__main
+          %ul.item-boxes__box__main__container
+          - @grandchild_products.each do |product|
+            %li.item-boxes__box__main__container__content
+              .inner-item-box__container
+              = link_to product_path(product.id) do
+                .inner-item-box__container__img-box
+                  .inner-item-box__container__img-box__img
+                    = image_tag product.product_images[0].image_url.url, size: '174x188'
+                  %span.inner-item-box__container__img-box__price
+                    ¥
+                    = product.price
+                  .inner-item-box__container__caption
+                    %span.inner-item-box__container__caption__text
+                      = product.name
+    .spacial-description
+      .text-center.spacial-description-title.red
+        %h3.font-white
+          レディース
+      .white.spacial-description-text
+        %p
+          レディースの着ない服、いらない洋服を売るならメルカリへ。レディースの商品は100万点以上あります。人気のあるカテゴリーはカジュアルパンツとドレスです。人気の商品は「Bou Jeloud / ハイテンション美脚ストレッチタックパンツ」や「パーティードレス ワンピース」があります。レディースの買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。
+%aside
+  = render "top_aside_footer"
+%footer
+  = render "top_footer"
+= render "ex_logo"
+      

@@ -1,6 +1,6 @@
 
 %li.grandchild-content
-  = link_to category.name,"products/category/#{category.id}/category_index"
+  = link_to category.name,"products/category/#{category.id}/category_list"
 
   %ul.greatgrandchild
     = render partial: "products/header_grand-child", collection: category.children, as: :child

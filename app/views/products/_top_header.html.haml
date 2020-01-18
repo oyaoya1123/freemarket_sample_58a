@@ -18,7 +18,7 @@
         %ul.child
           - @categories.each do |parent|
             %li.child-content
-              = link_to parent.name,"products/category/#{parent.id}/category_index"
+              = link_to parent.name,"products/category/#{parent.id}/category_list"
               %ul.grandchild
                 = render partial: "products/header_child", collection: parent.children, as: :category
 
