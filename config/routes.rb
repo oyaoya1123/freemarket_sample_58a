@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root 'products#index'
-  # get 'githubtests' => 'githubtests#index'
-  # get 'githubtests/mypage' => 'githubtests#mypage'
   get 'users/profile' => 'users#profile'
   get 'users/identification' => 'users#identification'
   get 'users/logout' => 'users#logout'

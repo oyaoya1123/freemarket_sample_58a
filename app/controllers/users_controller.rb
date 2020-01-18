@@ -125,10 +125,7 @@ class UsersController < ApplicationController
   
   def complete
   end
-
-  # def mypage
-  # end
-
+  
   def mypage_product_list
     @user = User.find(current_user.id)
     @user_products = @user.ex_products
