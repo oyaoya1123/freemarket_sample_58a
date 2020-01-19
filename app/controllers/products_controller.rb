@@ -136,6 +136,20 @@ class ProductsController < ApplicationController
       customer: @card.customer_id, #顧客ID
       currency: 'jpy', #日本円
     )
+    
+    # ステータスの更新
+    @product = Product.find(params[:product_id])
+    UsersPurchase.create(
+      product_id:@product.id,
+      user_id:current_user.id,
+      product_status_id:2
+    )
+    @ex_status=UsersExhibit.find_by(product_id: @product.id)
+    @ex_status.update(
+      product_id:@product.id,
+      user_id:current_user.id,
+      product_status_id:2
+    )
     redirect_to action: 'pay_finish' #完了画面に移動
   end
 
