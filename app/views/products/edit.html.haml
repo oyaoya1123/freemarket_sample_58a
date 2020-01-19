@@ -20,7 +20,8 @@
                 .sell-upload-items-container
                   .sell-upload-items
                     %ul#preview
-                      -@product_images_min.each do |i|
+                      -# -@product_images_min.each do |i|
+                      -@product.product_images.each do |i|
                         %li
                           %div.pre
                             =image_tag i.image_url.url, class:"imagepre", width:"100px"
@@ -39,6 +40,7 @@
                       = image.file_field :image_url , class:'sell-upload-drop-file',id:"upload-image0",'data-id': 0,'data-image':0,name:"product[product_images_attributes][0][image_url]"
                       = image.hidden_field :_destroy ,value:0,class:'destroy','data-image':0
                     #imageform1
+                = render partial: 'error-messages', locals: {product: @product, column: "product_images"}
 
               .sell-dropbox-container.clearfix.state-image-number-2.notactive
                 .sell-upload-items-container
@@ -55,7 +57,6 @@
                   -#   = f.fields_for :product_images do |image|
                   -#     #imageform2
  
-
             .sell-content
               .form-group1
                 %label
@@ -64,12 +65,14 @@
                 %div
 
                   = f.text_field :name, placeholder: "商品名（必須 40文字まで)", value: @product.name,class:"input-default"
+                  = render partial: 'error-messages', locals: {product: @product, column: "name"}
                   
               .form-group
                 %label
                   商品の説明
                   %span.form-require 必須
                 = f.text_area :description, value: @product.description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" , rows: "5",class:"textarea-default"
+                = render partial: 'error-messages', locals: {product: @product, column: "description"}
         
             .sell-content.clearfix
               %h3.sell-sub-head 商品の詳細
@@ -83,6 +86,7 @@
                     = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @product.category.parent.parent.name), {}, {class: 'select-default', id: 'parent_category'}
                     = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.parent.id), {}, {class: 'select-default', id: 'child_category'}                  
                     = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.id), {}, {class: 'select-default', id: 'grandchild_category'}
+                    = render partial: 'error-messages', locals: {product: @product, column: "category_id"}
                   = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
 
                 .form-group
@@ -100,6 +104,7 @@
                   .select-wrap
                     %i.icon-arrow-bottom
                     = f.collection_select :product_condition, Productcondition.all, :value, :value, { prompt: '--' }, class: 'select-default'
+                    = render partial: 'error-messages', locals: {product: @product, column: "product_condition"}
                     
             .sell-content.clearfix
               %h3.sell-sub-head 配送について
@@ -113,9 +118,8 @@
                   .select-wrap
                     %i.icon-arrow-bottom
                     = f.collection_select :shipping_charge, Deliverycharge.all, :value, :value, { prompt: '--' }, class: 'select-default' 
-
-                
-
+                    = render partial: 'error-messages', locals: {product: @product, column: "shipping_charge"}
+              
                 .form-group
                   %label.label-margin
                     配送の方法
@@ -123,6 +127,7 @@
                   .select-wrap
                     %i.icon-arrow-bottom
                     = f.collection_select :shipping_method, Deliverymethod.all, :value, :value, { prompt: '--' }, class: 'select-default2'
+                    = render partial: 'error-messages', locals: {product: @product, column: "shipping_method"}
                     
                 .form-group
                   %label
@@ -131,6 +136,7 @@
                   .select-wrap
                     %i.icon-arrow-bottom
                     = f.collection_select :shipping_origin, Prefecture.all, :name, :name, { prompt: '--' }, class: 'select-default'
+                    = render partial: 'error-messages', locals: {product: @product, column: "shipping_origin"}
                     
                 .form-group
                   %label
@@ -139,6 +145,7 @@
                   .select-wrap
                     %i.icon-arrow-bottom
                     = f.collection_select :shipping_day, Deliveryday.all, :value, :value, { prompt: '--' }, class: 'select-default'
+                    = render partial: 'error-messages', locals: {product: @product, column: "shipping_day"}
                     
             .sell-content.clearfix
               %h3.sell-sub-head 販売価格(300〜9,999,999)
@@ -155,6 +162,7 @@
                         ¥
                         %div
                           = f.text_field :price, placeholder: "例）300", class: "input-default", value: @product.price ,id:"price" ,onInput:"priceChange()"
+                          = render partial: 'error-messages', locals: {product: @product, column: "price"}
 
                   %li.clearfix
                     .l-left
