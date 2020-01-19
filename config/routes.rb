@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'users/mypage'  => 'users#mypage'
   get 'users/mypage_product_list'  => 'users#mypage_product_list'
   get 'products/:id/edit_select'  => 'products#edit_select'
-  get 'products/category/:id/category_list'  => 'products#category_list'
+  get 'products/category/:id/category_list'  => 'products#category_list', as: :category_list
   get 'users/login'  => 'users#login'
   
   resource :users do
