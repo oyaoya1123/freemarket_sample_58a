@@ -15,7 +15,7 @@
             #all_content.tab_content
                 - @user_products.each do |product|
                     %li
-                        = link_to  "/", class: "mypage-item-link" do
+                        = link_to  "/products/#{product.id}/edit_select", method: :get, class: "mypage-item-link" do
                             %figure
                                 .is-higher-height.lazyloaded
                                     =image_tag product.product_images[0].image_url.url
