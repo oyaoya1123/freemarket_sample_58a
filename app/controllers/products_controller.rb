@@ -98,12 +98,12 @@ class ProductsController < ApplicationController
   # 商品編集
   def update
     @product=Product.find(params[:id])
-    if @product.update(products_update_params)
-      redirect_to root_path, notice: '商品を更新しました'
-    else
-      render :edit
-    end
 
+    if @product.update(products_update_params)
+      redirect_to root_path
+    else
+      redirect_to edit_product_path(@product)
+    end
   end
 
   #商品削除
@@ -117,9 +117,6 @@ class ProductsController < ApplicationController
 
   end
 
-  
-
- 
 
   # 商品購入確認
   def buy
@@ -139,6 +136,20 @@ class ProductsController < ApplicationController
       amount: price, #支払金額を入力（itemテーブル等に紐づけても良い）
       customer: @card.customer_id, #顧客ID
       currency: 'jpy', #日本円
+    )
+    
+    # ステータスの更新
+    @product = Product.find(params[:product_id])
+    UsersPurchase.create(
+      product_id:@product.id,
+      user_id:current_user.id,
+      product_status_id:2
+    )
+    @ex_status=UsersExhibit.find_by(product_id: @product.id)
+    @ex_status.update(
+      product_id:@product.id,
+      user_id:current_user.id,
+      product_status_id:2
     )
     redirect_to action: 'pay_finish' #完了画面に移動
   end
@@ -189,8 +200,7 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    @category=Category.find_by(name:params[:category_id])
-    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,product_images_attributes:[:image_url]).merge(category_id:@category.id)
+    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:image_url])
   end
 
   def products_update_params
