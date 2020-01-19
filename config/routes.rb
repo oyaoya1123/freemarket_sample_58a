@@ -43,9 +43,14 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      # get '/category/:id/category_list'  => 'products#category_list'
     end
 
   end
+
+  # resources :categories do
+  #   get '/category_list'  => 'products#category_list'
+  # end
   
   #購入
   resources :users_purchases, only: [:create] 

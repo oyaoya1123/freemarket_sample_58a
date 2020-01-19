@@ -158,7 +158,6 @@ class ProductsController < ApplicationController
     @category = Category.find(params[:id])
     @child_categorys = @category.children
     @grandchild_categorys = @child_categorys.map {|child_category| child_category.children} 
-
     @child_categorys_ids = @child_categorys.map {|child_category| child_category.id}
     
     @grandchild_categorys_ids = []

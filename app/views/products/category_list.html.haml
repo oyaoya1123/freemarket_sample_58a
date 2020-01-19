@@ -5,7 +5,9 @@
     .item-boxes
       .item-boxes__box
         .item-boxes__box__header
-          %h3 レディース新着アイテム
+          %h3 
+            = @category.name 
+            の新着アイテム
         .item-boxes__box__main
           %ul.item-boxes__box__main__container
           - @grandchild_products.each do |product|
@@ -24,10 +26,17 @@
     .spacial-description
       .text-center.spacial-description-title.red
         %h3.font-white
-          レディース
+          = @category.name
       .white.spacial-description-text
         %p
-          レディースの着ない服、いらない洋服を売るならメルカリへ。レディースの商品は100万点以上あります。人気のあるカテゴリーはカジュアルパンツとドレスです。人気の商品は「Bou Jeloud / ハイテンション美脚ストレッチタックパンツ」や「パーティードレス ワンピース」があります。レディースの買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。
+          =@category.name
+          の着ない服、いらない洋服を売るならメルカリへ。
+          =@category.name
+          の商品は100万点以上あります。人気の商品は
+          =@grandchild_products[0].name
+          があります。
+          =@category.name
+          の買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。
 %aside
   = render "top_aside_footer"
 %footer
