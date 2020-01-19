@@ -58,9 +58,9 @@
         %label.tab_item2{for: "ago"} 過去の取引
         
         #buyed_content.tab_content2
-          -if @user.pu_products.present?
+          -if @user_ad_pu_products.present?
             %ul.mypage-item-list.tab-pane.active
-              -@pu_advances.each do |product|
+              -@user_ad_pu_products.each do |product|
                 %li
                   =link_to "/" , class: "mypage-item-link" do
                     %div.image
@@ -77,9 +77,10 @@
                 %li.mypage-item-not-found.bold 取引中の商品がありません
 
         #ago_content.tab_content2
-          -if @pu_products.present?
+          -if @user_fin_pu_products.present?
             %ul.mypage-item-list.tab-pane.active
-              -@pu_products.each do |product|
+              -@user_fin_pu_products.product_images.each do |product|
+
                 %li
                   =link_to "/" , class: "mypage-item-link" do
                     %div.image
