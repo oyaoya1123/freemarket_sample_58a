@@ -9,6 +9,9 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find(current_user.id)
+    @pu_products=@user.pu_products
+    # @pu_advances=@pu_products.joins(:users_purchase).select(product_status_id:2)
+
   end
   
   def profile

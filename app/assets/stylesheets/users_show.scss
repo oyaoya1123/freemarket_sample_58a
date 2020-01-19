@@ -122,6 +122,13 @@
               display: block;
               li {
                 list-style: none;
+                // .mypage-item-link{
+                //   list-style: none;
+                //   display: block;
+                //   min-height: 80px;
+                //   padding: 16px;
+                //   color: #333;
+                // }
               }
             }
           }
@@ -198,9 +205,87 @@
     }
     .tab_content2 {
       display: none;
-      padding: 40px 40px 0;
+      // padding: 40px 40px 0;
       clear: both;
       overflow: hidden;
+    //商品ある時
+      .mypage-item-list{
+        display: block;
+        li{
+          position: relative;
+          border-bottom: 1px solid #eee;
+          list-style: none;
+          .mypage-item-link{
+            display: block;
+            min-height: 80px;
+            padding: 16px;
+            color: #333;
+            .image{
+              position: relative;
+              overflow: hidden;
+              float: left;
+              width: 48px;
+              height: 48px;
+              .is-higher-height{
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                opacity: 1;
+                -webkit-transition: opacity .3s;
+                transition: opacity .3s;
+                top: 50%;
+                -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%);
+
+              }
+            }
+            .mypage-item-body{
+              margin: 0 40px 0 68px;
+              .mypage-item-text{
+                overflow: hidden;
+                display: block;
+                display: -webkit-box;
+                max-height: 4.4em;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                line-height: 1.5;
+              }
+              .mypage-item-status{
+                background: #888;
+                display: inline-block;
+                margin: 8px 0 0 0;
+                padding: 5px 6px;
+                border-radius: 2px;
+                font-size: 12px;
+                color: #fff;
+                font-weight: 600;
+              }
+            }
+            .fas{
+              position: absolute;
+              top: 50%;
+              right: 16px;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+              display: inline-block;
+              line-height: 1;
+              &::before{
+                content: '\f105';
+              }
+            }
+
+          }
+        }
+      }
+      
+      .tab_content_description{
+
+      }
     }
     #buyed:checked ~ #buyed_content,
     #ago:checked ~ #ago_content {

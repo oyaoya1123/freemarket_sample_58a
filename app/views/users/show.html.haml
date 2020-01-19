@@ -58,13 +58,42 @@
         %label.tab_item2{for: "ago"} 過去の取引
         
         #buyed_content.tab_content2
-          .tab_content_description
+          -if @user.pu_products.present?
             %ul.mypage-item-list.tab-pane.active
-              %li.mypage-item-not-found.bold 取引中の商品がありません
+              -@pu_advances.each do |product|
+                %li
+                  =link_to "/" , class: "mypage-item-link" do
+                    %div.image
+                      =image_tag product.product_images[0].image_url.url, class: "is-higher-height"
+                    %div.mypage-item-body
+                      %div.mypage-item-text
+                        =product.name
+                      %div.mypage-item-status
+                        取引完了
+                    = icon('fas', 'angle-right')
+          -else
+            .tab_content_description
+              %ul.mypage-item-list.tab-pane.active
+                %li.mypage-item-not-found.bold 取引中の商品がありません
+
         #ago_content.tab_content2
-          .tab_content_description
+          -if @pu_products.present?
             %ul.mypage-item-list.tab-pane.active
-              %li.mypage-item-not-found.bold 過去に取引した商品がありません
+              -@pu_products.each do |product|
+                %li
+                  =link_to "/" , class: "mypage-item-link" do
+                    %div.image
+                      =image_tag product.product_images[0].image_url.url, class: "is-higher-height"
+                    %div.mypage-item-body
+                      %div.mypage-item-text
+                        =product.name
+                      %div.mypage-item-status
+                        取引完了
+                    = icon('fas', 'angle-right')
+          -else
+            .tab_content_description
+              %ul.mypage-item-list.tab-pane.active
+                %li.mypage-item-not-found.bold 過去に取引した商品がありません
 
     = render "users/aside"
   %aside
