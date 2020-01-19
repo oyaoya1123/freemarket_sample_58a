@@ -74,7 +74,6 @@ class ProductsController < ApplicationController
 
   # 商品編集
   def edit
-    # binding.pry
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("---")
 
