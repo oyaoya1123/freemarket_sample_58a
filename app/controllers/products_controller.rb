@@ -16,7 +16,6 @@ class ProductsController < ApplicationController
     @mens = Product.where(category_id: 199..344).limit(10).order('created_at DESC')
     @homeappliances = Product.where(category_id: 894..979).limit(10).order('created_at DESC')
     @amuses = Product.where(category_id: 681..793).limit(10).order('created_at DESC')
-    @category = Category.find(params[:id])
 
   end
 
