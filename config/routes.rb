@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'users/mypage_product_list'  => 'users#mypage_product_list'
   get 'products/:id/edit_select'  => 'products#edit_select'
   get 'users/login'  => 'users#login'
+  get 'products/search'  => 'products#search'
   
   resource :users do
     collection do
