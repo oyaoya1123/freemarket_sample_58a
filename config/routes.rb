@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'users/mypage'  => 'users#mypage'
   get 'users/mypage_product_list'  => 'users#mypage_product_list'
   get 'products/:id/edit_select'  => 'products#edit_select'
+  get 'products/category/:id/category_list'  => 'products#category_list', as: :category_list
   get 'users/login'  => 'users#login'
   get 'products/search'  => 'products#search'
   
@@ -43,9 +44,14 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      # get '/category/:id/category_list'  => 'products#category_list'
     end
 
   end
+
+  # resources :categories do
+  #   get '/category_list'  => 'products#category_list'
+  # end
   
   #購入
   resources :users_purchases, only: [:create] 
