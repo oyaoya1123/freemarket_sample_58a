@@ -84,7 +84,7 @@
                     %i.icon-arrow-bottom
                     = f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, @product.category.parent.parent.name), {}, {class: 'select-default', id: 'parent_category'}
                     = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.parent.id), {}, {class: 'select-default', id: 'child_category'}                  
-                    = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.id), {}, {class: 'select-default', id: 'grandchild_category'}
+                    = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @product.category.id), {}, {class: 'select-default', id: 'grandchild_category_new'}
                     = render partial: 'error-messages', locals: {product: @product, column: "category_id"}
                   = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
 
@@ -95,7 +95,7 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.icon-arrow-bottom
-                      = f.collection_select :size, @sizes, :name, :name, class: 'select-default'
+                      = f.collection_select :size, @sizes, :name, :name, { prompt: '---' }, class: 'select-default'
 
                 .form-group
                   %label

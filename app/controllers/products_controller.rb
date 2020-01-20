@@ -88,8 +88,9 @@ class ProductsController < ApplicationController
     @category_child_array = @product.category.parent.parent.children
     @category_grandchild_array = @product.category.parent.children
 
-    size_category = Category.find(params[:id])
-    @sizes = Size.where(size_category: size_category.size_category)
+    size_category = Category.find(@product.category_id).size_category
+    @sizes = Size.where(size_category: size_category)
+
   end
 
   # 商品編集画面へのパス
