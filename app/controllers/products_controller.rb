@@ -55,9 +55,7 @@ class ProductsController < ApplicationController
 
   def get_size
     size_category = Category.find("#{params[:grandchild_id]}")
-    #binding.pry
     @sizes = Size.where(size_category: size_category.size_category)
-    #binding.pry
   end
 
   # 商品出品
@@ -66,7 +64,7 @@ class ProductsController < ApplicationController
     @category_parent_array.unshift("---")
 
     @product = Product.new(products_params)
-    #binding.pry
+    binding.pry
     if @product.save
       UsersExhibit.create(
         product_id:@product.id,
@@ -89,7 +87,9 @@ class ProductsController < ApplicationController
     @product_images_min=ProductImage.where(product_id: params[:id])
     @category_child_array = @product.category.parent.parent.children
     @category_grandchild_array = @product.category.parent.children
-    binding.pry
+
+    size_category = Category.find(params[:id])
+    @sizes = Size.where(size_category: size_category.size_category)
   end
 
   # 商品編集画面へのパス
