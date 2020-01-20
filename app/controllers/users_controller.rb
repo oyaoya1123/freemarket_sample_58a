@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   def show
     @user=User.find(current_user.id)
     @pu_products=@user.pu_products
-    # binding.pry
     @pu_ad_product_ids = UsersPurchase.where(product_status_id:2).where(user_id: current_user.id)
     @user_ad_pu_products=[]
     @pu_ad_product_ids.each do |id|
@@ -23,12 +22,6 @@ class UsersController < ApplicationController
       p=Product.find(id.product_id)
       @user_fin_pu_products<<p
     end
-    # @test2 = []
-    # @tests.each do|test|
-    #   @test2 << test
-    # end
-    # @test2 = @tests.map{|test|test}
-    # @pu_advances=@pu_products.joins(:users_purchase).includes(:users_purchase).where(product_status_id:2)
 
   end
   

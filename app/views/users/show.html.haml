@@ -21,7 +21,8 @@
               %span.bold 0
             %div.text2
               出品数
-              %span.bold 0
+              %span.bold 
+              =@user.ex_products.count
               
       %section.tabs
         %input#all{checked: "checked", name: "tab_item", type: "radio"}/
@@ -62,14 +63,15 @@
             %ul.mypage-item-list.tab-pane.active
               -@user_ad_pu_products.each do |product|
                 %li
-                  =link_to "/" , class: "mypage-item-link" do
+                  =link_to product_pay_finish_path(product.id) , class: "mypage-item-link" do
                     %div.image
                       =image_tag product.product_images[0].image_url.url, class: "is-higher-height"
                     %div.mypage-item-body
                       %div.mypage-item-text
                         =product.name
+                        を購入しました。
                       %div.mypage-item-status
-                        取引完了
+                        取引中
                     = icon('fas', 'angle-right')
           -else
             .tab_content_description
@@ -88,6 +90,7 @@
                     %div.mypage-item-body
                       %div.mypage-item-text
                         =product.name
+                        を購入しました。取引が完了しました。
                       %div.mypage-item-status
                         取引完了
                     = icon('fas', 'angle-right')
