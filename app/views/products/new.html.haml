@@ -30,6 +30,7 @@
                     = f.fields_for :product_images do |image|
                       #imageform1
                         = image.file_field :image_url ,class:'sell-upload-drop-file',id:"upload-image0",'data-id': 0,name:"product[product_images_attributes][0][image_url]"
+                = render partial: 'error-messages', locals: {product: @product, column: "product_images"}
 
 
               .sell-dropbox-container.clearfix.state-image-number-2.notactive
@@ -54,14 +55,15 @@
                   商品名
                   %span.form-require 必須
                 %div
-
                   = f.text_field :name, placeholder: "商品名（必須 40文字まで)", value: "",class:"input-default"
+                  = render partial: 'error-messages', locals: {product: @product, column: "name"}
                   
               .form-group
                 %label
                   商品の説明
                   %span.form-require 必須
                 = f.text_area :description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" , rows: "5",class:"textarea-default"
+                = render partial: 'error-messages', locals: {product: @product, column: "description"}
         
             .sell-content.clearfix
               %h3.sell-sub-head 商品の詳細
@@ -73,6 +75,8 @@
                   .select-wrap.category-views
                     %i.icon-arrow-bottom
                     = f.select :category, @category_parent_array, {}, class: 'select-default', id: 'parent_category', value: '@select_parent_category'
+                    = render partial: 'error-messages', locals: {product: @product, column: "category_id"}
+                  = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
 
                 .form-group.size-group
 
@@ -83,6 +87,7 @@
                   .select-wrap
                     %i.icon-arrow-bottom
                     = f.collection_select :product_condition, Productcondition.all, :value, :value, { prompt: '--' }, class: 'select-default'
+                    = render partial: 'error-messages', locals: {product: @product, column: "product_condition"}
                     
             .sell-content.clearfix
               %h3.sell-sub-head 配送について
@@ -96,9 +101,8 @@
                   .select-wrap
                     %i.icon-arrow-bottom
                     = f.collection_select :shipping_charge, Deliverycharge.all, :value, :value, { prompt: '--' }, class: 'select-default' 
-
-                
-
+                    = render partial: 'error-messages', locals: {product: @product, column: "shipping_charge"}
+              
                 .form-group2{id:'method'}
                   %label.label-margin
                     配送の方法
@@ -106,6 +110,7 @@
                   .select-wrap
                     %i.icon-arrow-bottom
                     = f.collection_select :shipping_method, Deliverymethod.all, :value, :value, { prompt: '--' }, class: 'select-default2'
+                    = render partial: 'error-messages', locals: {product: @product, column: "shipping_method"}
                     
                 .form-group
                   %label
@@ -114,6 +119,7 @@
                   .select-wrap
                     %i.icon-arrow-bottom
                     = f.collection_select :shipping_origin, Prefecture.all, :name, :name, { prompt: '--' }, class: 'select-default'
+                    = render partial: 'error-messages', locals: {product: @product, column: "shipping_origin"}
                     
                 .form-group
                   %label
@@ -122,6 +128,7 @@
                   .select-wrap
                     %i.icon-arrow-bottom
                     = f.collection_select :shipping_day, Deliveryday.all, :value, :value, { prompt: '--' }, class: 'select-default'
+                    = render partial: 'error-messages', locals: {product: @product, column: "shipping_day"}
                     
             .sell-content.clearfix
               %h3.sell-sub-head 販売価格(300〜9,999,999)
@@ -138,7 +145,7 @@
                         ¥
                         %div
                           = f.text_field :price, placeholder: "例）300", class: "input-default", value: "" ,id:"price" ,onInput:"priceChange()"
-                          -# = f.number_field :price{placeholder: "例）300", value: "", class:"input-default"}
+                          = render partial: 'error-messages', locals: {product: @product, column: "price"}
 
                   %li.clearfix
                     .l-left
