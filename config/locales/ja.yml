@@ -3,6 +3,9 @@ ja:
     models:
       user: ユーザー
       address: 住所
+      product: 商品
+      product_image: 商品画像
+
     attributes:
       user:
         nickname: ニックネーム
@@ -28,3 +31,17 @@ ja:
         buiding_name: 建物名
         address_phone_number: 電話番号
         postal_code: 郵便番号
+
+      product:
+        name: 商品名
+        description: 商品の説明
+        shipping_charge: 配送料の負担
+        product_condition: 商品の状態
+        shipping_method: 配送の方法
+        shipping_origin: 発送元の地域
+        shipping_day: 発送までの日数
+        price: 価格
+        category_id: カテゴリ
+        product_images: 商品画像
+      product_image:
+        image_url: 商品画像

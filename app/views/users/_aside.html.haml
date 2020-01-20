@@ -22,7 +22,7 @@
           出品する
           = icon('fas', 'angle-right', class: "contents__btn--icon")
       %li
-        = link_to  "/", class: "mypage-side-list-item" do
+        = link_to  users_mypage_product_list_path, class: "mypage-side-list-item" do
           出品した商品 - 出品中
           = icon('fas', 'angle-right', class: "contents__btn--icon")
       %li
@@ -97,4 +97,5 @@
         = link_to  "/", class: "mypage-side-list-item" do
           ログアウト
           = icon('fas', 'angle-right', class: "contents__btn--icon")
+
           

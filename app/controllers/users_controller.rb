@@ -22,7 +22,6 @@ class UsersController < ApplicationController
       p=Product.find(id.product_id)
       @user_fin_pu_products<<p
     end
-
   end
   
   def profile
