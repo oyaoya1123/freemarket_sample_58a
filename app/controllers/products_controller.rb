@@ -64,7 +64,6 @@ class ProductsController < ApplicationController
     @category_parent_array.unshift("---")
 
     @product = Product.new(products_params)
-    binding.pry
     if @product.save
       UsersExhibit.create(
         product_id:@product.id,

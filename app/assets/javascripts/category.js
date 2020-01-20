@@ -92,7 +92,6 @@ $(function(){
   });
   $('.category-views').on('change', '#grandchild_category_new', function(){
     var grandchildId = $('#grandchild_category_new option:selected').data('category');
-    console.log(grandchildId)
     if (grandchildId != "---"){
       $.ajax({
         url: 'get_size',
