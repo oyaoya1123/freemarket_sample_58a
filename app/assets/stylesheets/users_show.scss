@@ -159,54 +159,6 @@
       display: block;
     }
   }
-  .mypage-tab-container {
-    background: #fff;
-    .mypage-tab-head{
-      background: #EEEEEE;
-      font-size: 16px;
-      line-height: 72px;
-      padding: 0 16px;
-      font-weight: 700;
-    }
-    .tabs2 {
-      margin-top: 50px;
-      padding-bottom: 40px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      width: 700px;
-      margin: 0 auto;
-    }
-    .tab_item2 {
-      width: calc(100%/2);
-      height: 72px;
-      background-color: #d9d9d9;
-      line-height: 72px;
-      font-size: 16px;
-      text-align: center;
-      color: #565656;
-      display: block;
-      float: left;
-      text-align: center;
-      font-weight: bold;
-      transition: all 0.2s ease;
-    }
-    .tab_item2:hover {
-      opacity: 0.75;
-    }
-    input[name="tab_item2"] {
-      display: none;
-    }
-    .tab_content2 {
-      display: none;
-      padding: 40px 40px 0;
-      clear: both;
-      overflow: hidden;
-    }
-    #buyed:checked ~ #buyed_content,
-    #ago:checked ~ #ago_content {
-    display: block;
-    }
-  }
 }
 
 
@@ -227,27 +179,27 @@
 
 
 
-.tabs input:checked + .tab_item {
-  background: #fff;
-  border-top: 2px solid #ea352d;
-}
+// .tabs input:checked + .tab_item {
+//   background: #fff;
+//   border-top: 2px solid #ea352d;
+// }
 
 
 
-.mypage-item-not-found {
-  padding: 160px 0 60px;
-  background: url(merkari-gray.png);
-  background-repeat: no-repeat;
-  background-position: center 40px;
-  background-size: 90px 85px;
-  text-align: center;
-  font-size: 16px;
-  color: #ccc;
-}
+// .mypage-item-not-found {
+//   padding: 160px 0 60px;
+//   background: url(merkari-gray.png);
+//   background-repeat: no-repeat;
+//   background-position: center 40px;
+//   background-size: 90px 85px;
+//   text-align: center;
+//   font-size: 16px;
+//   color: #ccc;
+// }
 
 
 
-.tabs2 input:checked + .tab_item2 {
-  background: #fff;
-  border-top: 2px solid #ea352d;
-}
+// .tabs2 input:checked + .tab_item2 {
+//   background: #fff;
+//   border-top: 2px solid #ea352d;
+// }

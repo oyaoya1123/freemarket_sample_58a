@@ -5,10 +5,46 @@ class UsersController < ApplicationController
   before_action :validates_adress_input, only: :signup_create # signup_adress_inputのバリデーション
   include CommonActions
   before_action :set_categories
-  
+  before_action :user_login, only: [:show,:mypage_product_list]
+
+  def user_login
+    unless user_signed_in?
+      redirect_to users_login_path
+    end
+  end
 
   def show
     @user=User.find(current_user.id)
+    @pu_products=@user.pu_products
+    @pu_ad_product_ids = UsersPurchase.where(product_status_id:2).where(user_id: current_user.id)
+    @user_ad_pu_products=[]
+    @pu_ad_product_ids.each do |id|
+      p=Product.find(id.product_id)
+      @user_ad_pu_products<<p
+    end
+    @pu_fin_product_ids = UsersPurchase.where(product_status_id:4).where(user_id: current_user.id)
+    @user_fin_pu_products=[]
+    @pu_fin_product_ids.each do |id|
+      p=Product.find(id.product_id)
+      @user_fin_pu_products<<p
+    end
+  end
+
+  def mypage_purchase_product
+    @user=User.find(current_user.id)
+    @pu_products=@user.pu_products
+    @pu_ad_product_ids = UsersPurchase.where(product_status_id:2).where(user_id: current_user.id)
+    @user_ad_pu_products=[]
+    @pu_ad_product_ids.each do |id|
+      p=Product.find(id.product_id)
+      @user_ad_pu_products<<p
+    end
+    @pu_fin_product_ids = UsersPurchase.where(product_status_id:4).where(user_id: current_user.id)
+    @user_fin_pu_products=[]
+    @pu_fin_product_ids.each do |id|
+      p=Product.find(id.product_id)
+      @user_fin_pu_products<<p
+    end
   end
   
   def profile
