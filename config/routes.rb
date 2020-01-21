@@ -39,10 +39,12 @@ Rails.application.routes.draw do
     get '/purchase' => 'products#purchase'
     get 'get_category_children', defaults: { format: 'json' }
     get 'get_category_grandchildren', defaults: { format: 'json' }
+    get 'get_size', defaults: { format: 'json' }
 
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_size', defaults: { format: 'json' }
       # get '/category/:id/category_list'  => 'products#category_list'
     end
 

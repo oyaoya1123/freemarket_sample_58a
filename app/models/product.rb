@@ -16,11 +16,13 @@ class Product < ApplicationRecord
   validates :price, presence: { message: 'を入力してください。' }, numericality: {
     only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to:9999999
   }
+
   validates :shipping_origin, presence: { message: 'を選択してください。' }
   validates :shipping_method, presence: { message: 'を選択してください。' }
   validates :shipping_charge, presence: { message: 'を選択してください。' }
   validates :shipping_day, presence: { message: 'を選択してください。' }
   validates :product_condition, presence: { message: 'を選択してください。' }
+  validates :size, presence: true
 
   belongs_to :category
 

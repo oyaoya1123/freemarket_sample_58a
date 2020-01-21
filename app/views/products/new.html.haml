@@ -78,13 +78,7 @@
                     = render partial: 'error-messages', locals: {product: @product, column: "category_id"}
                   = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
 
-                .form-group
-                  %label
-                    サイズ
-                    %span.form-require 必須
-                  .select-wrap
-                    %i.icon-arrow-bottom
-                    = f.select :product_size, ["--", "L", "M", "S"], {}, class: 'select-default'
+                .form-group.size-group
 
                 .form-group
                   %label
