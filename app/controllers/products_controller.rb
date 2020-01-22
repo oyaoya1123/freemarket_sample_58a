@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   before_action :login, except: [:index,:show]
   before_action :set_card, only: [:buy, :purchase, :pay_finish]
   before_action :find_product, only: [:show,:destroy,:edit_select]
+  before_action :url_protect, only: [:edit]
 
   def release_sns_id
     session[:sns_id] = nil
@@ -85,6 +86,7 @@ class ProductsController < ApplicationController
 
   # 商品編集画面へのパス
   def edit_select
+    @product=Product.find(params[:id])
     @product_images = ProductImage.where(product_id: params[:id])
     @exproduct = UsersExhibit.find_by(product_id: @product.id)
     @exuser = User.find(@exproduct.user_id)
@@ -210,5 +212,11 @@ class ProductsController < ApplicationController
     @card = Card.find_by(user_id: current_user.id)
   end
 
+  def url_protect
+    @product=Product.find(params[:id])
+    unless user_signed_in? && @product.ex_user.id==current_user.id
+      redirect_to products_path
+    end
+  end
 end
 

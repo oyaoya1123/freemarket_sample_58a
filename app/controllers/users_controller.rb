@@ -5,13 +5,7 @@ class UsersController < ApplicationController
   before_action :validates_adress_input, only: :signup_create # signup_adress_inputのバリデーション
   include CommonActions
   before_action :set_categories
-  before_action :user_login, only: [:show,:mypage_product_list]
-
-  def user_login
-    unless user_signed_in?
-      redirect_to users_login_path
-    end
-  end
+  before_action :user_login, only: [:show,:mypage_product_list] # エラー回避
 
   def show
     @user=User.find(current_user.id)
@@ -262,4 +256,11 @@ class UsersController < ApplicationController
       :postal_code
     )
   end
+
+  def user_login
+    unless user_signed_in?
+      redirect_to users_login_path
+    end
+  end
+
 end
