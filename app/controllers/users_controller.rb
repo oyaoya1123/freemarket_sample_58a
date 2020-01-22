@@ -5,40 +5,15 @@ class UsersController < ApplicationController
   before_action :validates_adress_input, only: :signup_create # signup_adress_inputのバリデーション
   include CommonActions
   before_action :set_categories
+  before_action :set_card, only: [:card]
+  before_action :set_purchase_product, only: [:show,:mypage_purchase_product]
   before_action :user_login, only: [:show,:mypage_product_list] # エラー回避
 
   def show
-    @user=User.find(current_user.id)
-    @pu_products=@user.pu_products
-    @pu_ad_product_ids = UsersPurchase.where(product_status_id:2).where(user_id: current_user.id)
-    @user_ad_pu_products=[]
-    @pu_ad_product_ids.each do |id|
-      p=Product.find(id.product_id)
-      @user_ad_pu_products<<p
-    end
-    @pu_fin_product_ids = UsersPurchase.where(product_status_id:4).where(user_id: current_user.id)
-    @user_fin_pu_products=[]
-    @pu_fin_product_ids.each do |id|
-      p=Product.find(id.product_id)
-      @user_fin_pu_products<<p
-    end
   end
 
   def mypage_purchase_product
-    @user=User.find(current_user.id)
-    @pu_products=@user.pu_products
-    @pu_ad_product_ids = UsersPurchase.where(product_status_id:2).where(user_id: current_user.id)
-    @user_ad_pu_products=[]
-    @pu_ad_product_ids.each do |id|
-      p=Product.find(id.product_id)
-      @user_ad_pu_products<<p
-    end
-    @pu_fin_product_ids = UsersPurchase.where(product_status_id:4).where(user_id: current_user.id)
-    @user_fin_pu_products=[]
-    @pu_fin_product_ids.each do |id|
-      p=Product.find(id.product_id)
-      @user_fin_pu_products<<p
-    end
+
   end
   
   def profile
@@ -223,6 +198,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def card
+    
+    if @card
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+
+  end
+
   private
 
   def user_params
@@ -260,6 +245,27 @@ class UsersController < ApplicationController
   def user_login
     unless user_signed_in?
       redirect_to users_login_path
+    end
+  end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+  end
+
+  def set_purchase_product
+    @user=User.find(current_user.id)
+    @pu_products=@user.pu_products
+    @pu_ad_product_ids = UsersPurchase.where(product_status_id:2).where(user_id: current_user.id)
+    @user_ad_pu_products=[]
+    @pu_ad_product_ids.each do |id|
+      p=Product.find(id.product_id)
+      @user_ad_pu_products<<p
+    end
+    @pu_fin_product_ids = UsersPurchase.where(product_status_id:4).where(user_id: current_user.id)
+    @user_fin_pu_products=[]
+    @pu_fin_product_ids.each do |id|
+      p=Product.find(id.product_id)
+      @user_fin_pu_products<<p
     end
   end
 
