@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
 
+
   private
 
   def production?
@@ -18,4 +19,5 @@ class ApplicationController < ActionController::Base
       password == Rails.application.credentials.basic_auth[:pass]
     end
   end
+
 end

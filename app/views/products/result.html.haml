@@ -1,0 +1,40 @@
+%header
+  = render "top_header"
+%main.l-containerr2.clearfix
+  .popular-categorys-container
+    .item-boxes
+      .item-boxes__box
+        - if @results.present?
+          .item-boxes__box__header
+            %h3
+              - if params[:q].present? && params[:q][:name_cont].present?
+                #{params[:q][:name_cont]}
+                の検索結果
+              - else params[:q][:name_cont].empty?
+                新着商品
+          .search-result-number
+            - if params[:q][:name_cont].present?
+              1-
+              = @count
+              件表示
+          .item-boxes__box__main
+            %ul.item-boxes__box__main__container
+              = render partial: 'search_product', collection: @results, as: "product"
+        - else 
+          .item-boxes__box__header
+            %h3
+              #{params[:q][:name_cont]}
+              の検索結果
+              %p
+                該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+          .item-boxes__box__header
+            %h3
+              新着商品
+          .item-boxes__box__main
+            %ul.item-boxes__box__main__container
+              = render partial: 'search_product', collection: @products, as: "product"
+%aside
+  = render "top_aside_footer"
+%footer
+  = render "top_footer"
+= render "ex_logo"

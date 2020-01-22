@@ -9,4 +9,11 @@ module CommonActions
     redirect_to users_login_path unless user_signed_in?
    end
 
+   def result
+    @search =  Product.ransack(params[:q])
+    @results = @search.result(distinct: true)
+    @count = @results.count
+    @products = Product.order(created_at: :desc).limit(24)
+  end
+
  end
