@@ -11,11 +11,26 @@
           .l-single-content
             %h3.l-content-sub-head クレジットカード一覧
           %ul.settings-payment-list
-        %section.settings-add-card
-          .l-single-content
-            = link_to  "/" ,class: "btn-default btn-red submit_button" do
-              = icon('fas', 'credit-card', class: "btn--icon")
-              クレジットカードを追加する
+        -if @card
+          %section.settings-add-card
+            .card-info
+              %br
+              = "************" + @default_card_information.last4
+              %br
+              有効期限
+              = expiration_date(@default_card_information.exp_month, @default_card_information.exp_year)
+              %br
+                = icon('fab', 'cc-visa fa-3x')
+            .l-single-content
+              = link_to pay_delete_card_index_path ,class: "btn-default btn-red submit_button", method: :post do
+                = icon('fas', 'credit-card', class: "btn--icon")
+                クレジットカードを削除する
+        -else
+          %section.settings-add-card
+            .l-single-content
+              = link_to users_card_create_path ,class: "btn-default btn-red submit_button" do
+                = icon('fas', 'credit-card', class: "btn--icon")
+                クレジットカードを追加する
         .settings-not-regist
           = link_to  "/" do
             %span 支払い方法について

@@ -197,7 +197,18 @@
             transition: all ease-out .3s;
             cursor: pointer;
             text-align: center;
-          }         
+          }
+          .btn-skip {
+            display: block;
+            width: 343px;
+            line-height: 48px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+          }
         }
       }
     }
