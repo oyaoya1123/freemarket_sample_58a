@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   before_action :login, except: [:index,:show]
   before_action :set_card, only: [:buy, :purchase, :pay_finish]
   before_action :find_product, only: [:show,:destroy,:edit_select]
-  before_action :url_protect, only: [:edit]
+  before_action :url_protect, only: [:edit, :update, :destroy]
   before_action :result, only: [:index, :show, :category_list, :edit_select]
   def release_sns_id
     session[:sns_id] = nil
