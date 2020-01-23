@@ -1,7 +1,7 @@
 .l-contents
   %section#card_payment.l-chapter-container
     %h2.l-chapter-head クレジットカード情報入力
-    = form_with model: @user, url: users_card_create_path, method: :post, local: true, class: "l-single-inner registration-form", id: "add-card-form" do |f|
+    = form_with url: pay_aside_card_index_path, method: :post, local: true, class: "l-single-inner registration-form", id: "add-card-form", html: { name: "inputForm" } do |f|
       .l-single-content
         .form-group
           %label{for: "payment_card_no"} カード番号
@@ -46,17 +46,17 @@
               %span 月
             .select-wrap__half
               %select#payment_card_expire_yy.select-default
-                %option{value: "19"} 19
-                %option{value: "20"} 20
-                %option{value: "21"} 21
-                %option{value: "22"} 22
-                %option{value: "23"} 23
-                %option{value: "24"} 24
-                %option{value: "25"} 25
-                %option{value: "26"} 26
-                %option{value: "27"} 27
-                %option{value: "28"} 28
-                %option{value: "29"} 29
+                %option{value: "2019"} 19
+                %option{value: "2020"} 20
+                %option{value: "2021"} 21
+                %option{value: "2022"} 22
+                %option{value: "2023"} 23
+                %option{value: "2024"} 24
+                %option{value: "2025"} 25
+                %option{value: "2026"} 26
+                %option{value: "2027"} 27
+                %option{value: "2028"} 28
+                %option{value: "2029"} 29
               = icon('fas', 'chevron-down', class: "icon-arrow-bottom")
               %span 年
             %ul#expire-mm-error-wrapper.has-error-text
@@ -74,4 +74,5 @@
               カードの裏面をご参照ください。
               %br/
               =image_tag  "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?2356214421", width: "240"
-        = f.submit "追加する", class: "btn-default btn-red", id: "submit-button"
+      #card_token
+        = f.submit "追加する", class: "btn-default btn-red", id: "submit-button-card"

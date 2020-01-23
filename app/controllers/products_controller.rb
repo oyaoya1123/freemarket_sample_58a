@@ -53,6 +53,11 @@ class ProductsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def get_size
+    size_category = Category.find("#{params[:grandchild_id]}")
+    @sizes = Size.where(size_category: size_category.size_category)
+  end
+
   # 商品出品
   def create
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
@@ -81,6 +86,10 @@ class ProductsController < ApplicationController
     @product_images_min=ProductImage.where(product_id: params[:id])
     @category_child_array = @product.category.parent.parent.children
     @category_grandchild_array = @product.category.parent.children
+
+    size_category = Category.find(@product.category_id).size_category
+    @sizes = Size.where(size_category: size_category)
+
   end
 
   # 商品編集画面へのパス
@@ -97,7 +106,6 @@ class ProductsController < ApplicationController
   # 商品編集
   def update
     @product=Product.find(params[:id])
-
     if @product.update(products_update_params)
       redirect_to root_path
     else
@@ -199,11 +207,11 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:image_url])
+    params.require(:product).permit(:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:image_url])
   end
 
   def products_update_params
-    params.require(:product).permit(:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:id, :image_url, :_destroy])
+    params.require(:product).permit(:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:id, :image_url, :_destroy])
   end
 
   def set_card

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   include CommonActions
   before_action :set_categories
   before_action :result, only: [:show, :profile, :mypage_product_list, :identification, :card, :card_create, :logout]
+  before_action :set_card, only: [:card]
   
 
   def show
@@ -194,6 +195,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def card
+    
+    if @card
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+
+  end
+
   private
 
   def user_params
@@ -227,4 +238,9 @@ class UsersController < ApplicationController
       :postal_code
     )
   end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+  end
+
 end

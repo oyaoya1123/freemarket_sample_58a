@@ -40,10 +40,12 @@ Rails.application.routes.draw do
     get '/purchase' => 'products#purchase'
     get 'get_category_children', defaults: { format: 'json' }
     get 'get_category_grandchildren', defaults: { format: 'json' }
+    get 'get_size', defaults: { format: 'json' }
 
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_size', defaults: { format: 'json' }
       # get '/category/:id/category_list'  => 'products#category_list'
     end
 
@@ -54,12 +56,14 @@ Rails.application.routes.draw do
   # end
   
   #購入
-  resources :users_purchases, only: [:create] 
+  resources :users_purchases, only: [:create]
   
   #クレジットカード登録
   resources :card, only: [:new] do
     collection do
       post 'pay', to: 'card#pay_create'
+      post 'pay_aside', to: 'card#pay_create_aside'
+      post 'pay_delete', to: 'card#pay_delete_aside'
     end
   end
 
