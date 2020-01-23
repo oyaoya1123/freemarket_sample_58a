@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   before_action :set_categories
   before_action :set_card, only: [:card]
   
-
   def show
     @user=User.find(current_user.id)
   end
