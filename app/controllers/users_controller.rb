@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :validates_adress_input, only: :signup_create # signup_adress_inputのバリデーション
   include CommonActions
   before_action :set_categories
-  before_action :result, only: [:show, :profile, :mypage_product_list, :identification, :card, :card_create, :logout]
+  before_action :result, only: [:show, :profile, :mypage_product_list, :identification, :card, :card_create, :logout, :mypage_purchase_product]
   before_action :set_card, only: [:card]
   before_action :set_purchase_product, only: [:show,:mypage_purchase_product]
   before_action :user_login, only: [:show,:mypage_product_list] # エラー回避
