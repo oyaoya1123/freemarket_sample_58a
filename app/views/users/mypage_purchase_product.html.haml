@@ -1,0 +1,11 @@
+%header
+  = render "products/top_header"
+%main.l-main.box
+  .l-product_list
+    = render "users/pu_product_list",user_ad_pu_products: @user_ad_pu_products, user_fin_pu_products: @user_fin_pu_products
+
+  = render "users/aside"
+%aside
+  = render "products/top_aside_footer"
+%footer
+  = render "products/top_footer"

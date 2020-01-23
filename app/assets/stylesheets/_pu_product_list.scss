@@ -1,0 +1,149 @@
+.mypage-tab-container {
+  background: #fff;
+  .mypage-tab-head{
+    background: #EEEEEE;
+    font-size: 16px;
+    line-height: 72px;
+    padding: 0 16px;
+    font-weight: 700;
+  }
+  .tabs2 {
+    margin-top: 50px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 700px;
+    margin: 0 auto;
+  }
+  .tab_item2 {
+    width: calc(100%/2);
+    height: 72px;
+    background-color: #d9d9d9;
+    line-height: 72px;
+    font-size: 16px;
+    text-align: center;
+    color: #565656;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+  .tab_item2:hover {
+    opacity: 0.75;
+  }
+  input[name="tab_item2"] {
+    display: none;
+  }
+  .tab_content2 {
+    display: none;
+    clear: both;
+    overflow: hidden;
+
+    //商品ある時
+    .mypage-item-list{
+      display: block;
+      li{
+        position: relative;
+        border-bottom: 1px solid #eee;
+        list-style: none;
+        .mypage-item-link{
+          display: block;
+          min-height: 80px;
+          padding: 16px;
+          color: #333;
+          .image{
+            position: relative;
+            overflow: hidden;
+            float: left;
+            width: 48px;
+            height: 48px;
+            .is-higher-height{
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: 1;
+              width: 100%;
+              opacity: 1;
+              -webkit-transition: opacity .3s;
+              transition: opacity .3s;
+              top: 50%;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+
+            }
+          }
+          .mypage-item-body{
+            margin: 0 40px 0 68px;
+            .mypage-item-text{
+              overflow: hidden;
+              display: block;
+              display: -webkit-box;
+              max-height: 4.4em;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              text-overflow: ellipsis;
+              line-height: 1.5;
+            }
+            .mypage-item-status{
+              background: #888;
+              display: inline-block;
+              margin: 8px 0 0 0;
+              padding: 5px 6px;
+              border-radius: 2px;
+              font-size: 12px;
+              color: #fff;
+              font-weight: 600;
+            }
+          }
+          .fas{
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            display: inline-block;
+            line-height: 1;
+            &::before{
+              content: '\f105';
+            }
+          }
+
+          // }
+        }
+      }
+
+      .tab_content_description{
+
+      }
+    }
+  }
+  #buyed:checked ~ #buyed_content,
+  #ago:checked ~ #ago_content {
+    display: block;
+  }
+    
+}
+
+.tabs input:checked + .tab_item {
+background: #fff;
+border-top: 2px solid #ea352d;
+}
+
+.mypage-item-not-found {
+padding: 160px 0 60px;
+background: url(merkari-gray.png);
+background-repeat: no-repeat;
+background-position: center 40px;
+background-size: 90px 85px;
+text-align: center;
+font-size: 16px;
+color: #ccc;
+}
+
+.tabs2 input:checked + .tab_item2 {
+background: #fff;
+border-top: 2px solid #ea352d;
+}

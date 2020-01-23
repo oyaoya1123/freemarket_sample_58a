@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'users/card_create' => 'users#card_create'
   get 'users/mypage'  => 'users#mypage'
   get 'users/mypage_product_list'  => 'users#mypage_product_list'
+  get 'users/mypage_purchase_product'  => 'users#mypage_purchase_product'
   get 'products/:id/edit_select'  => 'products#edit_select'
   get 'products/category/:id/category_list'  => 'products#category_list', as: :category_list
   get 'users/login'  => 'users#login'
@@ -28,7 +29,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'users/login'  => 'users#login'
   get 'users/signup_page'  => 'users#signup_page'
 
   resources :users, only:[:show] do

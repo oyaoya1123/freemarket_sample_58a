@@ -21,7 +21,8 @@
               %span.bold 0
             %div.text2
               出品数
-              %span.bold 0
+              %span.bold
+              =@user.ex_products.count
               
       %section.tabs
         %input#all{checked: "checked", name: "tab_item", type: "radio"}/
@@ -50,21 +51,7 @@
             %ul.mypage-item-list.tab-pane
               %li.mypage-item-not-found.bold 現在、やることリストはありません
 
-      %section.tabs2.mypage-tab-container{style: 'margin-top:40px;'}
-        %h2.mypage-tab-head 購入した商品
-        %input#buyed{checked: "checked", name: "tab_item2", type: "radio"}/
-        %label.tab_item2{for: "buyed"} 取引中
-        %input#ago{name: "tab_item2", type: "radio"}/
-        %label.tab_item2{for: "ago"} 過去の取引
-        
-        #buyed_content.tab_content2
-          .tab_content_description
-            %ul.mypage-item-list.tab-pane.active
-              %li.mypage-item-not-found.bold 取引中の商品がありません
-        #ago_content.tab_content2
-          .tab_content_description
-            %ul.mypage-item-list.tab-pane.active
-              %li.mypage-item-not-found.bold 過去に取引した商品がありません
+      = render "users/pu_product_list",user_ad_pu_products: @user_ad_pu_products, user_fin_pu_products: @user_fin_pu_products
 
     = render "users/aside"
   %aside
