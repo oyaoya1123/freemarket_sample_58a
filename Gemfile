@@ -92,3 +92,4 @@ gem 'dotenv-rails'
 gem "gretel"
 gem 'payjp'
 gem 'activesupport'
+gem 'ransack'
