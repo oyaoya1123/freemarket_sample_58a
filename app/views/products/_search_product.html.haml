@@ -1,0 +1,12 @@
+%li.item-boxes__box__main__container__content
+  .inner-item-box__container
+  = link_to product_path(product.id) do
+    .inner-item-box__container__img-box
+      .inner-item-box__container__img-box__img
+        = image_tag product.product_images[0].image_url.url, size: '148x160'
+      %span.inner-item-box__container__img-box__price
+        ¥
+        = product.price
+      .inner-item-box__container__caption
+        %span.inner-item-box__container__caption__text
+          = product.name

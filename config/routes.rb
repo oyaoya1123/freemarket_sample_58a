@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'products/:id/edit_select'  => 'products#edit_select'
   get 'products/category/:id/category_list'  => 'products#category_list', as: :category_list
   get 'users/login'  => 'users#login'
+  get "products/result" => "products#result", as: :products_result
   
   resource :users do
     collection do
