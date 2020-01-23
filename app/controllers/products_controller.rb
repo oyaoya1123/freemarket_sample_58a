@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
   before_action :login, except: [:index,:show]
   before_action :set_card, only: [:buy, :purchase, :pay_finish]
   before_action :find_product, only: [:show,:destroy,:edit_select]
+  before_action :check_buy, only: [:buy]
+  before_action :check_purchase, only: [:purchase]
 
   def release_sns_id
     session[:sns_id] = nil
@@ -32,6 +34,14 @@ class ProductsController < ApplicationController
 
     @samecategory = Product.where(category_id: @grandchaild_category.id)
     @othercategory = @samecategory.where.not(id: @product.id).limit(6).order('created_at DESC')
+
+    @disable = 0
+    if user_signed_in?
+      if @exproduct.user_id == current_user.id
+        @disable = 1
+      end
+    end
+
   end
  
   # 商品出品
@@ -216,6 +226,28 @@ class ProductsController < ApplicationController
 
   def set_card
     @card = Card.find_by(user_id: current_user.id)
+  end
+
+  def check_buy
+    exproduct = UsersExhibit.find_by(product_id: params[:product_id])
+
+    if user_signed_in?
+      if exproduct.user_id == current_user.id
+        redirect_to root_path
+      end
+    end
+
+  end
+
+  def check_purchase
+    exproduct = UsersExhibit.find_by(product_id: params[:product_id])
+
+    if user_signed_in?
+      if exproduct.user_id == current_user.id
+        redirect_to root_path
+      end
+    end
+
   end
 
 end

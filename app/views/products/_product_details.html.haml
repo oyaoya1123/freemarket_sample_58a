@@ -57,7 +57,10 @@
         (税込)
       %span.item-box-container__price-box__shipping-fee
         送料込み
-    = link_to "購入画面に進む", product_buy_path(@product), class: "item-box-container__buy-btn"
+    -if @disable == 0
+      = link_to "購入画面に進む", product_buy_path(@product), class: "item-box-container__buy-btn"
+    -else
+      %p.item-box-container__buy-btn-disable 購入不可
     .item-box-container__description
       %p.item-box-container__description__inner
         = @product.description

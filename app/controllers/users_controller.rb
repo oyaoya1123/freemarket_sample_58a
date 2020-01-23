@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   include CommonActions
   before_action :set_categories
   before_action :set_card, only: [:card]
-  
+
+  before_action :authenticate_user!, only: [:show, :profile, :identification]
 
   def show
     @user=User.find(current_user.id)
