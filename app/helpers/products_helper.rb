@@ -4,7 +4,8 @@ module ProductsHelper
 
   def converting_to_jpy(price)
     #"#{price.to_s(:delimited, delimiter: ',')}"
-    "#{price}"
+    "#{price.to_s(:delimited)}"
+    #"#{price}"
   end
   
   def expiration_date(month, year)
