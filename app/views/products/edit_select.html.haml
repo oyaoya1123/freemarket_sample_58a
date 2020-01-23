@@ -81,12 +81,19 @@
     .listing-item-change-box-parent
 
       .listing-item-change-box
-        = link_to edit_product_path(id:@product.id), class: "btn-default btn-red" do
-          商品の編集
-        %p.text-center or
-        %form{ name:"myform"}
-          %button.btn-default.btn-gray 出品を一旦停止する
-          %button.btn-default.btn-gray.open{ id:"open"} この商品を削除する
+        - if user_signed_in? && @product.ex_user.id==current_user.id
+          = link_to edit_product_path(id:@product.id), class: "btn-default btn-red" do
+            商品の編集
+          %p.text-center or
+          %form{ name:"myform"}
+            %button.btn-default.btn-gray 出品を一旦停止する
+            %button.btn-default.btn-gray.open{ id:"open"} この商品を削除する
+        - else
+          .btn-default.disabled 商品の編集
+          %p.text-center or
+          %form{ name:"myform"}
+            .btn-default.btn-gray 出品を一旦停止する
+            .btn-default.btn-gray この商品を削除する
 
 
 %aside

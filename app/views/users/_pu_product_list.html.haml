@@ -1,0 +1,48 @@
+%section.tabs2.mypage-tab-container{style: 'margin-top:40px;'}
+  %h2.mypage-tab-head 購入した商品
+  %input#buyed{checked: "checked", name: "tab_item2", type: "radio"}/
+  %label.tab_item2{for: "buyed"} 取引中
+  %input#ago{name: "tab_item2", type: "radio"}/
+  %label.tab_item2{for: "ago"} 過去の取引
+
+  #buyed_content.tab_content2
+    -if user_ad_pu_products.present?
+      %ul.mypage-item-list.tab-pane.active
+        -user_ad_pu_products.each do |product|
+          %li
+            =link_to product_pay_finish_path(product.id) , class: "mypage-item-link" do
+              %div.image
+                =image_tag product.product_images[0].image_url.url, class: "is-higher-height"
+              %div.mypage-item-body
+                %div.mypage-item-text
+                  =product.name
+                  を購入しました。
+                %div.mypage-item-status
+                  取引中
+              = icon('fas', 'angle-right')
+    -else
+      .tab_content_description
+        %ul.mypage-item-list.tab-pane.active
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+
+  #ago_content.tab_content2
+    -if user_fin_pu_products.present?
+      %ul.mypage-item-list.tab-pane.active
+        -# %li.mypage-item-not-found.bold 過去に取引した商品がありません
+        -user_fin_pu_products.product_images.each do |product|
+
+          %li
+            =link_to "/" , class: "mypage-item-link" do
+              %div.image
+                =image_tag product.product_images[0].image_url.url, class: "is-higher-height"
+              %div.mypage-item-body
+                %div.mypage-item-text
+                  =product.name
+                  を購入しました。取引が完了しました。
+                %div.mypage-item-status
+                  取引完了
+              = icon('fas', 'angle-right')
+    -else
+      .tab_content_description
+        %ul.mypage-item-list.tab-pane.active
+          %li.mypage-item-not-found.bold 過去に取引した商品がありません

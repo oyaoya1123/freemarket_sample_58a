@@ -5,8 +5,11 @@ class ProductsController < ApplicationController
   before_action :login, except: [:index,:show]
   before_action :set_card, only: [:buy, :purchase, :pay_finish]
   before_action :find_product, only: [:show,:destroy,:edit_select]
+
   before_action :check_buy, only: [:buy]
   before_action :check_purchase, only: [:purchase]
+  before_action :url_protect, only: [:edit]
+  before_action :result, only: [:index, :show, :category_list, :edit_select]
 
   def release_sns_id
     session[:sns_id] = nil
@@ -18,8 +21,8 @@ class ProductsController < ApplicationController
     @mens = Product.where(category_id: 199..344).limit(10).order('created_at DESC')
     @homeappliances = Product.where(category_id: 894..979).limit(10).order('created_at DESC')
     @amuses = Product.where(category_id: 681..793).limit(10).order('created_at DESC')
-
   end
+
 
   # 商品詳細
   def show
@@ -104,6 +107,7 @@ class ProductsController < ApplicationController
 
   # 商品編集画面へのパス
   def edit_select
+    @product=Product.find(params[:id])
     @product_images = ProductImage.where(product_id: params[:id])
     @exproduct = UsersExhibit.find_by(product_id: @product.id)
     @exuser = User.find(@exproduct.user_id)
@@ -207,8 +211,8 @@ class ProductsController < ApplicationController
     else
       @grandchild_products = Product.where(category_id: @category.id)
     end
-
   end
+
 
   private
 
@@ -248,6 +252,13 @@ class ProductsController < ApplicationController
       end
     end
 
+  end
+
+  def url_protect
+    @product=Product.find(params[:id])
+    unless user_signed_in? && @product.ex_user.id==current_user.id
+      redirect_to products_path
+    end
   end
 
 end
