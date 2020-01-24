@@ -17,5 +17,6 @@ module FreemarketSample58a
     # the framework and any gems in your application.
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
