@@ -77,6 +77,21 @@ class ProductsController < ApplicationController
     @category_parent_array.unshift("---")
 
     @product = Product.new(products_params)
+
+    brand = Brand.find_by(name: products_params[:brand_name])
+    if brand
+      @product.brand_id = brand.id
+      BrandsCategory.create(brand_id: brand.id, category_id: products_params[:category_id])
+    else
+      unless products_params[:brand_name] == ""
+        brand = Brand.create(name: products_params[:brand_name])
+        @product.brand_id = brand.id
+        BrandsCategory.create(brand_id: brand.id, category_id: products_params[:category_id])
+      else
+        @product.brand_name = nil
+      end
+    end
+
     if @product.save
       UsersExhibit.create(
         product_id:@product.id,
@@ -84,7 +99,7 @@ class ProductsController < ApplicationController
         product_status_id:1
       )
       redirect_to root_path
-    else 
+    else
       render action: :new
     end
     
@@ -120,6 +135,21 @@ class ProductsController < ApplicationController
   # 商品編集
   def update
     @product=Product.find(params[:id])
+
+    brand = Brand.find_by(name: products_update_params[:brand_name])
+    if brand
+      @product.brand_id = brand.id
+      BrandsCategory.create(brand_id: brand.id, category_id: products_update_params[:category_id])
+    else
+      unless products_update_params[:brand_name] == ""
+        brand = Brand.create(name: products_update_params[:brand_name])
+        @product.brand_id = brand.id
+        BrandsCategory.create(brand_id: brand.id, category_id: products_update_params[:category_id])
+      else
+        @product.brand_name = nil
+      end
+    end
+
     if @product.update(products_update_params)
       redirect_to root_path
     else
@@ -221,11 +251,11 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:image_url])
+    params.require(:product).permit(:brand_name,:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:image_url])
   end
 
   def products_update_params
-    params.require(:product).permit(:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:id, :image_url, :_destroy])
+    params.require(:product).permit(:brand_name,:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:id, :image_url, :_destroy])
   end
 
   def set_card
