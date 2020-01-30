@@ -77,6 +77,7 @@ class ProductsController < ApplicationController
     @category_parent_array.unshift("---")
 
     @product = Product.new(products_params)
+    binding.pry
     if @product.save
       UsersExhibit.create(
         product_id:@product.id,
@@ -161,6 +162,8 @@ class ProductsController < ApplicationController
     
     # ステータスの更新
     @product = Product.find(params[:product_id])
+    @product.ex_status==5 #発送待ち
+    @product.save
     UsersPurchase.create(
       product_id:@product.id,
       user_id:current_user.id,
@@ -221,7 +224,7 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:image_url])
+    params.require(:product).permit(:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:image_url]).merge(ex_status:1)
   end
 
   def products_update_params

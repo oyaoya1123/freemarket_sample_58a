@@ -10,7 +10,7 @@
             %span 受取評価をしてください
           %p 商品が発送されました。商品が到着したら、出品者の評価をしてください。
 
-        =form_with model: @rate ,local:true, html: { class: "rate-form" } do |f|
+        =form_with url: {controller: 'rates', action: 'pu_user_rate' } ,local:true, html: { class: "rate-form" } do |f|
           %div.rate-form__checkbox
             -# = f.check_box :must, id:'checkbox-id'
             = check_box_tag :"checkbox-id","0",class:"check-input"

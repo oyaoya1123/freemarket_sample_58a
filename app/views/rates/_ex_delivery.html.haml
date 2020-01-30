@@ -9,3 +9,6 @@
             = icon('fa', 'laugh')
             %span 配送をしてください
           %p 商品が購入され支払いされました。商品の発送を行ってください。
+
+        =form_with url: {controller: 'rates', action: 'pu_user_rate' } ,local:true, html: { class: "rate-form" } do |f|
+          =f.submit '商品の発送をしました', class:"btn btn-red"

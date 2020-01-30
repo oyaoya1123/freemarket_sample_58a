@@ -75,7 +75,7 @@
                   .select-wrap.category-views
                     %i.icon-arrow-bottom
                     = f.select :category, @category_parent_array, {}, class: 'select-default', id: 'parent_category', value: '@select_parent_category'
-                    = render partial: 'error-messages', locals: {product: @product, column: "category_id"}
+                    -# = render partial: 'error-messages', locals: {product: @product, column: "category_id"}
                   = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
 
                 .form-group.size-group

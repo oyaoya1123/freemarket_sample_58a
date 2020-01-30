@@ -49,7 +49,7 @@ Rails.application.routes.draw do
       # get '/category/:id/category_list'  => 'products#category_list'
     end
 
-    resources :rates, only: [:index] do
+    resources :rates, only: [:index, :new] do
       collection do
         get 'pu_user_rate'
       end

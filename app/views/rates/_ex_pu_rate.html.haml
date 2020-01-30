@@ -7,18 +7,12 @@
         %div.trade__content__container__attention
           %h3
             = icon('fa', 'laugh')
-            %span 受取評価をしてください
-          %p 商品が発送されました。商品が到着したら、出品者の評価をしてください。
+            %span 評価をしてください
+          %p 購入者に商品が到着し評価がありました。購入者の評価を行って取引を完了させてください。
+          %p 評価は取引が終わった後で見ることができます。
 
-        =form_with model: @rate ,local:true, html: { class: "rate-form" } do |f|
-          %div.rate-form__checkbox
-            -# = f.check_box :must, id:'checkbox-id'
-            = check_box_tag :"checkbox-id","0",class:"check-input"
-            = icon('far', 'square')
-            -# = f.label 'confirm' ,for: 'checkbox-id', class: "f-label"
-            -# = label_tag :confirm ,for: 'checkbox-id', class: "check-label"
-            -# 商品の中身を確認しました。
-            = label_tag :confirm, "商品の中身を確認しました",for:"checkbox-id",class:"label-input"
+        =form_with url: {controller: 'rates', action: 'pu_user_rate' } ,local:true, html: { class: "rate-form" } do |f|
+
           %ul.rate-form__ratelist
             %li
               = f.radio_button :rate, "1", id:"good"
@@ -42,6 +36,6 @@
           %p 評価のコメントを記入しましょう。
           =f.text_area :message,name:"message",placeholder:"コメントはなくても構いませんが、お礼のメッセージなどを書くと喜ばれます。", class:"trade-messagearea"
 
-          =f.submit '評価を投稿する', class:"btn btn-red"
+          =f.submit '購入者を評価して取引完了する', class:"btn btn-red"
 
           -# コメント実装後コメント欄追記
