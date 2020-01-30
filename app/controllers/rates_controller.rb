@@ -16,7 +16,7 @@ class RatesController < ApplicationController
     if ex_status==5 #発送待ち
       @product.ex_status = 6
       @product.save
-      redirect_to new_product_rate_path
+      redirect_to new_product_rate_path(@product.id)
     elsif ex_status==6 #受取評価待ち
       @rate=Rate.new(rate_params)
       @rate.rater_id=current_user.id
