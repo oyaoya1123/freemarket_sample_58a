@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
     resources :rates, only: [:index, :new] do
       collection do
-        get 'pu_user_rate'
+        post 'pu_user_rate'
       end
     end
 

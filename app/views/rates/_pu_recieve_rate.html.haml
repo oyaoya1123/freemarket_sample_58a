@@ -21,19 +21,19 @@
             = label_tag :confirm, "商品の中身を確認しました",for:"checkbox-id",class:"label-input"
           %ul.rate-form__ratelist
             %li
-              = f.radio_button :rate, "1", id:"good"
+              = f.radio_button :rate, 1, id:"good"
               %div.rate-icon
                 = icon('fa', 'laugh', class:"good")
                 =f.label :rate, for:"good",class:"icon-label" do
                   良い
             %li
-              = f.radio_button :rate, "2", id:"normal"
+              = f.radio_button :rate, 2, id:"normal"
               %div.rate-icon
                 = icon('fa', 'meh',class:"normal")
                 =f.label :rate, for:"normal" ,class:"icon-label" do
                   普通
             %li
-              = f.radio_button :rate, "3", id:"bad"
+              = f.radio_button :rate, 3, id:"bad"
               %div.rate-icon
                 = icon('fa', 'frown',class:"bad")
                 =f.label :rate, for:"bad" ,class:"icon-label" do
