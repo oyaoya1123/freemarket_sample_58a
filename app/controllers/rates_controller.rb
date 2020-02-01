@@ -20,7 +20,8 @@ class RatesController < ApplicationController
     elsif @product.ex_status==6 #受取評価待ち
       @rate=Rate.new(rate_params)
       @rate.rate_id=@product.ex_user.id
-      @product.ex_status = ７
+      @rate.rater_id=current_user.id
+      @product.ex_status = 7
       @rate.save
       @product.save
       redirect_to new_product_rate_path
@@ -29,16 +30,24 @@ class RatesController < ApplicationController
       @rate.rater_id=current_user.id
       @rate.rate_id=@product.pu_user.id
       @product.ex_status = 8
+      @ex=UsersExhibit.find_by(product_id:@product.id)
+      @pu=UsersPurchase.find_by(product_id:@product.id)
+      @ex.product_status_id=3
+      @pu.product_status_id=4
+      @ex.save
+      @pu.save
       @rate.save
       @product.save
+
       redirect_to new_product_rate_path
     end
 
   end
 
   private
+
     def rate_params
-      params.permit(:rate,:message).merge(rater_id:current_user.id)
+      params.permit(:ratenum,:message)
     end
 
 end

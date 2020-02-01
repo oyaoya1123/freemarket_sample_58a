@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!, only: [:show, :profile, :identification]
   before_action :set_purchase_product, only: [:show,:mypage_purchase_product]
+  before_action :set_exhibits_product, only: [:show,:mypage_product_list]
   before_action :user_login, only: [:show,:mypage_product_list] # エラー回避
 
   def show
@@ -269,6 +270,21 @@ class UsersController < ApplicationController
     @pu_fin_product_ids.each do |id|
       p=Product.find(id.product_id)
       @user_fin_pu_products<<p
+    end
+  end
+
+  def set_exhibits_product
+    @ex_ad_product_ids = UsersExhibit.where(product_status_id:2).where(user_id: current_user.id)
+    @user_ad_ex_products=[]
+    @ex_ad_product_ids.each do |id|
+      p=Product.find(id.product_id)
+      @user_ad_ex_products<<p
+    end
+    @ex_fin_product_ids = UsersExhibit.where(product_status_id:3).where(user_id: current_user.id)
+    @user_fin_ex_products=[]
+    @ex_fin_product_ids.each do |id|
+      p=Product.find(id.product_id)
+      @user_fin_ex_products<<p
     end
   end
 

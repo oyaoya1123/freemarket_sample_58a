@@ -39,11 +39,25 @@ class ProductsController < ApplicationController
     @othercategory = @samecategory.where.not(id: @product.id).limit(6).order('created_at DESC')
 
     @disable = 0
+    @product=Product.find(params[:id])
     if user_signed_in?
       if @exproduct.user_id == current_user.id
         @disable = 1
+      elsif @product.ex_status !=nil
+        @disable = 1
+        if @product.ex_status ==1
+          @disable=0
+        end
       end
     end
+    # @product=Product.find(params[:id])
+    # if @product.ex_status !=nil
+    #   @disable = 1
+    #   if @product.ex_status ==1
+    #     @disable=0
+    #   end
+    # end
+
 
   end
  
@@ -162,7 +176,7 @@ class ProductsController < ApplicationController
     
     # ステータスの更新
     @product = Product.find(params[:product_id])
-    @product.ex_status==5 #発送待ち
+    @product.ex_status=5 #発送待ち
     @product.save
     UsersPurchase.create(
       product_id:@product.id,
@@ -172,7 +186,7 @@ class ProductsController < ApplicationController
     @ex_status=UsersExhibit.find_by(product_id: @product.id)
     @ex_status.update(
       product_id:@product.id,
-      user_id:current_user.id,
+      # user_id:current_user.id,
       product_status_id:2
     )
     redirect_to action: 'pay_finish' #完了画面に移動

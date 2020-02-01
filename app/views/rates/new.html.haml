@@ -12,7 +12,7 @@
 -elsif @product.ex_status==6 && @product.ex_user.id==current_user.id 
   =render "ex_pu_rate_wait"
 -elsif @product.ex_status==5 && @product.pu_user.id==current_user.id 
-  =render "ex_pu_rate_wait"
+  =render "ex_pu_delivery_wait"
 
 -elsif @product.ex_status==7 && @product.pu_user.id==current_user.id
   =render "pu_rate_finish"

@@ -10,7 +10,7 @@
       %ul.mypage-item-list.tab-pane.active
         -user_ad_pu_products.each do |product|
           %li
-            =link_to product_pay_finish_path(product.id) , class: "mypage-item-link" do
+            =link_to new_product_rate_path(product.id) , class: "mypage-item-link" do
               %div.image
                 =image_tag product.product_images[0].image_url.url, class: "is-higher-height"
               %div.mypage-item-body
@@ -29,10 +29,10 @@
     -if user_fin_pu_products.present?
       %ul.mypage-item-list.tab-pane.active
         -# %li.mypage-item-not-found.bold 過去に取引した商品がありません
-        -user_fin_pu_products.product_images.each do |product|
+        -user_fin_pu_products.each do |product|
 
           %li
-            =link_to "/" , class: "mypage-item-link" do
+            =link_to new_product_rate_path(product.id) , class: "mypage-item-link" do
               %div.image
                 =image_tag product.product_images[0].image_url.url, class: "is-higher-height"
               %div.mypage-item-body
