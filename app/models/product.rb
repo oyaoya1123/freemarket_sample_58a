@@ -5,8 +5,11 @@ class Product < ApplicationRecord
   has_one :pu_user, through: :users_purchase, source: :user
 
   has_many :product_images, dependent: :destroy
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
 
   accepts_nested_attributes_for :product_images, allow_destroy: true
+  
 
   # validates :product_images, presence: true
   validates :product_images,presence: { message: 'を選択してください。' }, length: { minimum: 1, maximum: 10 }
@@ -25,5 +28,10 @@ class Product < ApplicationRecord
   validates :size, presence: true
 
   belongs_to :category
+
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
+
 
 end

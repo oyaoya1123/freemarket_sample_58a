@@ -41,6 +41,8 @@ Rails.application.routes.draw do
     get 'get_category_children', defaults: { format: 'json' }
     get 'get_category_grandchildren', defaults: { format: 'json' }
     get 'get_size', defaults: { format: 'json' }
+    # post '/create' => 'likes#create' 
+    # delete '/destroy' => 'likes#destroy' 
 
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -48,7 +50,8 @@ Rails.application.routes.draw do
       get 'get_size', defaults: { format: 'json' }
       # get '/category/:id/category_list'  => 'products#category_list'
     end
-
+    resource :likes, only: [:create, :destroy]
+    
   end
 
   # resources :categories do

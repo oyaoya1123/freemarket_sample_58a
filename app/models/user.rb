@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :ex_products, through: :users_exhibits, source: :product, dependent: :destroy
   has_many :pu_products, through: :users_purchases, source: :product, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_products, through: :likes, source: :product
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :nickname, presence: true
@@ -55,6 +57,10 @@ class User < ApplicationRecord
       end
     end
     return { user: user , sns_id: sns.id }
+  end
+
+  def already_liked?(product)
+    self.likes.exists?(product_id: product.id)
   end
 
 end

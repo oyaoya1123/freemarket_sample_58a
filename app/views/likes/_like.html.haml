@@ -1,0 +1,13 @@
+%div
+  %input{name: "inputname", type:"hidden", value: product.id ,id: "product_id"}/
+  -# product.id ” id=“tweet_id”&gt;
+  - if user_signed_in?
+    - if product.liked_by?(current_user)
+      / ログインしているユーザーがファボしたかどうかで分岐
+      %p{:class => "unlike2"} いいね解除
+    - else
+      %p{:class => "like2"} いいね
+  - else
+    %p
+      %span お気に入り数:
+      = tweet.likes.count
