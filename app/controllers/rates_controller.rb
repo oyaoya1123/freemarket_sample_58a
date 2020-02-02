@@ -1,7 +1,7 @@
 class RatesController < ApplicationController
   include CommonActions
   before_action :set_categories
-  before_action :result, only: [:index, :new]
+  before_action :result, only: [:index, :new, :pu_user_rate]
 
   def index
   end
@@ -19,27 +19,35 @@ class RatesController < ApplicationController
       redirect_to new_product_rate_path(@product.id)
     elsif @product.ex_status==6 #受取評価待ち
       @rate=Rate.new(rate_params)
+      # binding.pry
       @rate.rate_id=@product.ex_user.id
       @rate.rater_id=current_user.id
-      @product.ex_status = 7
-      @rate.save
-      @product.save
-      redirect_to new_product_rate_path
+      # binding.pry
+      if @rate.save
+        @product.ex_status = 7
+        @product.save
+        redirect_to new_product_rate_path
+      else
+        render action: :new
+      end
     elsif @product.ex_status==7 #評価待ち
       @rate=Rate.new(rate_params)
       @rate.rater_id=current_user.id
       @rate.rate_id=@product.pu_user.id
-      @product.ex_status = 8
       @ex=UsersExhibit.find_by(product_id:@product.id)
       @pu=UsersPurchase.find_by(product_id:@product.id)
       @ex.product_status_id=3
       @pu.product_status_id=4
-      @ex.save
-      @pu.save
-      @rate.save
-      @product.save
+      if @rate.save
+        @ex.save
+        @pu.save
+        @product.ex_status = 8
+        @product.save
+        redirect_to new_product_rate_path
+      else
+        render action: :new
+      end
 
-      redirect_to new_product_rate_path
     end
 
   end
