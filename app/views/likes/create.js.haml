@@ -1,2 +1,0 @@
-$("#tests_buttons_<%= @product.id %>").html('#{j(render partial: ‘likes/like’, locals: {product: @product})}');
--# $("#tests_buttons_<%= @product.id %>").html(“<%= escape_javascript(render :partial => ‘likes/like’, :locals => { :product => @product }) %>“);
