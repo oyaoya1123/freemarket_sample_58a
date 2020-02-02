@@ -12,12 +12,8 @@
 
         =form_with url: {controller: 'rates', action: 'pu_user_rate' } ,local:true, html: { class: "rate-form" } do |f|
           %div.rate-form__checkbox
-            -# = f.check_box :must, id:'checkbox-id'
             = check_box_tag :"checkbox-id","0",class:"check-input"
             = icon('far', 'square')
-            -# = f.label 'confirm' ,for: 'checkbox-id', class: "f-label"
-            -# = label_tag :confirm ,for: 'checkbox-id', class: "check-label"
-            -# 商品の中身を確認しました。
             = label_tag :confirm, "商品の中身を確認しました",for:"checkbox-id",class:"label-input"
           %ul.rate-form__ratelist
             %li
