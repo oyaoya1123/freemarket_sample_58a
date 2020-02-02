@@ -1,24 +1,26 @@
 
 %header
   = render "products/top_header"
+%main.l-container.clearfix
+  = render "users/aside"
 
--if @product.ex_status==5 && @product.ex_user.id==current_user.id
-  = render "ex_delivery"
--elsif @product.ex_status==6 && @product.pu_user.id==current_user.id
-  = render "pu_recieve_rate"
--elsif @product.ex_status==7 && @product.ex_user.id==current_user.id
-  = render "ex_pu_rate"
+  -if @product.ex_status==5 && @product.ex_user.id==current_user.id
+    = render "ex_delivery"
+  -elsif @product.ex_status==6 && @product.pu_user.id==current_user.id
+    = render "pu_recieve_rate"
+  -elsif @product.ex_status==7 && @product.ex_user.id==current_user.id
+    = render "ex_pu_rate"
 
--elsif @product.ex_status==6 && @product.ex_user.id==current_user.id 
-  =render "ex_pu_rate_wait"
--elsif @product.ex_status==5 && @product.pu_user.id==current_user.id 
-  =render "ex_pu_delivery_wait"
+  -elsif @product.ex_status==6 && @product.ex_user.id==current_user.id 
+    =render "ex_pu_rate_wait"
+  -elsif @product.ex_status==5 && @product.pu_user.id==current_user.id 
+    =render "ex_pu_delivery_wait"
 
--elsif @product.ex_status==7 && @product.pu_user.id==current_user.id
-  =render "pu_rate_finish"
+  -elsif @product.ex_status==7 && @product.pu_user.id==current_user.id
+    =render "pu_rate_finish"
 
--elsif @product.ex_status==8 || @product.ex_status==nil
-  =render "trade_finish"
+  -elsif @product.ex_status==8 || @product.ex_status==nil
+    =render "trade_finish"
 
 %aside
   = render "products/top_aside_footer"
