@@ -19,10 +19,8 @@ class RatesController < ApplicationController
       redirect_to new_product_rate_path(@product.id)
     elsif @product.ex_status==6 #受取評価待ち
       @rate=Rate.new(rate_params)
-      # binding.pry
       @rate.rate_id=@product.ex_user.id
       @rate.rater_id=current_user.id
-      # binding.pry
       if @rate.save
         @product.ex_status = 7
         @product.save
