@@ -33,8 +33,7 @@ class ProductsController < ApplicationController
 
     @samecategory = Product.where(category_id: @grandchaild_category.id)
     @othercategory = @samecategory.where.not(id: @product.id).limit(6).order('created_at DESC')
-    @like = Like.new
-    @likecount =  Like.where(product_id: @product.id).count
+   
   end
  
   # 商品出品
