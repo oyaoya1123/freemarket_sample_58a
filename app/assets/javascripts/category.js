@@ -34,6 +34,15 @@ $(function(){
                         <select></div></div>`;
     $('.size-group').append(sizeSelectHtml);
   }
+  function appendBrandBox(){
+    var sizeSelectHtml = '';
+    sizeSelectHtml = `<div id="brand_category">
+                      <label>ブランド<span class="form-arbitrary">任意</span></label>
+                      <div>
+                      <input placeholder="例）シャネル" type="text" name="product[brand_name]" class="brand-wrap">
+                      </div></div>`;
+    $('.brand-group').append(sizeSelectHtml);
+  }
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value;
     if (parentCategory != "---"){
@@ -47,6 +56,7 @@ $(function(){
         $('#child_category').remove();
         $('#grandchild_category_new').remove()
         $('#size_category').remove();
+        $('#brand_category').remove();
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
@@ -60,6 +70,7 @@ $(function(){
       $('#child_category').remove();
       $('#grandchild_category_new').remove()
       $('#size_category').remove();
+      $('#brand_category').remove();
     }
   });
   $('.category-views').on('change', '#child_category', function(){
@@ -75,6 +86,7 @@ $(function(){
         if (grandchildren.length != 0) {
           $('#grandchild_category_new').remove();
           $('#size_category').remove();
+          $('#brand_category').remove();
           var insertHTML = '';
           grandchildren.forEach(function(grandchild){
             insertHTML += appendOption(grandchild);
@@ -88,6 +100,7 @@ $(function(){
     }else{
       $('#grandchild_category_new').remove();
       $('#size_category').remove();
+      $('#brand_category').remove();
     }
   });
   $('.category-views').on('change', '#grandchild_category_new', function(){
@@ -114,6 +127,14 @@ $(function(){
       })
     }else{
       $('#size_category').remove();
+      $('#brand_category').remove();
+    }
+    //brand用
+    if (grandchildId != "---"){
+      $('#brand_category').remove();
+      appendBrandBox();
+    }else{
+      $('#brand_category').remove();
     }
   });
 

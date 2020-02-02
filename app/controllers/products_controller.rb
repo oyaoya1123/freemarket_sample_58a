@@ -5,8 +5,12 @@ class ProductsController < ApplicationController
   before_action :login, except: [:index,:show]
   before_action :set_card, only: [:buy, :purchase, :pay_finish]
   before_action :find_product, only: [:show,:destroy,:edit_select]
+
+  before_action :check_buy, only: [:buy]
+  before_action :check_purchase, only: [:purchase]
   before_action :url_protect, only: [:edit]
   before_action :result, only: [:index, :show, :category_list, :edit_select]
+
   def release_sns_id
     session[:sns_id] = nil
   end
@@ -33,7 +37,14 @@ class ProductsController < ApplicationController
 
     @samecategory = Product.where(category_id: @grandchaild_category.id)
     @othercategory = @samecategory.where.not(id: @product.id).limit(6).order('created_at DESC')
-   
+
+    @disable = 0
+    if user_signed_in?
+      if @exproduct.user_id == current_user.id
+        @disable = 1
+      end
+    end
+
   end
  
   # 商品出品
@@ -66,6 +77,21 @@ class ProductsController < ApplicationController
     @category_parent_array.unshift("---")
 
     @product = Product.new(products_params)
+
+    brand = Brand.find_by(name: products_params[:brand_name])
+    if brand
+      @product.brand_id = brand.id
+      BrandsCategory.create(brand_id: brand.id, category_id: products_params[:category_id])
+    else
+      unless products_params[:brand_name] == ""
+        brand = Brand.create(name: products_params[:brand_name])
+        @product.brand_id = brand.id
+        BrandsCategory.create(brand_id: brand.id, category_id: products_params[:category_id])
+      else
+        @product.brand_name = nil
+      end
+    end
+
     if @product.save
       UsersExhibit.create(
         product_id:@product.id,
@@ -73,7 +99,7 @@ class ProductsController < ApplicationController
         product_status_id:1
       )
       redirect_to root_path
-    else 
+    else
       render action: :new
     end
     
@@ -109,6 +135,21 @@ class ProductsController < ApplicationController
   # 商品編集
   def update
     @product=Product.find(params[:id])
+
+    brand = Brand.find_by(name: products_update_params[:brand_name])
+    if brand
+      @product.brand_id = brand.id
+      BrandsCategory.create(brand_id: brand.id, category_id: products_update_params[:category_id])
+    else
+      unless products_update_params[:brand_name] == ""
+        brand = Brand.create(name: products_update_params[:brand_name])
+        @product.brand_id = brand.id
+        BrandsCategory.create(brand_id: brand.id, category_id: products_update_params[:category_id])
+      else
+        @product.brand_name = nil
+      end
+    end
+
     if @product.update(products_update_params)
       redirect_to root_path
     else
@@ -210,15 +251,37 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:image_url])
+    params.require(:product).permit(:brand_name,:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:image_url])
   end
 
   def products_update_params
-    params.require(:product).permit(:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:id, :image_url, :_destroy])
+    params.require(:product).permit(:brand_name,:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:id, :image_url, :_destroy])
   end
 
   def set_card
     @card = Card.find_by(user_id: current_user.id)
+  end
+
+  def check_buy
+    exproduct = UsersExhibit.find_by(product_id: params[:product_id])
+
+    if user_signed_in?
+      if exproduct.user_id == current_user.id
+        redirect_to root_path
+      end
+    end
+
+  end
+
+  def check_purchase
+    exproduct = UsersExhibit.find_by(product_id: params[:product_id])
+
+    if user_signed_in?
+      if exproduct.user_id == current_user.id
+        redirect_to root_path
+      end
+    end
+
   end
 
   def url_protect
@@ -227,5 +290,6 @@ class ProductsController < ApplicationController
       redirect_to products_path
     end
   end
+
 end
 
