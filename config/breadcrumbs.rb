@@ -5,7 +5,7 @@ end
 
 # マイページ
 crumb :mypage do
-  link "マイページ", users_mypage_path
+  link "マイページ", users_path
   parent :root
 end
 
