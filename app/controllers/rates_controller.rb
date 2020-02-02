@@ -2,17 +2,16 @@ class RatesController < ApplicationController
   include CommonActions
   before_action :set_categories
   before_action :result, only: [:index, :new, :pu_user_rate]
+  before_action :find_product, only: [:new,:pu_user_rate]
 
   def index
   end
 
   def new
-    @product=Product.find(params[:product_id])
     @rate = Rate.new
   end
 
   def pu_user_rate
-    @product=Product.find(params[:product_id])
     if @product.ex_status==5 #発送待ち
       @product.ex_status = 6
       @product.save
@@ -54,6 +53,10 @@ class RatesController < ApplicationController
 
     def rate_params
       params.permit(:ratenum,:message)
+    end
+
+    def find_product
+      @product = Product.find(params[:id])
     end
 
 end

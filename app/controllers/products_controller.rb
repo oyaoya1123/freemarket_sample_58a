@@ -39,7 +39,6 @@ class ProductsController < ApplicationController
     @othercategory = @samecategory.where.not(id: @product.id).limit(6).order('created_at DESC')
 
     @disable = 0
-    @product=Product.find(params[:id])
     if user_signed_in?
       if @exproduct.user_id == current_user.id
         @disable = 1

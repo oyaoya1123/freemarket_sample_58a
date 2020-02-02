@@ -1,7 +1,4 @@
 .l-container{
-  // background-repeat: no-repeat;
-  // margin: 0;
-  // padding: 0;
   height:1321px;
   .trade{
     margin: 40px auto 0;
@@ -55,9 +52,7 @@
             input{
               display: none;
               &:checked +.label-input {
-                // content: "";
                 display: block;
-                // position: absolute;
                 top: -5px;
                 left: 5px;
                 width: 7px;
@@ -194,22 +189,3 @@
     }
   }
 }
-
-// input[type="radio"]:checked + label {
-//   background: #31A9EE;/* マウス選択時の背景色を指定する */
-//   color: #ffffff; /* マウス選択時のフォント色を指定する */
-// }
-
-// input[type="checkbox"]:checked +.label-input{
-//   // content: "";
-//   display: block;
-//   // position: absolute;
-//   top: -5px;
-//   left: 5px;
-//   width: 7px;
-//   height: 14px;
-//   transform: rotate(40deg);
-//   border-bottom: 3px solid #009a9a;
-//   border-right: 3px solid #009a9a;
-//   z-index: 1;
-// }
