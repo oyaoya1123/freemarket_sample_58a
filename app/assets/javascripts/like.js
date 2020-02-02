@@ -8,11 +8,19 @@ $(function(){
       dataType: "json" // データの型はjsonで指定します
     })
     .done(function(){
+      // var iconChange = document.getElementsByClassName("heart")
+      // console.log(iconChange)
+      // iconChange[0].className = "fas fa-heart";
       // 通信に成功した場合の処理です
       var bbb = document.getElementsByClassName("like2");
-      // console.log(bbb[0].className);
-      bbb[0].textContent = "いいね解除";
+    //     bbb[0].removeClass('like2').addClass('unlike2');
+      bbb[0].textContent = "いいね！" ;
       bbb[0].className = "unlike2";
+
+      var likeCount = document.getElementsByClassName("count-up")
+      likeCount[0].textContent = Number(likeCount[0].textContent) + 1
+      likeCount[0].className = "count-down"
+
     })
     .fail(function(){
       // 通信に失敗した場合の処理です
@@ -20,36 +28,3 @@ $(function(){
     })
   })
 })
-// $(function(){
-//   // id="link-mark"の箇所(いいねボタン)をクリックしたら
-//   $(".item-btn").on('click', function(){
-//     // e.preventDefault();
-//     var $likeBtn = $(this);
-//     var $productId = $likeBtn.attr("product_id");
-//     var $like = $(this).find('i');
-//     var $btnClass = $like.attr("class");
-
-//     var url = $btnClass == 'unlike' ? '/create' : '/destroy';　　
-//     // var product_id = $(this).data('id');
-//     // 非同期でlikes#createに処理を送信＋その時に店舗情報(shop_id)を渡す
-//     $.ajax({
-//       url:  '/products/'+ $productId + url,
-//       type: 'POST',
-//       // data: product_id
-      
-//       // data: {id: $(this).data('id')}
-//     })
-//     // 処理が上手く行ったらボタンを切り替えて
-//     .done(function(data) {
-//       if ($(like).hasClass() === 'unlike') {
-//         $(like).removeClass('unlike').addClass('like');
-//       } else if ($(like).hasClass() === 'like') {
-//         $(like).removeClass('like').addClass('unlike');
-//       }
-//     })
-//     // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
-//     .fail((data) => {
-//       alert('いいね！に失敗しました');
-//     })
-//   });
-// });
