@@ -14,8 +14,11 @@ class RatesController < ApplicationController
   def pu_user_rate
     if @product.ex_status==5 #発送待ち
       @product.ex_status = 6
-      @product.save
-      redirect_to new_product_rate_path(@product.id)
+      if @product.save
+        redirect_to new_product_rate_path(@product.id)
+      else
+        render action: :new
+      end
     elsif @product.ex_status==6 #受取評価待ち
       @rate=Rate.new(rate_params)
       @rate.rate_id=@product.ex_user.id
@@ -56,7 +59,7 @@ class RatesController < ApplicationController
     end
 
     def find_product
-      @product = Product.find(params[:id])
+      @product = Product.find(params[:product_id])
     end
 
 end

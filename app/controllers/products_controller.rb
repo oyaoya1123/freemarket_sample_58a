@@ -198,18 +198,21 @@ class ProductsController < ApplicationController
     # ステータスの更新
     @product = Product.find(params[:product_id])
     @product.ex_status=5 #発送待ち
-    @product.save
-    UsersPurchase.create(
-      product_id:@product.id,
-      user_id:current_user.id,
-      product_status_id:2
-    )
-    @ex_status=UsersExhibit.find_by(product_id: @product.id)
-    @ex_status.update(
-      product_id:@product.id,
-      product_status_id:2
-    )
-    redirect_to action: 'pay_finish' #完了画面に移動
+    if @product.save
+      UsersPurchase.create(
+        product_id:@product.id,
+        user_id:current_user.id,
+        product_status_id:2
+      )
+      @ex_status=UsersExhibit.find_by(product_id: @product.id)
+      @ex_status.update(
+        product_id:@product.id,
+        product_status_id:2
+      )
+      redirect_to action: 'pay_finish' #完了画面に移動
+    else
+      render: :buy
+    end
   end
 
   # 商品購入完了
