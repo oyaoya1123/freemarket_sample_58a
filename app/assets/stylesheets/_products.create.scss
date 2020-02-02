@@ -37,8 +37,8 @@
               color: #fff;
               font-size: 12px;
               vertical-align: top;
-               }	
-              }
+            }
+          }
               p {
                 margin: 8px 0 0;
                 line-height: 1.5;
@@ -331,6 +331,30 @@
                  }
               }
 
+              .brand-wrap {
+                margin: 8px 0 0;
+                position: relative;
+                background: #fff;
+                z-index: 2;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                width: 100%;
+              }
+              .form-arbitrary {
+                background: #ccc;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+              }
+
               .select-wrap {
                 margin: 8px 0 0;
                 position: relative;
@@ -342,7 +366,7 @@
                   z-index: 2;
                   color: #888;
                   font-size: 8px;
-                  }
+                }
                 .select-default {
                   position: relative;
                   z-index: 2;
@@ -355,7 +379,7 @@
                   line-height: 1.5;
                   cursor: pointer;
                   width: 100%;
-                     }
+                }
                      .select-default2 {
                       position: relative;
                       z-index: 2;
@@ -368,8 +392,8 @@
                       line-height: 1.5;
                       cursor: pointer;
                       width: 400px;
-                         }
-                   }    
+                     }
+              }
                   }
                 }
             .form-question {

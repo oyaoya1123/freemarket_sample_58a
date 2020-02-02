@@ -87,6 +87,19 @@
       text-decoration: none;
       font-weight: bold;
     }
+    &__buy-btn-disable {
+      display: block;
+      width: 620px;
+      height: 60px;
+      font-size: 24px;
+      line-height: 60px;
+      margin-top: 16px;
+      background: gray;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+    }
     &__description {
       padding: 32px 0 0;
       font-size: 18px;

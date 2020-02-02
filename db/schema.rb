@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_01_23_132319) do
+
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -26,6 +29,26 @@ ActiveRecord::Schema.define(version: 2020_01_23_132319) do
     t.string "address_last_name_kana", null: false
     t.string "address_first_name_kana", null: false
     t.string "address_phone_number"
+  end
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brands_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "brand_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brands_catergories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "brand_id"
+    t.integer "catergory_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,6 +110,8 @@ ActiveRecord::Schema.define(version: 2020_01_23_132319) do
     t.string "product_condition", null: false
     t.bigint "category_id", null: false
     t.string "size"
+    t.integer "brand_id"
+    t.string "brand_name"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
