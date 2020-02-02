@@ -28,6 +28,19 @@ ActiveRecord::Schema.define(version: 2020_02_01_062922) do
     t.string "address_phone_number"
   end
 
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brands_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "brand_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
@@ -79,6 +92,8 @@ ActiveRecord::Schema.define(version: 2020_02_01_062922) do
     t.bigint "category_id", null: false
     t.string "size"
     t.integer "ex_status"
+    t.integer "brand_id"
+    t.string "brand_name"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

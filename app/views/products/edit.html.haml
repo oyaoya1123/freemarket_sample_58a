@@ -97,6 +97,13 @@
                       %i.icon-arrow-bottom
                       = f.collection_select :size, @sizes, :name, :name, { prompt: '---' }, class: 'select-default'
 
+                .form-group.brand-group
+                  #brand_category
+                    %label
+                      ブランド
+                      %span.form-arbitrary 任意
+                    = f.text_field :brand_name, placeholder: "例）シャネル", class: "brand-wrap", value: @product.brand_name
+
                 .form-group
                   %label
                     商品の状態

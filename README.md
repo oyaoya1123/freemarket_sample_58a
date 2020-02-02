@@ -155,7 +155,7 @@ Things you may want to cover:
 - belongs_to :shipping_charge
 - belongs_to :shipping_origin
 - belongs_to :shipping_day
-- belongs_to : brand
+- belongs_to :brand
 
 
 ## product_imagesテーブル
@@ -204,15 +204,15 @@ Things you may want to cover:
 - has_many :products
 
 
-## catergorysテーブル
+## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
 
 ### Association
 - has_many :products
-- has_many :brands_catergorys
-- has_many :brands, through: :brands_catergorys
+- has_many :brands_categorys
+- has_many :brands, through: :brands_categorys
 - has_ancestry
 
 
@@ -223,16 +223,16 @@ Things you may want to cover:
 
 ### Association
 - has_many :products
-- has_many :brands_catergorys
-- has_many :catergorys, through: :brands_catergorys
+- has_many :brands_catergories
+- has_many :categories, through: :brands_categories
 
 
-## brands_catergorysテーブル 
+## brands_categoriesテーブル 
 |Column|Type|Options|
 |------|----|-------|
 |brand_id|integer|null: false, unique: true|
-|catergory_id|integer|null: false, unique: true|
+|category_id|integer|null: false, unique: true|
 
 ### Association
 - belongs_to :brand
-- belongs_to :catergory
+- belongs_to :category
