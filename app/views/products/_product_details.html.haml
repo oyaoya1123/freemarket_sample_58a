@@ -68,14 +68,12 @@
     .item-box-container__buttons.clearfix
       .item-box-container__buttons__left
         %ul
-          %li.item-btn
-            = link_to product_path do
-              = icon('far', 'heart')
-              %span いいね！
-          %li.item-btn
-            = link_to product_path do
-              = icon('far', 'flag')
-              %span 不適切な商品の報告
+          .like{ id: "tests_buttons_#{@product.id}" }
+            = render partial: 'likes/like', locals:{product: @product}
+            %li.item-btn3
+              = link_to product_path do
+                = icon('far', 'flag')
+                %span 不適切な商品の報告
       .item-box-container__buttons__right
         = link_to product_path do
           = icon('fas', 'lock')

@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 2020_02_02_073547) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_likes_on_product_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "product_conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -186,6 +195,8 @@ ActiveRecord::Schema.define(version: 2020_02_02_073547) do
     t.index ["user_id"], name: "index_users_purchases_on_user_id"
   end
 
+  add_foreign_key "likes", "products"
+  add_foreign_key "likes", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "rates", "users", column: "rate_id"
