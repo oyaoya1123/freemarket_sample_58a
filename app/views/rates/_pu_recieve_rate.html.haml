@@ -1,0 +1,43 @@
+.l-container
+  %main.trade
+    %div.trade__content
+      %section.trade__content__container
+        .trade__content__container__text
+          取引画面
+        %div.trade__content__container__attention
+          %h3
+            = icon('fa', 'laugh')
+            %span 受取評価をしてください
+          %p 商品が発送されました。商品が到着したら、出品者の評価をしてください。
+
+        =form_with url: {controller: 'rates', action: 'pu_user_rate' } ,local:true, html: { class: "rate-form" } do |f|
+          %div.rate-form__checkbox
+            = check_box_tag :"checkbox-id","0",class:"check-input"
+            = icon('far', 'square')
+            = label_tag :confirm, "商品の中身を確認しました",for:"checkbox-id",class:"label-input"
+          %ul.rate-form__ratelist
+            %li
+              = f.radio_button :ratenum, 1, id:"good"
+              %div.rate-icon
+                = icon('fa', 'laugh', class:"good")
+                =f.label :rate, for:"good",class:"icon-label" do
+                  良い
+            %li
+              = f.radio_button :ratenum, 2, id:"normal"
+              %div.rate-icon
+                = icon('fa', 'meh',class:"normal")
+                =f.label :rate, for:"normal" ,class:"icon-label" do
+                  普通
+            %li
+              = f.radio_button :ratenum, 3, id:"bad"
+              %div.rate-icon
+                = icon('fa', 'frown',class:"bad")
+                =f.label :rate, for:"bad" ,class:"icon-label" do
+                  悪い
+
+          %p 評価のコメントを記入しましょう。
+          =f.text_area :message,name:"message",placeholder:"コメントはなくても構いませんが、お礼のメッセージなどを書くと喜ばれます。", class:"trade-messagearea"
+
+          =f.submit '評価を投稿する', class:"btn btn-red"
+
+          -# コメント実装後コメント欄追記

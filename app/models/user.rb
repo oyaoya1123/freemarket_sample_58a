@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :ex_products, through: :users_exhibits, source: :product, dependent: :destroy
   has_many :pu_products, through: :users_purchases, source: :product, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
+  has_many :rates, class_name: 'Rate', foreign_key: :rate_id
+  has_many :raters, class_name: 'Rate', foreign_key: :rater_id
   has_many :likes, dependent: :destroy
   has_many :liked_products, through: :likes, source: :product
 

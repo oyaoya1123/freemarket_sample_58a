@@ -42,8 +42,14 @@ class ProductsController < ApplicationController
     if user_signed_in?
       if @exproduct.user_id == current_user.id
         @disable = 1
+      elsif @product.ex_status !=nil
+        @disable = 1
+        if @product.ex_status ==1
+          @disable=0
+        end
       end
     end
+
 
   end
  
@@ -191,18 +197,22 @@ class ProductsController < ApplicationController
     
     # ステータスの更新
     @product = Product.find(params[:product_id])
-    UsersPurchase.create(
-      product_id:@product.id,
-      user_id:current_user.id,
-      product_status_id:2
-    )
-    @ex_status=UsersExhibit.find_by(product_id: @product.id)
-    @ex_status.update(
-      product_id:@product.id,
-      user_id:current_user.id,
-      product_status_id:2
-    )
-    redirect_to action: 'pay_finish' #完了画面に移動
+    @product.ex_status=5 #発送待ち
+    if @product.save
+      UsersPurchase.create(
+        product_id:@product.id,
+        user_id:current_user.id,
+        product_status_id:2
+      )
+      @ex_status=UsersExhibit.find_by(product_id: @product.id)
+      @ex_status.update(
+        product_id:@product.id,
+        product_status_id:2
+      )
+      redirect_to action: 'pay_finish' #完了画面に移動
+    else
+      render action: :buy
+    end
   end
 
   # 商品購入完了
@@ -251,7 +261,7 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:brand_name,:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:image_url])
+    params.require(:product).permit(:brand_name,:size,:name,:description,:price,:shipping_charge,:shipping_method,:shipping_origin,:shipping_day,:product_condition,:category_id,product_images_attributes:[:image_url]).merge(ex_status:"1")
   end
 
   def products_update_params

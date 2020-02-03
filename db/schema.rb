@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_01_23_132319) do
-
-
+ActiveRecord::Schema.define(version: 2020_02_02_073547) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -40,13 +37,6 @@ ActiveRecord::Schema.define(version: 2020_01_23_132319) do
   create_table "brands_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "brand_id"
     t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "brands_catergories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "brand_id"
-    t.integer "catergory_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -110,9 +100,21 @@ ActiveRecord::Schema.define(version: 2020_01_23_132319) do
     t.string "product_condition", null: false
     t.bigint "category_id", null: false
     t.string "size"
+    t.integer "ex_status"
     t.integer "brand_id"
     t.string "brand_name"
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "rate_id", null: false
+    t.integer "ratenum", null: false
+    t.bigint "rater_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "message"
+    t.index ["rate_id"], name: "index_rates_on_rate_id"
+    t.index ["rater_id"], name: "index_rates_on_rater_id"
   end
 
   create_table "shipping_charges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -197,6 +199,8 @@ ActiveRecord::Schema.define(version: 2020_01_23_132319) do
   add_foreign_key "likes", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "rates", "users", column: "rate_id"
+  add_foreign_key "rates", "users", column: "rater_id"
   add_foreign_key "users_exhibits", "product_statuses"
   add_foreign_key "users_exhibits", "products"
   add_foreign_key "users_exhibits", "users"

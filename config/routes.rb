@@ -47,8 +47,13 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
     end
+
+    resources :rates, only: [:index, :new] do
+      collection do
+        post 'pu_user_rate'
+      end
+    end
     resource :likes, only: [:create, :destroy]
-    
   end
 
   # resources :categories do

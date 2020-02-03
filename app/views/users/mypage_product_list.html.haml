@@ -35,9 +35,55 @@
                             .icon-arrow-right
                                 = icon('fas', 'angle-right')
             #programming_content.tab_content
-                現在取扱いの商品がございません。
+                -if @user_ad_ex_products.present?
+                    - @user_ad_ex_products.each do |product|
+                        %li
+                            = link_to  new_product_rate_path(product.id), method: :get, class: "mypage-item-link" do
+                                %figure
+                                    .is-higher-height.lazyloaded
+                                        =image_tag product.product_images[0].image_url.url
+                                .mypage-item-body.show-stock-item
+                                    .mypage-item-text
+                                        = product.name
+                                    .mypage-item-comment
+                                        %span.listing-item-count
+                                            = icon('far', 'heart', class: "icon-like-border")
+                                            %span 0
+                                        %span.listing-item-count
+                                            = icon('far', 'comment-alt', class: "icon-like-border")
+                                            %i.icon-message
+                                            %span 0
+                                        .mypage-item-status.bold.awaiting
+                                            = @stasus_name.name
+                                .icon-arrow-right
+                                    = icon('fas', 'angle-right')
+                -else
+                    現在取扱いの商品がございません。
             #design_content.tab_content
-                現在取扱いの商品がございません。
+                -if @user_fin_ex_products.present?
+                    - @user_fin_ex_products.each do |product|
+                        %li
+                            = link_to  new_product_rate_path(product.id), method: :get, class: "mypage-item-link" do
+                                %figure
+                                    .is-higher-height.lazyloaded
+                                        =image_tag product.product_images[0].image_url.url
+                                .mypage-item-body.show-stock-item
+                                    .mypage-item-text
+                                        = product.name
+                                    .mypage-item-comment
+                                        %span.listing-item-count
+                                            = icon('far', 'heart', class: "icon-like-border")
+                                            %span 0
+                                        %span.listing-item-count
+                                            = icon('far', 'comment-alt', class: "icon-like-border")
+                                            %i.icon-message
+                                            %span 0
+                                        .mypage-item-status.bold.awaiting
+                                            = @stasus_name.name
+                                .icon-arrow-right
+                                    = icon('fas', 'angle-right')
+                -else
+                    現在取扱いの商品がございません。
         .mypage-history.pager
             %li.pager-prev.pager-cell
                 = link_to  "/" do

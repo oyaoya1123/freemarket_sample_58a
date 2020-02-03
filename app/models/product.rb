@@ -11,7 +11,6 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images, allow_destroy: true
   
 
-  # validates :product_images, presence: true
   validates :product_images,presence: { message: 'を選択してください。' }, length: { minimum: 1, maximum: 10 }
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
