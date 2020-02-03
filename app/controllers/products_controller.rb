@@ -211,7 +211,7 @@ class ProductsController < ApplicationController
       )
       redirect_to action: 'pay_finish' #完了画面に移動
     else
-      render: :buy
+      render action: :buy
     end
   end
 

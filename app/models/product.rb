@@ -11,8 +11,6 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images, allow_destroy: true
   
 
-  # belongs_to :ex_status, class_name: 'ProductStatus'
-
   validates :product_images,presence: { message: 'を選択してください。' }, length: { minimum: 1, maximum: 10 }
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
@@ -26,7 +24,7 @@ class Product < ApplicationRecord
   validates :shipping_charge, presence: { message: 'を選択してください。' }
   validates :shipping_day, presence: { message: 'を選択してください。' }
   validates :product_condition, presence: { message: 'を選択してください。' }
-  # validates :size, presence: true
+  validates :size, presence: true
 
   belongs_to :category
 
