@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   before_action :check_buy, only: [:buy]
   before_action :check_purchase, only: [:purchase]
-  before_action :url_protect, only: [:edit]
+  before_action :url_protect, only: [:edit, :update, :destroy]
   before_action :result, only: [:index, :show, :category_list, :edit_select]
 
   def release_sns_id
