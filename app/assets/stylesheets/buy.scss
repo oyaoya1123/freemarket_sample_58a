@@ -135,8 +135,22 @@
 
                   &::before{
                     content: '\e00f';
+                    display: block;
+
+                    left: 21px; /* 左から配置の基準位置を決める */
+                    margin-top: 1px; /* チェックマークの位置 */
+                    width: 5px; /* ボックスの横幅を指定する */
+                    height: 9px; /* ボックスの高さを指定する */
+                    border-right: 3px solid black; /* 境界線（右）のスタイルを指定する */
+                    border-bottom: 3px solid black; /* 境界線（下）のスタイルを指定する */
+                    transform: rotate(30deg); /* 要素を回転させる */
+                    opacity: 0; /* 要素を透過指定する */
                   }
                 }
+                input:checked + .icon-check:before {
+                  opacity: 1; /* 要素を表示する */
+                }
+
 
                 .f-label{
                   position: relative;
